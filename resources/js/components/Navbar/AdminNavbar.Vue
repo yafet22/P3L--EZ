@@ -113,6 +113,9 @@
               { id: 1, to: 'dashboard', icon: 'dashboard', text: 'Dashboard', name: 'Dashboard'},
               { id: 2, to: 'branches', icon: 'location_city', text: 'Cabang', name: 'Branches'},
               { id: 3, to: 'employees', icon: 'person', text: 'Karyawan', name: 'Employees'},
+              { id: 4, to: 'users', icon: 'person_outline', text: 'User', name: 'Users'},
+              { id: 5, to: 'suppliers', icon: 'store_mall_directory', text: 'Supplier', name: 'Suppliers'},
+              { id: 6, to: 'sales', icon: 'people', text: 'Sales', name: 'Sales'},
             ]
             break
 

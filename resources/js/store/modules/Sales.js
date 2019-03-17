@@ -1,11 +1,11 @@
-import userService from '../../service/User'
+import salesService from '../../service/Sales'
 
 const state = {
-  users: [],
-  user: {
-    username: '',
-    role: '',
-    name: ''
+  salesmany: [],
+  sales: {
+    sales_name: '',
+    id_supplier: '',
+    sales_phone_number: '',
   },
   loading: true,
   error: null
@@ -13,7 +13,7 @@ const state = {
 
 const mutations = {
   setSource(state, payload) {
-    state.users = payload
+    state.salesmany = payload
     state.loading = false
     state.error = null
   },
@@ -23,21 +23,23 @@ const mutations = {
     state.error = payload.error
   },
 
-  setUserForm(state, payload) {
-    state.user.username = payload.username
+  setSalesForm(state, payload) {
+    state.sales.sales_name = payload.sales_name
+    state.sales.id_supplier = payload.id_supplier
+    state.sales.sales_phone_number = payload.sales_phone_number
   }
 }
 
 const getters = {
   error: state => state.error,
   loading: state => state.loading,
-  user: state => state.user
+  sales: state => state.sales
 }
 
 const actions = {
   async get(context) {
     try {
-      context.commit('setSource', await userService.get())
+      context.commit('setSource', await salesService.get())
     } catch (err) {
       context.commit('setFailedAction', err)
     }
@@ -45,7 +47,7 @@ const actions = {
 
   async store(context, payload) {
     try {
-      await userService.store(payload)
+      await salesService.store(payload)
     } catch (err) {
       context.commit('setFailedStore', err)
     }
@@ -53,8 +55,8 @@ const actions = {
 
   async edit(context, id) {
     try {
-      const res = await userService.find(id)
-      context.commit('setUserForm', res)
+      const res = await salesService.find(id)
+      context.commit('setSalesForm', res)
     } catch (err) {
       context.commit('setFailedAction', err)
     }
@@ -63,11 +65,12 @@ const actions = {
   async update(context, payload) {
     try {
       const data = {
-        username: payload.username,
-        password: payload.password,
+        sales_name: payload.sales_name,
+        id_supplier: payload.id_supplier,
+        sales_phone_number: payload.sales_phone_number
       }
 
-      await userService.update(payload.id_user, data)
+      await salesService.update(payload.id_sales, data)
     } catch (err) {
       context.commit('setFailedAction', err)
     }
@@ -75,14 +78,14 @@ const actions = {
 
   async delete (context, id) {
     try {
-      await userService.delete(id)
+      await salesService.delete(id)
     } catch (err) {
       context.commit('setFailedAction', err)
     }
   },
 
   resetForm(context) {
-    context.commit('setUserForm', {})
+    context.commit('setSalesForm', {})
   }
 }
 

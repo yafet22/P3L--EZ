@@ -44,11 +44,7 @@ class SalesController extends RestController
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'sales_name' => 'required',
-            'id_supplier' => 'required',
-            'sales_phone_number' => 'required',
-        ]);   
+           
 
         try {
 

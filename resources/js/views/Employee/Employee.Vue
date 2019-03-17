@@ -76,7 +76,7 @@
                   icon
                   color="error"
                   dark
-                  @click="deleteHandler(props.item.id_employee)"
+                  @click="deleteWarning(props.item.id_employee)"
                 >
                   <v-icon>delete</v-icon>
                 </VBtn>
@@ -119,6 +119,18 @@
             </VCardText>
         </UtilityCard>
       </v-dialog>
+      <v-dialog v-model="warning" persistent max-width="500">
+        <v-card>
+            <v-card-title class="headline">Warning!</v-card-title>
+            <v-card-text class="text-md-center" style="font-size:15px">Anda yakin ingin menghapus data ini?</v-card-text>
+            <v-card-actions>
+            <v-spacer/>
+            <VBtn class="mb-4" depressed dark color="red accent-3" @click="warning = false">Disagree</VBtn>
+            <VBtn class="mb-4" depressed dark color="green accent-3" @click="deleteHandler()">Agree</VBtn>
+            <v-spacer/>
+            </v-card-actions>
+        </v-card>
+      </v-dialog>
     </card>
   </PageWrapper>
 </template>
@@ -140,6 +152,7 @@ export default {
       isFormValid: false,
       dialog: false,
       dialog2: false,
+      warning: false,
       keyword: '',
       id_branch: '',
       headers: [
@@ -215,10 +228,16 @@ export default {
       this.dialog2=true
     },
 
-    async deleteHandler (id) {
-      console.log(id);
-      await this.deleteEmployee(id)
+    deleteWarning(id){
+        this.id_employee=id
+        this.warning=true
+    },
+
+    async deleteHandler () {
+      console.log(this.id_employee);
+      await this.deleteEmployee(this.id_employee)
       this.fetch()
+      this.warning=false
     },
 
     async submitHandler (value) {

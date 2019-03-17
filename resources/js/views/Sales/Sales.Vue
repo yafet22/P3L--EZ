@@ -2,7 +2,7 @@
   <PageWrapper :breadcrumbs="breadcrumbs">
     <card>
       <v-container grid-list-md mb-0>
-        <h1 class="text-md-center">DATA CABANG</h1>
+        <h1 class="text-md-center">DATA SALES</h1>
       </v-container> 
       <v-layout row wrap>
         <v-flex xs6>
@@ -14,7 +14,7 @@
             @click="dialog = true"
             >
             <VIcon>add</VIcon>
-                Tambah Cabang
+                Tambah Sales
             </VBtn>
         </v-flex>
         <v-flex xs6 class="text-xs-right">
@@ -27,7 +27,7 @@
             <CardSearchBar v-model="keyword" />
         </v-flex>
        </v-layout>
-      <BranchControl ref="branchControl">
+      <SalesControl ref="salesControl">
         <template slot-scope="{ loading, error, items }">
           <VCardText
             v-if="loading || error"
@@ -54,17 +54,17 @@
             v-if="!loading && !error"
           >
             <template slot="items" slot-scope="props">
-              <td v-html="props.item.id_branch" />
-              <td v-html="props.item.branch_name" />
-              <td v-html="props.item.branch_address" />
-              <td v-html="props.item.branch_phone_number" />
+              <td v-html="props.item.id_sales" />
+              <td v-html="props.item.sales_name" />
+              <td v-html="props.item.sales_phone_number" />
+              <td v-html="props.item.supplier" />
               <td class="text-xs-center">
                 <VBtn 
                   flat
                   icon
                   color="indigo"
                   dark
-                  @click="editHandler(props.item.id_branch)"
+                  @click="editHandler(props.item.id_sales)"
                 >
                   <v-icon>edit</v-icon>
                 </VBtn>
@@ -73,7 +73,7 @@
                   icon
                   color="error"
                   dark
-                  @click="deleteWarning(props.item.id_branch)"
+                  @click="deletewarning(props.item.id_sales)"
                 >
                   <v-icon>delete</v-icon>
                 </VBtn>
@@ -81,18 +81,18 @@
             </template>
           </VDataTable>
         </template>
-      </BranchControl>
+      </SalesControl>
       <v-dialog v-model="dialog" max-width="600px">
-        <UtilityCard title="Tambah Cabang">
+        <UtilityCard title="Tambah Sales">
             <VCardText>
                 <VAlert
-                v-if="branchError"
-                v-html="branchError.message"
+                v-if="salesError"
+                v-html="salesError.message"
                 :value="true"
                 dismissible
                 type="error"
                 />
-                <BranchForm 
+                <SalesForm 
                 v-model="isFormValid"
                 @submitted="submitHandler"
                 />
@@ -100,18 +100,18 @@
         </UtilityCard>
       </v-dialog>
       <v-dialog v-model="dialog2" max-width="600px">
-        <UtilityCard title="Ubah Data Cabang">
+        <UtilityCard title="Ubah Data Sales">
             <VCardText>
                 <VAlert
-                v-if="branchError"
-                v-html="branchError.message"
+                v-if="salesError"
+                v-html="salesError.message"
                 :value="true"
                 dismissible
                 type="error"
                 />
-                <BranchForm 
+                <SalesForm 
                 v-model="isFormValid"
-                @submitted="submitHandler2"  
+                @submitted="submitHandler2"
                 />
             </VCardText>
         </UtilityCard>
@@ -133,15 +133,15 @@
 </template>
 
 <script>
-import BranchForm from '../../components/Form/BranchForm'
-import BranchControl from '../../components/Renderless/BranchControl'
-import branchService from '../../service/Branch'
+import SalesForm from '../../components/Form/SalesForm'
+import SalesControl from '../../components/Renderless/SalesControl'
+import salesService from '../../service/Sales'
 import { mapActions,mapState } from 'vuex';
 
 export default {
   components: {
-    BranchControl,
-    BranchForm
+    SalesControl,
+    SalesForm
   },
   data () {
     return {
@@ -151,23 +151,23 @@ export default {
       dialog2: false,
       warning: false,
       keyword: '',
-      id_branch: '',
+      id_sales: '',
       headers: [
           {
             text: 'ID',
-            value: 'id_branch',
+            value: 'id_sales',
           },
           {
             text: 'Nama',
-            value: 'branch_name'
-          },
-          {
-            text: 'Alamat',
-            value: 'branch_address'
+            value: 'sales_name'
           },
           {
             text: 'Nomor Telepon',
-            value: 'branch_phone_number'
+            value: 'sales_phone_number'
+          },
+          {
+            text: 'Supplier',
+            value: 'supplier'
           },
           {
             text: 'Aksi',
@@ -181,7 +181,7 @@ export default {
           exact: true,
         },
         {
-          text: 'Cabang',
+          text: 'Sales',
           disabled: true,
         },
       ]
@@ -190,70 +190,71 @@ export default {
 
   computed: {
     ...mapState({
-      branchError: state => state.Branch.error,
-      branchLoading: state => state.Branch.loading
+      salesError: state => state.Sales.error,
+      salesLoading: state => state.Sales.loading
     })
   },
 
 
   methods: {
     ...mapActions({
-      deleteBranch: 'Branch/delete',
-      storeBranch: 'Branch/store',
-      resetForm: 'Branch/resetForm',
-      updateBranch: 'Branch/update',
-      fetchBranch: 'Branch/edit',
+      deleteSales: 'Sales/delete',
+      storeSales: 'Sales/store',
+      resetForm: 'Sales/resetForm',
+      updateSales: 'Sales/update',
+      fetchSales: 'Sales/edit',
     }),
 
     fetch () {
-      this.$refs.branchControl.fetch()
+      this.$refs.salesControl.fetch()
     },
 
     editHandler(id){
-      this.id_branch=id
-      this.fetchBranch(id)
+      console.log(id)
+      this.id_sales=id
       this.dialog2=true
     },
 
     deleteWarning(id){
-        this.id_branch=id
+        this.id_sales=id
         this.warning=true
     },
 
     async deleteHandler () {
-      console.log(this.id_branch);
-      await this.deleteBranch(this.id_branch)
+      console.log(this.id_sales);
+      await this.deleteSales(this.id_sales)
       this.fetch()
       this.warning=false
     },
 
     async submitHandler (value) {
       const payload = {
-        branch_name: value.branch_name,
-        branch_address: value.branch_address,
-        branch_phone_number: value.branch_phone_number
+        sales_name: value.sales_name,
+        id_supplier: value.id_supplier,
+        sales_phone_number: value.sales_phone_number
       }
 
-      await this.storeBranch(payload)
+      await this.storeSales(payload)
     
-      if (!this.branchError) {
+      if (!this.salesError) {
         this.dialog=false
         this.fetch()
       }
     },
 
     async submitHandler2 (value) {
-      console.log(this.id_branch);
+      
+      console.log(this.id_sales);
       const payload = {
-        id_branch: this.id_branch,
-        branch_name: value.branch_name,
-        branch_address: value.branch_address,
-        branch_phone_number: value.branch_phone_number
+        id_sales: this.id_sales,
+        sales_name: value.sales_name,
+        id_supplier: value.id_supplier,
+        sales_phone_number: value.sales_phone_number
       }
 
-      await this.updateBranch(payload)
+      await this.updateSales(payload)
     
-      if (!this.branchError) {
+      if (!this.salesError) {
         this.dialog2=false
         this.fetch()
       }

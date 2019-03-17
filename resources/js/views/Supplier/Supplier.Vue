@@ -2,7 +2,7 @@
   <PageWrapper :breadcrumbs="breadcrumbs">
     <card>
       <v-container grid-list-md mb-0>
-        <h1 class="text-md-center">DATA CABANG</h1>
+        <h1 class="text-md-center">DATA SUPPLIER</h1>
       </v-container> 
       <v-layout row wrap>
         <v-flex xs6>
@@ -14,7 +14,7 @@
             @click="dialog = true"
             >
             <VIcon>add</VIcon>
-                Tambah Cabang
+                Tambah Supplier
             </VBtn>
         </v-flex>
         <v-flex xs6 class="text-xs-right">
@@ -27,7 +27,7 @@
             <CardSearchBar v-model="keyword" />
         </v-flex>
        </v-layout>
-      <BranchControl ref="branchControl">
+      <SupplierControl ref="supplierControl">
         <template slot-scope="{ loading, error, items }">
           <VCardText
             v-if="loading || error"
@@ -54,17 +54,17 @@
             v-if="!loading && !error"
           >
             <template slot="items" slot-scope="props">
-              <td v-html="props.item.id_branch" />
-              <td v-html="props.item.branch_name" />
-              <td v-html="props.item.branch_address" />
-              <td v-html="props.item.branch_phone_number" />
+              <td v-html="props.item.id_supplier" />
+              <td v-html="props.item.supplier_name" />
+              <td v-html="props.item.supplier_address" />
+              <td v-html="props.item.supplier_phone_number" />
               <td class="text-xs-center">
                 <VBtn 
                   flat
                   icon
                   color="indigo"
                   dark
-                  @click="editHandler(props.item.id_branch)"
+                  @click="editHandler(props.item.id_supplier)"
                 >
                   <v-icon>edit</v-icon>
                 </VBtn>
@@ -73,7 +73,7 @@
                   icon
                   color="error"
                   dark
-                  @click="deleteWarning(props.item.id_branch)"
+                  @click="deleteWarning(props.item.id_supplier)"
                 >
                   <v-icon>delete</v-icon>
                 </VBtn>
@@ -81,18 +81,18 @@
             </template>
           </VDataTable>
         </template>
-      </BranchControl>
+      </SupplierControl>
       <v-dialog v-model="dialog" max-width="600px">
-        <UtilityCard title="Tambah Cabang">
+        <UtilityCard title="Tambah Supplier">
             <VCardText>
                 <VAlert
-                v-if="branchError"
-                v-html="branchError.message"
+                v-if="supplierError"
+                v-html="supplierError.message"
                 :value="true"
                 dismissible
                 type="error"
                 />
-                <BranchForm 
+                <SupplierForm 
                 v-model="isFormValid"
                 @submitted="submitHandler"
                 />
@@ -100,18 +100,18 @@
         </UtilityCard>
       </v-dialog>
       <v-dialog v-model="dialog2" max-width="600px">
-        <UtilityCard title="Ubah Data Cabang">
+        <UtilityCard title="Ubah Data Supplier">
             <VCardText>
                 <VAlert
-                v-if="branchError"
-                v-html="branchError.message"
+                v-if="supplierError"
+                v-html="supplierError.message"
                 :value="true"
                 dismissible
                 type="error"
                 />
-                <BranchForm 
+                <SupplierForm 
                 v-model="isFormValid"
-                @submitted="submitHandler2"  
+                @submitted="submitHandler2"
                 />
             </VCardText>
         </UtilityCard>
@@ -133,15 +133,15 @@
 </template>
 
 <script>
-import BranchForm from '../../components/Form/BranchForm'
-import BranchControl from '../../components/Renderless/BranchControl'
-import branchService from '../../service/Branch'
+import SupplierForm from '../../components/Form/SupplierForm'
+import SupplierControl from '../../components/Renderless/SupplierControl'
+import supplierService from '../../service/Supplier'
 import { mapActions,mapState } from 'vuex';
 
 export default {
   components: {
-    BranchControl,
-    BranchForm
+    SupplierControl,
+    SupplierForm
   },
   data () {
     return {
@@ -151,23 +151,23 @@ export default {
       dialog2: false,
       warning: false,
       keyword: '',
-      id_branch: '',
+      id_supplier: '',
       headers: [
           {
             text: 'ID',
-            value: 'id_branch',
+            value: 'id_supplier',
           },
           {
             text: 'Nama',
-            value: 'branch_name'
+            value: 'supplier_name'
           },
           {
             text: 'Alamat',
-            value: 'branch_address'
+            value: 'supplier_address'
           },
           {
             text: 'Nomor Telepon',
-            value: 'branch_phone_number'
+            value: 'supplier_phone_number'
           },
           {
             text: 'Aksi',
@@ -181,7 +181,7 @@ export default {
           exact: true,
         },
         {
-          text: 'Cabang',
+          text: 'Supplier',
           disabled: true,
         },
       ]
@@ -190,70 +190,71 @@ export default {
 
   computed: {
     ...mapState({
-      branchError: state => state.Branch.error,
-      branchLoading: state => state.Branch.loading
+      supplierError: state => state.Supplier.error,
+      supplierLoading: state => state.Supplier.loading
     })
   },
 
 
   methods: {
     ...mapActions({
-      deleteBranch: 'Branch/delete',
-      storeBranch: 'Branch/store',
-      resetForm: 'Branch/resetForm',
-      updateBranch: 'Branch/update',
-      fetchBranch: 'Branch/edit',
+      deleteSupplier: 'Supplier/delete',
+      storeSupplier: 'Supplier/store',
+      resetForm: 'Supplier/resetForm',
+      updateSupplier: 'Supplier/update',
+      fetchSupplier: 'Supplier/edit',
     }),
 
     fetch () {
-      this.$refs.branchControl.fetch()
+      this.$refs.supplierControl.fetch()
     },
 
     editHandler(id){
-      this.id_branch=id
-      this.fetchBranch(id)
+      console.log(id)
+      this.id_supplier=id
       this.dialog2=true
     },
 
     deleteWarning(id){
-        this.id_branch=id
+        this.id_supplier=id
         this.warning=true
     },
 
     async deleteHandler () {
-      console.log(this.id_branch);
-      await this.deleteBranch(this.id_branch)
+      console.log(this.id_supplier);
+      await this.deleteSupplier(this.id_supplier)
       this.fetch()
       this.warning=false
     },
 
     async submitHandler (value) {
       const payload = {
-        branch_name: value.branch_name,
-        branch_address: value.branch_address,
-        branch_phone_number: value.branch_phone_number
+        supplier_name: value.supplier_name,
+        supplier_address: value.supplier_address,
+        supplier_phone_number: value.supplier_phone_number
       }
 
-      await this.storeBranch(payload)
+      await this.storeSupplier(payload)
     
-      if (!this.branchError) {
+      if (!this.supplierError) {
         this.dialog=false
         this.fetch()
       }
     },
 
     async submitHandler2 (value) {
-      console.log(this.id_branch);
+      
+      console.log(this.id_supplier);
       const payload = {
-        id_branch: this.id_branch,
-        branch_name: value.branch_name,
-        branch_address: value.branch_address,
-        branch_phone_number: value.branch_phone_number
+        id_supplier: this.id_supplier,
+        supplier_name: value.supplier_name,
+        supplier_address: value.supplier_address,
+        supplier_phone_number: value.supplier_phone_number
       }
 
-      await this.updateBranch(payload)
+      await this.updateSupplier(payload)
     
-      if (!this.branchError) {
+      if (!this.supplierError) {
         this.dialog2=false
         this.fetch()
       }

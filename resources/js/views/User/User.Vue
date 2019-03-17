@@ -2,22 +2,10 @@
   <PageWrapper :breadcrumbs="breadcrumbs">
     <card>
       <v-container grid-list-md mb-0>
-        <h1 class="text-md-center">DATA CABANG</h1>
+        <h1 class="text-md-center">DATA USER</h1>
       </v-container> 
       <v-layout row wrap>
-        <v-flex xs6>
-            <VBtn
-            depressed
-            dark
-            round
-            color = "green accent-3"
-            @click="dialog = true"
-            >
-            <VIcon>add</VIcon>
-                Tambah Cabang
-            </VBtn>
-        </v-flex>
-        <v-flex xs6 class="text-xs-right">
+        <v-flex xs12 class="text-xs-right">
             <VBtn
             icon
             @click="fetch()"
@@ -27,7 +15,7 @@
             <CardSearchBar v-model="keyword" />
         </v-flex>
        </v-layout>
-      <BranchControl ref="branchControl">
+      <UserControl ref="userControl">
         <template slot-scope="{ loading, error, items }">
           <VCardText
             v-if="loading || error"
@@ -54,17 +42,15 @@
             v-if="!loading && !error"
           >
             <template slot="items" slot-scope="props">
-              <td v-html="props.item.id_branch" />
-              <td v-html="props.item.branch_name" />
-              <td v-html="props.item.branch_address" />
-              <td v-html="props.item.branch_phone_number" />
+              <td v-html="props.item.id_user" />
+              <td v-html="props.item.username" />
               <td class="text-xs-center">
                 <VBtn 
                   flat
                   icon
                   color="indigo"
                   dark
-                  @click="editHandler(props.item.id_branch)"
+                  @click="editHandler(props.item.id_user)"
                 >
                   <v-icon>edit</v-icon>
                 </VBtn>
@@ -73,7 +59,7 @@
                   icon
                   color="error"
                   dark
-                  @click="deleteWarning(props.item.id_branch)"
+                  @click="deleteWarning(props.item.id_user)"
                 >
                   <v-icon>delete</v-icon>
                 </VBtn>
@@ -81,37 +67,20 @@
             </template>
           </VDataTable>
         </template>
-      </BranchControl>
-      <v-dialog v-model="dialog" max-width="600px">
-        <UtilityCard title="Tambah Cabang">
-            <VCardText>
-                <VAlert
-                v-if="branchError"
-                v-html="branchError.message"
-                :value="true"
-                dismissible
-                type="error"
-                />
-                <BranchForm 
-                v-model="isFormValid"
-                @submitted="submitHandler"
-                />
-            </VCardText>
-        </UtilityCard>
-      </v-dialog>
+      </UserControl>
       <v-dialog v-model="dialog2" max-width="600px">
-        <UtilityCard title="Ubah Data Cabang">
+        <UtilityCard title="Ubah Data User">
             <VCardText>
                 <VAlert
-                v-if="branchError"
-                v-html="branchError.message"
+                v-if="userError"
+                v-html="userError.message"
                 :value="true"
                 dismissible
                 type="error"
                 />
-                <BranchForm 
+                <UserForm 
                 v-model="isFormValid"
-                @submitted="submitHandler2"  
+                @submitted="submitHandler2"
                 />
             </VCardText>
         </UtilityCard>
@@ -133,15 +102,15 @@
 </template>
 
 <script>
-import BranchForm from '../../components/Form/BranchForm'
-import BranchControl from '../../components/Renderless/BranchControl'
-import branchService from '../../service/Branch'
+import UserForm from '../../components/Form/UserForm'
+import UserControl from '../../components/Renderless/UserControl'
+import userService from '../../service/User'
 import { mapActions,mapState } from 'vuex';
 
 export default {
   components: {
-    BranchControl,
-    BranchForm
+    UserControl,
+    UserForm
   },
   data () {
     return {
@@ -151,23 +120,15 @@ export default {
       dialog2: false,
       warning: false,
       keyword: '',
-      id_branch: '',
+      id_user: '',
       headers: [
           {
             text: 'ID',
-            value: 'id_branch',
+            value: 'id_user',
           },
           {
-            text: 'Nama',
-            value: 'branch_name'
-          },
-          {
-            text: 'Alamat',
-            value: 'branch_address'
-          },
-          {
-            text: 'Nomor Telepon',
-            value: 'branch_phone_number'
+            text: 'Username',
+            value: 'username'
           },
           {
             text: 'Aksi',
@@ -181,7 +142,7 @@ export default {
           exact: true,
         },
         {
-          text: 'Cabang',
+          text: 'User',
           disabled: true,
         },
       ]
@@ -190,70 +151,55 @@ export default {
 
   computed: {
     ...mapState({
-      branchError: state => state.Branch.error,
-      branchLoading: state => state.Branch.loading
+      userError: state => state.User.error,
+      userLoading: state => state.User.loading
     })
   },
 
 
   methods: {
     ...mapActions({
-      deleteBranch: 'Branch/delete',
-      storeBranch: 'Branch/store',
-      resetForm: 'Branch/resetForm',
-      updateBranch: 'Branch/update',
-      fetchBranch: 'Branch/edit',
+      deleteUser: 'User/delete',
+      storeUser: 'User/store',
+      resetForm: 'User/resetForm',
+      updateUser: 'User/update',
+      fetchUser: 'User/edit',
     }),
 
     fetch () {
-      this.$refs.branchControl.fetch()
+      this.$refs.userControl.fetch()
     },
 
     editHandler(id){
-      this.id_branch=id
-      this.fetchBranch(id)
+      console.log(id)
+      this.id_user=id
       this.dialog2=true
     },
 
     deleteWarning(id){
-        this.id_branch=id
+        this.id_user=id
         this.warning=true
     },
 
     async deleteHandler () {
-      console.log(this.id_branch);
-      await this.deleteBranch(this.id_branch)
+      console.log(this.id_user);
+      await this.deleteUser(this.id_user)
       this.fetch()
       this.warning=false
     },
 
-    async submitHandler (value) {
-      const payload = {
-        branch_name: value.branch_name,
-        branch_address: value.branch_address,
-        branch_phone_number: value.branch_phone_number
-      }
-
-      await this.storeBranch(payload)
-    
-      if (!this.branchError) {
-        this.dialog=false
-        this.fetch()
-      }
-    },
-
     async submitHandler2 (value) {
-      console.log(this.id_branch);
+      
+      console.log(this.id_user);
       const payload = {
-        id_branch: this.id_branch,
-        branch_name: value.branch_name,
-        branch_address: value.branch_address,
-        branch_phone_number: value.branch_phone_number
+        id_user: this.id_user,
+        username: value.username,
+        password: value.password
       }
 
-      await this.updateBranch(payload)
+      await this.updateUser(payload)
     
-      if (!this.branchError) {
+      if (!this.userError) {
         this.dialog2=false
         this.fetch()
       }

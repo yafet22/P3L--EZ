@@ -9,6 +9,12 @@ import BranchEdit from '../views/Branch/BranchEdit'
 
 import Employee from '../views/Employee/Employee'
 
+import Supplier from '../views/Supplier/Supplier'
+
+import Sales from '../views/Sales/Sales'
+
+import User from '../views/User/User'
+
 export const routes = [
     {
         path: '/admin/login',
@@ -59,6 +65,33 @@ export const routes = [
         path: '/admin/employees',
         name: 'employees',
         component: Employee,
+        meta: { role: ['Administrator'] },
+        beforeEnter: middleware([
+          auth
+        ])
+    },
+    {
+        path: '/admin/suppliers',
+        name: 'suppliers',
+        component: Supplier,
+        meta: { role: ['Administrator'] },
+        beforeEnter: middleware([
+          auth
+        ])
+    },
+    {
+        path: '/admin/sales',
+        name: 'sales',
+        component: Sales,
+        meta: { role: ['Administrator'] },
+        beforeEnter: middleware([
+          auth
+        ])
+    },
+    {
+        path: '/admin/users',
+        name: 'users',
+        component: User,
         meta: { role: ['Administrator'] },
         beforeEnter: middleware([
           auth
