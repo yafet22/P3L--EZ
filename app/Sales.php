@@ -1,0 +1,20 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Sales extends Model
+{
+    protected $table = 'sales';
+    protected $primaryKey = 'id_sales';
+    public $timestamps = true;
+    protected $fillable = [
+    'sales_name',
+    'id_supplier',
+    'sales_phone_number',];
+
+    public function suppliers(){
+        return $this->belongsTo('App\Supplier','id_supplier');
+    }
+}
