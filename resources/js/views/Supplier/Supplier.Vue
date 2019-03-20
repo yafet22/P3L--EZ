@@ -209,9 +209,10 @@ export default {
       this.$refs.supplierControl.fetch()
     },
 
-    editHandler(id){
+    async editHandler(id){
       console.log(id)
       this.id_supplier=id
+      await this.fetchSupplier(id)
       this.dialog2=true
     },
 

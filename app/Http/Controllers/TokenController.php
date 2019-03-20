@@ -52,6 +52,22 @@ class TokenController extends RestController
         }
     }
 
+    public function mobileauthenticate(Request $request)
+    {
+        try {
+            $user = $this->validateUser($request->get('username'), $request->get('password'));
+
+            $response = $this->generateItem($user,UserTransformer::class);
+
+            return $this->sendResponse($response, 201);
+
+        } catch (InvalidCredentialExcpetion $e) {
+            return $this->sendNotAuthorizeResponse($e->getMessage());
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
+
     public function validateUser($username,$password)
     {
         try{

@@ -3,9 +3,9 @@ import branchService from '../../service/Branch'
 const state = {
   branches: [],
   branch: {
-    name: '',
-    address: '',
-    phoneNumber: '',
+    branch_name: '',
+    branch_address: '',
+    branch_phone_number: '',
   },
   loading: true,
   error: null
@@ -24,9 +24,9 @@ const mutations = {
   },
 
   setBranchForm(state, payload) {
-    state.branch.name = payload.branch_name
-    state.branch.address = payload.branch_address
-    state.branch.phoneNumber = payload.branch_phone_number
+    state.branch.branch_name = payload.branch_name
+    state.branch.branch_address = payload.branch_address
+    state.branch.branch_phone_number = payload.branch_phone_number
   }
 }
 

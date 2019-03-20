@@ -209,9 +209,10 @@ export default {
       this.$refs.salesControl.fetch()
     },
 
-    editHandler(id){
+    async editHandler(id){
       console.log(id)
       this.id_sales=id
+      await this.fetchSales(id)
       this.dialog2=true
     },
 

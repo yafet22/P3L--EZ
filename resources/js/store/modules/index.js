@@ -5,6 +5,7 @@ import Role from './Role'
 import Employee from './Employee'
 import Supplier from './Supplier'
 import Sales from './Sales'
+import Service from './Service'
 
 export default {
   LoggedUser,
@@ -13,5 +14,6 @@ export default {
   Role,
   Employee,
   Supplier,
-  Sales
+  Sales,
+  Service
 }

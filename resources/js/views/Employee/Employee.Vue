@@ -217,14 +217,16 @@ export default {
       storeEmployee: 'Employee/store',
       resetForm: 'Employee/resetForm',
       updateEmployee: 'Employee/update',
+      fetchEmployee: 'Employee/edit',
     }),
 
     fetch () {
       this.$refs.employeeControl.fetch()
     },
 
-    editHandler(id){
+    async editHandler(id){
       this.id_employee=id
+      await this.fetchEmployee(id)
       this.dialog2=true
     },
 

@@ -2517,6 +2517,120 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Form/ServiceForm.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Form/ServiceForm.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _validations_serviceValidation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../validations/serviceValidation */ "./resources/js/validations/serviceValidation.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    value: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+    form: 'Service/service'
+  }), {
+    nameErrors: function nameErrors() {
+      var errors = [];
+      if (!this.$v.form.service_name.$invalid) return errors;
+
+      if (!this.$v.form.service_name.required) {
+        errors.push('Inputan nama tidak valid');
+      }
+
+      return errors;
+    },
+    priceErrors: function priceErrors() {
+      var errors = [];
+      if (!this.$v.form.price.$invalid) return errors;
+
+      if (!this.$v.form.price.required) {
+        errors.push('Anda belum memasukan harga jasa service');
+      }
+
+      if (!this.$v.form.price.numeric && this.$v.form.price.$dirty) {
+        errors.push('Inputan harga tidak valid');
+      }
+
+      return errors;
+    }
+  }),
+  validations: _validations_serviceValidation__WEBPACK_IMPORTED_MODULE_0__["default"],
+  watch: {
+    form: {
+      deep: true,
+      handler: function handler() {
+        this.$emit('input', !this.$v.form.$invalid);
+      }
+    }
+  },
+  methods: {
+    submitHandler: function submitHandler() {
+      this.$emit('submitted', this.form);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Form/SupplierForm.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Form/SupplierForm.vue?vue&type=script&lang=js& ***!
@@ -2924,6 +3038,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             icon: 'people',
             text: 'Sales',
             name: 'Sales'
+          }, {
+            id: 7,
+            to: 'services',
+            icon: 'build',
+            text: 'Service',
+            name: 'Service'
           }];
           break;
 
@@ -3162,6 +3282,55 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   })),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])({
     fetch: 'Sales/get'
+  })),
+  mounted: function mounted() {
+    this.fetch();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Renderless/ServiceControl.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Renderless/ServiceControl.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _service_Service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/Service */ "./resources/js/service/Service.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
+    loading: function loading(state) {
+      return state.Service.loading;
+    },
+    error: function error(state) {
+      return state.Service.error;
+    },
+    items: function items(state) {
+      return state.Service.services;
+    }
+  })),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])({
+    fetch: 'Service/get'
   })),
   mounted: function mounted() {
     this.fetch();
@@ -3524,11 +3693,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     fetch: function fetch() {
       this.$refs.branchControl.fetch();
     },
-    editHandler: function editHandler(id) {
-      this.id_branch = id;
-      this.fetchBranch(id);
-      this.dialog2 = true;
-    },
+    editHandler: function () {
+      var _editHandler = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                this.id_branch = id;
+                _context.next = 3;
+                return this.fetchBranch(id);
+
+              case 3:
+                this.dialog2 = true;
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function editHandler(_x) {
+        return _editHandler.apply(this, arguments);
+      }
+
+      return editHandler;
+    }(),
     deleteWarning: function deleteWarning(id) {
       this.id_branch = id;
       this.warning = true;
@@ -3536,13 +3729,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     deleteHandler: function () {
       var _deleteHandler = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 console.log(this.id_branch);
-                _context.next = 3;
+                _context2.next = 3;
                 return this.deleteBranch(this.id_branch);
 
               case 3:
@@ -3551,10 +3744,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 5:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, this);
+        }, _callee2, this);
       }));
 
       function deleteHandler() {
@@ -3566,18 +3759,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     submitHandler: function () {
       var _submitHandler = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(value) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(value) {
         var payload;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 payload = {
                   branch_name: value.branch_name,
                   branch_address: value.branch_address,
                   branch_phone_number: value.branch_phone_number
                 };
-                _context2.next = 3;
+                _context3.next = 3;
                 return this.storeBranch(payload);
 
               case 3:
@@ -3588,13 +3781,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 4:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee3, this);
       }));
 
-      function submitHandler(_x) {
+      function submitHandler(_x2) {
         return _submitHandler.apply(this, arguments);
       }
 
@@ -3603,11 +3796,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     submitHandler2: function () {
       var _submitHandler2 = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(value) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(value) {
         var payload;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
                 console.log(this.id_branch);
                 payload = {
@@ -3616,7 +3809,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   branch_address: value.branch_address,
                   branch_phone_number: value.branch_phone_number
                 };
-                _context3.next = 4;
+                _context4.next = 4;
                 return this.updateBranch(payload);
 
               case 4:
@@ -3627,13 +3820,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 5:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, this);
+        }, _callee4, this);
       }));
 
-      function submitHandler2(_x2) {
+      function submitHandler2(_x3) {
         return _submitHandler2.apply(this, arguments);
       }
 
@@ -4143,15 +4336,41 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     deleteEmployee: 'Employee/delete',
     storeEmployee: 'Employee/store',
     resetForm: 'Employee/resetForm',
-    updateEmployee: 'Employee/update'
+    updateEmployee: 'Employee/update',
+    fetchEmployee: 'Employee/edit'
   }), {
     fetch: function fetch() {
       this.$refs.employeeControl.fetch();
     },
-    editHandler: function editHandler(id) {
-      this.id_employee = id;
-      this.dialog2 = true;
-    },
+    editHandler: function () {
+      var _editHandler = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                this.id_employee = id;
+                _context.next = 3;
+                return this.fetchEmployee(id);
+
+              case 3:
+                this.dialog2 = true;
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function editHandler(_x) {
+        return _editHandler.apply(this, arguments);
+      }
+
+      return editHandler;
+    }(),
     deleteWarning: function deleteWarning(id) {
       this.id_employee = id;
       this.warning = true;
@@ -4159,13 +4378,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     deleteHandler: function () {
       var _deleteHandler = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 console.log(this.id_employee);
-                _context.next = 3;
+                _context2.next = 3;
                 return this.deleteEmployee(this.id_employee);
 
               case 3:
@@ -4174,10 +4393,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 5:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, this);
+        }, _callee2, this);
       }));
 
       function deleteHandler() {
@@ -4189,11 +4408,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     submitHandler: function () {
       var _submitHandler = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(value) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(value) {
         var payload;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 payload = {
                   first_name: value.first_name,
@@ -4204,7 +4423,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   id_branch: value.id_branch,
                   id_role: value.id_role
                 };
-                _context2.next = 3;
+                _context3.next = 3;
                 return this.storeEmployee(payload);
 
               case 3:
@@ -4215,13 +4434,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 4:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee3, this);
       }));
 
-      function submitHandler(_x) {
+      function submitHandler(_x2) {
         return _submitHandler.apply(this, arguments);
       }
 
@@ -4230,11 +4449,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     submitHandler2: function () {
       var _submitHandler2 = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(value) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(value) {
         var payload;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
                 console.log(this.id_employee);
                 payload = {
@@ -4247,7 +4466,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   id_branch: value.id_branch,
                   id_role: value.id_role
                 };
-                _context3.next = 4;
+                _context4.next = 4;
                 return this.updateEmployee(payload);
 
               case 4:
@@ -4258,13 +4477,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 5:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, this);
+        }, _callee4, this);
       }));
 
-      function submitHandler2(_x2) {
+      function submitHandler2(_x3) {
         return _submitHandler2.apply(this, arguments);
       }
 
@@ -4638,11 +4857,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     fetch: function fetch() {
       this.$refs.salesControl.fetch();
     },
-    editHandler: function editHandler(id) {
-      console.log(id);
-      this.id_sales = id;
-      this.dialog2 = true;
-    },
+    editHandler: function () {
+      var _editHandler = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                console.log(id);
+                this.id_sales = id;
+                _context.next = 4;
+                return this.fetchSales(id);
+
+              case 4:
+                this.dialog2 = true;
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function editHandler(_x) {
+        return _editHandler.apply(this, arguments);
+      }
+
+      return editHandler;
+    }(),
     deleteWarning: function deleteWarning(id) {
       this.id_sales = id;
       this.warning = true;
@@ -4650,13 +4894,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     deleteHandler: function () {
       var _deleteHandler = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 console.log(this.id_sales);
-                _context.next = 3;
+                _context2.next = 3;
                 return this.deleteSales(this.id_sales);
 
               case 3:
@@ -4665,10 +4909,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 5:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, this);
+        }, _callee2, this);
       }));
 
       function deleteHandler() {
@@ -4680,18 +4924,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     submitHandler: function () {
       var _submitHandler = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(value) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(value) {
         var payload;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 payload = {
                   sales_name: value.sales_name,
                   id_supplier: value.id_supplier,
                   sales_phone_number: value.sales_phone_number
                 };
-                _context2.next = 3;
+                _context3.next = 3;
                 return this.storeSales(payload);
 
               case 3:
@@ -4702,13 +4946,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 4:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee3, this);
       }));
 
-      function submitHandler(_x) {
+      function submitHandler(_x2) {
         return _submitHandler.apply(this, arguments);
       }
 
@@ -4717,11 +4961,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     submitHandler2: function () {
       var _submitHandler2 = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(value) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(value) {
         var payload;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
                 console.log(this.id_sales);
                 payload = {
@@ -4730,7 +4974,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   id_supplier: value.id_supplier,
                   sales_phone_number: value.sales_phone_number
                 };
-                _context3.next = 4;
+                _context4.next = 4;
                 return this.updateSales(payload);
 
               case 4:
@@ -4741,13 +4985,378 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 5:
               case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function submitHandler2(_x3) {
+        return _submitHandler2.apply(this, arguments);
+      }
+
+      return submitHandler2;
+    }()
+  }),
+  mounted: function mounted() {
+    this.resetForm();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Service/Service.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Service/Service.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Form_ServiceForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Form/ServiceForm */ "./resources/js/components/Form/ServiceForm.vue");
+/* harmony import */ var _components_Renderless_ServiceControl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Renderless/ServiceControl */ "./resources/js/components/Renderless/ServiceControl.vue");
+/* harmony import */ var _service_Service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/Service */ "./resources/js/service/Service.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    ServiceControl: _components_Renderless_ServiceControl__WEBPACK_IMPORTED_MODULE_2__["default"],
+    ServiceForm: _components_Form_ServiceForm__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      name: '',
+      isFormValid: false,
+      dialog: false,
+      dialog2: false,
+      warning: false,
+      keyword: '',
+      id_service: '',
+      headers: [{
+        text: 'ID',
+        value: 'id_service'
+      }, {
+        text: 'Nama',
+        value: 'service_name'
+      }, {
+        text: 'Harga',
+        value: 'price'
+      }, {
+        text: 'Aksi',
+        value: null
+      }],
+      breadcrumbs: [{
+        text: 'Dashboard',
+        to: {
+          name: 'dashboard'
+        },
+        exact: true
+      }, {
+        text: 'Service',
+        disabled: true
+      }]
+    };
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapState"])({
+    serviceError: function serviceError(state) {
+      return state.Service.error;
+    },
+    serviceLoading: function serviceLoading(state) {
+      return state.Service.loading;
+    }
+  })),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapActions"])({
+    deleteService: 'Service/delete',
+    storeService: 'Service/store',
+    resetForm: 'Service/resetForm',
+    updateService: 'Service/update',
+    fetchService: 'Service/edit'
+  }), {
+    fetch: function fetch() {
+      this.$refs.serviceControl.fetch();
+    },
+    editHandler: function () {
+      var _editHandler = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                console.log(id);
+                this.id_service = id;
+                _context.next = 4;
+                return this.fetchService(id);
+
+              case 4:
+                this.dialog2 = true;
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function editHandler(_x) {
+        return _editHandler.apply(this, arguments);
+      }
+
+      return editHandler;
+    }(),
+    deleteWarning: function deleteWarning(id) {
+      this.id_service = id;
+      this.warning = true;
+    },
+    deleteHandler: function () {
+      var _deleteHandler = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                console.log(this.id_service);
+                _context2.next = 3;
+                return this.deleteService(this.id_service);
+
+              case 3:
+                this.fetch();
+                this.warning = false;
+
+              case 5:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function deleteHandler() {
+        return _deleteHandler.apply(this, arguments);
+      }
+
+      return deleteHandler;
+    }(),
+    submitHandler: function () {
+      var _submitHandler = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(value) {
+        var payload;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                payload = {
+                  service_name: value.service_name,
+                  price: value.price
+                };
+                _context3.next = 3;
+                return this.storeService(payload);
+
+              case 3:
+                if (!this.serviceError) {
+                  this.dialog = false;
+                  this.fetch();
+                }
+
+              case 4:
+              case "end":
                 return _context3.stop();
             }
           }
         }, _callee3, this);
       }));
 
-      function submitHandler2(_x2) {
+      function submitHandler(_x2) {
+        return _submitHandler.apply(this, arguments);
+      }
+
+      return submitHandler;
+    }(),
+    submitHandler2: function () {
+      var _submitHandler2 = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(value) {
+        var payload;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                console.log(this.id_service);
+                payload = {
+                  id_service: this.id_service,
+                  service_name: value.service_name,
+                  price: value.price
+                };
+                _context4.next = 4;
+                return this.updateService(payload);
+
+              case 4:
+                if (!this.serviceError) {
+                  this.dialog2 = false;
+                  this.fetch();
+                }
+
+              case 5:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function submitHandler2(_x3) {
         return _submitHandler2.apply(this, arguments);
       }
 
@@ -4984,11 +5593,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     fetch: function fetch() {
       this.$refs.supplierControl.fetch();
     },
-    editHandler: function editHandler(id) {
-      console.log(id);
-      this.id_supplier = id;
-      this.dialog2 = true;
-    },
+    editHandler: function () {
+      var _editHandler = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                console.log(id);
+                this.id_supplier = id;
+                _context.next = 4;
+                return this.fetchSupplier(id);
+
+              case 4:
+                this.dialog2 = true;
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function editHandler(_x) {
+        return _editHandler.apply(this, arguments);
+      }
+
+      return editHandler;
+    }(),
     deleteWarning: function deleteWarning(id) {
       this.id_supplier = id;
       this.warning = true;
@@ -4996,13 +5630,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     deleteHandler: function () {
       var _deleteHandler = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 console.log(this.id_supplier);
-                _context.next = 3;
+                _context2.next = 3;
                 return this.deleteSupplier(this.id_supplier);
 
               case 3:
@@ -5011,10 +5645,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 5:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, this);
+        }, _callee2, this);
       }));
 
       function deleteHandler() {
@@ -5026,18 +5660,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     submitHandler: function () {
       var _submitHandler = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(value) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(value) {
         var payload;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 payload = {
                   supplier_name: value.supplier_name,
                   supplier_address: value.supplier_address,
                   supplier_phone_number: value.supplier_phone_number
                 };
-                _context2.next = 3;
+                _context3.next = 3;
                 return this.storeSupplier(payload);
 
               case 3:
@@ -5048,13 +5682,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 4:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee3, this);
       }));
 
-      function submitHandler(_x) {
+      function submitHandler(_x2) {
         return _submitHandler.apply(this, arguments);
       }
 
@@ -5063,11 +5697,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     submitHandler2: function () {
       var _submitHandler2 = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(value) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(value) {
         var payload;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
                 console.log(this.id_supplier);
                 payload = {
@@ -5076,7 +5710,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   supplier_address: value.supplier_address,
                   supplier_phone_number: value.supplier_phone_number
                 };
-                _context3.next = 4;
+                _context4.next = 4;
                 return this.updateSupplier(payload);
 
               case 4:
@@ -5087,13 +5721,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 5:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, this);
+        }, _callee4, this);
       }));
 
-      function submitHandler2(_x2) {
+      function submitHandler2(_x3) {
         return _submitHandler2.apply(this, arguments);
       }
 
@@ -5467,6 +6101,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, "\n.loading-section[data-v-66dd515a] {\r\n  text-align: center;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Service/Service.vue?vue&type=style&index=0&id=091bb2ec&scoped=true&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Service/Service.vue?vue&type=style&index=0&id=091bb2ec&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.loading-section[data-v-091bb2ec] {\r\n  text-align: center;\n}\r\n", ""]);
 
 // exports
 
@@ -7133,6 +7786,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Service/Service.vue?vue&type=style&index=0&id=091bb2ec&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Service/Service.vue?vue&type=style&index=0&id=091bb2ec&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Service.vue?vue&type=style&index=0&id=091bb2ec&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Service/Service.vue?vue&type=style&index=0&id=091bb2ec&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Supplier/Supplier.vue?vue&type=style&index=0&id=ba879780&scoped=true&lang=css&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Supplier/Supplier.vue?vue&type=style&index=0&id=ba879780&scoped=true&lang=css& ***!
@@ -8593,6 +9276,128 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Form/ServiceForm.vue?vue&type=template&id=2dabbb99&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Form/ServiceForm.vue?vue&type=template&id=2dabbb99& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "VForm",
+    [
+      _c(
+        "VLayout",
+        [
+          _c(
+            "VFlex",
+            [
+              _c("VTextField", {
+                staticClass: "pa-1",
+                attrs: {
+                  label: "Nama",
+                  "error-messages": _vm.nameErrors,
+                  required: ""
+                },
+                on: {
+                  input: function($event) {
+                    return _vm.$v.form.service_name.$touch()
+                  }
+                },
+                model: {
+                  value: _vm.form.service_name,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "service_name", $$v)
+                  },
+                  expression: "form.service_name"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "VLayout",
+        [
+          _c(
+            "VFlex",
+            [
+              _c("VTextField", {
+                staticClass: "pa-1",
+                attrs: {
+                  label: "Harga",
+                  "error-messages": _vm.priceErrors,
+                  required: ""
+                },
+                on: {
+                  input: function($event) {
+                    return _vm.$v.form.price.$touch()
+                  }
+                },
+                model: {
+                  value: _vm.form.price,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "price", $$v)
+                  },
+                  expression: "form.price"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("VSpacer"),
+      _vm._v(" "),
+      _c(
+        "VLayout",
+        [
+          _c(
+            "VFlex",
+            { staticClass: "text-xs-center" },
+            [
+              _c(
+                "VBtn",
+                {
+                  attrs: {
+                    depressed: "",
+                    color: "success",
+                    disabled: !this.value
+                  },
+                  on: { click: _vm.submitHandler }
+                },
+                [_vm._v("\n        Kirim\n      ")]
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Form/SupplierForm.vue?vue&type=template&id=b5f57840&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Form/SupplierForm.vue?vue&type=template&id=b5f57840& ***!
@@ -9200,6 +10005,40 @@ render._withStripped = true
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Renderless/SalesControl.vue?vue&type=template&id=7b0d80d4& ***!
   \**************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _vm._t("default", null, {
+        loading: _vm.loading,
+        error: _vm.error,
+        items: _vm.items
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Renderless/ServiceControl.vue?vue&type=template&id=509d61e6&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Renderless/ServiceControl.vue?vue&type=template&id=509d61e6& ***!
+  \****************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -10943,6 +11782,441 @@ var render = function() {
                         : _vm._e(),
                       _vm._v(" "),
                       _c("SalesForm", {
+                        on: { submitted: _vm.submitHandler2 },
+                        model: {
+                          value: _vm.isFormValid,
+                          callback: function($$v) {
+                            _vm.isFormValid = $$v
+                          },
+                          expression: "isFormValid"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { persistent: "", "max-width": "500" },
+              model: {
+                value: _vm.warning,
+                callback: function($$v) {
+                  _vm.warning = $$v
+                },
+                expression: "warning"
+              }
+            },
+            [
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", { staticClass: "headline" }, [
+                    _vm._v("Warning!")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-text",
+                    {
+                      staticClass: "text-md-center",
+                      staticStyle: { "font-size": "15px" }
+                    },
+                    [_vm._v("Anda yakin ingin menghapus data ini?")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "VBtn",
+                        {
+                          staticClass: "mb-4",
+                          attrs: {
+                            depressed: "",
+                            dark: "",
+                            color: "red accent-3"
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.warning = false
+                            }
+                          }
+                        },
+                        [_vm._v("Disagree")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "VBtn",
+                        {
+                          staticClass: "mb-4",
+                          attrs: {
+                            depressed: "",
+                            dark: "",
+                            color: "green accent-3"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteHandler()
+                            }
+                          }
+                        },
+                        [_vm._v("Agree")]
+                      ),
+                      _vm._v(" "),
+                      _c("v-spacer")
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Service/Service.vue?vue&type=template&id=091bb2ec&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Service/Service.vue?vue&type=template&id=091bb2ec&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "PageWrapper",
+    { attrs: { breadcrumbs: _vm.breadcrumbs } },
+    [
+      _c(
+        "card",
+        [
+          _c("v-container", { attrs: { "grid-list-md": "", "mb-0": "" } }, [
+            _c("h1", { staticClass: "text-md-center" }, [
+              _vm._v("DATA JASA SERVICE")
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "v-layout",
+            { attrs: { row: "", wrap: "" } },
+            [
+              _c(
+                "v-flex",
+                { attrs: { xs6: "" } },
+                [
+                  _c(
+                    "VBtn",
+                    {
+                      attrs: {
+                        depressed: "",
+                        dark: "",
+                        round: "",
+                        color: "green accent-3"
+                      },
+                      on: {
+                        click: function($event) {
+                          _vm.dialog = true
+                        }
+                      }
+                    },
+                    [
+                      _c("VIcon", [_vm._v("add")]),
+                      _vm._v("\n              Tambah Service\n          ")
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-flex",
+                { staticClass: "text-xs-right", attrs: { xs6: "" } },
+                [
+                  _c(
+                    "VBtn",
+                    {
+                      attrs: { icon: "" },
+                      on: {
+                        click: function($event) {
+                          return _vm.fetch()
+                        }
+                      }
+                    },
+                    [_c("VIcon", [_vm._v("refresh")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("CardSearchBar", {
+                    model: {
+                      value: _vm.keyword,
+                      callback: function($$v) {
+                        _vm.keyword = $$v
+                      },
+                      expression: "keyword"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("ServiceControl", {
+            ref: "serviceControl",
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function(ref) {
+                  var loading = ref.loading
+                  var error = ref.error
+                  var items = ref.items
+                  return [
+                    loading || error
+                      ? _c(
+                          "VCardText",
+                          { staticClass: "text-xs-center" },
+                          [
+                            error
+                              ? _c(
+                                  "VAlert",
+                                  {
+                                    attrs: {
+                                      type: "error",
+                                      dismissible: "",
+                                      value: true
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n            " +
+                                        _vm._s(error.message) +
+                                        "\n          "
+                                    )
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("VProgressCircular", {
+                              staticClass: "loading-section",
+                              attrs: { size: 45, indeterminate: "" }
+                            })
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    !loading && !error
+                      ? _c("VDataTable", {
+                          attrs: {
+                            headers: _vm.headers,
+                            items: items,
+                            search: _vm.keyword
+                          },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "items",
+                                fn: function(props) {
+                                  return [
+                                    _c("td", {
+                                      domProps: {
+                                        innerHTML: _vm._s(props.item.id_service)
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("td", {
+                                      domProps: {
+                                        innerHTML: _vm._s(
+                                          props.item.service_name
+                                        )
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("td", {
+                                      domProps: {
+                                        innerHTML: _vm._s(props.item.price)
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      { staticClass: "text-xs-center" },
+                                      [
+                                        _c(
+                                          "VBtn",
+                                          {
+                                            attrs: {
+                                              flat: "",
+                                              icon: "",
+                                              color: "indigo",
+                                              dark: ""
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.editHandler(
+                                                  props.item.id_service
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [_c("v-icon", [_vm._v("edit")])],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "VBtn",
+                                          {
+                                            attrs: {
+                                              flat: "",
+                                              icon: "",
+                                              color: "error",
+                                              dark: ""
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.deleteWarning(
+                                                  props.item.id_service
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [_c("v-icon", [_vm._v("delete")])],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                }
+                              }
+                            ],
+                            null,
+                            true
+                          )
+                        })
+                      : _vm._e()
+                  ]
+                }
+              }
+            ])
+          }),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "600px" },
+              model: {
+                value: _vm.dialog,
+                callback: function($$v) {
+                  _vm.dialog = $$v
+                },
+                expression: "dialog"
+              }
+            },
+            [
+              _c(
+                "UtilityCard",
+                { attrs: { title: "Tambah Service" } },
+                [
+                  _c(
+                    "VCardText",
+                    [
+                      _vm.serviceError
+                        ? _c("VAlert", {
+                            attrs: {
+                              value: true,
+                              dismissible: "",
+                              type: "error"
+                            },
+                            domProps: {
+                              innerHTML: _vm._s(_vm.serviceError.message)
+                            }
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("ServiceForm", {
+                        on: { submitted: _vm.submitHandler },
+                        model: {
+                          value: _vm.isFormValid,
+                          callback: function($$v) {
+                            _vm.isFormValid = $$v
+                          },
+                          expression: "isFormValid"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "600px" },
+              model: {
+                value: _vm.dialog2,
+                callback: function($$v) {
+                  _vm.dialog2 = $$v
+                },
+                expression: "dialog2"
+              }
+            },
+            [
+              _c(
+                "UtilityCard",
+                { attrs: { title: "Ubah Data Servicer" } },
+                [
+                  _c(
+                    "VCardText",
+                    [
+                      _vm.serviceError
+                        ? _c("VAlert", {
+                            attrs: {
+                              value: true,
+                              dismissible: "",
+                              type: "error"
+                            },
+                            domProps: {
+                              innerHTML: _vm._s(_vm.serviceError.message)
+                            }
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("ServiceForm", {
                         on: { submitted: _vm.submitHandler2 },
                         model: {
                           value: _vm.isFormValid,
@@ -56034,6 +57308,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Form/ServiceForm.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/Form/ServiceForm.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ServiceForm_vue_vue_type_template_id_2dabbb99___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ServiceForm.vue?vue&type=template&id=2dabbb99& */ "./resources/js/components/Form/ServiceForm.vue?vue&type=template&id=2dabbb99&");
+/* harmony import */ var _ServiceForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ServiceForm.vue?vue&type=script&lang=js& */ "./resources/js/components/Form/ServiceForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ServiceForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ServiceForm_vue_vue_type_template_id_2dabbb99___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ServiceForm_vue_vue_type_template_id_2dabbb99___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Form/ServiceForm.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Form/ServiceForm.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/Form/ServiceForm.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ServiceForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ServiceForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Form/ServiceForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ServiceForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Form/ServiceForm.vue?vue&type=template&id=2dabbb99&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/Form/ServiceForm.vue?vue&type=template&id=2dabbb99& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ServiceForm_vue_vue_type_template_id_2dabbb99___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ServiceForm.vue?vue&type=template&id=2dabbb99& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Form/ServiceForm.vue?vue&type=template&id=2dabbb99&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ServiceForm_vue_vue_type_template_id_2dabbb99___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ServiceForm_vue_vue_type_template_id_2dabbb99___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Form/SupplierForm.vue":
 /*!*******************************************************!*\
   !*** ./resources/js/components/Form/SupplierForm.vue ***!
@@ -56517,6 +57860,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Renderless/ServiceControl.vue":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/Renderless/ServiceControl.vue ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ServiceControl_vue_vue_type_template_id_509d61e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ServiceControl.vue?vue&type=template&id=509d61e6& */ "./resources/js/components/Renderless/ServiceControl.vue?vue&type=template&id=509d61e6&");
+/* harmony import */ var _ServiceControl_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ServiceControl.vue?vue&type=script&lang=js& */ "./resources/js/components/Renderless/ServiceControl.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ServiceControl_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ServiceControl_vue_vue_type_template_id_509d61e6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ServiceControl_vue_vue_type_template_id_509d61e6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Renderless/ServiceControl.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Renderless/ServiceControl.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/Renderless/ServiceControl.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ServiceControl_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ServiceControl.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Renderless/ServiceControl.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ServiceControl_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Renderless/ServiceControl.vue?vue&type=template&id=509d61e6&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/Renderless/ServiceControl.vue?vue&type=template&id=509d61e6& ***!
+  \**********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ServiceControl_vue_vue_type_template_id_509d61e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ServiceControl.vue?vue&type=template&id=509d61e6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Renderless/ServiceControl.vue?vue&type=template&id=509d61e6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ServiceControl_vue_vue_type_template_id_509d61e6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ServiceControl_vue_vue_type_template_id_509d61e6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Renderless/SupplierControl.vue":
 /*!****************************************************************!*\
   !*** ./resources/js/components/Renderless/SupplierControl.vue ***!
@@ -56791,6 +58203,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_Supplier_Supplier__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../views/Supplier/Supplier */ "./resources/js/views/Supplier/Supplier.vue");
 /* harmony import */ var _views_Sales_Sales__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../views/Sales/Sales */ "./resources/js/views/Sales/Sales.vue");
 /* harmony import */ var _views_User_User__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../views/User/User */ "./resources/js/views/User/User.vue");
+/* harmony import */ var _views_Service_Service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../views/Service/Service */ "./resources/js/views/Service/Service.vue");
+
 
 
 
@@ -56865,6 +58279,14 @@ var routes = [{
   path: '/admin/users',
   name: 'users',
   component: _views_User_User__WEBPACK_IMPORTED_MODULE_9__["default"],
+  meta: {
+    role: ['Administrator']
+  },
+  beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
+}, {
+  path: '/admin/services',
+  name: 'services',
+  component: _views_Service_Service__WEBPACK_IMPORTED_MODULE_10__["default"],
   meta: {
     role: ['Administrator']
   },
@@ -57936,6 +59358,208 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./resources/js/service/Service.js":
+/*!*****************************************!*\
+  !*** ./resources/js/service/Service.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Http */ "./resources/js/service/Http.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/services');
+
+            case 3:
+              res = _context.sent;
+              return _context.abrupt("return", res.data.data);
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](0);
+              throw new Error('Gagal mendapatkan data services!');
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this, [[0, 7]]);
+    }));
+
+    function get() {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/services', payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              throw new Error('Gagal simpan services baru!');
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, this, [[0, 5]]);
+    }));
+
+    function store(_x) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  find: function () {
+    var _find = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/services/".concat(id));
+
+            case 3:
+              res = _context3.sent;
+              return _context3.abrupt("return", res.data.data);
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              throw new Error('Gagal mendapatkan data services!');
+
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, this, [[0, 7]]);
+    }));
+
+    function find(_x2) {
+      return _find.apply(this, arguments);
+    }
+
+    return find;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id, payload) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].patch("/api/services/".concat(id), payload);
+
+            case 3:
+              res = _context4.sent;
+              return _context4.abrupt("return", res.data.data);
+
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              throw new Error('Gagal update data services!');
+
+            case 10:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, this, [[0, 7]]);
+    }));
+
+    function update(_x3, _x4) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].delete("/api/services/".concat(id));
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              throw new Error('Gagal hapus data services');
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, this, [[0, 5]]);
+    }));
+
+    function _delete(_x5) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }()
+});
+
+/***/ }),
+
 /***/ "./resources/js/service/Supplier.js":
 /*!******************************************!*\
   !*** ./resources/js/service/Supplier.js ***!
@@ -58385,9 +60009,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var state = {
   branches: [],
   branch: {
-    name: '',
-    address: '',
-    phoneNumber: ''
+    branch_name: '',
+    branch_address: '',
+    branch_phone_number: ''
   },
   loading: true,
   error: null
@@ -58403,9 +60027,9 @@ var mutations = {
     state.error = payload.error;
   },
   setBranchForm: function setBranchForm(state, payload) {
-    state.branch.name = payload.branch_name;
-    state.branch.address = payload.branch_address;
-    state.branch.phoneNumber = payload.branch_phone_number;
+    state.branch.branch_name = payload.branch_name;
+    state.branch.branch_address = payload.branch_address;
+    state.branch.branch_phone_number = payload.branch_phone_number;
   }
 };
 var getters = {
@@ -58668,7 +60292,7 @@ var mutations = {
     state.error = payload.error;
   },
   setEmployeeForm: function setEmployeeForm(state, payload) {
-    state.employee.first_name = payload.first_name;
+    state.employee.first_name = payload.name;
     state.employee.last_name = payload.last_name;
     state.employee.address = payload.address;
     state.employee.phone_number = payload.phone_number;
@@ -59309,6 +60933,263 @@ var actions = {
 
 /***/ }),
 
+/***/ "./resources/js/store/modules/Service.js":
+/*!***********************************************!*\
+  !*** ./resources/js/store/modules/Service.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_Service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/Service */ "./resources/js/service/Service.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  services: [],
+  service: {
+    service_name: '',
+    price: ''
+  },
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.services = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  },
+  setServiceForm: function setServiceForm(state, payload) {
+    state.service.service_name = payload.service_name;
+    state.service.price = payload.price;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  },
+  service: function service(state) {
+    return state.service;
+  }
+};
+var actions = {
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.t0 = context;
+              _context.next = 4;
+              return _service_Service__WEBPACK_IMPORTED_MODULE_1__["default"].get();
+
+            case 4:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'setSource', _context.t1);
+
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t2 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t2);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this, [[0, 8]]);
+    }));
+
+    function get(_x) {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _service_Service__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              context.commit('setFailedStore', _context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, this, [[0, 5]]);
+    }));
+
+    function store(_x2, _x3) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  edit: function () {
+    var _edit = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _service_Service__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
+
+            case 3:
+              res = _context3.sent;
+              context.commit('setServiceForm', res);
+              _context3.next = 10;
+              break;
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              context.commit('setFailedAction', _context3.t0);
+
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, this, [[0, 7]]);
+    }));
+
+    function edit(_x4, _x5) {
+      return _edit.apply(this, arguments);
+    }
+
+    return edit;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              data = {
+                service_name: payload.service_name,
+                price: payload.price
+              };
+              _context4.next = 4;
+              return _service_Service__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_service, data);
+
+            case 4:
+              _context4.next = 9;
+              break;
+
+            case 6:
+              _context4.prev = 6;
+              _context4.t0 = _context4["catch"](0);
+              context.commit('setFailedAction', _context4.t0);
+
+            case 9:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, this, [[0, 6]]);
+    }));
+
+    function update(_x6, _x7) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _service_Service__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, this, [[0, 5]]);
+    }));
+
+    function _delete(_x8, _x9) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }(),
+  resetForm: function resetForm(context) {
+    context.commit('setServiceForm', {});
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
 /***/ "./resources/js/store/modules/Supplier.js":
 /*!************************************************!*\
   !*** ./resources/js/store/modules/Supplier.js ***!
@@ -59349,9 +61230,9 @@ var mutations = {
     state.error = payload.error;
   },
   setSupplierForm: function setSupplierForm(state, payload) {
-    state.supplier.name = payload.supplier_name;
-    state.supplier.address = payload.supplier_address;
-    state.supplier.phone_number = payload.supplier_phone_number;
+    state.supplier.supplier_name = payload.supplier_name;
+    state.supplier.supplier_address = payload.supplier_address;
+    state.supplier.supplier_phone_number = payload.supplier_phone_number;
   }
 };
 var getters = {
@@ -59842,6 +61723,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Employee__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Employee */ "./resources/js/store/modules/Employee.js");
 /* harmony import */ var _Supplier__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Supplier */ "./resources/js/store/modules/Supplier.js");
 /* harmony import */ var _Sales__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Sales */ "./resources/js/store/modules/Sales.js");
+/* harmony import */ var _Service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Service */ "./resources/js/store/modules/Service.js");
+
 
 
 
@@ -59856,7 +61739,8 @@ __webpack_require__.r(__webpack_exports__);
   Role: _Role__WEBPACK_IMPORTED_MODULE_3__["default"],
   Employee: _Employee__WEBPACK_IMPORTED_MODULE_4__["default"],
   Supplier: _Supplier__WEBPACK_IMPORTED_MODULE_5__["default"],
-  Sales: _Sales__WEBPACK_IMPORTED_MODULE_6__["default"]
+  Sales: _Sales__WEBPACK_IMPORTED_MODULE_6__["default"],
+  Service: _Service__WEBPACK_IMPORTED_MODULE_7__["default"]
 });
 
 /***/ }),
@@ -59955,6 +61839,32 @@ __webpack_require__.r(__webpack_exports__);
     sales_phone_number: {
       required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
       maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["maxLength"])(12),
+      numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["numeric"]
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/validations/serviceValidation.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/validations/serviceValidation.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  form: {
+    service_name: {
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+    },
+    price: {
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
       numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["numeric"]
     }
   }
@@ -60657,6 +62567,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Sales_vue_vue_type_template_id_66dd515a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Sales_vue_vue_type_template_id_66dd515a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/Service/Service.vue":
+/*!************************************************!*\
+  !*** ./resources/js/views/Service/Service.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Service_vue_vue_type_template_id_091bb2ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Service.vue?vue&type=template&id=091bb2ec&scoped=true& */ "./resources/js/views/Service/Service.vue?vue&type=template&id=091bb2ec&scoped=true&");
+/* harmony import */ var _Service_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Service.vue?vue&type=script&lang=js& */ "./resources/js/views/Service/Service.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Service_vue_vue_type_style_index_0_id_091bb2ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Service.vue?vue&type=style&index=0&id=091bb2ec&scoped=true&lang=css& */ "./resources/js/views/Service/Service.vue?vue&type=style&index=0&id=091bb2ec&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Service_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Service_vue_vue_type_template_id_091bb2ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Service_vue_vue_type_template_id_091bb2ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "091bb2ec",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/Service/Service.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/Service/Service.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/views/Service/Service.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Service.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Service/Service.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/Service/Service.vue?vue&type=style&index=0&id=091bb2ec&scoped=true&lang=css&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/views/Service/Service.vue?vue&type=style&index=0&id=091bb2ec&scoped=true&lang=css& ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_style_index_0_id_091bb2ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Service.vue?vue&type=style&index=0&id=091bb2ec&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Service/Service.vue?vue&type=style&index=0&id=091bb2ec&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_style_index_0_id_091bb2ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_style_index_0_id_091bb2ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_style_index_0_id_091bb2ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_style_index_0_id_091bb2ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_style_index_0_id_091bb2ec_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/views/Service/Service.vue?vue&type=template&id=091bb2ec&scoped=true&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/views/Service/Service.vue?vue&type=template&id=091bb2ec&scoped=true& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_template_id_091bb2ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Service.vue?vue&type=template&id=091bb2ec&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Service/Service.vue?vue&type=template&id=091bb2ec&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_template_id_091bb2ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_template_id_091bb2ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

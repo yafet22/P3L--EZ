@@ -209,9 +209,9 @@ export default {
       this.$refs.branchControl.fetch()
     },
 
-    editHandler(id){
+    async editHandler(id){
       this.id_branch=id
-      this.fetchBranch(id)
+      await this.fetchBranch(id)
       this.dialog2=true
     },
 

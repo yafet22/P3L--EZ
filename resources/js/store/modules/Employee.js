@@ -30,7 +30,7 @@ const mutations = {
   },
 
   setEmployeeForm(state, payload) {
-    state.employee.first_name = payload.first_name
+    state.employee.first_name = payload.name
     state.employee.last_name = payload.last_name
     state.employee.address = payload.address
     state.employee.phone_number = payload.phone_number

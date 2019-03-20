@@ -116,6 +116,7 @@
               { id: 4, to: 'users', icon: 'person_outline', text: 'User', name: 'Users'},
               { id: 5, to: 'suppliers', icon: 'store_mall_directory', text: 'Supplier', name: 'Suppliers'},
               { id: 6, to: 'sales', icon: 'people', text: 'Sales', name: 'Sales'},
+              { id: 7, to: 'services', icon: 'build', text: 'Service', name: 'Service'},
             ]
             break
 

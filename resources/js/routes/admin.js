@@ -15,6 +15,8 @@ import Sales from '../views/Sales/Sales'
 
 import User from '../views/User/User'
 
+import Service from '../views/Service/Service'
+
 export const routes = [
     {
         path: '/admin/login',
@@ -97,4 +99,13 @@ export const routes = [
           auth
         ])
     },
+    {
+      path: '/admin/services',
+      name: 'services',
+      component: Service,
+      meta: { role: ['Administrator'] },
+      beforeEnter: middleware([
+        auth
+      ])
+  },
 ]

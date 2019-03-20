@@ -21,7 +21,9 @@ class EmployeeTransformer extends TransformerAbstract
             'phone_number' => $employee->phone_number,
             'salary' => $employee->salary,
             'role' => $employee->roles->role_name,
-            'branch' => $employee->branchs->branch_name
+            'branch' => $employee->branchs->branch_name,
+            'id_role' => $employee->id_role,
+            'id_branch' => $employee->id_branch
         ];
     }
 }

@@ -24,9 +24,9 @@ const mutations = {
   },
 
   setSupplierForm(state, payload) {
-    state.supplier.name = payload.supplier_name
-    state.supplier.address = payload.supplier_address
-    state.supplier.phone_number = payload.supplier_phone_number
+    state.supplier.supplier_name = payload.supplier_name
+    state.supplier.supplier_address = payload.supplier_address
+    state.supplier.supplier_phone_number = payload.supplier_phone_number
   }
 }
 
