@@ -2,7 +2,7 @@
   <PageWrapper :breadcrumbs="breadcrumbs">
     <card>
       <v-container grid-list-md mb-0>
-        <h1 class="text-md-center">DATA SALES</h1>
+        <h1 class="text-md-center">DATA SPAREPART</h1>
       </v-container> 
       <v-layout row wrap>
         <v-flex xs6>
@@ -14,7 +14,7 @@
             @click="dialog = true"
             >
             <VIcon>add</VIcon>
-                Tambah Sales
+                Tambah Sparepart
             </VBtn>
         </v-flex>
         <v-flex xs6 class="text-xs-right">
@@ -27,7 +27,7 @@
             <CardSearchBar v-model="keyword" />
         </v-flex>
        </v-layout>
-      <SalesControl ref="salesControl">
+      <SparepartControl ref="sparepartControl">
         <template slot-scope="{ loading, error, items }">
           <VCardText
             v-if="loading || error"
@@ -54,17 +54,22 @@
             v-if="!loading && !error"
           >
             <template slot="items" slot-scope="props">
-              <td v-html="props.item.id_sales" />
-              <td v-html="props.item.sales_name" />
-              <td v-html="props.item.sales_phone_number" />
-              <td v-html="props.item.supplier_name" />
+              <td v-html="props.item.id_sparepart" />
+              <td v-html="props.item.sparepart_name" />
+              <td v-html="props.item.merk" />
+              <td v-html="props.item.sparepart_type_name" />
+              <td v-html="props.item.stock" />
+              <td v-html="props.item.min_stock" />
+              <td v-html="props.item.purchase_price" />
+              <td v-html="props.item.sell_price" />
+              <td v-html="props.item.placement" />
               <td class="text-xs-center">
                 <VBtn 
                   flat
                   icon
                   color="indigo"
                   dark
-                  @click="editHandler(props.item.id_sales)"
+                  @click="editHandler(props.item.id_sparepart)"
                 >
                   <v-icon>edit</v-icon>
                 </VBtn>
@@ -73,7 +78,7 @@
                   icon
                   color="error"
                   dark
-                  @click="deletewarning(props.item.id_sales)"
+                  @click="deleteWarning(props.item.id_sparepart)"
                 >
                   <v-icon>delete</v-icon>
                 </VBtn>
@@ -81,18 +86,18 @@
             </template>
           </VDataTable>
         </template>
-      </SalesControl>
+      </SparepartControl>
       <v-dialog v-model="dialog" max-width="600px">
-        <UtilityCard title="Tambah Sales">
+        <UtilityCard title="Tambah Sparepart">
             <VCardText>
                 <VAlert
-                v-if="salesError"
-                v-html="salesError.message"
+                v-if="sparepartError"
+                v-html="sparepartError.message"
                 :value="true"
                 dismissible
                 type="error"
                 />
-                <SalesForm 
+                <SparepartForm 
                 v-model="isFormValid"
                 @submitted="submitHandler"
                 />
@@ -100,16 +105,16 @@
         </UtilityCard>
       </v-dialog>
       <v-dialog v-model="dialog2" max-width="600px">
-        <UtilityCard title="Ubah Data Sales">
+        <UtilityCard title="Ubah Data Sparepart">
             <VCardText>
                 <VAlert
-                v-if="salesError"
-                v-html="salesError.message"
+                v-if="sparepartError"
+                v-html="sparepartError.message"
                 :value="true"
                 dismissible
                 type="error"
                 />
-                <SalesForm 
+                <SparepartForm 
                 v-model="isFormValid"
                 @submitted="submitHandler2"
                 />
@@ -133,15 +138,15 @@
 </template>
 
 <script>
-import SalesForm from '../../components/Form/SalesForm'
-import SalesControl from '../../components/Renderless/SalesControl'
-import salesService from '../../service/Sales'
+import SparepartForm from '../../components/Form/SparepartForm'
+import SparepartControl from '../../components/Renderless/SparepartControl'
+import sparepartService from '../../service/Sparepart'
 import { mapActions,mapState } from 'vuex';
 
 export default {
   components: {
-    SalesControl,
-    SalesForm
+    SparepartControl,
+    SparepartForm
   },
   data () {
     return {
@@ -151,23 +156,43 @@ export default {
       dialog2: false,
       warning: false,
       keyword: '',
-      id_sales: '',
+      id_sparepart: '',
       headers: [
           {
             text: 'ID',
-            value: 'id_sales',
+            value: 'id_sparepart',
           },
           {
             text: 'Nama',
-            value: 'sales_name'
+            value: 'sparepart_name'
           },
           {
-            text: 'Nomor Telepon',
-            value: 'sales_phone_number'
+            text: 'Merk',
+            value: 'merk'
           },
           {
-            text: 'Supplier',
-            value: 'supplier_name'
+            text: 'Type',
+            value: 'sparepart_type_name'
+          },
+          {
+            text: 'Stock',
+            value: 'stock'
+          }, 
+          {
+            text: 'Min Stock',
+            value: 'min_stock'
+          },
+          {
+            text: 'Harga Beli',
+            value: 'purchase_price'
+          },
+          {
+            text: 'Harga Jual',
+            value: 'sell_price'
+          },
+          {
+            text: 'Penempatan',
+            value: 'placement'
           },
           {
             text: 'Aksi',
@@ -181,7 +206,7 @@ export default {
           exact: true,
         },
         {
-          text: 'Sales',
+          text: 'Sparepart',
           disabled: true,
         },
       ]
@@ -190,54 +215,74 @@ export default {
 
   computed: {
     ...mapState({
-      salesError: state => state.Sales.error,
-      salesLoading: state => state.Sales.loading
+      sparepartError: state => state.Sparepart.error,
+      sparepartLoading: state => state.Sparepart.loading
     })
   },
 
 
   methods: {
     ...mapActions({
-      deleteSales: 'Sales/delete',
-      storeSales: 'Sales/store',
-      resetForm: 'Sales/resetForm',
-      updateSales: 'Sales/update',
-      fetchSales: 'Sales/edit',
+      deleteSparepart: 'Sparepart/delete',
+      storeSparepart: 'Sparepart/store',
+      resetForm: 'Sparepart/resetForm',
+      updateSparepart: 'Sparepart/update',
+      fetchSparepart: 'Sparepart/edit',
     }),
 
     fetch () {
-      this.$refs.salesControl.fetch()
+      this.$refs.sparepartControl.fetch()
     },
 
     async editHandler(id){
       console.log(id)
-      this.id_sales=id
-      await this.fetchSales(id)
+      this.id_sparepart=id
+      await this.fetchSparepart(id)
       this.dialog2=true
     },
 
     deleteWarning(id){
-        this.id_sales=id
+        this.id_sparepart=id
         this.warning=true
     },
 
     async deleteHandler () {
-      console.log(this.id_sales);
-      await this.deleteSales(this.id_sales)
+      console.log(this.id_sparepart);
+      await this.deleteSparepart(this.id_sparepart)
       this.fetch()
       this.warning=false
     },
 
     async submitHandler (value) {
-      const payload = {
-        sales_name: value.sales_name,
-        id_supplier: value.id_supplier,
-        sales_phone_number: value.sales_phone_number
+      const payload1 = {
+        sparepart_name: value.sparepart_name,
+        image: value.image,
+        merk: value.merk,
+        id_sparepart: value.id_sparepart,
+        stock: value.stock,
+        min_stock: value.min_stock,
+        purchase_price: value.purchase_price,
+        sell_price: value.sell_price,
+        placement: value.position + '-' + value.place + '-'+ value.number,
+        id_sparepart_type: value.id_sparepart_type
       }
 
-      await this.storeSales(payload)
+      let payload = new FormData();
+      payload.append('sparepart_name',value.sparepart_name)
+      payload.append('image',value.image)
+      payload.append('merk',value.merk)
+      payload.append('id_sparepart',value.id_sparepart)
+      payload.append('stock',value.stock)
+      payload.append('min_stock',value.min_stock)
+      payload.append('purchase_price',value.purchase_price)
+      payload.append('sell_price',value.sell_price)
+      payload.append('placement',value.position + '-' + value.place + '-'+ value.number)
+      payload.append('id_sparepart_type',value.id_sparepart_type)
+      console.log(payload)
+
+      await this.storeSparepart(payload)
     
-      if (!this.salesError) {
+      if (!this.sparepartError) {
         this.dialog=false
         this.fetch()
       }
@@ -245,17 +290,23 @@ export default {
 
     async submitHandler2 (value) {
       
-      console.log(this.id_sales);
+      console.log(this.id_sparepart);
       const payload = {
-        id_sales: this.id_sales,
-        sales_name: value.sales_name,
-        id_supplier: value.id_supplier,
-        sales_phone_number: value.sales_phone_number
+        id_sparepart: this.id_sparepart,
+        image: value.image,
+        sparepart_name: value.sparepart_name,
+        merk: value.merk,
+        stock: value.stock,
+        min_stock: value.min_stock,
+        purchase_price: value.purchase_price,
+        sell_price: value.sell_price,
+        placement: value.position + '-'+ value.place + '-'+ value.number,
+        id_sparepart_type: value.id_sparepart_type
       }
 
-      await this.updateSales(payload)
+      await this.updateSparepart(payload)
     
-      if (!this.salesError) {
+      if (!this.sparepartError) {
         this.dialog2=false
         this.fetch()
       }

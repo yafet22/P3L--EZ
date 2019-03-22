@@ -2,7 +2,7 @@
   <PageWrapper :breadcrumbs="breadcrumbs">
     <card>
       <v-container grid-list-md mb-0>
-        <h1 class="text-md-center">DATA SALES</h1>
+        <h1 class="text-md-center">DATA TYPE MOTOR</h1>
       </v-container> 
       <v-layout row wrap>
         <v-flex xs6>
@@ -14,7 +14,7 @@
             @click="dialog = true"
             >
             <VIcon>add</VIcon>
-                Tambah Sales
+                Tambah Type Motor
             </VBtn>
         </v-flex>
         <v-flex xs6 class="text-xs-right">
@@ -27,7 +27,7 @@
             <CardSearchBar v-model="keyword" />
         </v-flex>
        </v-layout>
-      <SalesControl ref="salesControl">
+      <MotorcycleTypeControl ref="motorcycleTypeControl">
         <template slot-scope="{ loading, error, items }">
           <VCardText
             v-if="loading || error"
@@ -54,17 +54,16 @@
             v-if="!loading && !error"
           >
             <template slot="items" slot-scope="props">
-              <td v-html="props.item.id_sales" />
-              <td v-html="props.item.sales_name" />
-              <td v-html="props.item.sales_phone_number" />
-              <td v-html="props.item.supplier_name" />
+              <td v-html="props.item.id_motorcycle_type" />
+              <td v-html="props.item.motorcycle_type_name" />
+              <td v-html="props.item.motorcycle_brand" />
               <td class="text-xs-center">
                 <VBtn 
                   flat
                   icon
                   color="indigo"
                   dark
-                  @click="editHandler(props.item.id_sales)"
+                  @click="editHandler(props.item.id_motorcycle_type)"
                 >
                   <v-icon>edit</v-icon>
                 </VBtn>
@@ -73,7 +72,7 @@
                   icon
                   color="error"
                   dark
-                  @click="deletewarning(props.item.id_sales)"
+                  @click="deleteWarning(props.item.id_motorcycle_type)"
                 >
                   <v-icon>delete</v-icon>
                 </VBtn>
@@ -81,18 +80,18 @@
             </template>
           </VDataTable>
         </template>
-      </SalesControl>
+      </MotorcycleTypeControl>
       <v-dialog v-model="dialog" max-width="600px">
-        <UtilityCard title="Tambah Sales">
+        <UtilityCard title="Tambah Type Motor">
             <VCardText>
                 <VAlert
-                v-if="salesError"
-                v-html="salesError.message"
+                v-if="motorcycleTypeError"
+                v-html="motorcycleTypeError.message"
                 :value="true"
                 dismissible
                 type="error"
                 />
-                <SalesForm 
+                <MotorcycleTypeForm 
                 v-model="isFormValid"
                 @submitted="submitHandler"
                 />
@@ -100,18 +99,18 @@
         </UtilityCard>
       </v-dialog>
       <v-dialog v-model="dialog2" max-width="600px">
-        <UtilityCard title="Ubah Data Sales">
+        <UtilityCard title="Ubah Type Motor">
             <VCardText>
                 <VAlert
-                v-if="salesError"
-                v-html="salesError.message"
+                v-if="motorcycleTypeError"
+                v-html="motorcycleTypeError.message"
                 :value="true"
                 dismissible
                 type="error"
                 />
-                <SalesForm 
+                <MotorcycleTypeForm 
                 v-model="isFormValid"
-                @submitted="submitHandler2"
+                @submitted="submitHandler2"  
                 />
             </VCardText>
         </UtilityCard>
@@ -133,15 +132,15 @@
 </template>
 
 <script>
-import SalesForm from '../../components/Form/SalesForm'
-import SalesControl from '../../components/Renderless/SalesControl'
-import salesService from '../../service/Sales'
+import MotorcycleTypeForm from '../../components/Form/MotorcycleTypeForm'
+import MotorcycleTypeControl from '../../components/Renderless/MotorcycleTypeControl'
+import motorcycleTypeService from '../../service/MotorcycleType'
 import { mapActions,mapState } from 'vuex';
 
 export default {
   components: {
-    SalesControl,
-    SalesForm
+    MotorcycleTypeControl,
+    MotorcycleTypeForm
   },
   data () {
     return {
@@ -151,23 +150,19 @@ export default {
       dialog2: false,
       warning: false,
       keyword: '',
-      id_sales: '',
+      id_motorcycle_type: '',
       headers: [
           {
             text: 'ID',
-            value: 'id_sales',
+            value: 'id_motorcycle_type',
           },
           {
             text: 'Nama',
-            value: 'sales_name'
+            value: 'motorcycle_type_name'
           },
           {
-            text: 'Nomor Telepon',
-            value: 'sales_phone_number'
-          },
-          {
-            text: 'Supplier',
-            value: 'supplier_name'
+            text: 'Brand',
+            value: 'motorcycle_brand'
           },
           {
             text: 'Aksi',
@@ -181,7 +176,7 @@ export default {
           exact: true,
         },
         {
-          text: 'Sales',
+          text: 'Type Motor',
           disabled: true,
         },
       ]
@@ -190,72 +185,70 @@ export default {
 
   computed: {
     ...mapState({
-      salesError: state => state.Sales.error,
-      salesLoading: state => state.Sales.loading
+      motorcycleTypeError: state => state.MotorcycleType.error,
+      motorcycleTypeLoading: state => state.MotorcycleType.loading
     })
   },
 
 
   methods: {
     ...mapActions({
-      deleteSales: 'Sales/delete',
-      storeSales: 'Sales/store',
-      resetForm: 'Sales/resetForm',
-      updateSales: 'Sales/update',
-      fetchSales: 'Sales/edit',
+      deleteMotorcycleType: 'MotorcycleType/delete',
+      storeMotorcycleType: 'MotorcycleType/store',
+      resetForm: 'MotorcycleType/resetForm',
+      updateMotorcycleType: 'MotorcycleType/update',
+      fetchMotorcycleType: 'MotorcycleType/edit',
     }),
 
     fetch () {
-      this.$refs.salesControl.fetch()
+      this.$refs.motorcycleTypeControl.fetch()
     },
 
     async editHandler(id){
-      console.log(id)
-      this.id_sales=id
-      await this.fetchSales(id)
+      this.id_motorcycle_type=id
+      await this.fetchMotorcycleType(id)
       this.dialog2=true
     },
 
     deleteWarning(id){
-        this.id_sales=id
+        this.id_motorcycle_type=id
         this.warning=true
     },
 
     async deleteHandler () {
-      console.log(this.id_sales);
-      await this.deleteSales(this.id_sales)
+      console.log(this.id_motorcycle_type);
+      await this.deleteMotorcycleType(this.id_motorcycle_type)
       this.fetch()
       this.warning=false
     },
 
     async submitHandler (value) {
+      console.log(value)
       const payload = {
-        sales_name: value.sales_name,
-        id_supplier: value.id_supplier,
-        sales_phone_number: value.sales_phone_number
+        motorcycle_type_name: value.motorcycle_type_name,
+        id_motorcycle_brand: value.id_motorcycle_brand
       }
 
-      await this.storeSales(payload)
+      console.log(payload)
+      await this.storeMotorcycleType(payload)
     
-      if (!this.salesError) {
+      if (!this.motorcycleTypeError) {
         this.dialog=false
         this.fetch()
       }
     },
 
     async submitHandler2 (value) {
-      
-      console.log(this.id_sales);
+      console.log(this.id_motorcycle_type);
       const payload = {
-        id_sales: this.id_sales,
-        sales_name: value.sales_name,
-        id_supplier: value.id_supplier,
-        sales_phone_number: value.sales_phone_number
+        id_motorcycle_type: this.id_motorcycle_type,
+        motorcycle_type_name: value.motorcycle_type_name,
+        id_motorcycle_brand: value.id_motorcycle_brand
       }
 
-      await this.updateSales(payload)
+      await this.updateMotorcycleType(payload)
     
-      if (!this.salesError) {
+      if (!this.motorcycleTypeError) {
         this.dialog2=false
         this.fetch()
       }

@@ -44,18 +44,7 @@ class SparepartController extends RestController
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'sparepart_name' => 'required',
-            'merk' => 'required',
-            'stock' => 'required',
-            'min_stock' => 'required',
-            'purchase_price' => 'required',
-            'sell_price' => 'required',
-            'placement' => 'required',
-            'image' => 'required',
-            'id_sparepart_type' => 'required',
-        ]);   
-
+    
         try {
                 $sparepart = new Sparepart;
 
@@ -70,6 +59,7 @@ class SparepartController extends RestController
                     $sparepart->image=NULL;
                 }
 
+                $sparepart->id_sparepart=$request->get('id_sparepart');
                 $sparepart->sparepart_name=$request->get('sparepart_name');
                 $sparepart->merk=$request->get('merk');
                 $sparepart->stock=$request->get('stock');

@@ -2,7 +2,7 @@
   <PageWrapper :breadcrumbs="breadcrumbs">
     <card>
       <v-container grid-list-md mb-0>
-        <h1 class="text-md-center">DATA SALES</h1>
+        <h1 class="text-md-center">DATA PELANGGAN</h1>
       </v-container> 
       <v-layout row wrap>
         <v-flex xs6>
@@ -14,7 +14,7 @@
             @click="dialog = true"
             >
             <VIcon>add</VIcon>
-                Tambah Sales
+                Tambah Pelanggan
             </VBtn>
         </v-flex>
         <v-flex xs6 class="text-xs-right">
@@ -27,7 +27,7 @@
             <CardSearchBar v-model="keyword" />
         </v-flex>
        </v-layout>
-      <SalesControl ref="salesControl">
+      <CustomerControl ref="customerControl">
         <template slot-scope="{ loading, error, items }">
           <VCardText
             v-if="loading || error"
@@ -54,17 +54,17 @@
             v-if="!loading && !error"
           >
             <template slot="items" slot-scope="props">
-              <td v-html="props.item.id_sales" />
-              <td v-html="props.item.sales_name" />
-              <td v-html="props.item.sales_phone_number" />
-              <td v-html="props.item.supplier_name" />
+              <td v-html="props.item.id_customer" />
+              <td v-html="props.item.customer_name" />
+              <td v-html="props.item.customer_address" />
+              <td v-html="props.item.customer_phone_number" />
               <td class="text-xs-center">
                 <VBtn 
                   flat
                   icon
                   color="indigo"
                   dark
-                  @click="editHandler(props.item.id_sales)"
+                  @click="editHandler(props.item.id_customer)"
                 >
                   <v-icon>edit</v-icon>
                 </VBtn>
@@ -73,7 +73,7 @@
                   icon
                   color="error"
                   dark
-                  @click="deletewarning(props.item.id_sales)"
+                  @click="deleteWarning(props.item.id_customer)"
                 >
                   <v-icon>delete</v-icon>
                 </VBtn>
@@ -81,18 +81,18 @@
             </template>
           </VDataTable>
         </template>
-      </SalesControl>
+      </CustomerControl>
       <v-dialog v-model="dialog" max-width="600px">
-        <UtilityCard title="Tambah Sales">
+        <UtilityCard title="Tambah Pelanggan">
             <VCardText>
                 <VAlert
-                v-if="salesError"
-                v-html="salesError.message"
+                v-if="customerError"
+                v-html="customerError.message"
                 :value="true"
                 dismissible
                 type="error"
                 />
-                <SalesForm 
+                <CustomerForm 
                 v-model="isFormValid"
                 @submitted="submitHandler"
                 />
@@ -100,18 +100,18 @@
         </UtilityCard>
       </v-dialog>
       <v-dialog v-model="dialog2" max-width="600px">
-        <UtilityCard title="Ubah Data Sales">
+        <UtilityCard title="Ubah Data Pelanggan">
             <VCardText>
                 <VAlert
-                v-if="salesError"
-                v-html="salesError.message"
+                v-if="customerError"
+                v-html="customerError.message"
                 :value="true"
                 dismissible
                 type="error"
                 />
-                <SalesForm 
+                <CustomerForm 
                 v-model="isFormValid"
-                @submitted="submitHandler2"
+                @submitted="submitHandler2"  
                 />
             </VCardText>
         </UtilityCard>
@@ -133,15 +133,15 @@
 </template>
 
 <script>
-import SalesForm from '../../components/Form/SalesForm'
-import SalesControl from '../../components/Renderless/SalesControl'
-import salesService from '../../service/Sales'
+import CustomerForm from '../../components/Form/CustomerForm'
+import CustomerControl from '../../components/Renderless/CustomerControl'
+import customerService from '../../service/Customer'
 import { mapActions,mapState } from 'vuex';
 
 export default {
   components: {
-    SalesControl,
-    SalesForm
+    CustomerControl,
+    CustomerForm
   },
   data () {
     return {
@@ -151,23 +151,23 @@ export default {
       dialog2: false,
       warning: false,
       keyword: '',
-      id_sales: '',
+      id_customer: '',
       headers: [
           {
             text: 'ID',
-            value: 'id_sales',
+            value: 'id_customer',
           },
           {
             text: 'Nama',
-            value: 'sales_name'
+            value: 'customer_name'
+          },
+          {
+            text: 'Alamat',
+            value: 'customer_address'
           },
           {
             text: 'Nomor Telepon',
-            value: 'sales_phone_number'
-          },
-          {
-            text: 'Supplier',
-            value: 'supplier_name'
+            value: 'customer_phone_number'
           },
           {
             text: 'Aksi',
@@ -181,7 +181,7 @@ export default {
           exact: true,
         },
         {
-          text: 'Sales',
+          text: 'Pelanggan',
           disabled: true,
         },
       ]
@@ -190,72 +190,70 @@ export default {
 
   computed: {
     ...mapState({
-      salesError: state => state.Sales.error,
-      salesLoading: state => state.Sales.loading
+      customerError: state => state.Customer.error,
+      customerLoading: state => state.Customer.loading
     })
   },
 
 
   methods: {
     ...mapActions({
-      deleteSales: 'Sales/delete',
-      storeSales: 'Sales/store',
-      resetForm: 'Sales/resetForm',
-      updateSales: 'Sales/update',
-      fetchSales: 'Sales/edit',
+      deleteCustomer: 'Customer/delete',
+      storeCustomer: 'Customer/store',
+      resetForm: 'Customer/resetForm',
+      updateCustomer: 'Customer/update',
+      fetchCustomer: 'Customer/edit',
     }),
 
     fetch () {
-      this.$refs.salesControl.fetch()
+      this.$refs.customerControl.fetch()
     },
 
     async editHandler(id){
-      console.log(id)
-      this.id_sales=id
-      await this.fetchSales(id)
+      this.id_customer=id
+      await this.fetchCustomer(id)
       this.dialog2=true
     },
 
     deleteWarning(id){
-        this.id_sales=id
+        this.id_customer=id
         this.warning=true
     },
 
     async deleteHandler () {
-      console.log(this.id_sales);
-      await this.deleteSales(this.id_sales)
+      console.log(this.id_customer);
+      await this.deleteCustomer(this.id_customer)
       this.fetch()
       this.warning=false
     },
 
     async submitHandler (value) {
       const payload = {
-        sales_name: value.sales_name,
-        id_supplier: value.id_supplier,
-        sales_phone_number: value.sales_phone_number
+        customer_name: value.customer_name,
+        customer_address: value.customer_address,
+        customer_phone_number: value.customer_phone_number
       }
 
-      await this.storeSales(payload)
+      await this.storeCustomer(payload)
     
-      if (!this.salesError) {
+      if (!this.customerError) {
         this.dialog=false
         this.fetch()
       }
     },
 
     async submitHandler2 (value) {
-      
-      console.log(this.id_sales);
+      console.log(this.id_customer);
       const payload = {
-        id_sales: this.id_sales,
-        sales_name: value.sales_name,
-        id_supplier: value.id_supplier,
-        sales_phone_number: value.sales_phone_number
+        id_customer: this.id_customer,
+        customer_name: value.customer_name,
+        customer_address: value.customer_address,
+        customer_phone_number: value.customer_phone_number
       }
 
-      await this.updateSales(payload)
+      await this.updateCustomer(payload)
     
-      if (!this.salesError) {
+      if (!this.customerError) {
         this.dialog2=false
         this.fetch()
       }

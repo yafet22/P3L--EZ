@@ -12,7 +12,7 @@ class Motorcycle_Brand extends Model
     protected $fillable = [
     'motorcycle_brand_name',];
 
-    public function motorcyle_types(){
-        return $this->belongsTo('App\Motorcyle_type','id_motorcyle_type');
+    public function motorcycle_types(){
+        return $this->hasMany('App\Motorcycle_type','id_motorcycle_brand');
     }
 }

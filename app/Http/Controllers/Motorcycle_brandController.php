@@ -45,10 +45,6 @@ class Motorcycle_brandController extends RestController
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'motorcycle_brand_name' => 'required',
-        ]);   
-
         try {
 
                 $motorcycle_brand = new Motorcycle_Brand;

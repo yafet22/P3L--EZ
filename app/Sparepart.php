@@ -9,6 +9,7 @@ class Sparepart extends Model
     protected $table = 'spareparts';
     protected $primaryKey = 'id_sparepart';
     public $timestamps = true;
+    public $incrementing = false;
     protected $fillable = [
     'sparepart_name',
     'merk',

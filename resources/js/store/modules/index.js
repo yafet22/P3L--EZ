@@ -6,6 +6,11 @@ import Employee from './Employee'
 import Supplier from './Supplier'
 import Sales from './Sales'
 import Service from './Service'
+import Sparepart from './Sparepart'
+import SparepartType from './SparepartType'
+import MotorcycleBrand from './MotorcycleBrand'
+import MotorcycleType from './MotorcycleType'
+import Customer from './Customer'
 
 export default {
   LoggedUser,
@@ -15,5 +20,10 @@ export default {
   Employee,
   Supplier,
   Sales,
-  Service
+  Service,
+  Sparepart,
+  SparepartType,
+  MotorcycleBrand,
+  MotorcycleType,
+  Customer
 }

@@ -16,4 +16,8 @@ class Motorcycle_Type extends Model
     public function motorcycles(){
         return $this->hasMany('App\Motorcycle','id_motorcycle_type');
     }
+
+    public function motorcycle_brands(){
+        return $this->belongsTo('App\Motorcycle_Brand','id_motorcycle_brand');
+    }
 }

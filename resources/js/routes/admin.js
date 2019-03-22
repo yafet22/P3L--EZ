@@ -17,6 +17,14 @@ import User from '../views/User/User'
 
 import Service from '../views/Service/Service'
 
+import Sparepart from '../views/Sparepart/Sparepart'
+
+import MotorcycleBrand from '../views/MotorcycleBrand/MotorcycleBrand'
+
+import MotorcycleType from '../views/MotorcycleType/MotorcycleType'
+
+import Customer from '../views/Customer/Customer'
+
 export const routes = [
     {
         path: '/admin/login',
@@ -100,12 +108,48 @@ export const routes = [
         ])
     },
     {
-      path: '/admin/services',
-      name: 'services',
-      component: Service,
+        path: '/admin/services',
+        name: 'services',
+        component: Service,
+        meta: { role: ['Administrator'] },
+        beforeEnter: middleware([
+          auth
+        ])
+    },
+    {
+      path: '/admin/spareparts',
+      name: 'spareparts',
+      component: Sparepart,
       meta: { role: ['Administrator'] },
       beforeEnter: middleware([
         auth
       ])
-  },
+    },
+    {
+      path: '/admin/motorcycleBrands',
+      name: 'motorcycleBrands',
+      component: MotorcycleBrand,
+      meta: { role: ['Administrator'] },
+      beforeEnter: middleware([
+        auth
+      ])
+    },
+    {
+      path: '/admin/motorcycleTypes',
+      name: 'motorcycleTypes',
+      component: MotorcycleType,
+      meta: { role: ['Administrator'] },
+      beforeEnter: middleware([
+        auth
+      ])
+    },
+    {
+      path: '/admin/customers',
+      name: 'customers',
+      component: Customer,
+      meta: { role: ['Administrator'] },
+      beforeEnter: middleware([
+        auth
+      ])
+    },
 ]

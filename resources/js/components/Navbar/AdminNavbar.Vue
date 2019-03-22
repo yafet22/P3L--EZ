@@ -36,6 +36,30 @@
             <VListTileTitle v-html="menu.text" />
           </VListTileContent>
         </VListTile>
+        <VList-group
+          v-for="menu in dropmenus"
+          :key="menu.id"
+          :prepend-icon="menu.icon"
+          class="ml-1"
+        >
+          <template v-slot:activator>
+            <v-list-tile>
+              <v-list-tile-title>{{menu.text}}</v-list-tile-title>
+            </v-list-tile>
+          </template>
+          <VListTile 
+            v-for="submenu in submenus"
+            :key="submenu.id"
+            @click="$router.push({ name: submenu.to })"
+          >
+            <VListTileAction>
+              <VIcon>{{ submenu.icon }}</VIcon>
+            </VListTileAction>
+            <VListTileContent>
+              <VListTileTitle v-html="submenu.text" />
+            </VListTileContent>
+          </VListTile>
+        </VList-group>
       </VList>
     </VNavigationDrawer>
 
@@ -106,6 +130,27 @@
         role: 'LoggedUser/role'
       }),
 
+      dropmenus(){
+        switch (this.role) {
+          case 'Administrator': 
+            return [
+              { id: 'd1', icon: 'motorcycle',text: 'Motorcycle', name: 'Motorcycle'},
+            ]
+            break
+        }
+      },
+
+      submenus(){
+        switch (this.role) {
+          case 'Administrator': 
+            return [
+              { id: 's1', icon: 'filter_1', to: 'motorcycleBrands', text: 'MotorcycleBrand', name: 'MotorcycleBrand'},
+              { id: 's2', icon: 'filter_2', to: 'motorcycleTypes', text: 'MotorcycleType', name: 'MotorcycleType'},
+            ]
+            break
+        }
+      },
+
       menus () {
         switch (this.role) {
           case 'Administrator': 
@@ -116,7 +161,9 @@
               { id: 4, to: 'users', icon: 'person_outline', text: 'User', name: 'Users'},
               { id: 5, to: 'suppliers', icon: 'store_mall_directory', text: 'Supplier', name: 'Suppliers'},
               { id: 6, to: 'sales', icon: 'people', text: 'Sales', name: 'Sales'},
-              { id: 7, to: 'services', icon: 'build', text: 'Service', name: 'Service'},
+              { id: 7, to: 'services', icon: 'pan_tool', text: 'Service', name: 'Service'},
+              { id: 8, to: 'spareparts', icon: 'build', text: 'Sparepart', name: 'Sparepart'},
+              { id: 9, to: 'customers', icon: 'accessibility', text: 'Customer', name: 'Customer'},
             ]
             break
 

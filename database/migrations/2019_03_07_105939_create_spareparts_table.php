@@ -22,7 +22,7 @@ class CreateSparepartsTable extends Migration
             $table->double('purchase_price');
             $table->double('sell_price');
             $table->string('placement',50);
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->integer('id_sparepart_type')->unsigned();
             $table->foreign('id_sparepart_type')->references('id_sparepart_type')->on('sparepart_types')->onUpdate('cascade');
             $table->timestamps();
