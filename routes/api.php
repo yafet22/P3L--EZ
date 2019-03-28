@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/authenticate', 'TokenController@authenticate');
+Route::post('/mobileauthenticate', 'TokenController@mobileauthenticate');
 Route::get('/whoami', 'TokenController@validateToken');
 
 Route::resource('user','UserController');
@@ -47,3 +48,4 @@ Route::resource('motorcycle_brands','Motorcycle_brandController');
 Route::resource('motorcycle_types','Motorcycle_typeController');
 
 Route::resource('motorcycles','MotorcycleController');
+Route::get('usermotorcycles/{id}','MotorcycleController@showByUser');

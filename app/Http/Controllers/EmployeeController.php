@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Employee;
+use App\Role;
+use App\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -51,20 +54,77 @@ class EmployeeController extends RestController
             'salary' => 'required',
             'id_role' => 'required',
             'id_branch' => 'required',            
-        ]);   
+        ]);
+        
+        $role = $request->id_role;
+
+        $data = [
+            'id_role' => $role,
+            'id_branch' => $request->id_branch,
+            'name' => $request->first_name.' '.$request->last_name,
+            'address' => $request->address,
+            'phone_number' => $request->phone_number,
+            'salary' => $request->salary,
+        ];
+        
+        $first_name=$request->first_name;
+        $count = User::get()
+            ->count()
+            + 1;
 
         try {
+            switch ($role) {
+                case Role::ADMIN:
+                    $employee = DB::transaction(function () use ($data, $first_name, $count) {
+                        $user = User::create([
+                            'username' => $first_name . $count,
+                            'password' => bcrypt($first_name . $count),
+                        ]);
 
-                $employee = new Employee;
+                        return $user->employees()->create($data);
+                    });
 
-                $employee->name=$request->get('first_name').' '.$request->get('last_name');
-                $employee->address=$request->get('address');
-                $employee->phone_number=$request->get('phone_number');
-                $employee->salary=$request->get('salary');
-                $employee->id_role=$request->get('id_role');
-                $employee->id_branch=$request->get('id_branch');
-                $employee->id_user=$request->get('id_user');
-                $employee->save();
+                    break;
+
+                case Role::COSTUMER_SERVICE:
+                    $employee = DB::transaction(function () use ($data, $first_name, $count) {
+                        $user = User::create([
+                            'username' => $first_name . $count,
+                            'password' => bcrypt($first_name . $count),
+                        ]);
+
+                        return $user->employees()->create($data);
+                    });
+                    break;
+
+                case Role::CASHIER:
+                    $employee = DB::transaction(function () use ($data, $first_name, $count) {
+                        $user = User::create([
+                            'username' => $first_name . $count,
+                            'password' => bcrypt($first_name . $count),
+                        ]);
+
+                        return $user->employees()->create($data);
+                    });
+                    break;
+
+                case Role::MECHANIC:
+                    $data = [
+                        'id_role' => $role,
+                        'id_branch' => $request->id_branch,
+                        'name' => $request->first_name.' '.$request->last_name,
+                        'address' => $request->address,
+                        'phone_number' => $request->phone_number,
+                        'salary' => $request->salary,
+                    ];
+
+                    $employee = Employees::create($data);
+                    break;
+
+                default:
+                    break;
+            }
+               
 
                 $response = $this->generateItem($employee);
 

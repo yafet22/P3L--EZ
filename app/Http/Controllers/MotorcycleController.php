@@ -88,6 +88,19 @@ class MotorcycleController extends RestController
         }
     }
 
+    public function showByUser($id)
+    {
+        try {
+            $motorcycle=Motorcycle::where('id_customer',$id)->get();
+            $response = $this->generateCollection($motorcycle);
+            return $this->sendResponse($response);
+        } catch (ModelNotFoundException $e) {
+            return $this->sendNotFoundResponse('motorcycle_not_found');
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -108,11 +121,6 @@ class MotorcycleController extends RestController
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'license_number' => 'required',
-            'id_motorcycle_type' => 'required',
-            'id_customer' => 'required',
-        ]);
         
         try {
 

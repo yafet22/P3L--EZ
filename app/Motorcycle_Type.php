@@ -20,4 +20,8 @@ class Motorcycle_Type extends Model
     public function motorcycle_brands(){
         return $this->belongsTo('App\Motorcycle_Brand','id_motorcycle_brand');
     }
+
+    public function spareparts(){
+        return $this->belongsToMany('App\Sparepart','compatibilities','id_motorcycle_type','id_sparepart');
+    }
 }

@@ -2590,6 +2590,179 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Form/MotorcycleForm.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Form/MotorcycleForm.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _validations_motorcycleValidation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../validations/motorcycleValidation */ "./resources/js/validations/motorcycleValidation.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    value: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
+    items: function items(state) {
+      return state.MotorcycleBrand.motorcycleBrands;
+    },
+    items2: function items2(state) {
+      return state.MotorcycleType.motorcycleTypes;
+    }
+  }), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+    form: 'Motorcycle/motorcycle'
+  }), {
+    filtered: function filtered() {
+      var _this = this;
+
+      var filter = this.items2.filter(function (b) {
+        return b.id_motorcycle_brand === _this.form.id_motorcycle_brand;
+      });
+      return filter;
+    },
+    licenseNumberErrors: function licenseNumberErrors() {
+      var errors = [];
+      if (!this.$v.form.license_number.$invalid) return errors;
+
+      if (!this.$v.form.license_number.maxLength && this.$v.form.license_number.$dirty) {
+        errors.push('Nomor Polisi Melebihi karakter yang ditentukan');
+      }
+
+      if (!this.$v.form.license_number.required && this.$v.form.license_number.$dirty) {
+        errors.push('Inputan nama tidak valid');
+      }
+
+      return errors;
+    },
+    motorcycleBrandErrors: function motorcycleBrandErrors() {
+      var errors = [];
+      if (!this.$v.form.id_motorcycle_brand.$invalid) return errors;
+
+      if (!this.$v.form.id_motorcycle_brand.required && this.$v.form.id_motorcycle_brand.$dirty) {
+        errors.push('Inputan nama tidak valid');
+      }
+
+      return errors;
+    },
+    motorcycleTypeErrors: function motorcycleTypeErrors() {
+      var errors = [];
+      if (!this.$v.form.id_motorcycle_type.$invalid) return errors;
+
+      if (!this.$v.form.id_motorcycle_type.required && this.$v.form.id_motorcycle_type.$dirty) {
+        errors.push('Inputan nama tidak valid');
+      }
+
+      return errors;
+    }
+  }),
+  validations: _validations_motorcycleValidation__WEBPACK_IMPORTED_MODULE_0__["default"],
+  watch: {
+    form: {
+      deep: true,
+      handler: function handler() {
+        this.$emit('input', !this.$v.form.$invalid);
+      }
+    }
+  },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
+    fetch: 'MotorcycleBrand/get',
+    fetch2: 'MotorcycleType/get'
+  }), {
+    submitHandler: function submitHandler() {
+      this.$emit('submitted', this.form);
+    },
+    cancelInput: function cancelInput() {
+      this.$emit('canceled');
+    }
+  }),
+  mounted: function mounted() {
+    this.fetch();
+    this.fetch2();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Form/MotorcycleTypeForm.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Form/MotorcycleTypeForm.vue?vue&type=script&lang=js& ***!
@@ -5135,10 +5308,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Form_CustomerForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Form/CustomerForm */ "./resources/js/components/Form/CustomerForm.vue");
-/* harmony import */ var _components_Renderless_CustomerControl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Renderless/CustomerControl */ "./resources/js/components/Renderless/CustomerControl.vue");
-/* harmony import */ var _service_Customer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/Customer */ "./resources/js/service/Customer.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _validations_motorcycleValidation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../validations/motorcycleValidation */ "./resources/js/validations/motorcycleValidation.js");
+/* harmony import */ var _components_Form_MotorcycleForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Form/MotorcycleForm */ "./resources/js/components/Form/MotorcycleForm.vue");
+/* harmony import */ var _components_Form_CustomerForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Form/CustomerForm */ "./resources/js/components/Form/CustomerForm.vue");
+/* harmony import */ var _components_Renderless_CustomerControl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Renderless/CustomerControl */ "./resources/js/components/Renderless/CustomerControl.vue");
+/* harmony import */ var _service_Customer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../service/Customer */ "./resources/js/service/Customer.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -5283,24 +5458,178 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    CustomerControl: _components_Renderless_CustomerControl__WEBPACK_IMPORTED_MODULE_2__["default"],
-    CustomerForm: _components_Form_CustomerForm__WEBPACK_IMPORTED_MODULE_1__["default"]
+    CustomerControl: _components_Renderless_CustomerControl__WEBPACK_IMPORTED_MODULE_4__["default"],
+    CustomerForm: _components_Form_CustomerForm__WEBPACK_IMPORTED_MODULE_3__["default"],
+    MotorcycleForm: _components_Form_MotorcycleForm__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
+      add: false,
+      hide: true,
+      value: false,
       name: '',
+      edit: false,
       isFormValid: false,
+      isFormValid2: false,
       dialog: false,
       dialog2: false,
+      dialog3: false,
       warning: false,
+      warning2: false,
       keyword: '',
+      keyword2: '',
       id_customer: '',
+      license_number: '',
+      id_motorcycle_brand: '',
       headers: [{
         text: 'ID',
         value: 'id_customer'
@@ -5313,6 +5642,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }, {
         text: 'Nomor Telepon',
         value: 'customer_phone_number'
+      }, {
+        text: 'Motor',
+        value: null
+      }, {
+        text: 'Aksi',
+        value: null
+      }],
+      headers2: [{
+        text: 'ID',
+        value: 'id_motorcycle'
+      }, {
+        text: 'Nomor Polisi',
+        value: 'license_number'
+      }, {
+        text: 'Merk Motor',
+        value: 'motorcycle_brand'
+      }, {
+        text: 'Type Motor',
+        value: 'motorcycle_type'
       }, {
         text: 'Aksi',
         value: null
@@ -5329,23 +5677,105 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }]
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapState"])({
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_6__["mapState"])({
     customerError: function customerError(state) {
       return state.Customer.error;
     },
     customerLoading: function customerLoading(state) {
       return state.Customer.loading;
+    },
+    motorcycle: function motorcycle(state) {
+      return state.Motorcycle.motorcycles;
+    },
+    motorError: function motorError(state) {
+      return state.Motorcycle.error;
+    },
+    brand: function brand(state) {
+      return state.MotorcycleBrand.motorcycleBrands;
+    },
+    type: function type(state) {
+      return state.MotorcycleType.motorcycleTypes;
     }
-  })),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapActions"])({
+  }), Object(vuex__WEBPACK_IMPORTED_MODULE_6__["mapGetters"])({
+    form: 'Motorcycle/motorcycle',
+    user: 'Customer/customer'
+  }), {
+    filtered: function filtered() {
+      var _this = this;
+
+      var filter = this.type.filter(function (b) {
+        return b.id_motorcycle_brand === _this.id_motorcycle_brand;
+      });
+      return filter;
+    },
+    licenseNumberErrors: function licenseNumberErrors() {
+      var errors = [];
+      if (!this.$v.form.license_number.$invalid) return errors;
+
+      if (!this.$v.form.license_number.maxLength && this.$v.form.license_number.$dirty) {
+        errors.push('Nomor Polisi Melebihi karakter yang ditentukan');
+      }
+
+      if (!this.$v.form.license_number.required && this.$v.form.license_number.$dirty) {
+        errors.push('Inputan nama tidak valid');
+      }
+
+      return errors;
+    },
+    motorcycleBrandErrors: function motorcycleBrandErrors() {
+      var errors = [];
+      if (!this.$v.form.id_motorcycle_brand.$invalid) return errors;
+
+      if (!this.$v.form.id_motorcycle_brand.required && this.$v.form.id_motorcycle_brand.$dirty) {
+        errors.push('Inputan nama tidak valid');
+      }
+
+      return errors;
+    },
+    motorcycleTypeErrors: function motorcycleTypeErrors() {
+      var errors = [];
+      if (!this.$v.form.id_motorcycle_type.$invalid) return errors;
+
+      if (!this.$v.form.id_motorcycle_type.required && this.$v.form.id_motorcycle_type.$dirty) {
+        errors.push('Inputan nama tidak valid');
+      }
+
+      return errors;
+    }
+  }),
+  validations: _validations_motorcycleValidation__WEBPACK_IMPORTED_MODULE_1__["default"],
+  watch: {
+    form: {
+      deep: true,
+      handler: function handler() {
+        !this.$v.form.$invalid;
+      }
+    }
+  },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_6__["mapActions"])({
     deleteCustomer: 'Customer/delete',
     storeCustomer: 'Customer/store',
     resetForm: 'Customer/resetForm',
     updateCustomer: 'Customer/update',
-    fetchCustomer: 'Customer/edit'
+    fetchCustomer: 'Customer/edit',
+    findMotor: 'Motorcycle/findByUser',
+    storeMotor: 'Motorcycle/store',
+    deleteMotor: 'Motorcycle/delete',
+    fetchMotor: 'Motorcycle/edit',
+    updateMotor: 'Motorcycle/update',
+    getBrand: 'MotorcycleBrand/get',
+    getType: 'MotorcycleType/get'
   }), {
     fetch: function fetch() {
       this.$refs.customerControl.fetch();
+    },
+    addHandler: function addHandler() {
+      this.add = true;
+      this.hide = false;
+    },
+    cancelSubmit: function cancelSubmit() {
+      this.add = false;
+      this.hide = true;
     },
     editHandler: function () {
       var _editHandler = _asyncToGenerator(
@@ -5376,20 +5806,105 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       return editHandler;
     }(),
-    deleteWarning: function deleteWarning(id) {
-      this.id_customer = id;
-      this.warning = true;
-    },
-    deleteHandler: function () {
-      var _deleteHandler = _asyncToGenerator(
+    motorHandler: function () {
+      var _motorHandler = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(id) {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
+                _context2.next = 2;
+                return this.findMotor(id);
+
+              case 2:
+                this.id_customer = id;
+                this.dialog3 = true;
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function motorHandler(_x2) {
+        return _motorHandler.apply(this, arguments);
+      }
+
+      return motorHandler;
+    }(),
+    deleteWarning: function deleteWarning(id) {
+      this.id_customer = id;
+      this.warning = true;
+    },
+    filterType: function filterType(id) {
+      console.log(id);
+      this.id_motorcycle_brand = id;
+    },
+    bindData: function bindData(item) {
+      this.form.license_number = item.license_number;
+      this.form.id_motorcycle_brand = item.id_motorcycle_brand;
+      this.form.id_motorcycle_type = item.id_motorcycle_type;
+    },
+    editMotor: function () {
+      var _editMotor = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id, item) {
+        var payload;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                payload = {
+                  id_motorcycle: id,
+                  license_number: item.license_number,
+                  id_motorcycle_type: item.id_motorcycle_type,
+                  id_customer: this.id_customer
+                };
+                console.log(payload);
+                this.id_motorcycle_brand = item.id_motorcycle_brand;
+                _context3.next = 5;
+                return this.updateMotor(payload);
+
+              case 5:
+                if (this.motorError) {
+                  _context3.next = 8;
+                  break;
+                }
+
+                _context3.next = 8;
+                return this.findMotor(this.id_customer);
+
+              case 8:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function editMotor(_x3, _x4) {
+        return _editMotor.apply(this, arguments);
+      }
+
+      return editMotor;
+    }(),
+    deleteWarning2: function deleteWarning2(id) {
+      this.id_motorcycle = id;
+      this.warning2 = true;
+    },
+    deleteHandler: function () {
+      var _deleteHandler = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
                 console.log(this.id_customer);
-                _context2.next = 3;
+                _context4.next = 3;
                 return this.deleteCustomer(this.id_customer);
 
               case 3:
@@ -5398,10 +5913,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 5:
               case "end":
-                return _context2.stop();
+                return _context4.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee4, this);
       }));
 
       function deleteHandler() {
@@ -5410,21 +5925,54 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       return deleteHandler;
     }(),
+    deleteHandler2: function () {
+      var _deleteHandler2 = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                console.log(this.id_customer);
+                _context5.next = 3;
+                return this.deleteMotor(this.id_motorcycle);
+
+              case 3:
+                _context5.next = 5;
+                return this.findMotor(this.id_customer);
+
+              case 5:
+                this.warning2 = false;
+
+              case 6:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, this);
+      }));
+
+      function deleteHandler2() {
+        return _deleteHandler2.apply(this, arguments);
+      }
+
+      return deleteHandler2;
+    }(),
     submitHandler: function () {
       var _submitHandler = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(value) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(value) {
         var payload;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context6.prev = _context6.next) {
               case 0:
                 payload = {
                   customer_name: value.customer_name,
                   customer_address: value.customer_address,
                   customer_phone_number: value.customer_phone_number
                 };
-                _context3.next = 3;
+                _context6.next = 3;
                 return this.storeCustomer(payload);
 
               case 3:
@@ -5435,26 +5983,68 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 4:
               case "end":
-                return _context3.stop();
+                return _context6.stop();
             }
           }
-        }, _callee3, this);
+        }, _callee6, this);
       }));
 
-      function submitHandler(_x2) {
+      function submitHandler(_x5) {
         return _submitHandler.apply(this, arguments);
       }
 
       return submitHandler;
     }(),
+    submitMotor: function () {
+      var _submitMotor = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(value) {
+        var payload;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                payload = {
+                  license_number: value.license_number,
+                  id_motorcycle_type: value.id_motorcycle_type,
+                  id_customer: this.id_customer
+                };
+                _context7.next = 3;
+                return this.storeMotor(payload);
+
+              case 3:
+                if (this.motorError) {
+                  _context7.next = 8;
+                  break;
+                }
+
+                this.add = false;
+                this.hide = true;
+                _context7.next = 8;
+                return this.findMotor(this.id_customer);
+
+              case 8:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, this);
+      }));
+
+      function submitMotor(_x6) {
+        return _submitMotor.apply(this, arguments);
+      }
+
+      return submitMotor;
+    }(),
     submitHandler2: function () {
       var _submitHandler2 = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(value) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8(value) {
         var payload;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context8) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context8.prev = _context8.next) {
               case 0:
                 console.log(this.id_customer);
                 payload = {
@@ -5463,7 +6053,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   customer_address: value.customer_address,
                   customer_phone_number: value.customer_phone_number
                 };
-                _context4.next = 4;
+                _context8.next = 4;
                 return this.updateCustomer(payload);
 
               case 4:
@@ -5474,13 +6064,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 5:
               case "end":
-                return _context4.stop();
+                return _context8.stop();
             }
           }
-        }, _callee4, this);
+        }, _callee8, this);
       }));
 
-      function submitHandler2(_x3) {
+      function submitHandler2(_x7) {
         return _submitHandler2.apply(this, arguments);
       }
 
@@ -5489,6 +6079,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   mounted: function mounted() {
     this.resetForm();
+    this.getBrand();
+    this.getType();
   }
 });
 
@@ -12108,6 +12700,165 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Form/MotorcycleForm.vue?vue&type=template&id=352250a5&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Form/MotorcycleForm.vue?vue&type=template&id=352250a5& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "VForm",
+    [
+      _c(
+        "VLayout",
+        [
+          _c(
+            "VFlex",
+            { attrs: { sm3: "" } },
+            [
+              _c("VTextField", {
+                staticClass: "pa-1",
+                attrs: {
+                  label: "nomor polisi",
+                  "error-messages": _vm.licenseNumberErrors,
+                  required: ""
+                },
+                on: {
+                  input: function($event) {
+                    return _vm.$v.form.license_number.$touch()
+                  }
+                },
+                model: {
+                  value: _vm.form.license_number,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "license_number", $$v)
+                  },
+                  expression: "form.license_number"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VFlex",
+            { attrs: { sm3: "" } },
+            [
+              _c("v-select", {
+                staticClass: "pa-1",
+                attrs: {
+                  label: "merk motor",
+                  "item-text": "motorcycle_brand_name",
+                  "item-value": "id_motorcycle_brand",
+                  items: _vm.items,
+                  "return-object": false,
+                  "error-messages": _vm.motorcycleBrandErrors,
+                  required: ""
+                },
+                on: {
+                  input: function($event) {
+                    return _vm.$v.form.id_motorcycle_brand.$touch()
+                  }
+                },
+                model: {
+                  value: _vm.form.id_motorcycle_brand,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "id_motorcycle_brand", $$v)
+                  },
+                  expression: "form.id_motorcycle_brand"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VFlex",
+            { attrs: { sm3: "" } },
+            [
+              _c("v-select", {
+                staticClass: "pa-1",
+                attrs: {
+                  label: "type motor",
+                  "item-text": "motorcycle_type_name",
+                  "item-value": "id_motorcycle_type",
+                  items: _vm.filtered,
+                  "return-object": false,
+                  "error-messages": _vm.motorcycleTypeErrors,
+                  required: ""
+                },
+                on: {
+                  input: function($event) {
+                    return _vm.$v.form.id_motorcycle_type.$touch()
+                  }
+                },
+                model: {
+                  value: _vm.form.id_motorcycle_type,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "id_motorcycle_type", $$v)
+                  },
+                  expression: "form.id_motorcycle_type"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VFlex",
+            { staticClass: "text-xs-center", attrs: { sm3: "" } },
+            [
+              _c(
+                "VBtn",
+                {
+                  attrs: {
+                    flat: "",
+                    icon: "",
+                    depressed: "",
+                    color: "success",
+                    disabled: !this.value
+                  },
+                  on: { click: _vm.submitHandler }
+                },
+                [_c("v-icon", [_vm._v("check_box")])],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "VBtn",
+                {
+                  attrs: { flat: "", icon: "", depressed: "", color: "error" },
+                  on: { click: _vm.cancelInput }
+                },
+                [_c("v-icon", [_vm._v("remove_circle")])],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Form/MotorcycleTypeForm.vue?vue&type=template&id=3cb89d7f&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Form/MotorcycleTypeForm.vue?vue&type=template&id=3cb89d7f& ***!
@@ -14710,6 +15461,32 @@ var render = function() {
                                         _c(
                                           "VBtn",
                                           {
+                                            attrs: { flat: "", color: "info" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.motorHandler(
+                                                  props.item.id_customer
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n              List Motor\n              "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      { staticClass: "text-xs-center" },
+                                      [
+                                        _c(
+                                          "VBtn",
+                                          {
                                             attrs: {
                                               flat: "",
                                               icon: "",
@@ -14875,6 +15652,370 @@ var render = function() {
           _c(
             "v-dialog",
             {
+              attrs: { "max-width": 1200, width: 1200 },
+              model: {
+                value: _vm.dialog3,
+                callback: function($$v) {
+                  _vm.dialog3 = $$v
+                },
+                expression: "dialog3"
+              }
+            },
+            [
+              _c(
+                "UtilityCard",
+                { attrs: { title: "List Motor" } },
+                [
+                  _c(
+                    "VCardText",
+                    [
+                      _c("VDataTable", {
+                        attrs: {
+                          headers: _vm.headers2,
+                          items: _vm.motorcycle,
+                          search: _vm.keyword2
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "items",
+                            fn: function(props) {
+                              return [
+                                _c("td", {
+                                  domProps: {
+                                    innerHTML: _vm._s(props.item.id_motorcycle)
+                                  }
+                                }),
+                                _vm._v(" "),
+                                !props.item.edit
+                                  ? _c("td", {
+                                      domProps: {
+                                        innerHTML: _vm._s(
+                                          props.item.license_number
+                                        )
+                                      }
+                                    })
+                                  : _c(
+                                      "td",
+                                      [
+                                        _c("v-text-field", {
+                                          attrs: {
+                                            label: "Edit",
+                                            "single-line": "",
+                                            counter: "",
+                                            "error-messages":
+                                              _vm.licenseNumberErrors,
+                                            required: ""
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              return _vm.$v.form.license_number.$touch()
+                                            }
+                                          },
+                                          model: {
+                                            value: _vm.form.license_number,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.form,
+                                                "license_number",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "form.license_number"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    ),
+                                _vm._v(" "),
+                                !props.item.edit
+                                  ? _c("td", {
+                                      domProps: {
+                                        innerHTML: _vm._s(
+                                          props.item.motorcycle_brand
+                                        )
+                                      }
+                                    })
+                                  : _c(
+                                      "td",
+                                      [
+                                        _c("v-select", {
+                                          attrs: {
+                                            label: "merk motor",
+                                            "item-text":
+                                              "motorcycle_brand_name",
+                                            "item-value": "id_motorcycle_brand",
+                                            items: _vm.brand,
+                                            "single-line": "",
+                                            counter: "",
+                                            "error-messages":
+                                              _vm.motorcycleBrandErrors,
+                                            required: ""
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.filterType(
+                                                _vm.form.id_motorcycle_brand
+                                              )
+                                            },
+                                            input: function($event) {
+                                              return _vm.$v.form.id_motorcycle_brand.$touch()
+                                            }
+                                          },
+                                          model: {
+                                            value: _vm.form.id_motorcycle_brand,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.form,
+                                                "id_motorcycle_brand",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "form.id_motorcycle_brand"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    ),
+                                _vm._v(" "),
+                                !props.item.edit
+                                  ? _c("td", {
+                                      domProps: {
+                                        innerHTML: _vm._s(
+                                          props.item.motorcycle_type
+                                        )
+                                      }
+                                    })
+                                  : _c(
+                                      "td",
+                                      [
+                                        _c("v-select", {
+                                          attrs: {
+                                            label: "merk motor",
+                                            "item-text": "motorcycle_type_name",
+                                            "item-value": "id_motorcycle_type",
+                                            items: _vm.filtered,
+                                            "single-line": "",
+                                            counter: "",
+                                            "error-messages":
+                                              _vm.motorcycleTypeErrors,
+                                            required: ""
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              return _vm.$v.form.id_motorcycle_type.$touch()
+                                            }
+                                          },
+                                          model: {
+                                            value: _vm.form.id_motorcycle_type,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.form,
+                                                "id_motorcycle_type",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "form.id_motorcycle_type"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    ),
+                                _vm._v(" "),
+                                !props.item.edit
+                                  ? _c(
+                                      "td",
+                                      { staticClass: "text-xs-center" },
+                                      [
+                                        _c(
+                                          "VBtn",
+                                          {
+                                            attrs: {
+                                              flat: "",
+                                              icon: "",
+                                              color: "indigo",
+                                              dark: "",
+                                              disabled: _vm.value
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                ;(props.item.edit = true),
+                                                  _vm.bindData(props.item),
+                                                  _vm.filterType(
+                                                    props.item
+                                                      .id_motorcycle_brand
+                                                  )
+                                              }
+                                            }
+                                          },
+                                          [_c("v-icon", [_vm._v("edit")])],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "VBtn",
+                                          {
+                                            attrs: {
+                                              flat: "",
+                                              icon: "",
+                                              color: "error",
+                                              dark: ""
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.deleteWarning2(
+                                                  props.item.id_motorcycle
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [_c("v-icon", [_vm._v("delete")])],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  : _c(
+                                      "td",
+                                      { staticClass: "text-xs-center" },
+                                      [
+                                        _c(
+                                          "VBtn",
+                                          {
+                                            attrs: {
+                                              flat: "",
+                                              icon: "",
+                                              depressed: "",
+                                              color: "success"
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                _vm.editMotor(
+                                                  props.item.id_motorcycle,
+                                                  _vm.form
+                                                ),
+                                                  (props.item.edit = false)
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("v-icon", [
+                                              _vm._v("check_circle")
+                                            ])
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "VBtn",
+                                          {
+                                            attrs: {
+                                              flat: "",
+                                              icon: "",
+                                              depressed: "",
+                                              color: "error"
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                props.item.edit = false
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("v-icon", [
+                                              _vm._v("remove_circle")
+                                            ])
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                              ]
+                            }
+                          },
+                          {
+                            key: "footer",
+                            fn: function() {
+                              return [
+                                _vm.add
+                                  ? _c(
+                                      "td",
+                                      {
+                                        attrs: { colspan: _vm.headers.length }
+                                      },
+                                      [
+                                        _c("MotorcycleForm", {
+                                          staticClass: "mt-2",
+                                          on: {
+                                            submitted: _vm.submitMotor,
+                                            canceled: _vm.cancelSubmit
+                                          },
+                                          model: {
+                                            value: _vm.isFormValid2,
+                                            callback: function($$v) {
+                                              _vm.isFormValid2 = $$v
+                                            },
+                                            expression: "isFormValid2"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm.hide
+                                  ? _c(
+                                      "td",
+                                      {
+                                        staticStyle: { "text-align": "right" },
+                                        attrs: { colspan: _vm.headers.length }
+                                      },
+                                      [
+                                        _c(
+                                          "VBtn",
+                                          {
+                                            attrs: {
+                                              flat: "",
+                                              icon: "",
+                                              depressed: "",
+                                              color: "success"
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.addHandler()
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("v-icon", [_vm._v("add_circle")])
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  : _vm._e()
+                              ]
+                            },
+                            proxy: true
+                          }
+                        ])
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
               attrs: { persistent: "", "max-width": "500" },
               model: {
                 value: _vm.warning,
@@ -14936,6 +16077,87 @@ var render = function() {
                           on: {
                             click: function($event) {
                               return _vm.deleteHandler()
+                            }
+                          }
+                        },
+                        [_vm._v("Agree")]
+                      ),
+                      _vm._v(" "),
+                      _c("v-spacer")
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { persistent: "", width: 500 },
+              model: {
+                value: _vm.warning2,
+                callback: function($$v) {
+                  _vm.warning2 = $$v
+                },
+                expression: "warning2"
+              }
+            },
+            [
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", { staticClass: "headline" }, [
+                    _vm._v("Warning!")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-text",
+                    {
+                      staticClass: "text-md-center",
+                      staticStyle: { "font-size": "15px" }
+                    },
+                    [_vm._v("Anda yakin ingin menghapus data ini?")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "VBtn",
+                        {
+                          staticClass: "mb-4",
+                          attrs: {
+                            depressed: "",
+                            dark: "",
+                            color: "red accent-3"
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.warning2 = false
+                            }
+                          }
+                        },
+                        [_vm._v("Disagree")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "VBtn",
+                        {
+                          staticClass: "mb-4",
+                          attrs: {
+                            depressed: "",
+                            dark: "",
+                            color: "green accent-3"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteHandler2()
                             }
                           }
                         },
@@ -62971,6 +64193,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Form/MotorcycleForm.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/Form/MotorcycleForm.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MotorcycleForm_vue_vue_type_template_id_352250a5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MotorcycleForm.vue?vue&type=template&id=352250a5& */ "./resources/js/components/Form/MotorcycleForm.vue?vue&type=template&id=352250a5&");
+/* harmony import */ var _MotorcycleForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MotorcycleForm.vue?vue&type=script&lang=js& */ "./resources/js/components/Form/MotorcycleForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MotorcycleForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MotorcycleForm_vue_vue_type_template_id_352250a5___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MotorcycleForm_vue_vue_type_template_id_352250a5___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Form/MotorcycleForm.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Form/MotorcycleForm.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/Form/MotorcycleForm.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MotorcycleForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./MotorcycleForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Form/MotorcycleForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MotorcycleForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Form/MotorcycleForm.vue?vue&type=template&id=352250a5&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/Form/MotorcycleForm.vue?vue&type=template&id=352250a5& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MotorcycleForm_vue_vue_type_template_id_352250a5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./MotorcycleForm.vue?vue&type=template&id=352250a5& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Form/MotorcycleForm.vue?vue&type=template&id=352250a5&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MotorcycleForm_vue_vue_type_template_id_352250a5___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MotorcycleForm_vue_vue_type_template_id_352250a5___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Form/MotorcycleTypeForm.vue":
 /*!*************************************************************!*\
   !*** ./resources/js/components/Form/MotorcycleTypeForm.vue ***!
@@ -63389,15 +64680,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!********************************************************!*\
   !*** ./resources/js/components/Navbar/AdminNavbar.vue ***!
   \********************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AdminNavbar_vue_vue_type_template_id_cefd936a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminNavbar.vue?vue&type=template&id=cefd936a& */ "./resources/js/components/Navbar/AdminNavbar.vue?vue&type=template&id=cefd936a&");
 /* harmony import */ var _AdminNavbar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminNavbar.vue?vue&type=script&lang=js& */ "./resources/js/components/Navbar/AdminNavbar.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _AdminNavbar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _AdminNavbar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -63427,7 +64717,7 @@ component.options.__file = "resources/js/components/Navbar/AdminNavbar.vue"
 /*!*********************************************************************************!*\
   !*** ./resources/js/components/Navbar/AdminNavbar.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -65339,6 +66629,244 @@ __webpack_require__.r(__webpack_exports__);
       throw err;
     }
   }
+});
+
+/***/ }),
+
+/***/ "./resources/js/service/Motorcycle.js":
+/*!********************************************!*\
+  !*** ./resources/js/service/Motorcycle.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Http */ "./resources/js/service/Http.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/motorcycles');
+
+            case 3:
+              res = _context.sent;
+              return _context.abrupt("return", res.data.data);
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](0);
+              throw new Error('Gagal mendapatkan data motorcycles!');
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this, [[0, 7]]);
+    }));
+
+    function get() {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/motorcycles', payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              throw new Error('Gagal simpan motorcycles baru!');
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, this, [[0, 5]]);
+    }));
+
+    function store(_x) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  find: function () {
+    var _find = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/motorcycles/".concat(id));
+
+            case 3:
+              res = _context3.sent;
+              return _context3.abrupt("return", res.data.data);
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              throw new Error('Gagal mendapatkan data motorcycles!');
+
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, this, [[0, 7]]);
+    }));
+
+    function find(_x2) {
+      return _find.apply(this, arguments);
+    }
+
+    return find;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id, payload) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].patch("/api/motorcycles/".concat(id), payload);
+
+            case 3:
+              res = _context4.sent;
+              return _context4.abrupt("return", res.data.data);
+
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              throw new Error('Gagal update data motorcycles!');
+
+            case 10:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, this, [[0, 7]]);
+    }));
+
+    function update(_x3, _x4) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].delete("/api/motorcycles/".concat(id));
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              throw new Error('Gagal hapus data motorcycles');
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, this, [[0, 5]]);
+    }));
+
+    function _delete(_x5) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }(),
+  findByUser: function () {
+    var _findByUser = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.prev = 0;
+              _context6.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/usermotorcycles/".concat(id));
+
+            case 3:
+              res = _context6.sent;
+              return _context6.abrupt("return", res.data.data);
+
+            case 7:
+              _context6.prev = 7;
+              _context6.t0 = _context6["catch"](0);
+              throw new Error('Gagal mendapatkan data motorcycles!');
+
+            case 10:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, this, [[0, 7]]);
+    }));
+
+    function findByUser(_x6) {
+      return _findByUser.apply(this, arguments);
+    }
+
+    return findByUser;
+  }()
 });
 
 /***/ }),
@@ -68025,6 +69553,308 @@ var getters = {
 
 /***/ }),
 
+/***/ "./resources/js/store/modules/Motorcycle.js":
+/*!**************************************************!*\
+  !*** ./resources/js/store/modules/Motorcycle.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_Motorcycle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/Motorcycle */ "./resources/js/service/Motorcycle.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  motorcycles: [],
+  motorcycle: {
+    license_number: '',
+    id_motorcycle_type: '',
+    id_motorcycle_brand: '',
+    id_customer: ''
+  },
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.motorcycles = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  },
+  setMotorcycleForm: function setMotorcycleForm(state, payload) {
+    state.motorcycle.license_number = payload.license_number;
+    state.motorcycle.id_motorcycle_type = payload.id_motorcycle_type;
+    state.motorcycle.id_motorcycle_brand = payload.id_motorcycle_brand;
+    state.motorcycle.id_customer = payload.id_customer;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  },
+  motorcycle: function motorcycle(state) {
+    return state.motorcycle;
+  }
+};
+var actions = {
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.t0 = context;
+              _context.next = 4;
+              return _service_Motorcycle__WEBPACK_IMPORTED_MODULE_1__["default"].get();
+
+            case 4:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'setSource', _context.t1);
+
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t2 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t2);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this, [[0, 8]]);
+    }));
+
+    function get(_x) {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  findByUser: function () {
+    var _findByUser = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.t0 = context;
+              _context2.next = 4;
+              return _service_Motorcycle__WEBPACK_IMPORTED_MODULE_1__["default"].findByUser(id);
+
+            case 4:
+              _context2.t1 = _context2.sent;
+
+              _context2.t0.commit.call(_context2.t0, 'setSource', _context2.t1);
+
+              _context2.next = 11;
+              break;
+
+            case 8:
+              _context2.prev = 8;
+              _context2.t2 = _context2["catch"](0);
+              context.commit('setFailedAction', _context2.t2);
+
+            case 11:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, this, [[0, 8]]);
+    }));
+
+    function findByUser(_x2, _x3) {
+      return _findByUser.apply(this, arguments);
+    }
+
+    return findByUser;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _service_Motorcycle__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+
+            case 3:
+              _context3.next = 8;
+              break;
+
+            case 5:
+              _context3.prev = 5;
+              _context3.t0 = _context3["catch"](0);
+              context.commit('setFailedStore', _context3.t0);
+
+            case 8:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, this, [[0, 5]]);
+    }));
+
+    function store(_x4, _x5) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  edit: function () {
+    var _edit = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return _service_Motorcycle__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
+
+            case 3:
+              res = _context4.sent;
+              context.commit('setMotorcycleForm', res);
+              _context4.next = 10;
+              break;
+
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              context.commit('setFailedAction', _context4.t0);
+
+            case 10:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, this, [[0, 7]]);
+    }));
+
+    function edit(_x6, _x7) {
+      return _edit.apply(this, arguments);
+    }
+
+    return edit;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              data = {
+                license_number: payload.license_number,
+                id_motorcycle_type: payload.id_motorcycle_type,
+                id_customer: payload.id_customer
+              };
+              _context5.next = 4;
+              return _service_Motorcycle__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_motorcycle, data);
+
+            case 4:
+              _context5.next = 9;
+              break;
+
+            case 6:
+              _context5.prev = 6;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
+
+            case 9:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, this, [[0, 6]]);
+    }));
+
+    function update(_x8, _x9) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.prev = 0;
+              _context6.next = 3;
+              return _service_Motorcycle__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+
+            case 3:
+              _context6.next = 8;
+              break;
+
+            case 5:
+              _context6.prev = 5;
+              _context6.t0 = _context6["catch"](0);
+              context.commit('setFailedAction', _context6.t0);
+
+            case 8:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, this, [[0, 5]]);
+    }));
+
+    function _delete(_x10, _x11) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }(),
+  resetForm: function resetForm(context) {
+    context.commit('setMotorcycleForm', {});
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
 /***/ "./resources/js/store/modules/MotorcycleBrand.js":
 /*!*******************************************************!*\
   !*** ./resources/js/store/modules/MotorcycleBrand.js ***!
@@ -70239,6 +72069,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MotorcycleBrand__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./MotorcycleBrand */ "./resources/js/store/modules/MotorcycleBrand.js");
 /* harmony import */ var _MotorcycleType__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./MotorcycleType */ "./resources/js/store/modules/MotorcycleType.js");
 /* harmony import */ var _Customer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Customer */ "./resources/js/store/modules/Customer.js");
+/* harmony import */ var _Motorcycle__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Motorcycle */ "./resources/js/store/modules/Motorcycle.js");
+
 
 
 
@@ -70265,7 +72097,8 @@ __webpack_require__.r(__webpack_exports__);
   SparepartType: _SparepartType__WEBPACK_IMPORTED_MODULE_9__["default"],
   MotorcycleBrand: _MotorcycleBrand__WEBPACK_IMPORTED_MODULE_10__["default"],
   MotorcycleType: _MotorcycleType__WEBPACK_IMPORTED_MODULE_11__["default"],
-  Customer: _Customer__WEBPACK_IMPORTED_MODULE_12__["default"]
+  Customer: _Customer__WEBPACK_IMPORTED_MODULE_12__["default"],
+  Motorcycle: _Motorcycle__WEBPACK_IMPORTED_MODULE_13__["default"]
 });
 
 /***/ }),
@@ -70411,6 +72244,35 @@ __webpack_require__.r(__webpack_exports__);
       required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
     },
     id_motorcycle_brand: {
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/validations/motorcycleValidation.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/validations/motorcycleValidation.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  form: {
+    license_number: {
+      maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["maxLength"])(11),
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+    },
+    id_motorcycle_brand: {
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+    },
+    id_motorcycle_type: {
       required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
     }
   }
