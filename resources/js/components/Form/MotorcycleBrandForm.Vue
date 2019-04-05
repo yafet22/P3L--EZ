@@ -1,38 +1,59 @@
 <template>
-  <VForm>
-    <VLayout>
-      <VFlex>
-        <VTextField
-          label="Nama"
-          class="pa-1"
-          v-model="form.motorcycle_brand_name"
-          :error-messages="nameErrors"
-          @input="$v.form.motorcycle_brand_name.$touch()"
-          required
-        />
-      </VFlex>
-    </VLayout>
-    <VSpacer />
-    <VLayout>
-      <VFlex
-        class="text-xs-center"
+   <div>
+    <VCardText
+      v-if="loading || error"
+      class="text-xs-center"
+    >
+      <VAlert
+        v-if="error"
+        :value="true"
+        dismissible
+        type="error"
       >
-        <VBtn
-          depressed
-          color="success"
-          @click="submitHandler"
-          :disabled="!this.value"
+      {{ error.message }}
+      </VAlert>
+      <VProgressCircular
+        v-if="loading"
+        :size="45"
+        indeterminate
+        class="loading-section"
+      />
+    </VCardText>
+    <VForm>
+      <VLayout>
+        <VFlex>
+          <VTextField
+            label="Nama"
+            class="pa-1"
+            v-model="form.motorcycle_brand_name"
+            :error-messages="nameErrors"
+            @input="$v.form.motorcycle_brand_name.$touch()"
+            required
+          />
+        </VFlex>
+      </VLayout>
+      <VSpacer />
+      <VLayout>
+        <VFlex
+          class="text-xs-center"
         >
-          Kirim
-        </VBtn>
-      </VFlex>
-    </VLayout>
-  </VForm>
+          <VBtn
+            depressed
+            color="success"
+            @click="submitHandler"
+            :disabled="!this.value"
+          >
+            Kirim
+          </VBtn>
+        </VFlex>
+      </VLayout>
+    </VForm>
+   </div>
 </template>
 
 <script>
 import validator from '../../validations/motorcycleBrandValidation'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
   props: {
@@ -45,6 +66,11 @@ export default {
   computed: {
     ...mapGetters({
       form: 'MotorcycleBrand/motorcycleBrand'
+    }),
+
+    ...mapState({
+      error: state => state.MotorcycleBrand.error,
+      loading: state => state.MotorcycleBrand.loading
     }),
     
     nameErrors () {

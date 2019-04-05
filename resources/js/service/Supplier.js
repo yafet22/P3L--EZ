@@ -38,7 +38,7 @@ export default {
       throw new Error('Gagal update data supplier!')
     }
   },
-
+  
   async delete (id) {
     try {
       await http.delete(`/api/suppliers/${id}`)

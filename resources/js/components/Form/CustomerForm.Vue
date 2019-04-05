@@ -1,62 +1,83 @@
 <template>
-  <VForm>
-    <VLayout>
-      <VFlex>
-        <VTextField
-          label="Nama"
-          class="pa-1"
-          v-model="form.customer_name"
-          :error-messages="nameErrors"
-          @input="$v.form.customer_name.$touch()"
-          required
-        />
-      </VFlex>
-    </VLayout>
-    <VLayout>
-      <VFlex>
-        <VTextField
-          label="Alamat"
-          class="pa-1"
-          v-model="form.customer_address"
-          :error-messages="addressErrors"
-          @input="$v.form.customer_address.$touch()"
-          required
-        />
-      </VFlex>
-    </VLayout>
-    <VLayout>
-      <VFlex>
-        <VTextField
-          label="No Telepon"
-          class="pa-1"
-          v-model="form.customer_phone_number"
-          :error-messages="phoneNumberErrors"
-          @input="$v.form.customer_phone_number.$touch()"
-          required
-        />
-      </VFlex>
-    </VLayout>
-    <VSpacer />
-    <VLayout>
-      <VFlex
-        class="text-xs-center"
+  <div>
+    <VCardText
+      v-if="loading || error"
+      class="text-xs-center"
+    >
+      <VAlert
+        v-if="error"
+        :value="true"
+        dismissible
+        type="error"
       >
-        <VBtn
-          depressed
-          color="success"
-          @click="submitHandler"
-          :disabled="!this.value"
+      {{ error.message }}
+      </VAlert>
+      <VProgressCircular
+        v-if="loading"
+        :size="45"
+        indeterminate
+        class="loading-section"
+      />
+    </VCardText>
+    <VForm>
+      <VLayout>
+        <VFlex>
+          <VTextField
+            label="Nama"
+            class="pa-1"
+            v-model="form.customer_name"
+            :error-messages="nameErrors"
+            @input="$v.form.customer_name.$touch()"
+            required
+          />
+        </VFlex>
+      </VLayout>
+      <VLayout>
+        <VFlex>
+          <VTextField
+            label="Alamat"
+            class="pa-1"
+            v-model="form.customer_address"
+            :error-messages="addressErrors"
+            @input="$v.form.customer_address.$touch()"
+            required
+          />
+        </VFlex>
+      </VLayout>
+      <VLayout>
+        <VFlex>
+          <VTextField
+            label="No Telepon"
+            class="pa-1"
+            v-model="form.customer_phone_number"
+            :error-messages="phoneNumberErrors"
+            @input="$v.form.customer_phone_number.$touch()"
+            required
+          />
+        </VFlex>
+      </VLayout>
+      <VSpacer />
+      <VLayout>
+        <VFlex
+          class="text-xs-center"
         >
-          Kirim
-        </VBtn>
-      </VFlex>
-    </VLayout>
-  </VForm>
+          <VBtn
+            depressed
+            color="success"
+            @click="submitHandler"
+            :disabled="!this.value"
+          >
+            Kirim
+          </VBtn>
+        </VFlex>
+      </VLayout>
+    </VForm>
+   </div>
 </template>
 
 <script>
 import validator from '../../validations/customerValidation'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
   props: {
@@ -69,6 +90,11 @@ export default {
   computed: {
     ...mapGetters({
       form: 'Customer/customer'
+    }),
+
+    ...mapState({
+      error: state => state.Customer.error,
+      loading: state => state.Customer.loading
     }),
     
     nameErrors () {

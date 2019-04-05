@@ -1,49 +1,70 @@
 <template>
-  <VForm>
-    <VLayout>
-      <VFlex>
-        <VTextField
-          label="Nama"
-          class="pa-1"
-          v-model="form.motorcycle_type_name"
-          :error-messages="nameErrors"
-          @input="$v.form.motorcycle_type_name.$touch()"
-          required
-        />
-      </VFlex>
-    </VLayout>
-    <VLayout>
-      <VFlex>
-        <v-select
-          label="Brand"
-          class="pa-1"
-          v-model="form.id_motorcycle_brand"
-          item-text="motorcycle_brand_name"
-          item-value="id_motorcycle_brand"
-          :items="items"
-          :return-object="false"
-          :error-messages="motorcycleBrandErrors"
-          @input="$v.form.id_motorcycle_brand.$touch()"
-          required
-        ></v-select>
-      </VFlex>
-    </VLayout>
-    <VSpacer />
-    <VLayout>
-      <VFlex
-        class="text-xs-center"
+  <div>
+    <VCardText
+      v-if="loading || error"
+      class="text-xs-center"
+    >
+      <VAlert
+        v-if="error"
+        :value="true"
+        dismissible
+        type="error"
       >
-        <VBtn
-          depressed
-          color="success"
-          @click="submitHandler"
-          :disabled="!this.value"
+      {{ error.message }}
+      </VAlert>
+      <VProgressCircular
+        v-if="loading"
+        :size="45"
+        indeterminate
+        class="loading-section"
+      />
+    </VCardText>
+    <VForm>
+      <VLayout>
+        <VFlex>
+          <VTextField
+            label="Nama"
+            class="pa-1"
+            v-model="form.motorcycle_type_name"
+            :error-messages="nameErrors"
+            @input="$v.form.motorcycle_type_name.$touch()"
+            required
+          />
+        </VFlex>
+      </VLayout>
+      <VLayout>
+        <VFlex>
+          <v-select
+            label="Brand"
+            class="pa-1"
+            v-model="form.id_motorcycle_brand"
+            item-text="motorcycle_brand_name"
+            item-value="id_motorcycle_brand"
+            :items="items"
+            :return-object="false"
+            :error-messages="motorcycleBrandErrors"
+            @input="$v.form.id_motorcycle_brand.$touch()"
+            required
+          ></v-select>
+        </VFlex>
+      </VLayout>
+      <VSpacer />
+      <VLayout>
+        <VFlex
+          class="text-xs-center"
         >
-          Kirim
-        </VBtn>
-      </VFlex>
-    </VLayout>
-  </VForm>
+          <VBtn
+            depressed
+            color="success"
+            @click="submitHandler"
+            :disabled="!this.value"
+          >
+            Kirim
+          </VBtn>
+        </VFlex>
+      </VLayout>
+    </VForm>
+   </div>
 </template>
 
 <script>
@@ -61,7 +82,8 @@ export default {
   computed: {
     ...mapState({
       items: state => state.MotorcycleBrand.motorcycleBrands,
-      
+      error: state => state.MotorcycleType.error,
+      loading: state => state.MotorcycleType.loading
     }),
     ...mapGetters({
       form: 'MotorcycleType/motorcycleType'

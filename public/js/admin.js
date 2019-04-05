@@ -2035,6 +2035,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2046,6 +2067,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     form: 'Branch/branch'
+  }), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
+    error: function error(state) {
+      return state.Branch.error;
+    },
+    loading: function loading(state) {
+      return state.Branch.loading;
+    }
   }), {
     nameErrors: function nameErrors() {
       var errors = [];
@@ -2175,6 +2203,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2186,6 +2235,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     form: 'Customer/customer'
+  }), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
+    error: function error(state) {
+      return state.Customer.error;
+    },
+    loading: function loading(state) {
+      return state.Customer.loading;
+    }
   }), {
     nameErrors: function nameErrors() {
       var errors = [];
@@ -2372,6 +2428,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2389,6 +2466,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     items2: function items2(state) {
       return state.Branch.branches;
+    },
+    error: function error(state) {
+      return state.Employee.error;
+    },
+    loading: function loading(state) {
+      return state.Employee.loading;
     }
   }), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     form: 'Employee/employee'
@@ -2549,6 +2632,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2560,6 +2664,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     form: 'MotorcycleBrand/motorcycleBrand'
+  }), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
+    error: function error(state) {
+      return state.MotorcycleBrand.error;
+    },
+    loading: function loading(state) {
+      return state.MotorcycleBrand.loading;
+    }
   }), {
     nameErrors: function nameErrors() {
       var errors = [];
@@ -2673,6 +2784,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2688,6 +2821,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     items2: function items2(state) {
       return state.MotorcycleType.motorcycleTypes;
+    },
+    error: function error(state) {
+      return state.Motorcycle.error;
+    },
+    loading: function loading(state) {
+      return state.Motorcycle.loading;
     }
   }), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     form: 'Motorcycle/motorcycle'
@@ -2826,6 +2965,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2838,6 +2998,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
     items: function items(state) {
       return state.MotorcycleBrand.motorcycleBrands;
+    },
+    error: function error(state) {
+      return state.MotorcycleType.error;
+    },
+    loading: function loading(state) {
+      return state.MotorcycleType.loading;
     }
   }), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     form: 'MotorcycleType/motorcycleType'
@@ -2962,6 +3128,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2975,6 +3162,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
     items: function items(state) {
       return state.Supplier.suppliers;
+    },
+    error: function error(state) {
+      return state.Sales.error;
+    },
+    loading: function loading(state) {
+      return state.Sales.loading;
     }
   }), Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
     form: 'Sales/sales'
@@ -3100,6 +3293,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3111,6 +3325,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     form: 'Service/service'
+  }), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
+    error: function error(state) {
+      return state.Service.error;
+    },
+    loading: function loading(state) {
+      return state.Service.loading;
+    }
   }), {
     nameErrors: function nameErrors() {
       var errors = [];
@@ -3346,6 +3567,92 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3378,6 +3685,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         id: "KAYU",
         text: 'Lemari Kayu'
       }],
+      motorcycles: [],
+      motorcycleTypes: [],
+      id_motorcycle_type: '',
       imageName: '',
       defaultImg: 'http://localhost:8000/asset/default.png',
       imageUrl: ''
@@ -3386,8 +3696,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
     items: function items(state) {
       return state.SparepartType.sparepartTypes;
+    },
+    error: function error(state) {
+      return state.Sparepart.error;
+    },
+    loading: function loading(state) {
+      return state.Sparepart.loading;
+    },
+    brands: function brands(state) {
+      return state.MotorcycleBrand.motorcycleBrands;
+    },
+    types: function types(state) {
+      return state.MotorcycleType.motorcycleTypes;
     }
-  }), Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
+  }), {
+    filtered: function filtered() {
+      var _this = this;
+
+      var filter = this.types.filter(function (b) {
+        return b.id_motorcycle_brand === _this.form.id_motorcycle_brand;
+      });
+      return filter;
+    }
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
     form: 'Sparepart/sparepart'
   }), {
     nameErrors: function nameErrors() {
@@ -3541,16 +3872,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])({
-    fetch: 'SparepartType/get'
+    fetch: 'SparepartType/get',
+    fetchBrand: 'MotorcycleBrand/get',
+    fetchType: 'MotorcycleType/get'
   }), {
+    deleteList: function deleteList(id) {
+      var filter = this.motorcycles.filter(function (obj) {
+        return obj.id_motorcycle_type !== id;
+      });
+      this.motorcycles = filter;
+    },
     submitHandler: function submitHandler() {
       this.$emit('submitted', this.form);
     },
     pickFile: function pickFile() {
       this.$refs.image.click();
     },
+    compatibilityHandler: function compatibilityHandler(items) {
+      var object = items[this.form.id_motorcycle_type - 1];
+      this.motorcycles.push(JSON.parse(JSON.stringify(object)));
+      this.form.motorcycleTypes.push(this.form.id_motorcycle_type);
+    },
     onFilePicked: function onFilePicked(e) {
-      var _this = this;
+      var _this2 = this;
 
       var files = e.target.files;
 
@@ -3564,8 +3908,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         var fr = new FileReader();
         fr.readAsDataURL(files[0]);
         fr.addEventListener('load', function () {
-          _this.imageUrl = fr.result;
-          _this.form.image = files[0]; // this is an image file that can be sent to server...
+          _this2.imageUrl = fr.result;
+          _this2.form.image = files[0]; // this is an image file that can be sent to server...
         });
       } else {
         this.imageName = '';
@@ -3575,6 +3919,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   mounted: function mounted() {
     this.fetch();
+    this.fetchBrand();
+    this.fetchType();
   }
 });
 
@@ -3651,6 +3997,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3662,6 +4029,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     form: 'Supplier/supplier'
+  }), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
+    error: function error(state) {
+      return state.Supplier.error;
+    },
+    loading: function loading(state) {
+      return state.Supplier.loading;
+    }
   }), {
     nameErrors: function nameErrors() {
       var errors = [];
@@ -3779,6 +4153,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3790,17 +4173,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     form: 'User/user'
-  }), {
-    usernameErrors: function usernameErrors() {
-      var errors = [];
-      if (!this.$v.form.username.$invalid) return errors;
-
-      if (!this.$v.form.username.required && this.$v.form.username.$dirty) {
-        errors.push('Inputan username tidak valid');
-      }
-
-      return errors;
+  }), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
+    error: function error(state) {
+      return state.User.error;
     },
+    loading: function loading(state) {
+      return state.User.loading;
+    }
+  }), {
     passwordErrors: function passwordErrors() {
       var errors = [];
       if (!this.$v.form.password.$invalid) return errors;
@@ -4841,6 +5221,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5599,6 +5998,44 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5704,7 +6141,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       var filter = this.type.filter(function (b) {
-        return b.id_motorcycle_brand === _this.id_motorcycle_brand;
+        return b.id_motorcycle_brand === _this.form.id_motorcycle_brand;
       });
       return filter;
     },
@@ -6270,6 +6707,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -6431,6 +6887,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 if (!this.branchError) {
                   this.dialog = false;
                   this.fetch();
+                  this.resetForm();
                 }
 
               case 4:
@@ -6474,6 +6931,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 if (!this.branchError) {
                   this.dialog2 = false;
                   this.fetch();
+                  this.resetForm();
                 }
 
               case 5:
@@ -6660,6 +7118,25 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7153,6 +7630,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -7386,6 +7882,25 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7890,6 +8405,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -8261,6 +8795,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -8335,7 +8888,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     storeSparepart: 'Sparepart/store',
     resetForm: 'Sparepart/resetForm',
     updateSparepart: 'Sparepart/update',
-    fetchSparepart: 'Sparepart/edit'
+    fetchSparepart: 'Sparepart/edit',
+    update: 'Sparepart/updatesparepart'
   }), {
     fetch: function fetch() {
       this.$refs.sparepartControl.fetch();
@@ -8423,8 +8977,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   purchase_price: value.purchase_price,
                   sell_price: value.sell_price,
                   placement: value.position + '-' + value.place + '-' + value.number,
-                  id_sparepart_type: value.id_sparepart_type
+                  id_sparepart_type: value.id_sparepart_type,
+                  motorcycleTypes: value.motorcycleTypes
                 };
+                console.log(value.motorcycleTypes);
                 payload = new FormData();
                 payload.append('sparepart_name', value.sparepart_name);
                 payload.append('image', value.image);
@@ -8436,17 +8992,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 payload.append('sell_price', value.sell_price);
                 payload.append('placement', value.position + '-' + value.place + '-' + value.number);
                 payload.append('id_sparepart_type', value.id_sparepart_type);
+                payload.append('motorcycleTypes', value.motorcycleTypes);
                 console.log(payload);
-                _context3.next = 15;
+                _context3.next = 17;
                 return this.storeSparepart(payload);
 
-              case 15:
+              case 17:
                 if (!this.sparepartError) {
                   this.dialog = false;
                   this.fetch();
                 }
 
-              case 16:
+              case 18:
               case "end":
                 return _context3.stop();
             }
@@ -8482,16 +9039,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   placement: value.position + '-' + value.place + '-' + value.number,
                   id_sparepart_type: value.id_sparepart_type
                 };
-                _context4.next = 4;
+                console.log(payload);
+                _context4.next = 5;
                 return this.updateSparepart(payload);
 
-              case 4:
+              case 5:
                 if (!this.sparepartError) {
                   this.dialog2 = false;
                   this.fetch();
                 }
 
-              case 5:
+              case 6:
               case "end":
                 return _context4.stop();
             }
@@ -8672,6 +9230,70 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -8688,8 +9310,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       dialog: false,
       dialog2: false,
       warning: false,
+      dialog3: false,
       keyword: '',
       id_supplier: '',
+      keyword2: '',
       headers: [{
         text: 'ID',
         value: 'id_supplier'
@@ -8705,6 +9329,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }, {
         text: 'Aksi',
         value: null
+      }],
+      headers2: [{
+        text: 'ID',
+        value: 'id_sales'
+      }, {
+        text: 'Nama Sales',
+        value: 'sales_name'
+      }, {
+        text: 'Nomor Telepon Sales',
+        value: 'sales_phone_number'
       }],
       breadcrumbs: [{
         text: 'Dashboard',
@@ -8724,6 +9358,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     supplierLoading: function supplierLoading(state) {
       return state.Supplier.loading;
+    },
+    sales: function sales(state) {
+      return state.Sales.salesmany;
     }
   })),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapActions"])({
@@ -8731,28 +9368,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     storeSupplier: 'Supplier/store',
     resetForm: 'Supplier/resetForm',
     updateSupplier: 'Supplier/update',
-    fetchSupplier: 'Supplier/edit'
+    fetchSupplier: 'Supplier/edit',
+    findSales: 'Sales/findBySupplier'
   }), {
     fetch: function fetch() {
       this.$refs.supplierControl.fetch();
     },
-    editHandler: function () {
-      var _editHandler = _asyncToGenerator(
+    salesHandler: function () {
+      var _salesHandler = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log(id);
+                _context.next = 2;
+                return this.findSales(id);
+
+              case 2:
                 this.id_supplier = id;
-                _context.next = 4;
-                return this.fetchSupplier(id);
+                this.dialog3 = true;
 
               case 4:
-                this.dialog2 = true;
-
-              case 5:
               case "end":
                 return _context.stop();
             }
@@ -8760,7 +9397,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee, this);
       }));
 
-      function editHandler(_x) {
+      function salesHandler(_x) {
+        return _salesHandler.apply(this, arguments);
+      }
+
+      return salesHandler;
+    }(),
+    editHandler: function () {
+      var _editHandler = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(id) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                console.log(id);
+                this.id_supplier = id;
+                _context2.next = 4;
+                return this.fetchSupplier(id);
+
+              case 4:
+                this.dialog2 = true;
+
+              case 5:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function editHandler(_x2) {
         return _editHandler.apply(this, arguments);
       }
 
@@ -8773,13 +9440,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     deleteHandler: function () {
       var _deleteHandler = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 console.log(this.id_supplier);
-                _context2.next = 3;
+                _context3.next = 3;
                 return this.deleteSupplier(this.id_supplier);
 
               case 3:
@@ -8788,10 +9455,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 5:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee3, this);
       }));
 
       function deleteHandler() {
@@ -8803,18 +9470,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     submitHandler: function () {
       var _submitHandler = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(value) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(value) {
         var payload;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
                 payload = {
                   supplier_name: value.supplier_name,
                   supplier_address: value.supplier_address,
                   supplier_phone_number: value.supplier_phone_number
                 };
-                _context3.next = 3;
+                _context4.next = 3;
                 return this.storeSupplier(payload);
 
               case 3:
@@ -8825,13 +9492,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 4:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, this);
+        }, _callee4, this);
       }));
 
-      function submitHandler(_x2) {
+      function submitHandler(_x3) {
         return _submitHandler.apply(this, arguments);
       }
 
@@ -8840,11 +9507,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     submitHandler2: function () {
       var _submitHandler2 = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(value) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(value) {
         var payload;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context5.prev = _context5.next) {
               case 0:
                 console.log(this.id_supplier);
                 payload = {
@@ -8853,7 +9520,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   supplier_address: value.supplier_address,
                   supplier_phone_number: value.supplier_phone_number
                 };
-                _context4.next = 4;
+                _context5.next = 4;
                 return this.updateSupplier(payload);
 
               case 4:
@@ -8864,13 +9531,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 5:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4, this);
+        }, _callee5, this);
       }));
 
-      function submitHandler2(_x3) {
+      function submitHandler2(_x4) {
         return _submitHandler2.apply(this, arguments);
       }
 
@@ -9012,6 +9679,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -9029,10 +9715,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       dialog2: false,
       warning: false,
       keyword: '',
-      id_user: '',
+      id: '',
       headers: [{
         text: 'ID',
-        value: 'id_user'
+        value: 'id'
       }, {
         text: 'Username',
         value: 'username'
@@ -9072,11 +9758,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     editHandler: function editHandler(id) {
       console.log(id);
-      this.id_user = id;
+      this.id = id;
       this.dialog2 = true;
     },
     deleteWarning: function deleteWarning(id) {
-      this.id_user = id;
+      this.id = id;
       this.warning = true;
     },
     deleteHandler: function () {
@@ -9087,9 +9773,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log(this.id_user);
+                console.log(this.id);
                 _context.next = 3;
-                return this.deleteUser(this.id_user);
+                return this.deleteUser(this.id);
 
               case 3:
                 this.fetch();
@@ -9118,22 +9804,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                console.log(this.id_user);
+                console.log(this.id);
                 payload = {
-                  id_user: this.id_user,
-                  username: value.username,
+                  id: this.id,
                   password: value.password
                 };
-                _context2.next = 4;
+                console.log(payload);
+                _context2.next = 5;
                 return this.updateUser(payload);
 
-              case 4:
+              case 5:
                 if (!this.userError) {
                   this.dialog2 = false;
                   this.fetch();
                 }
 
-              case 5:
+              case 6:
               case "end":
                 return _context2.stop();
             }
@@ -9338,7 +10024,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.loading-section[data-v-9c49da54] {\r\n  text-align: center;\n}\r\n", ""]);
+exports.push([module.i, "\n.loading-section[data-v-9c49da54] {\n  text-align: center;\n}\n.warning-section[data-v-9c49da54] {\n  color: red;\n  margin-right: 5px;\n  font-style: italic;\n}\n", ""]);
 
 // exports
 
@@ -12026,127 +12712,157 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "VForm",
+    "div",
     [
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Nama",
-                  "error-messages": _vm.nameErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.branch_name.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.branch_name,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "branch_name", $$v)
-                  },
-                  expression: "form.branch_name"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Alamat",
-                  "error-messages": _vm.addressErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.branch_address.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.branch_address,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "branch_address", $$v)
-                  },
-                  expression: "form.branch_address"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "No Telepon",
-                  "error-messages": _vm.phoneNumberErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.branch_phone_number.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.branch_phone_number,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "branch_phone_number", $$v)
-                  },
-                  expression: "form.branch_phone_number"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("VSpacer"),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
             { staticClass: "text-xs-center" },
             [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { value: true, dismissible: "", type: "error" } },
+                    [_vm._v("\n    " + _vm._s(_vm.error.message) + "\n    ")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? _c("VProgressCircular", {
+                    staticClass: "loading-section",
+                    attrs: { size: 45, indeterminate: "" }
+                  })
+                : _vm._e()
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "VForm",
+        [
+          _c(
+            "VLayout",
+            [
               _c(
-                "VBtn",
-                {
-                  attrs: {
-                    depressed: "",
-                    color: "success",
-                    disabled: !this.value
-                  },
-                  on: { click: _vm.submitHandler }
-                },
-                [_vm._v("\n        Kirim\n      ")]
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Nama",
+                      "error-messages": _vm.nameErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.branch_name.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.branch_name,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "branch_name", $$v)
+                      },
+                      expression: "form.branch_name"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Alamat",
+                      "error-messages": _vm.addressErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.branch_address.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.branch_address,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "branch_address", $$v)
+                      },
+                      expression: "form.branch_address"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "No Telepon",
+                      "error-messages": _vm.phoneNumberErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.branch_phone_number.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.branch_phone_number,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "branch_phone_number", $$v)
+                      },
+                      expression: "form.branch_phone_number"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("VSpacer"),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                { staticClass: "text-xs-center" },
+                [
+                  _c(
+                    "VBtn",
+                    {
+                      attrs: {
+                        depressed: "",
+                        color: "success",
+                        disabled: !this.value
+                      },
+                      on: { click: _vm.submitHandler }
+                    },
+                    [_vm._v("\n          Kirim\n        ")]
+                  )
+                ],
+                1
               )
             ],
             1
@@ -12181,127 +12897,157 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "VForm",
+    "div",
     [
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Nama",
-                  "error-messages": _vm.nameErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.customer_name.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.customer_name,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "customer_name", $$v)
-                  },
-                  expression: "form.customer_name"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Alamat",
-                  "error-messages": _vm.addressErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.customer_address.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.customer_address,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "customer_address", $$v)
-                  },
-                  expression: "form.customer_address"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "No Telepon",
-                  "error-messages": _vm.phoneNumberErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.customer_phone_number.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.customer_phone_number,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "customer_phone_number", $$v)
-                  },
-                  expression: "form.customer_phone_number"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("VSpacer"),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
             { staticClass: "text-xs-center" },
             [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { value: true, dismissible: "", type: "error" } },
+                    [_vm._v("\n    " + _vm._s(_vm.error.message) + "\n    ")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? _c("VProgressCircular", {
+                    staticClass: "loading-section",
+                    attrs: { size: 45, indeterminate: "" }
+                  })
+                : _vm._e()
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "VForm",
+        [
+          _c(
+            "VLayout",
+            [
               _c(
-                "VBtn",
-                {
-                  attrs: {
-                    depressed: "",
-                    color: "success",
-                    disabled: !this.value
-                  },
-                  on: { click: _vm.submitHandler }
-                },
-                [_vm._v("\n        Kirim\n      ")]
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Nama",
+                      "error-messages": _vm.nameErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.customer_name.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.customer_name,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "customer_name", $$v)
+                      },
+                      expression: "form.customer_name"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Alamat",
+                      "error-messages": _vm.addressErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.customer_address.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.customer_address,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "customer_address", $$v)
+                      },
+                      expression: "form.customer_address"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "No Telepon",
+                      "error-messages": _vm.phoneNumberErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.customer_phone_number.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.customer_phone_number,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "customer_phone_number", $$v)
+                      },
+                      expression: "form.customer_phone_number"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("VSpacer"),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                { staticClass: "text-xs-center" },
+                [
+                  _c(
+                    "VBtn",
+                    {
+                      attrs: {
+                        depressed: "",
+                        color: "success",
+                        disabled: !this.value
+                      },
+                      on: { click: _vm.submitHandler }
+                    },
+                    [_vm._v("\n          Kirim\n        ")]
+                  )
+                ],
+                1
               )
             ],
             1
@@ -12336,263 +13082,293 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "VForm",
+    "div",
     [
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Nama Depan",
-                  "error-messages": _vm.nameErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.first_name.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.first_name,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "first_name", $$v)
-                  },
-                  expression: "form.first_name"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: { label: "Nama Belakang", required: "" },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.last_name.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.last_name,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "last_name", $$v)
-                  },
-                  expression: "form.last_name"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Alamat",
-                  "error-messages": _vm.addressErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.address.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.address,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "address", $$v)
-                  },
-                  expression: "form.address"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "No Telepon",
-                  "error-messages": _vm.phoneNumberErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.phone_number.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.phone_number,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "phone_number", $$v)
-                  },
-                  expression: "form.phone_number"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Gaji",
-                  "error-messages": _vm.salaryErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.salary.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.salary,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "salary", $$v)
-                  },
-                  expression: "form.salary"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("v-select", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Jabatan",
-                  "item-text": "role_name",
-                  "item-value": "id_role",
-                  items: _vm.items,
-                  "return-object": false,
-                  "error-messages": _vm.roleErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.id_role.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.id_role,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "id_role", $$v)
-                  },
-                  expression: "form.id_role"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("v-select", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Cabang",
-                  "item-text": "branch_name",
-                  "item-value": "id_branch",
-                  items: _vm.items2,
-                  "return-object": false,
-                  "error-messages": _vm.branchErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.id_branch.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.id_branch,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "id_branch", $$v)
-                  },
-                  expression: "form.id_branch"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("VSpacer"),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
             { staticClass: "text-xs-center" },
             [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { value: true, dismissible: "", type: "error" } },
+                    [_vm._v("\n    " + _vm._s(_vm.error.message) + "\n    ")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? _c("VProgressCircular", {
+                    staticClass: "loading-section",
+                    attrs: { size: 45, indeterminate: "" }
+                  })
+                : _vm._e()
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "VForm",
+        [
+          _c(
+            "VLayout",
+            [
               _c(
-                "VBtn",
-                {
-                  attrs: {
-                    depressed: "",
-                    color: "success",
-                    disabled: !this.value
-                  },
-                  on: { click: _vm.submitHandler }
-                },
-                [_vm._v("\n        Kirim\n      ")]
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Nama Depan",
+                      "error-messages": _vm.nameErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.first_name.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.first_name,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "first_name", $$v)
+                      },
+                      expression: "form.first_name"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: { label: "Nama Belakang", required: "" },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.last_name.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.last_name,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "last_name", $$v)
+                      },
+                      expression: "form.last_name"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Alamat",
+                      "error-messages": _vm.addressErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.address.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.address,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "address", $$v)
+                      },
+                      expression: "form.address"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "No Telepon",
+                      "error-messages": _vm.phoneNumberErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.phone_number.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.phone_number,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "phone_number", $$v)
+                      },
+                      expression: "form.phone_number"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Gaji",
+                      "error-messages": _vm.salaryErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.salary.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.salary,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "salary", $$v)
+                      },
+                      expression: "form.salary"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("v-select", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Jabatan",
+                      "item-text": "role_name",
+                      "item-value": "id_role",
+                      items: _vm.items,
+                      "return-object": false,
+                      "error-messages": _vm.roleErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.id_role.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.id_role,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "id_role", $$v)
+                      },
+                      expression: "form.id_role"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("v-select", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Cabang",
+                      "item-text": "branch_name",
+                      "item-value": "id_branch",
+                      items: _vm.items2,
+                      "return-object": false,
+                      "error-messages": _vm.branchErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.id_branch.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.id_branch,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "id_branch", $$v)
+                      },
+                      expression: "form.id_branch"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("VSpacer"),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                { staticClass: "text-xs-center" },
+                [
+                  _c(
+                    "VBtn",
+                    {
+                      attrs: {
+                        depressed: "",
+                        color: "success",
+                        disabled: !this.value
+                      },
+                      on: { click: _vm.submitHandler }
+                    },
+                    [_vm._v("\n          Kirim\n        ")]
+                  )
+                ],
+                1
               )
             ],
             1
@@ -12627,61 +13403,91 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "VForm",
+    "div",
     [
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
+            { staticClass: "text-xs-center" },
             [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Nama",
-                  "error-messages": _vm.nameErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.motorcycle_brand_name.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.motorcycle_brand_name,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "motorcycle_brand_name", $$v)
-                  },
-                  expression: "form.motorcycle_brand_name"
-                }
-              })
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { value: true, dismissible: "", type: "error" } },
+                    [_vm._v("\n   " + _vm._s(_vm.error.message) + "\n   ")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? _c("VProgressCircular", {
+                    staticClass: "loading-section",
+                    attrs: { size: 45, indeterminate: "" }
+                  })
+                : _vm._e()
             ],
             1
           )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("VSpacer"),
+        : _vm._e(),
       _vm._v(" "),
       _c(
-        "VLayout",
+        "VForm",
         [
           _c(
-            "VFlex",
-            { staticClass: "text-xs-center" },
+            "VLayout",
             [
               _c(
-                "VBtn",
-                {
-                  attrs: {
-                    depressed: "",
-                    color: "success",
-                    disabled: !this.value
-                  },
-                  on: { click: _vm.submitHandler }
-                },
-                [_vm._v("\n        Kirim\n      ")]
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Nama",
+                      "error-messages": _vm.nameErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.motorcycle_brand_name.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.motorcycle_brand_name,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "motorcycle_brand_name", $$v)
+                      },
+                      expression: "form.motorcycle_brand_name"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("VSpacer"),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                { staticClass: "text-xs-center" },
+                [
+                  _c(
+                    "VBtn",
+                    {
+                      attrs: {
+                        depressed: "",
+                        color: "success",
+                        disabled: !this.value
+                      },
+                      on: { click: _vm.submitHandler }
+                    },
+                    [_vm._v("\n         Kirim\n       ")]
+                  )
+                ],
+                1
               )
             ],
             1
@@ -12716,130 +13522,168 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "VForm",
+    "div",
     [
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
+            { staticClass: "text-xs-center" },
+            [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { value: true, dismissible: "", type: "error" } },
+                    [_vm._v("\n    " + _vm._s(_vm.error.message) + "\n    ")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? _c("VProgressCircular", {
+                    staticClass: "loading-section",
+                    attrs: { size: 45, indeterminate: "" }
+                  })
+                : _vm._e()
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _c(
-        "VLayout",
+        "VForm",
         [
           _c(
-            "VFlex",
-            { attrs: { sm3: "" } },
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "nomor polisi",
-                  "error-messages": _vm.licenseNumberErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.license_number.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.license_number,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "license_number", $$v)
-                  },
-                  expression: "form.license_number"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "VFlex",
-            { attrs: { sm3: "" } },
-            [
-              _c("v-select", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "merk motor",
-                  "item-text": "motorcycle_brand_name",
-                  "item-value": "id_motorcycle_brand",
-                  items: _vm.items,
-                  "return-object": false,
-                  "error-messages": _vm.motorcycleBrandErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.id_motorcycle_brand.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.id_motorcycle_brand,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "id_motorcycle_brand", $$v)
-                  },
-                  expression: "form.id_motorcycle_brand"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "VFlex",
-            { attrs: { sm3: "" } },
-            [
-              _c("v-select", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "type motor",
-                  "item-text": "motorcycle_type_name",
-                  "item-value": "id_motorcycle_type",
-                  items: _vm.filtered,
-                  "return-object": false,
-                  "error-messages": _vm.motorcycleTypeErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.id_motorcycle_type.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.id_motorcycle_type,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "id_motorcycle_type", $$v)
-                  },
-                  expression: "form.id_motorcycle_type"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "VFlex",
-            { staticClass: "text-xs-center", attrs: { sm3: "" } },
+            "VLayout",
             [
               _c(
-                "VBtn",
-                {
-                  attrs: {
-                    flat: "",
-                    icon: "",
-                    depressed: "",
-                    color: "success",
-                    disabled: !this.value
-                  },
-                  on: { click: _vm.submitHandler }
-                },
-                [_c("v-icon", [_vm._v("check_box")])],
+                "VFlex",
+                { attrs: { sm3: "" } },
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "nomor polisi",
+                      "error-messages": _vm.licenseNumberErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.license_number.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.license_number,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "license_number", $$v)
+                      },
+                      expression: "form.license_number"
+                    }
+                  })
+                ],
                 1
               ),
               _vm._v(" "),
               _c(
-                "VBtn",
-                {
-                  attrs: { flat: "", icon: "", depressed: "", color: "error" },
-                  on: { click: _vm.cancelInput }
-                },
-                [_c("v-icon", [_vm._v("remove_circle")])],
+                "VFlex",
+                { attrs: { sm3: "" } },
+                [
+                  _c("v-select", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "merk motor",
+                      "item-text": "motorcycle_brand_name",
+                      "item-value": "id_motorcycle_brand",
+                      items: _vm.items,
+                      "return-object": false,
+                      "error-messages": _vm.motorcycleBrandErrors,
+                      required: ""
+                    },
+                    on: {
+                      change: function($event) {
+                        return _vm.$.v.form.id_motorcycle_brand.$touch()
+                      },
+                      input: function($event) {
+                        return _vm.$v.form.id_motorcycle_brand.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.id_motorcycle_brand,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "id_motorcycle_brand", $$v)
+                      },
+                      expression: "form.id_motorcycle_brand"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "VFlex",
+                { attrs: { sm3: "" } },
+                [
+                  _c("v-select", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "type motor",
+                      "item-text": "motorcycle_type_name",
+                      "item-value": "id_motorcycle_type",
+                      items: _vm.filtered,
+                      "return-object": false,
+                      "error-messages": _vm.motorcycleTypeErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.id_motorcycle_type.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.id_motorcycle_type,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "id_motorcycle_type", $$v)
+                      },
+                      expression: "form.id_motorcycle_type"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "VFlex",
+                { staticClass: "text-xs-center", attrs: { sm3: "" } },
+                [
+                  _c(
+                    "VBtn",
+                    {
+                      attrs: {
+                        flat: "",
+                        icon: "",
+                        depressed: "",
+                        color: "success",
+                        disabled: !this.value
+                      },
+                      on: { click: _vm.submitHandler }
+                    },
+                    [_c("v-icon", [_vm._v("check_box")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "VBtn",
+                    {
+                      attrs: {
+                        flat: "",
+                        icon: "",
+                        depressed: "",
+                        color: "error"
+                      },
+                      on: { click: _vm.cancelInput }
+                    },
+                    [_c("v-icon", [_vm._v("remove_circle")])],
+                    1
+                  )
+                ],
                 1
               )
             ],
@@ -12875,98 +13719,128 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "VForm",
+    "div",
     [
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Nama",
-                  "error-messages": _vm.nameErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.motorcycle_type_name.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.motorcycle_type_name,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "motorcycle_type_name", $$v)
-                  },
-                  expression: "form.motorcycle_type_name"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("v-select", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Brand",
-                  "item-text": "motorcycle_brand_name",
-                  "item-value": "id_motorcycle_brand",
-                  items: _vm.items,
-                  "return-object": false,
-                  "error-messages": _vm.motorcycleBrandErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.id_motorcycle_brand.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.id_motorcycle_brand,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "id_motorcycle_brand", $$v)
-                  },
-                  expression: "form.id_motorcycle_brand"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("VSpacer"),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
             { staticClass: "text-xs-center" },
             [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { value: true, dismissible: "", type: "error" } },
+                    [_vm._v("\n    " + _vm._s(_vm.error.message) + "\n    ")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? _c("VProgressCircular", {
+                    staticClass: "loading-section",
+                    attrs: { size: 45, indeterminate: "" }
+                  })
+                : _vm._e()
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "VForm",
+        [
+          _c(
+            "VLayout",
+            [
               _c(
-                "VBtn",
-                {
-                  attrs: {
-                    depressed: "",
-                    color: "success",
-                    disabled: !this.value
-                  },
-                  on: { click: _vm.submitHandler }
-                },
-                [_vm._v("\n        Kirim\n      ")]
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Nama",
+                      "error-messages": _vm.nameErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.motorcycle_type_name.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.motorcycle_type_name,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "motorcycle_type_name", $$v)
+                      },
+                      expression: "form.motorcycle_type_name"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("v-select", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Brand",
+                      "item-text": "motorcycle_brand_name",
+                      "item-value": "id_motorcycle_brand",
+                      items: _vm.items,
+                      "return-object": false,
+                      "error-messages": _vm.motorcycleBrandErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.id_motorcycle_brand.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.id_motorcycle_brand,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "id_motorcycle_brand", $$v)
+                      },
+                      expression: "form.id_motorcycle_brand"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("VSpacer"),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                { staticClass: "text-xs-center" },
+                [
+                  _c(
+                    "VBtn",
+                    {
+                      attrs: {
+                        depressed: "",
+                        color: "success",
+                        disabled: !this.value
+                      },
+                      on: { click: _vm.submitHandler }
+                    },
+                    [_vm._v("\n          Kirim\n        ")]
+                  )
+                ],
+                1
               )
             ],
             1
@@ -13001,131 +13875,161 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "VForm",
+    "div",
     [
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Nama",
-                  "error-messages": _vm.nameErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.sales_name.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.sales_name,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "sales_name", $$v)
-                  },
-                  expression: "form.sales_name"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "No Telepon",
-                  "error-messages": _vm.phoneNumberErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.sales_phone_number.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.sales_phone_number,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "sales_phone_number", $$v)
-                  },
-                  expression: "form.sales_phone_number"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("v-select", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Supplier",
-                  "item-text": "supplier_name",
-                  "item-value": "id_supplier",
-                  items: _vm.items,
-                  "return-object": false,
-                  "error-messages": _vm.supplierErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.id_supplier.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.id_supplier,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "id_supplier", $$v)
-                  },
-                  expression: "form.id_supplier"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("VSpacer"),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
             { staticClass: "text-xs-center" },
             [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { value: true, dismissible: "", type: "error" } },
+                    [_vm._v("\n    " + _vm._s(_vm.error.message) + "\n    ")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? _c("VProgressCircular", {
+                    staticClass: "loading-section",
+                    attrs: { size: 45, indeterminate: "" }
+                  })
+                : _vm._e()
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "VForm",
+        [
+          _c(
+            "VLayout",
+            [
               _c(
-                "VBtn",
-                {
-                  attrs: {
-                    depressed: "",
-                    color: "success",
-                    disabled: !this.value
-                  },
-                  on: { click: _vm.submitHandler }
-                },
-                [_vm._v("\n        Kirim\n      ")]
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Nama",
+                      "error-messages": _vm.nameErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.sales_name.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.sales_name,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "sales_name", $$v)
+                      },
+                      expression: "form.sales_name"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "No Telepon",
+                      "error-messages": _vm.phoneNumberErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.sales_phone_number.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.sales_phone_number,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "sales_phone_number", $$v)
+                      },
+                      expression: "form.sales_phone_number"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("v-select", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Supplier",
+                      "item-text": "supplier_name",
+                      "item-value": "id_supplier",
+                      items: _vm.items,
+                      "return-object": false,
+                      "error-messages": _vm.supplierErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.id_supplier.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.id_supplier,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "id_supplier", $$v)
+                      },
+                      expression: "form.id_supplier"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("VSpacer"),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                { staticClass: "text-xs-center" },
+                [
+                  _c(
+                    "VBtn",
+                    {
+                      attrs: {
+                        depressed: "",
+                        color: "success",
+                        disabled: !this.value
+                      },
+                      on: { click: _vm.submitHandler }
+                    },
+                    [_vm._v("\n          Kirim\n        ")]
+                  )
+                ],
+                1
               )
             ],
             1
@@ -13160,94 +14064,124 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "VForm",
+    "div",
     [
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Nama",
-                  "error-messages": _vm.nameErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.service_name.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.service_name,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "service_name", $$v)
-                  },
-                  expression: "form.service_name"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Harga",
-                  "error-messages": _vm.priceErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.price.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.price,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "price", $$v)
-                  },
-                  expression: "form.price"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("VSpacer"),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
             { staticClass: "text-xs-center" },
             [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { value: true, dismissible: "", type: "error" } },
+                    [_vm._v("\n    " + _vm._s(_vm.error.message) + "\n    ")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? _c("VProgressCircular", {
+                    staticClass: "loading-section",
+                    attrs: { size: 45, indeterminate: "" }
+                  })
+                : _vm._e()
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "VForm",
+        [
+          _c(
+            "VLayout",
+            [
               _c(
-                "VBtn",
-                {
-                  attrs: {
-                    depressed: "",
-                    color: "success",
-                    disabled: !this.value
-                  },
-                  on: { click: _vm.submitHandler }
-                },
-                [_vm._v("\n        Kirim\n      ")]
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Nama",
+                      "error-messages": _vm.nameErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.service_name.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.service_name,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "service_name", $$v)
+                      },
+                      expression: "form.service_name"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Harga",
+                      "error-messages": _vm.priceErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.price.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.price,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "price", $$v)
+                      },
+                      expression: "form.price"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("VSpacer"),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                { staticClass: "text-xs-center" },
+                [
+                  _c(
+                    "VBtn",
+                    {
+                      attrs: {
+                        depressed: "",
+                        color: "success",
+                        disabled: !this.value
+                      },
+                      on: { click: _vm.submitHandler }
+                    },
+                    [_vm._v("\n          Kirim\n        ")]
+                  )
+                ],
+                1
               )
             ],
             1
@@ -13282,444 +14216,647 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "VForm",
+    "div",
     [
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
             { staticClass: "text-xs-center" },
             [
-              _vm.imageUrl
-                ? _c("img", { attrs: { src: _vm.imageUrl, height: "150" } })
-                : _vm.form.image
-                ? _c("img", {
-                    attrs: {
-                      src: "/images/" + _vm.form.image,
-                      height: "150",
-                      alt: _vm.form.image
-                    }
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { value: true, dismissible: "", type: "error" } },
+                    [_vm._v("\n    " + _vm._s(_vm.error.message) + "\n    ")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? _c("VProgressCircular", {
+                    staticClass: "loading-section",
+                    attrs: { size: 45, indeterminate: "" }
                   })
-                : _c("img", { attrs: { src: _vm.defaultImg, height: "150" } }),
-              _vm._v(" "),
-              _c("v-text-field", {
-                staticClass: "pa-1",
-                attrs: { label: "Pilih Gambar" },
-                on: {
-                  click: _vm.pickFile,
-                  input: function($event) {
-                    return _vm.$v.form.image.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.imageName,
-                  callback: function($$v) {
-                    _vm.imageName = $$v
-                  },
-                  expression: "imageName"
-                }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                ref: "image",
-                staticStyle: { display: "none" },
-                attrs: { type: "file", accept: "image/*" },
-                on: { change: _vm.onFilePicked }
-              })
+                : _vm._e()
             ],
             1
           )
-        ],
-        1
-      ),
+        : _vm._e(),
       _vm._v(" "),
       _c(
-        "VLayout",
+        "VForm",
         [
           _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Id Sparepart",
-                  "error-messages": _vm.idErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.id_sparepart.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.id_sparepart,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "id_sparepart", $$v)
-                  },
-                  expression: "form.id_sparepart"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Nama",
-                  "error-messages": _vm.nameErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.sparepart_name.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.sparepart_name,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "sparepart_name", $$v)
-                  },
-                  expression: "form.sparepart_name"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Merk",
-                  "error-messages": _vm.merkErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.merk.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.merk,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "merk", $$v)
-                  },
-                  expression: "form.merk"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("v-select", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Sparepart type",
-                  "item-text": "sparepart_type_name",
-                  "item-value": "id_sparepart_type",
-                  items: _vm.items,
-                  "return-object": false,
-                  "error-messages": _vm.sparepartTypeErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.id_sparepart_type.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.id_sparepart_type,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "id_sparepart_type", $$v)
-                  },
-                  expression: "form.id_sparepart_type"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Stock",
-                  "error-messages": _vm.stockErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.stock.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.stock,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "stock", $$v)
-                  },
-                  expression: "form.stock"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Min Stock",
-                  "error-messages": _vm.minStockErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.min_stock.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.min_stock,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "min_stock", $$v)
-                  },
-                  expression: "form.min_stock"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Harga Beli",
-                  "error-messages": _vm.purchasePriceErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.purchase_price.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.purchase_price,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "purchase_price", $$v)
-                  },
-                  expression: "form.purchase_price"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Harga Jual",
-                  "error-messages": _vm.sellPriceErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.sell_price.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.sell_price,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "sell_price", $$v)
-                  },
-                  expression: "form.sell_price"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            { attrs: { sm6: "" } },
-            [
-              _c("v-select", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Posisi",
-                  "item-text": "text",
-                  "item-value": "id",
-                  items: _vm.positions,
-                  "return-object": false,
-                  "error-messages": _vm.positionErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.position.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.position,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "position", $$v)
-                  },
-                  expression: "form.position"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "VFlex",
-            { attrs: { sm6: "" } },
-            [
-              _c("v-select", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Tempat",
-                  "item-text": "text",
-                  "item-value": "id",
-                  items: _vm.places,
-                  "return-object": false,
-                  "error-messages": _vm.placeErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.place.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.place,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "place", $$v)
-                  },
-                  expression: "form.place"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "VFlex",
-            { attrs: { sm6: "" } },
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Nomor Urut",
-                  "error-messages": _vm.numberErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.number.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.number,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "number", $$v)
-                  },
-                  expression: "form.number"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("VSpacer"),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            { staticClass: "text-xs-center" },
+            "VLayout",
             [
               _c(
-                "VBtn",
-                {
-                  attrs: {
-                    depressed: "",
-                    color: "success",
-                    disabled: !this.value
-                  },
-                  on: { click: _vm.submitHandler }
-                },
-                [_vm._v("\n        Kirim\n      ")]
+                "VFlex",
+                { staticClass: "text-xs-center" },
+                [
+                  _vm.imageUrl
+                    ? _c("img", { attrs: { src: _vm.imageUrl, height: "150" } })
+                    : _vm.form.image
+                    ? _c("img", {
+                        attrs: {
+                          src: "/images/" + _vm.form.image,
+                          height: "150",
+                          alt: _vm.form.image
+                        }
+                      })
+                    : _c("img", {
+                        attrs: { src: _vm.defaultImg, height: "150" }
+                      }),
+                  _vm._v(" "),
+                  _c("v-text-field", {
+                    staticClass: "pa-1",
+                    attrs: { label: "Pilih Gambar" },
+                    on: {
+                      click: _vm.pickFile,
+                      input: function($event) {
+                        return _vm.$v.form.image.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.imageName,
+                      callback: function($$v) {
+                        _vm.imageName = $$v
+                      },
+                      expression: "imageName"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    ref: "image",
+                    staticStyle: { display: "none" },
+                    attrs: { type: "file", accept: "image/*" },
+                    on: { change: _vm.onFilePicked }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Id Sparepart",
+                      "error-messages": _vm.idErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.id_sparepart.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.id_sparepart,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "id_sparepart", $$v)
+                      },
+                      expression: "form.id_sparepart"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Nama",
+                      "error-messages": _vm.nameErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.sparepart_name.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.sparepart_name,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "sparepart_name", $$v)
+                      },
+                      expression: "form.sparepart_name"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Merk",
+                      "error-messages": _vm.merkErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.merk.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.merk,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "merk", $$v)
+                      },
+                      expression: "form.merk"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("v-select", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Sparepart type",
+                      "item-text": "sparepart_type_name",
+                      "item-value": "id_sparepart_type",
+                      items: _vm.items,
+                      "return-object": false,
+                      "error-messages": _vm.sparepartTypeErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.id_sparepart_type.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.id_sparepart_type,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "id_sparepart_type", $$v)
+                      },
+                      expression: "form.id_sparepart_type"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Stock",
+                      "error-messages": _vm.stockErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.stock.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.stock,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "stock", $$v)
+                      },
+                      expression: "form.stock"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Min Stock",
+                      "error-messages": _vm.minStockErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.min_stock.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.min_stock,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "min_stock", $$v)
+                      },
+                      expression: "form.min_stock"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Harga Beli",
+                      "error-messages": _vm.purchasePriceErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.purchase_price.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.purchase_price,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "purchase_price", $$v)
+                      },
+                      expression: "form.purchase_price"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Harga Jual",
+                      "error-messages": _vm.sellPriceErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.sell_price.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.sell_price,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "sell_price", $$v)
+                      },
+                      expression: "form.sell_price"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                { attrs: { sm6: "" } },
+                [
+                  _c("v-select", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Posisi",
+                      "item-text": "text",
+                      "item-value": "id",
+                      items: _vm.positions,
+                      "return-object": false,
+                      "error-messages": _vm.positionErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.position.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.position,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "position", $$v)
+                      },
+                      expression: "form.position"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "VFlex",
+                { attrs: { sm6: "" } },
+                [
+                  _c("v-select", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Tempat",
+                      "item-text": "text",
+                      "item-value": "id",
+                      items: _vm.places,
+                      "return-object": false,
+                      "error-messages": _vm.placeErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.place.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.place,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "place", $$v)
+                      },
+                      expression: "form.place"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "VFlex",
+                { attrs: { sm6: "" } },
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Nomor Urut",
+                      "error-messages": _vm.numberErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.number.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.number,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "number", $$v)
+                      },
+                      expression: "form.number"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                { attrs: { sm5: "" } },
+                [
+                  _c("v-select", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "merk motor",
+                      "item-text": "motorcycle_brand_name",
+                      "item-value": "id_motorcycle_brand",
+                      items: _vm.brands,
+                      "return-object": false,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.id_motorcycle_brand.$touch()
+                      },
+                      change: function($event) {
+                        return _vm.$v.form.id_motorcycle_brand.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.id_motorcycle_brand,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "id_motorcycle_brand", $$v)
+                      },
+                      expression: "form.id_motorcycle_brand"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "VFlex",
+                { attrs: { sm5: "" } },
+                [
+                  _c("v-select", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "type motor",
+                      "item-text": "motorcycle_type_name",
+                      "item-value": "id_motorcycle_type",
+                      items: _vm.filtered,
+                      "return-object": false,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.id_motorcycle_type.$touch()
+                      },
+                      change: function($event) {
+                        return _vm.$v.form.id_motorcycle_type.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.id_motorcycle_type,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "id_motorcycle_type", $$v)
+                      },
+                      expression: "form.id_motorcycle_type"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "VFlex",
+                { staticClass: "text-md-center", attrs: { sm2: "" } },
+                [
+                  _c(
+                    "VBtn",
+                    {
+                      attrs: {
+                        flat: "",
+                        icon: "",
+                        depressed: "",
+                        color: "success"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.compatibilityHandler(_vm.types)
+                        }
+                      }
+                    },
+                    [_c("v-icon", [_vm._v("add_circle")])],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("h4", { staticClass: "ml-1 my-1" }, [
+            _vm._v("Kecocokan Sparepart dengan Motor")
+          ]),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                { staticClass: "text-md-center", attrs: { sm8: "" } },
+                _vm._l(_vm.motorcycles, function(motorcycle) {
+                  return _c(
+                    "v-list-tile",
+                    {
+                      key: motorcycle.id_motorcycle_type,
+                      attrs: { avatar: "" }
+                    },
+                    [
+                      _c(
+                        "v-list-tile-avatar",
+                        [_c("v-icon", [_vm._v(" motorcycle ")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-list-tile-content",
+                        [
+                          _c("v-list-tile-title", [
+                            _vm._v(_vm._s(motorcycle.motorcycle_type_name))
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-list-tile-action",
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { icon: "", ripple: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteList(
+                                    motorcycle.id_motorcycle_type
+                                  )
+                                }
+                              }
+                            },
+                            [
+                              _c(
+                                "v-icon",
+                                { attrs: { color: "grey lighten-1" } },
+                                [_vm._v("remove_circle")]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                }),
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("VSpacer"),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                { staticClass: "text-xs-center" },
+                [
+                  _c(
+                    "VBtn",
+                    {
+                      attrs: {
+                        depressed: "",
+                        color: "success",
+                        disabled: !this.value
+                      },
+                      on: { click: _vm.submitHandler }
+                    },
+                    [_vm._v("\n          Kirim\n        ")]
+                  )
+                ],
+                1
               )
             ],
             1
@@ -13754,127 +14891,157 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "VForm",
+    "div",
     [
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Nama",
-                  "error-messages": _vm.nameErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.supplier_name.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.supplier_name,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "supplier_name", $$v)
-                  },
-                  expression: "form.supplier_name"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Alamat",
-                  "error-messages": _vm.addressErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.supplier_address.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.supplier_address,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "supplier_address", $$v)
-                  },
-                  expression: "form.supplier_address"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "No Telepon",
-                  "error-messages": _vm.phoneNumberErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.supplier_phone_number.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.supplier_phone_number,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "supplier_phone_number", $$v)
-                  },
-                  expression: "form.supplier_phone_number"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("VSpacer"),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
             { staticClass: "text-xs-center" },
             [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { value: true, dismissible: "", type: "error" } },
+                    [_vm._v("\n    " + _vm._s(_vm.error.message) + "\n    ")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? _c("VProgressCircular", {
+                    staticClass: "loading-section",
+                    attrs: { size: 45, indeterminate: "" }
+                  })
+                : _vm._e()
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "VForm",
+        [
+          _c(
+            "VLayout",
+            [
               _c(
-                "VBtn",
-                {
-                  attrs: {
-                    depressed: "",
-                    color: "success",
-                    disabled: !this.value
-                  },
-                  on: { click: _vm.submitHandler }
-                },
-                [_vm._v("\n        Kirim\n      ")]
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Nama",
+                      "error-messages": _vm.nameErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.supplier_name.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.supplier_name,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "supplier_name", $$v)
+                      },
+                      expression: "form.supplier_name"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Alamat",
+                      "error-messages": _vm.addressErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.supplier_address.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.supplier_address,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "supplier_address", $$v)
+                      },
+                      expression: "form.supplier_address"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "No Telepon",
+                      "error-messages": _vm.phoneNumberErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.supplier_phone_number.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.supplier_phone_number,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "supplier_phone_number", $$v)
+                      },
+                      expression: "form.supplier_phone_number"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("VSpacer"),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                { staticClass: "text-xs-center" },
+                [
+                  _c(
+                    "VBtn",
+                    {
+                      attrs: {
+                        depressed: "",
+                        color: "success",
+                        disabled: !this.value
+                      },
+                      on: { click: _vm.submitHandler }
+                    },
+                    [_vm._v("\n          Kirim\n        ")]
+                  )
+                ],
+                1
               )
             ],
             1
@@ -13909,94 +15076,91 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "VForm",
+    "div",
     [
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Username",
-                  "error-messages": _vm.usernameErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.username.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.username,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "username", $$v)
-                  },
-                  expression: "form.username"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
-            [
-              _c("VTextField", {
-                staticClass: "pa-1",
-                attrs: {
-                  label: "Password",
-                  "error-messages": _vm.passwordErrors,
-                  required: ""
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.$v.form.password.$touch()
-                  }
-                },
-                model: {
-                  value: _vm.form.password,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "password", $$v)
-                  },
-                  expression: "form.password"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("VSpacer"),
-      _vm._v(" "),
-      _c(
-        "VLayout",
-        [
-          _c(
-            "VFlex",
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
             { staticClass: "text-xs-center" },
             [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { value: true, dismissible: "", type: "error" } },
+                    [_vm._v("\n    " + _vm._s(_vm.error.message) + "\n    ")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? _c("VProgressCircular", {
+                    staticClass: "loading-section",
+                    attrs: { size: 45, indeterminate: "" }
+                  })
+                : _vm._e()
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "VForm",
+        [
+          _c(
+            "VLayout",
+            [
               _c(
-                "VBtn",
-                {
-                  attrs: {
-                    depressed: "",
-                    color: "success",
-                    disabled: !this.value
-                  },
-                  on: { click: _vm.submitHandler }
-                },
-                [_vm._v("\n        Kirim\n      ")]
+                "VFlex",
+                [
+                  _c("VTextField", {
+                    staticClass: "pa-1",
+                    attrs: {
+                      label: "Password",
+                      "error-messages": _vm.passwordErrors,
+                      required: ""
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.$v.form.password.$touch()
+                      }
+                    },
+                    model: {
+                      value: _vm.form.password,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "password", $$v)
+                      },
+                      expression: "form.password"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("VSpacer"),
+          _vm._v(" "),
+          _c(
+            "VLayout",
+            [
+              _c(
+                "VFlex",
+                { staticClass: "text-xs-center" },
+                [
+                  _c(
+                    "VBtn",
+                    {
+                      attrs: {
+                        depressed: "",
+                        color: "success",
+                        disabled: !this.value
+                      },
+                      on: { click: _vm.submitHandler }
+                    },
+                    [_vm._v("\n          Kirim\n        ")]
+                  )
+                ],
+                1
               )
             ],
             1
@@ -14304,7 +15468,7 @@ var render = function() {
         [
           _c(
             "VFlex",
-            { attrs: { lg10: !_vm.narrow, lg8: _vm.narrow } },
+            { attrs: { lg12: !_vm.narrow, lg10: _vm.narrow } },
             [
               _c("VBreadcrumbs", {
                 staticClass: "pt-0",
@@ -14317,7 +15481,7 @@ var render = function() {
           _c(
             "VFlex",
             {
-              attrs: { lg10: !_vm.narrow, lg8: _vm.narrow, md12: "", xs12: "" }
+              attrs: { lg12: !_vm.narrow, lg10: _vm.narrow, md12: "", xs12: "" }
             },
             [
               _c(
@@ -15083,14 +16247,48 @@ var render = function() {
                     _vm._v("Warning!")
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "v-card-text",
-                    {
-                      staticClass: "text-md-center",
-                      staticStyle: { "font-size": "15px" }
-                    },
-                    [_vm._v("Anda yakin ingin menghapus data ini?")]
-                  ),
+                  _vm.branchLoading || _vm.branchError
+                    ? _c(
+                        "VCardText",
+                        { staticClass: "text-xs-center" },
+                        [
+                          _vm.error
+                            ? _c(
+                                "VAlert",
+                                {
+                                  attrs: {
+                                    value: true,
+                                    dismissible: "",
+                                    type: "error"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n            " +
+                                      _vm._s(_vm.branchError.message) +
+                                      "\n            "
+                                  )
+                                ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.branchLoading
+                            ? _c("VProgressCircular", {
+                                staticClass: "loading-section",
+                                attrs: { size: 45, indeterminate: "" }
+                              })
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _c(
+                        "v-card-text",
+                        {
+                          staticClass: "text-md-center",
+                          staticStyle: { "font-size": "15px" }
+                        },
+                        [_vm._v("Anda yakin ingin menghapus data ini?")]
+                      ),
                   _vm._v(" "),
                   _c(
                     "v-card-actions",
@@ -15666,6 +16864,42 @@ var render = function() {
                 "UtilityCard",
                 { attrs: { title: "List Motor" } },
                 [
+                  _vm.loading || _vm.error
+                    ? _c(
+                        "VCardText",
+                        { staticClass: "text-xs-center" },
+                        [
+                          _vm.error
+                            ? _c(
+                                "VAlert",
+                                {
+                                  attrs: {
+                                    value: true,
+                                    dismissible: "",
+                                    type: "error"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n            " +
+                                      _vm._s(_vm.error.message) +
+                                      "\n            "
+                                  )
+                                ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.loading
+                            ? _c("VProgressCircular", {
+                                staticClass: "loading-section",
+                                attrs: { size: 45, indeterminate: "" }
+                              })
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
                   _c(
                     "VCardText",
                     [
@@ -15753,9 +16987,7 @@ var render = function() {
                                           },
                                           on: {
                                             change: function($event) {
-                                              return _vm.filterType(
-                                                _vm.form.id_motorcycle_brand
-                                              )
+                                              return _vm.$v.form.id_motorcycle_brand.$touch()
                                             },
                                             input: function($event) {
                                               return _vm.$v.form.id_motorcycle_brand.$touch()
@@ -16114,14 +17346,48 @@ var render = function() {
                     _vm._v("Warning!")
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "v-card-text",
-                    {
-                      staticClass: "text-md-center",
-                      staticStyle: { "font-size": "15px" }
-                    },
-                    [_vm._v("Anda yakin ingin menghapus data ini?")]
-                  ),
+                  _vm.customerLoading || _vm.customerError
+                    ? _c(
+                        "VCardText",
+                        { staticClass: "text-xs-center" },
+                        [
+                          _vm.customerError
+                            ? _c(
+                                "VAlert",
+                                {
+                                  attrs: {
+                                    value: true,
+                                    dismissible: "",
+                                    type: "error"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n            " +
+                                      _vm._s(_vm.customerError.message) +
+                                      "\n            "
+                                  )
+                                ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.customerLoading
+                            ? _c("VProgressCircular", {
+                                staticClass: "loading-section",
+                                attrs: { size: 45, indeterminate: "" }
+                              })
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _c(
+                        "v-card-text",
+                        {
+                          staticClass: "text-md-center",
+                          staticStyle: { "font-size": "15px" }
+                        },
+                        [_vm._v("Anda yakin ingin menghapus data ini?")]
+                      ),
                   _vm._v(" "),
                   _c(
                     "v-card-actions",
@@ -16420,7 +17686,10 @@ var render = function() {
                                     _vm._v(" "),
                                     _c(
                                       "td",
-                                      { staticClass: "text-xs-center" },
+                                      {
+                                        staticClass: "text-xs-center",
+                                        attrs: { width: "200px" }
+                                      },
                                       [
                                         _c(
                                           "VBtn",
@@ -16607,14 +17876,48 @@ var render = function() {
                     _vm._v("Warning!")
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "v-card-text",
-                    {
-                      staticClass: "text-md-center",
-                      staticStyle: { "font-size": "15px" }
-                    },
-                    [_vm._v("Anda yakin ingin menghapus data ini?")]
-                  ),
+                  _vm.employeeLoading || _vm.employeeError
+                    ? _c(
+                        "VCardText",
+                        { staticClass: "text-xs-center" },
+                        [
+                          _vm.employeeError
+                            ? _c(
+                                "VAlert",
+                                {
+                                  attrs: {
+                                    value: true,
+                                    dismissible: "",
+                                    type: "error"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n            " +
+                                      _vm._s(_vm.employeeError.message) +
+                                      "\n            "
+                                  )
+                                ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.employeeLoading
+                            ? _c("VProgressCircular", {
+                                staticClass: "loading-section",
+                                attrs: { size: 45, indeterminate: "" }
+                              })
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _c(
+                        "v-card-text",
+                        {
+                          staticClass: "text-md-center",
+                          staticStyle: { "font-size": "15px" }
+                        },
+                        [_vm._v("Anda yakin ingin menghapus data ini?")]
+                      ),
                   _vm._v(" "),
                   _c(
                     "v-card-actions",
@@ -16936,7 +18239,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "PageWrapper",
-    { attrs: { breadcrumbs: _vm.breadcrumbs } },
+    { attrs: { narrow: true, breadcrumbs: _vm.breadcrumbs } },
     [
       _c(
         "card",
@@ -17280,14 +18583,48 @@ var render = function() {
                     _vm._v("Warning!")
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "v-card-text",
-                    {
-                      staticClass: "text-md-center",
-                      staticStyle: { "font-size": "15px" }
-                    },
-                    [_vm._v("Anda yakin ingin menghapus data ini?")]
-                  ),
+                  _vm.motorcycleBrandLoading || _vm.motorcycleBrandError
+                    ? _c(
+                        "VCardText",
+                        { staticClass: "text-xs-center" },
+                        [
+                          _vm.motorcycleBrandError
+                            ? _c(
+                                "VAlert",
+                                {
+                                  attrs: {
+                                    value: true,
+                                    dismissible: "",
+                                    type: "error"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n            " +
+                                      _vm._s(_vm.motorcycleBrandError.message) +
+                                      "\n            "
+                                  )
+                                ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.motorcycleBrandLoading
+                            ? _c("VProgressCircular", {
+                                staticClass: "loading-section",
+                                attrs: { size: 45, indeterminate: "" }
+                              })
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _c(
+                        "v-card-text",
+                        {
+                          staticClass: "text-md-center",
+                          staticStyle: { "font-size": "15px" }
+                        },
+                        [_vm._v("Anda yakin ingin menghapus data ini?")]
+                      ),
                   _vm._v(" "),
                   _c(
                     "v-card-actions",
@@ -17371,7 +18708,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "PageWrapper",
-    { attrs: { breadcrumbs: _vm.breadcrumbs } },
+    { attrs: { narrow: true, breadcrumbs: _vm.breadcrumbs } },
     [
       _c(
         "card",
@@ -17719,14 +19056,48 @@ var render = function() {
                     _vm._v("Warning!")
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "v-card-text",
-                    {
-                      staticClass: "text-md-center",
-                      staticStyle: { "font-size": "15px" }
-                    },
-                    [_vm._v("Anda yakin ingin menghapus data ini?")]
-                  ),
+                  _vm.motorcycleTypeLoading || _vm.motorcycleTypeError
+                    ? _c(
+                        "VCardText",
+                        { staticClass: "text-xs-center" },
+                        [
+                          _vm.motorcycleTypeError
+                            ? _c(
+                                "VAlert",
+                                {
+                                  attrs: {
+                                    value: true,
+                                    dismissible: "",
+                                    type: "error"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n            " +
+                                      _vm._s(_vm.motorcycleTypeError.message) +
+                                      "\n            "
+                                  )
+                                ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.motorcycleTypeLoading
+                            ? _c("VProgressCircular", {
+                                staticClass: "loading-section",
+                                attrs: { size: 45, indeterminate: "" }
+                              })
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _c(
+                        "v-card-text",
+                        {
+                          staticClass: "text-md-center",
+                          staticStyle: { "font-size": "15px" }
+                        },
+                        [_vm._v("Anda yakin ingin menghapus data ini?")]
+                      ),
                   _vm._v(" "),
                   _c(
                     "v-card-actions",
@@ -18007,7 +19378,7 @@ var render = function() {
                                             },
                                             on: {
                                               click: function($event) {
-                                                return _vm.deletewarning(
+                                                return _vm.deleteWarning(
                                                   props.item.id_sales
                                                 )
                                               }
@@ -18160,14 +19531,48 @@ var render = function() {
                     _vm._v("Warning!")
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "v-card-text",
-                    {
-                      staticClass: "text-md-center",
-                      staticStyle: { "font-size": "15px" }
-                    },
-                    [_vm._v("Anda yakin ingin menghapus data ini?")]
-                  ),
+                  _vm.salesLoading || _vm.salesError
+                    ? _c(
+                        "VCardText",
+                        { staticClass: "text-xs-center" },
+                        [
+                          _vm.salesError
+                            ? _c(
+                                "VAlert",
+                                {
+                                  attrs: {
+                                    value: true,
+                                    dismissible: "",
+                                    type: "error"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n            " +
+                                      _vm._s(_vm.salesError.message) +
+                                      "\n            "
+                                  )
+                                ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.salesLoading
+                            ? _c("VProgressCircular", {
+                                staticClass: "loading-section",
+                                attrs: { size: 45, indeterminate: "" }
+                              })
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _c(
+                        "v-card-text",
+                        {
+                          staticClass: "text-md-center",
+                          staticStyle: { "font-size": "15px" }
+                        },
+                        [_vm._v("Anda yakin ingin menghapus data ini?")]
+                      ),
                   _vm._v(" "),
                   _c(
                     "v-card-actions",
@@ -18595,14 +20000,48 @@ var render = function() {
                     _vm._v("Warning!")
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "v-card-text",
-                    {
-                      staticClass: "text-md-center",
-                      staticStyle: { "font-size": "15px" }
-                    },
-                    [_vm._v("Anda yakin ingin menghapus data ini?")]
-                  ),
+                  _vm.serviceLoading || _vm.serviceError
+                    ? _c(
+                        "VCardText",
+                        { staticClass: "text-xs-center" },
+                        [
+                          _vm.error
+                            ? _c(
+                                "VAlert",
+                                {
+                                  attrs: {
+                                    value: true,
+                                    dismissible: "",
+                                    type: "serviceError"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n            " +
+                                      _vm._s(_vm.serviceError.message) +
+                                      "\n            "
+                                  )
+                                ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.serviceLoading
+                            ? _c("VProgressCircular", {
+                                staticClass: "loading-section",
+                                attrs: { size: 45, indeterminate: "" }
+                              })
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _c(
+                        "v-card-text",
+                        {
+                          staticClass: "text-md-center",
+                          staticStyle: { "font-size": "15px" }
+                        },
+                        [_vm._v("Anda yakin ingin menghapus data ini?")]
+                      ),
                   _vm._v(" "),
                   _c(
                     "v-card-actions",
@@ -18885,7 +20324,10 @@ var render = function() {
                                     _vm._v(" "),
                                     _c(
                                       "td",
-                                      { staticClass: "text-xs-center" },
+                                      {
+                                        staticClass: "text-xs-center",
+                                        attrs: { width: "200px" }
+                                      },
                                       [
                                         _c(
                                           "VBtn",
@@ -19072,14 +20514,48 @@ var render = function() {
                     _vm._v("Warning!")
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "v-card-text",
-                    {
-                      staticClass: "text-md-center",
-                      staticStyle: { "font-size": "15px" }
-                    },
-                    [_vm._v("Anda yakin ingin menghapus data ini?")]
-                  ),
+                  _vm.sparepartLoading || _vm.sparepartError
+                    ? _c(
+                        "VCardText",
+                        { staticClass: "text-xs-center" },
+                        [
+                          _vm.sparepartError
+                            ? _c(
+                                "VAlert",
+                                {
+                                  attrs: {
+                                    value: true,
+                                    dismissible: "",
+                                    type: "sparepartError"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n            " +
+                                      _vm._s(_vm.sparepartError.message) +
+                                      "\n            "
+                                  )
+                                ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.sparepartLoading
+                            ? _c("VProgressCircular", {
+                                staticClass: "loading-section",
+                                attrs: { size: 45, indeterminate: "" }
+                              })
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _c(
+                        "v-card-text",
+                        {
+                          staticClass: "text-md-center",
+                          staticStyle: { "font-size": "15px" }
+                        },
+                        [_vm._v("Anda yakin ingin menghapus data ini?")]
+                      ),
                   _vm._v(" "),
                   _c(
                     "v-card-actions",
@@ -19337,6 +20813,32 @@ var render = function() {
                                         _c(
                                           "VBtn",
                                           {
+                                            attrs: { flat: "", color: "info" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.salesHandler(
+                                                  props.item.id_supplier
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n              List Sales\n              "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      { staticClass: "text-xs-center" },
+                                      [
+                                        _c(
+                                          "VBtn",
+                                          {
                                             attrs: {
                                               flat: "",
                                               icon: "",
@@ -19519,14 +21021,48 @@ var render = function() {
                     _vm._v("Warning!")
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "v-card-text",
-                    {
-                      staticClass: "text-md-center",
-                      staticStyle: { "font-size": "15px" }
-                    },
-                    [_vm._v("Anda yakin ingin menghapus data ini?")]
-                  ),
+                  _vm.loading || _vm.error
+                    ? _c(
+                        "VCardText",
+                        { staticClass: "text-xs-center" },
+                        [
+                          _vm.error
+                            ? _c(
+                                "VAlert",
+                                {
+                                  attrs: {
+                                    value: true,
+                                    dismissible: "",
+                                    type: "error"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n            " +
+                                      _vm._s(_vm.error.message) +
+                                      "\n            "
+                                  )
+                                ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.loading
+                            ? _c("VProgressCircular", {
+                                staticClass: "loading-section",
+                                attrs: { size: 45, indeterminate: "" }
+                              })
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _c(
+                        "v-card-text",
+                        {
+                          staticClass: "text-md-center",
+                          staticStyle: { "font-size": "15px" }
+                        },
+                        [_vm._v("Anda yakin ingin menghapus data ini?")]
+                      ),
                   _vm._v(" "),
                   _c(
                     "v-card-actions",
@@ -19578,6 +21114,107 @@ var render = function() {
               )
             ],
             1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "600px" },
+              model: {
+                value: _vm.dialog3,
+                callback: function($$v) {
+                  _vm.dialog3 = $$v
+                },
+                expression: "dialog3"
+              }
+            },
+            [
+              _c(
+                "UtilityCard",
+                { attrs: { title: "List Sales" } },
+                [
+                  _vm.supplierLoading || _vm.supplierError
+                    ? _c(
+                        "VCardText",
+                        { staticClass: "text-xs-center" },
+                        [
+                          _vm.supplierError
+                            ? _c(
+                                "VAlert",
+                                {
+                                  attrs: {
+                                    value: true,
+                                    dismissible: "",
+                                    type: "error"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n          " +
+                                      _vm._s(_vm.supplierError.message) +
+                                      "\n          "
+                                  )
+                                ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.supplierLoading
+                            ? _c("VProgressCircular", {
+                                staticClass: "loading-section",
+                                attrs: { size: 45, indeterminate: "" }
+                              })
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c(
+                    "VCardText",
+                    [
+                      _c("VDataTable", {
+                        attrs: {
+                          headers: _vm.headers2,
+                          items: _vm.sales,
+                          search: _vm.keyword2
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "items",
+                            fn: function(props) {
+                              return [
+                                _c("td", {
+                                  domProps: {
+                                    innerHTML: _vm._s(props.item.id_sales)
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("td", {
+                                  domProps: {
+                                    innerHTML: _vm._s(props.item.sales_name)
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("td", {
+                                  domProps: {
+                                    innerHTML: _vm._s(
+                                      props.item.sales_phone_number
+                                    )
+                                  }
+                                })
+                              ]
+                            }
+                          }
+                        ])
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
           )
         ],
         1
@@ -19610,7 +21247,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "PageWrapper",
-    { attrs: { breadcrumbs: _vm.breadcrumbs } },
+    { attrs: { narrow: true, breadcrumbs: _vm.breadcrumbs } },
     [
       _c(
         "card",
@@ -19716,7 +21353,7 @@ var render = function() {
                                   return [
                                     _c("td", {
                                       domProps: {
-                                        innerHTML: _vm._s(props.item.id_user)
+                                        innerHTML: _vm._s(props.item.id)
                                       }
                                     }),
                                     _vm._v(" "),
@@ -19742,7 +21379,7 @@ var render = function() {
                                             on: {
                                               click: function($event) {
                                                 return _vm.editHandler(
-                                                  props.item.id_user
+                                                  props.item.id
                                                 )
                                               }
                                             }
@@ -19763,7 +21400,7 @@ var render = function() {
                                             on: {
                                               click: function($event) {
                                                 return _vm.deleteWarning(
-                                                  props.item.id_user
+                                                  props.item.id
                                                 )
                                               }
                                             }
@@ -19862,14 +21499,48 @@ var render = function() {
                     _vm._v("Warning!")
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "v-card-text",
-                    {
-                      staticClass: "text-md-center",
-                      staticStyle: { "font-size": "15px" }
-                    },
-                    [_vm._v("Anda yakin ingin menghapus data ini?")]
-                  ),
+                  _vm.userLoading || _vm.userError
+                    ? _c(
+                        "VCardText",
+                        { staticClass: "text-xs-center" },
+                        [
+                          _vm.userError
+                            ? _c(
+                                "VAlert",
+                                {
+                                  attrs: {
+                                    value: true,
+                                    dismissible: "",
+                                    type: "error"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n            " +
+                                      _vm._s(_vm.userError.message) +
+                                      "\n            "
+                                  )
+                                ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.userLoading
+                            ? _c("VProgressCircular", {
+                                staticClass: "loading-section",
+                                attrs: { size: 45, indeterminate: "" }
+                              })
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _c(
+                        "v-card-text",
+                        {
+                          staticClass: "text-md-center",
+                          staticStyle: { "font-size": "15px" }
+                        },
+                        [_vm._v("Anda yakin ingin menghapus data ini?")]
+                      ),
                   _vm._v(" "),
                   _c(
                     "v-card-actions",
@@ -67674,6 +69345,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
 
     return _delete;
+  }(),
+  findBySupplier: function () {
+    var _findBySupplier = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.prev = 0;
+              _context6.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/suppliersales/".concat(id));
+
+            case 3:
+              res = _context6.sent;
+              return _context6.abrupt("return", res.data.data);
+
+            case 7:
+              _context6.prev = 7;
+              _context6.t0 = _context6["catch"](0);
+              throw new Error('Gagal mendapatkan data sales!');
+
+            case 10:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, this, [[0, 7]]);
+    }));
+
+    function findBySupplier(_x6) {
+      return _findBySupplier.apply(this, arguments);
+    }
+
+    return findBySupplier;
   }()
 });
 
@@ -68018,24 +69725,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           switch (_context4.prev = _context4.next) {
             case 0:
               _context4.prev = 0;
-              _context4.next = 3;
-              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].patch("/api/spareparts/".concat(id), payload);
+              console.log("pp");
+              _context4.next = 4;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].post("/api/updatesparepart/".concat(id), payload);
 
-            case 3:
+            case 4:
               res = _context4.sent;
               return _context4.abrupt("return", res.data.data);
 
-            case 7:
-              _context4.prev = 7;
+            case 8:
+              _context4.prev = 8;
               _context4.t0 = _context4["catch"](0);
               throw new Error('Gagal update data spareparts!');
 
-            case 10:
+            case 11:
             case "end":
               return _context4.stop();
           }
         }
-      }, _callee4, this, [[0, 7]]);
+      }, _callee4, this, [[0, 8]]);
     }));
 
     function update(_x3, _x4) {
@@ -69276,9 +70984,14 @@ var mutations = {
     state.loading = false;
     state.error = payload.error;
   },
+  resetEmployeeForm: function resetEmployeeForm(state) {
+    state.employee.first_name = '', state.employee.last_name = '', state.employee.salary = '', state.employee.phone_number = '', state.employee.address = '', state.employee.id_user = '', state.employee.id_branch = '', state.employee.id_role = '';
+  },
   setEmployeeForm: function setEmployeeForm(state, payload) {
-    state.employee.first_name = payload.name;
-    state.employee.last_name = payload.last_name;
+    var name = payload.name;
+    var word = name.split(' ');
+    state.employee.first_name = word[0];
+    if (payload.name.split(' ').length > 1) state.employee.last_name = word[1];else state.employee.last_name = '';
     state.employee.address = payload.address;
     state.employee.phone_number = payload.phone_number;
     state.employee.salary = payload.salary;
@@ -69492,7 +71205,7 @@ var actions = {
     return _delete;
   }(),
   resetForm: function resetForm(context) {
-    context.commit('setEmployeeForm', {});
+    context.commit('resetEmployeeForm', {});
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -70567,36 +72280,76 @@ var actions = {
 
     return get;
   }(),
-  store: function () {
-    var _store = _asyncToGenerator(
+  findBySupplier: function () {
+    var _findBySupplier = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, id) {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.prev = 0;
-              _context2.next = 3;
-              return _service_Sales__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+              _context2.t0 = context;
+              _context2.next = 4;
+              return _service_Sales__WEBPACK_IMPORTED_MODULE_1__["default"].findBySupplier(id);
 
-            case 3:
-              _context2.next = 8;
+            case 4:
+              _context2.t1 = _context2.sent;
+
+              _context2.t0.commit.call(_context2.t0, 'setSource', _context2.t1);
+
+              _context2.next = 11;
               break;
 
-            case 5:
-              _context2.prev = 5;
-              _context2.t0 = _context2["catch"](0);
-              context.commit('setFailedStore', _context2.t0);
-
             case 8:
+              _context2.prev = 8;
+              _context2.t2 = _context2["catch"](0);
+              context.commit('setFailedAction', _context2.t2);
+
+            case 11:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, this, [[0, 5]]);
+      }, _callee2, this, [[0, 8]]);
     }));
 
-    function store(_x2, _x3) {
+    function findBySupplier(_x2, _x3) {
+      return _findBySupplier.apply(this, arguments);
+    }
+
+    return findBySupplier;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _service_Sales__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+
+            case 3:
+              _context3.next = 8;
+              break;
+
+            case 5:
+              _context3.prev = 5;
+              _context3.t0 = _context3["catch"](0);
+              context.commit('setFailedStore', _context3.t0);
+
+            case 8:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, this, [[0, 5]]);
+    }));
+
+    function store(_x4, _x5) {
       return _store.apply(this, arguments);
     }
 
@@ -70605,36 +72358,36 @@ var actions = {
   edit: function () {
     var _edit = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, id) {
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, id) {
       var res;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
         while (1) {
-          switch (_context3.prev = _context3.next) {
+          switch (_context4.prev = _context4.next) {
             case 0:
-              _context3.prev = 0;
-              _context3.next = 3;
+              _context4.prev = 0;
+              _context4.next = 3;
               return _service_Sales__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
 
             case 3:
-              res = _context3.sent;
+              res = _context4.sent;
               context.commit('setSalesForm', res);
-              _context3.next = 10;
+              _context4.next = 10;
               break;
 
             case 7:
-              _context3.prev = 7;
-              _context3.t0 = _context3["catch"](0);
-              context.commit('setFailedAction', _context3.t0);
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              context.commit('setFailedAction', _context4.t0);
 
             case 10:
             case "end":
-              return _context3.stop();
+              return _context4.stop();
           }
         }
-      }, _callee3, this, [[0, 7]]);
+      }, _callee4, this, [[0, 7]]);
     }));
 
-    function edit(_x4, _x5) {
+    function edit(_x6, _x7) {
       return _edit.apply(this, arguments);
     }
 
@@ -70643,39 +72396,39 @@ var actions = {
   update: function () {
     var _update = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, payload) {
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, payload) {
       var data;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
         while (1) {
-          switch (_context4.prev = _context4.next) {
+          switch (_context5.prev = _context5.next) {
             case 0:
-              _context4.prev = 0;
+              _context5.prev = 0;
               data = {
                 sales_name: payload.sales_name,
                 id_supplier: payload.id_supplier,
                 sales_phone_number: payload.sales_phone_number
               };
-              _context4.next = 4;
+              _context5.next = 4;
               return _service_Sales__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_sales, data);
 
             case 4:
-              _context4.next = 9;
+              _context5.next = 9;
               break;
 
             case 6:
-              _context4.prev = 6;
-              _context4.t0 = _context4["catch"](0);
-              context.commit('setFailedAction', _context4.t0);
+              _context5.prev = 6;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
 
             case 9:
             case "end":
-              return _context4.stop();
+              return _context5.stop();
           }
         }
-      }, _callee4, this, [[0, 6]]);
+      }, _callee5, this, [[0, 6]]);
     }));
 
-    function update(_x6, _x7) {
+    function update(_x8, _x9) {
       return _update.apply(this, arguments);
     }
 
@@ -70684,33 +72437,33 @@ var actions = {
   delete: function () {
     var _delete2 = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, id) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
         while (1) {
-          switch (_context5.prev = _context5.next) {
+          switch (_context6.prev = _context6.next) {
             case 0:
-              _context5.prev = 0;
-              _context5.next = 3;
+              _context6.prev = 0;
+              _context6.next = 3;
               return _service_Sales__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
 
             case 3:
-              _context5.next = 8;
+              _context6.next = 8;
               break;
 
             case 5:
-              _context5.prev = 5;
-              _context5.t0 = _context5["catch"](0);
-              context.commit('setFailedAction', _context5.t0);
+              _context6.prev = 5;
+              _context6.t0 = _context6["catch"](0);
+              context.commit('setFailedAction', _context6.t0);
 
             case 8:
             case "end":
-              return _context5.stop();
+              return _context6.stop();
           }
         }
-      }, _callee5, this, [[0, 5]]);
+      }, _callee6, this, [[0, 5]]);
     }));
 
-    function _delete(_x8, _x9) {
+    function _delete(_x10, _x11) {
       return _delete2.apply(this, arguments);
     }
 
@@ -71021,7 +72774,10 @@ var state = {
     place: '',
     number: '',
     image: '',
-    id_sparepart_type: ''
+    id_sparepart_type: '',
+    id_motorcycle_type: '',
+    id_motorcycle_brand: '',
+    motorcycleTypes: []
   },
   loading: true,
   error: null
@@ -71187,36 +72943,35 @@ var actions = {
           switch (_context4.prev = _context4.next) {
             case 0:
               _context4.prev = 0;
-              data = {
-                id_sparepart: payload.id_sparepart,
-                sparepart_name: payload.sparepart_name,
-                merk: payload.merk,
-                stock: payload.stock,
-                min_stock: payload.min_stock,
-                purchase_price: payload.purchase_price,
-                sell_price: payload.sell_price,
-                placement: payload.placement,
-                image: payload.image,
-                id_sparepart_type: payload.id_sparepart_type
-              };
-              _context4.next = 4;
+              data = new FormData();
+              data.append('sparepart_name', payload.sparepart_name);
+              data.append('image', payload.image);
+              data.append('merk', payload.merk);
+              data.append('id_sparepart', payload.id_sparepart);
+              data.append('stock', payload.stock);
+              data.append('min_stock', payload.min_stock);
+              data.append('purchase_price', payload.purchase_price);
+              data.append('sell_price', payload.sell_price);
+              data.append('placement', payload.placement);
+              data.append('id_sparepart_type', payload.id_sparepart_type);
+              _context4.next = 14;
               return _service_Sparepart__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_sparepart, data);
 
-            case 4:
-              _context4.next = 9;
+            case 14:
+              _context4.next = 19;
               break;
 
-            case 6:
-              _context4.prev = 6;
+            case 16:
+              _context4.prev = 16;
               _context4.t0 = _context4["catch"](0);
               context.commit('setFailedAction', _context4.t0);
 
-            case 9:
+            case 19:
             case "end":
               return _context4.stop();
           }
         }
-      }, _callee4, this, [[0, 6]]);
+      }, _callee4, this, [[0, 16]]);
     }));
 
     function update(_x6, _x7) {
@@ -71969,27 +73724,27 @@ var actions = {
             case 0:
               _context4.prev = 0;
               data = {
-                username: payload.username,
                 password: payload.password
               };
-              _context4.next = 4;
+              console.log(data);
+              _context4.next = 5;
               return _service_User__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_user, data);
 
-            case 4:
-              _context4.next = 9;
+            case 5:
+              _context4.next = 10;
               break;
 
-            case 6:
-              _context4.prev = 6;
+            case 7:
+              _context4.prev = 7;
               _context4.t0 = _context4["catch"](0);
               context.commit('setFailedAction', _context4.t0);
 
-            case 9:
+            case 10:
             case "end":
               return _context4.stop();
           }
         }
-      }, _callee4, this, [[0, 6]]);
+      }, _callee4, this, [[0, 7]]);
     }));
 
     function update(_x6, _x7) {
@@ -72387,7 +74142,9 @@ __webpack_require__.r(__webpack_exports__);
     number: {
       required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
       numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["numeric"]
-    }
+    },
+    id_motorcycle_type: {},
+    id_motorcycle_brand: {}
   }
 });
 
@@ -72437,9 +74194,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   form: {
-    username: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
-    },
     password: {
       required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
     }

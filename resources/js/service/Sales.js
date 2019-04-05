@@ -45,5 +45,15 @@ export default {
     } catch (err) {
       throw new Error('Gagal hapus data sales')
     }
+  },
+
+  async findBySupplier (id) {
+    try {
+      const res = await http.get(`/api/suppliersales/${id}`)
+      
+      return res.data.data
+    } catch (err) {
+      throw new Error('Gagal mendapatkan data sales!')
+    }
   }
 }

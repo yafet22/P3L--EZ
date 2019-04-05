@@ -6,8 +6,8 @@
       justify-center
     >
       <VFlex
-        :lg10="!narrow"
-        :lg8="narrow"
+        :lg12="!narrow"
+        :lg10="narrow"
       >
         <VBreadcrumbs
           :items="breadcrumbs"
@@ -17,8 +17,8 @@
         </VBreadcrumbs>
       </VFlex>
       <VFlex
-        :lg10="!narrow"
-        :lg8="narrow"
+        :lg12="!narrow"
+        :lg10="narrow"
         md12
         xs12
       >

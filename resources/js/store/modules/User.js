@@ -63,10 +63,10 @@ const actions = {
   async update(context, payload) {
     try {
       const data = {
-        username: payload.username,
         password: payload.password,
       }
 
+      console.log(data)
       await userService.update(payload.id_user, data)
     } catch (err) {
       context.commit('setFailedAction', err)

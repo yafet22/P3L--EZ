@@ -1,7 +1,7 @@
 <template>
   <VApp>
     <AdminNavbar v-if="!isLoginPage"/>
-    <VContent>
+    <VContent >
         <router-view />
     </VContent>
   </VApp>

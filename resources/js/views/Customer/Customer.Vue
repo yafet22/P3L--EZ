@@ -127,6 +127,25 @@
       </v-dialog>
       <v-dialog v-model="dialog3" :max-width="1200" :width="1200">
         <UtilityCard title="List Motor">
+            <VCardText
+              v-if="loading || error"
+              class="text-xs-center"
+            >
+              <VAlert
+                v-if="error"
+                :value="true"
+                dismissible
+                type="error"
+              >
+              {{ error.message }}
+              </VAlert>
+              <VProgressCircular
+                v-if="loading"
+                :size="45"
+                indeterminate
+                class="loading-section"
+              />
+            </VCardText>
             <VCardText>
                 <VDataTable
                   :headers="headers2"
@@ -151,7 +170,7 @@
                     <td v-else> 
                       <v-select
                         label="merk motor"
-                        @change="filterType(form.id_motorcycle_brand)"
+                        @change="$v.form.id_motorcycle_brand.$touch()"
                         v-model="form.id_motorcycle_brand"
                         item-text="motorcycle_brand_name"
                         item-value="id_motorcycle_brand"
@@ -260,7 +279,26 @@
       <v-dialog v-model="warning2" persistent :width="500">
         <v-card>
             <v-card-title class="headline">Warning!</v-card-title>
-            <v-card-text class="text-md-center" style="font-size:15px">Anda yakin ingin menghapus data ini?</v-card-text>
+            <VCardText
+              v-if="customerLoading || customerError"
+              class="text-xs-center"
+            >
+              <VAlert
+                v-if="customerError"
+                :value="true"
+                dismissible
+                type="error"
+              >
+              {{ customerError.message }}
+              </VAlert>
+              <VProgressCircular
+                v-if="customerLoading"
+                :size="45"
+                indeterminate
+                class="loading-section"
+              />
+            </VCardText>
+            <v-card-text v-else class="text-md-center" style="font-size:15px">Anda yakin ingin menghapus data ini?</v-card-text>
             <v-card-actions>
             <v-spacer/>
             <VBtn class="mb-4" depressed dark color="red accent-3" @click="warning2 = false">Disagree</VBtn>
@@ -383,7 +421,7 @@ export default {
     }),
 
     filtered(){
-        let filter = this.type.filter( b => b.id_motorcycle_brand === this.id_motorcycle_brand)
+        let filter = this.type.filter( b => b.id_motorcycle_brand === this.form.id_motorcycle_brand)
         return filter
     },
 

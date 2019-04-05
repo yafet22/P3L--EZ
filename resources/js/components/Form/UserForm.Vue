@@ -1,45 +1,54 @@
 <template>
-  <VForm>
-    <VLayout>
-      <VFlex>
-        <VTextField
-          label="Username"
-          class="pa-1"
-          v-model="form.username"
-          :error-messages="usernameErrors"
-          @input="$v.form.username.$touch()"
-          required
-        />
-      </VFlex>
-    </VLayout>
-    <VLayout>
-      <VFlex>
-        <VTextField
-          label="Password"
-          class="pa-1"
-          v-model="form.password"
-          :error-messages="passwordErrors"
-          @input="$v.form.password.$touch()"
-          required
-        />
-      </VFlex>
-    </VLayout>
-    <VSpacer />
-    <VLayout>
-      <VFlex
-        class="text-xs-center"
+  <div>
+    <VCardText
+      v-if="loading || error"
+      class="text-xs-center"
+    >
+      <VAlert
+        v-if="error"
+        :value="true"
+        dismissible
+        type="error"
       >
-        <VBtn
-          depressed
-          color="success"
-          @click="submitHandler"
-          :disabled="!this.value"
+      {{ error.message }}
+      </VAlert>
+      <VProgressCircular
+        v-if="loading"
+        :size="45"
+        indeterminate
+        class="loading-section"
+      />
+    </VCardText>
+    <VForm>
+      <VLayout>
+        <VFlex>
+          <VTextField
+            label="Password"
+            class="pa-1"
+            v-model="form.password"
+            :error-messages="passwordErrors"
+            @input="$v.form.password.$touch()"
+            required
+          />
+        </VFlex>
+      </VLayout>
+      <VSpacer />
+      <VLayout>
+        <VFlex
+          class="text-xs-center"
         >
-          Kirim
-        </VBtn>
-      </VFlex>
-    </VLayout>
-  </VForm>
+          <VBtn
+            depressed
+            color="success"
+            @click="submitHandler"
+            :disabled="!this.value"
+          >
+            Kirim
+          </VBtn>
+        </VFlex>
+      </VLayout>
+    </VForm>
+   </div>
 </template>
 
 <script>
@@ -58,19 +67,12 @@ export default {
     ...mapGetters({
       form: 'User/user'
     }),
-    
-    usernameErrors () {
-      const errors = []
 
-      if (!this.$v.form.username.$invalid) return errors
-      
-      if (!this.$v.form.username.required && this.$v.form.username.$dirty) {
-        errors.push('Inputan username tidak valid')
-      }
-
-      return errors
-    },
-
+    ...mapState({
+      error: state => state.User.error,
+      loading: state => state.User.loading
+    }),
+   
     passwordErrors () {
       const errors = []
 

@@ -83,6 +83,19 @@ class SalesController extends RestController
         }
     }
 
+    public function showbySupplier($id)
+    {
+        try {
+            $sales=Sales::where('id_supplier',$id)->get();
+            $response = $this->generateCollection($sales);
+            return $this->sendResponse($response);
+        } catch (ModelNotFoundException $e) {
+            return $this->sendNotFoundResponse('sales_not_found');
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

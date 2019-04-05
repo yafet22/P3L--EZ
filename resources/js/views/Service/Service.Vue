@@ -118,7 +118,26 @@
       <v-dialog v-model="warning" persistent max-width="500">
         <v-card>
             <v-card-title class="headline">Warning!</v-card-title>
-            <v-card-text class="text-md-center" style="font-size:15px">Anda yakin ingin menghapus data ini?</v-card-text>
+            <VCardText
+              v-if="serviceLoading || serviceError"
+              class="text-xs-center"
+            >
+              <VAlert
+                v-if="error"
+                :value="true"
+                dismissible
+                type="serviceError"
+              >
+              {{ serviceError.message }}
+              </VAlert>
+              <VProgressCircular
+                v-if="serviceLoading"
+                :size="45"
+                indeterminate
+                class="loading-section"
+              />
+            </VCardText>
+            <v-card-text v-else class="text-md-center" style="font-size:15px">Anda yakin ingin menghapus data ini?</v-card-text>
             <v-card-actions>
             <v-spacer/>
             <VBtn class="mb-4" depressed dark color="red accent-3" @click="warning = false">Disagree</VBtn>

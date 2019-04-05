@@ -32,6 +32,7 @@ Route::resource('users','UserController');
 Route::resource('employees','EmployeeController');
 
 Route::resource('sales','SalesController');
+Route::get('suppliersales/{id}','SalesController@showbySupplier');
 
 Route::resource('suppliers','SupplierController');
 
@@ -40,6 +41,7 @@ Route::resource('services','ServiceController');
 Route::resource('sparepart_types','Sparepart_typeController');
 
 Route::resource('spareparts','SparepartController');
+Route::post('updatesparepart/{id}','SparepartController@updateSparepart');
 
 Route::resource('customers','CustomerController');
 

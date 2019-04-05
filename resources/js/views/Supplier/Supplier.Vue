@@ -61,6 +61,15 @@
               <td class="text-xs-center">
                 <VBtn 
                   flat
+                  color="info"
+                  @click="salesHandler(props.item.id_supplier)"
+                >
+                List Sales
+                </VBtn>
+              </td>
+              <td class="text-xs-center">
+                <VBtn 
+                  flat
                   icon
                   color="indigo"
                   dark
@@ -119,7 +128,26 @@
       <v-dialog v-model="warning" persistent max-width="500">
         <v-card>
             <v-card-title class="headline">Warning!</v-card-title>
-            <v-card-text class="text-md-center" style="font-size:15px">Anda yakin ingin menghapus data ini?</v-card-text>
+            <VCardText
+              v-if="loading || error"
+              class="text-xs-center"
+            >
+              <VAlert
+                v-if="error"
+                :value="true"
+                dismissible
+                type="error"
+              >
+              {{ error.message }}
+              </VAlert>
+              <VProgressCircular
+                v-if="loading"
+                :size="45"
+                indeterminate
+                class="loading-section"
+              />
+            </VCardText>
+            <v-card-text v-else class="text-md-center" style="font-size:15px">Anda yakin ingin menghapus data ini?</v-card-text>
             <v-card-actions>
             <v-spacer/>
             <VBtn class="mb-4" depressed dark color="red accent-3" @click="warning = false">Disagree</VBtn>
@@ -127,6 +155,42 @@
             <v-spacer/>
             </v-card-actions>
         </v-card>
+      </v-dialog>
+      <v-dialog v-model="dialog3" max-width="600px">
+        <UtilityCard title="List Sales">
+          <VCardText
+            v-if="supplierLoading || supplierError"
+            class="text-xs-center"
+          >
+            <VAlert
+              v-if="supplierError"
+              :value="true"
+              dismissible
+              type="error"
+            >
+            {{ supplierError.message }}
+            </VAlert>
+            <VProgressCircular
+              v-if="supplierLoading"
+              :size="45"
+              indeterminate
+              class="loading-section"
+            />
+          </VCardText>
+          <VCardText>
+              <VDataTable
+                :headers="headers2"
+                :items="sales"
+                :search="keyword2"
+              >
+                <template slot="items" slot-scope="props">
+                  <td v-html="props.item.id_sales" />
+                  <td v-html="props.item.sales_name" />
+                  <td v-html="props.item.sales_phone_number" />
+                </template>
+              </VDataTable>
+          </VCardText>
+        </UtilityCard>
       </v-dialog>
     </card>
   </PageWrapper>
@@ -150,8 +214,10 @@ export default {
       dialog: false,
       dialog2: false,
       warning: false,
+      dialog3: false,
       keyword: '',
       id_supplier: '',
+      keyword2: '',
       headers: [
           {
             text: 'ID',
@@ -174,6 +240,20 @@ export default {
             value: null
           },
       ],
+      headers2: [
+          {
+            text: 'ID',
+            value: 'id_sales',
+          },
+          {
+            text: 'Nama Sales',
+            value: 'sales_name'
+          },
+          {
+            text: 'Nomor Telepon Sales',
+            value: 'sales_phone_number'
+          },
+      ],
       breadcrumbs: [
         {
           text: 'Dashboard',
@@ -191,7 +271,8 @@ export default {
   computed: {
     ...mapState({
       supplierError: state => state.Supplier.error,
-      supplierLoading: state => state.Supplier.loading
+      supplierLoading: state => state.Supplier.loading,
+      sales: state=> state.Sales.salesmany,
     })
   },
 
@@ -203,10 +284,17 @@ export default {
       resetForm: 'Supplier/resetForm',
       updateSupplier: 'Supplier/update',
       fetchSupplier: 'Supplier/edit',
+      findSales: 'Sales/findBySupplier'
     }),
 
     fetch () {
       this.$refs.supplierControl.fetch()
+    },
+
+    async salesHandler(id){
+      await this.findSales(id)
+      this.id_supplier=id
+      this.dialog3=true
     },
 
     async editHandler(id){

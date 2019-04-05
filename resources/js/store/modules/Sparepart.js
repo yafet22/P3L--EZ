@@ -15,7 +15,10 @@ const state = {
     place: '',
     number: '',
     image: '',
-    id_sparepart_type: ''
+    id_sparepart_type: '',
+    id_motorcycle_type: '',
+    id_motorcycle_brand: '',
+    motorcycleTypes: []
   },
   loading: true,
   error: null
@@ -84,18 +87,18 @@ const actions = {
 
   async update(context, payload) {
     try {
-      const data = {
-       id_sparepart : payload.id_sparepart,
-       sparepart_name : payload.sparepart_name,
-       merk : payload.merk,
-       stock : payload.stock,
-       min_stock : payload.min_stock,
-       purchase_price : payload.purchase_price,
-       sell_price : payload.sell_price,
-       placement : payload.placement,
-       image : payload.image,
-       id_sparepart_type : payload.id_sparepart_type
-      }
+
+      let data = new FormData();
+      data.append('sparepart_name',payload.sparepart_name)
+      data.append('image',payload.image)
+      data.append('merk',payload.merk)
+      data.append('id_sparepart',payload.id_sparepart)
+      data.append('stock',payload.stock)
+      data.append('min_stock',payload.min_stock)
+      data.append('purchase_price',payload.purchase_price)
+      data.append('sell_price',payload.sell_price)
+      data.append('placement',payload.placement)
+      data.append('id_sparepart_type',payload.id_sparepart_type)
 
       await sparepartService.update(payload.id_sparepart, data)
     } catch (err) {

@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper :breadcrumbs="breadcrumbs">
+  <PageWrapper :narrow="true" :breadcrumbs="breadcrumbs">
     <card>
       <v-container grid-list-md mb-0>
         <h1 class="text-md-center">DATA USER</h1>
@@ -42,7 +42,7 @@
             v-if="!loading && !error"
           >
             <template slot="items" slot-scope="props">
-              <td v-html="props.item.id_user" />
+              <td v-html="props.item.id" />
               <td v-html="props.item.username" />
               <td class="text-xs-center">
                 <VBtn 
@@ -50,7 +50,7 @@
                   icon
                   color="indigo"
                   dark
-                  @click="editHandler(props.item.id_user)"
+                  @click="editHandler(props.item.id)"
                 >
                   <v-icon>edit</v-icon>
                 </VBtn>
@@ -59,7 +59,7 @@
                   icon
                   color="error"
                   dark
-                  @click="deleteWarning(props.item.id_user)"
+                  @click="deleteWarning(props.item.id)"
                 >
                   <v-icon>delete</v-icon>
                 </VBtn>
@@ -88,7 +88,26 @@
       <v-dialog v-model="warning" persistent max-width="500">
         <v-card>
             <v-card-title class="headline">Warning!</v-card-title>
-            <v-card-text class="text-md-center" style="font-size:15px">Anda yakin ingin menghapus data ini?</v-card-text>
+            <VCardText
+              v-if="userLoading || userError"
+              class="text-xs-center"
+            >
+              <VAlert
+                v-if="userError"
+                :value="true"
+                dismissible
+                type="error"
+              >
+              {{ userError.message }}
+              </VAlert>
+              <VProgressCircular
+                v-if="userLoading"
+                :size="45"
+                indeterminate
+                class="loading-section"
+              />
+            </VCardText>
+            <v-card-text v-else class="text-md-center" style="font-size:15px">Anda yakin ingin menghapus data ini?</v-card-text>
             <v-card-actions>
             <v-spacer/>
             <VBtn class="mb-4" depressed dark color="red accent-3" @click="warning = false">Disagree</VBtn>
@@ -120,11 +139,11 @@ export default {
       dialog2: false,
       warning: false,
       keyword: '',
-      id_user: '',
+      id: '',
       headers: [
           {
             text: 'ID',
-            value: 'id_user',
+            value: 'id',
           },
           {
             text: 'Username',
@@ -172,31 +191,30 @@ export default {
 
     editHandler(id){
       console.log(id)
-      this.id_user=id
+      this.id=id
       this.dialog2=true
     },
 
     deleteWarning(id){
-        this.id_user=id
+        this.id=id
         this.warning=true
     },
 
     async deleteHandler () {
-      console.log(this.id_user);
-      await this.deleteUser(this.id_user)
+      console.log(this.id);
+      await this.deleteUser(this.id)
       this.fetch()
       this.warning=false
     },
 
     async submitHandler2 (value) {
       
-      console.log(this.id_user);
+      console.log(this.id);
       const payload = {
-        id_user: this.id_user,
-        username: value.username,
+        id: this.id,
         password: value.password
       }
-
+      console.log(payload)
       await this.updateUser(payload)
     
       if (!this.userError) {

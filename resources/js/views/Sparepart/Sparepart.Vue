@@ -63,7 +63,7 @@
               <td v-html="props.item.purchase_price" />
               <td v-html="props.item.sell_price" />
               <td v-html="props.item.placement" />
-              <td class="text-xs-center">
+              <td class="text-xs-center" width="200px">
                 <VBtn 
                   flat
                   icon
@@ -124,7 +124,26 @@
       <v-dialog v-model="warning" persistent max-width="500">
         <v-card>
             <v-card-title class="headline">Warning!</v-card-title>
-            <v-card-text class="text-md-center" style="font-size:15px">Anda yakin ingin menghapus data ini?</v-card-text>
+            <VCardText
+              v-if="sparepartLoading || sparepartError"
+              class="text-xs-center"
+            >
+              <VAlert
+                v-if="sparepartError"
+                :value="true"
+                dismissible
+                type="sparepartError"
+              >
+              {{ sparepartError.message }}
+              </VAlert>
+              <VProgressCircular
+                v-if="sparepartLoading"
+                :size="45"
+                indeterminate
+                class="loading-section"
+              />
+            </VCardText>
+            <v-card-text v-else class="text-md-center" style="font-size:15px">Anda yakin ingin menghapus data ini?</v-card-text>
             <v-card-actions>
             <v-spacer/>
             <VBtn class="mb-4" depressed dark color="red accent-3" @click="warning = false">Disagree</VBtn>
@@ -228,6 +247,7 @@ export default {
       resetForm: 'Sparepart/resetForm',
       updateSparepart: 'Sparepart/update',
       fetchSparepart: 'Sparepart/edit',
+      update: 'Sparepart/updatesparepart',
     }),
 
     fetch () {
@@ -264,8 +284,11 @@ export default {
         purchase_price: value.purchase_price,
         sell_price: value.sell_price,
         placement: value.position + '-' + value.place + '-'+ value.number,
-        id_sparepart_type: value.id_sparepart_type
+        id_sparepart_type: value.id_sparepart_type,
+        motorcycleTypes: value.motorcycleTypes
       }
+      
+      console.log(value.motorcycleTypes)
 
       let payload = new FormData();
       payload.append('sparepart_name',value.sparepart_name)
@@ -278,6 +301,7 @@ export default {
       payload.append('sell_price',value.sell_price)
       payload.append('placement',value.position + '-' + value.place + '-'+ value.number)
       payload.append('id_sparepart_type',value.id_sparepart_type)
+      payload.append('motorcycleTypes',value.motorcycleTypes)
       console.log(payload)
 
       await this.storeSparepart(payload)
@@ -304,6 +328,8 @@ export default {
         id_sparepart_type: value.id_sparepart_type
       }
 
+      console.log(payload)
+
       await this.updateSparepart(payload)
     
       if (!this.sparepartError) {
@@ -320,9 +346,15 @@ export default {
 </script>
 
 <style scoped>
-.loading-section {
-  text-align: center;
-}
+  .loading-section {
+    text-align: center;
+  }
+
+  .warning-section {
+    color: red;
+    margin-right: 5px;
+    font-style: italic;
+  }
 </style>
 
 

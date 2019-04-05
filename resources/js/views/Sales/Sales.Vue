@@ -73,7 +73,7 @@
                   icon
                   color="error"
                   dark
-                  @click="deletewarning(props.item.id_sales)"
+                  @click="deleteWarning(props.item.id_sales)"
                 >
                   <v-icon>delete</v-icon>
                 </VBtn>
@@ -119,7 +119,26 @@
       <v-dialog v-model="warning" persistent max-width="500">
         <v-card>
             <v-card-title class="headline">Warning!</v-card-title>
-            <v-card-text class="text-md-center" style="font-size:15px">Anda yakin ingin menghapus data ini?</v-card-text>
+            <VCardText
+              v-if="salesLoading || salesError"
+              class="text-xs-center"
+            >
+              <VAlert
+                v-if="salesError"
+                :value="true"
+                dismissible
+                type="error"
+              >
+              {{ salesError.message }}
+              </VAlert>
+              <VProgressCircular
+                v-if="salesLoading"
+                :size="45"
+                indeterminate
+                class="loading-section"
+              />
+            </VCardText>
+            <v-card-text v-else class="text-md-center" style="font-size:15px">Anda yakin ingin menghapus data ini?</v-card-text>
             <v-card-actions>
             <v-spacer/>
             <VBtn class="mb-4" depressed dark color="red accent-3" @click="warning = false">Disagree</VBtn>

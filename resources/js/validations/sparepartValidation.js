@@ -15,6 +15,8 @@ import {
       sell_price: { required,numeric },
       position: { required },
       place: { required },
-      number: { required, numeric }
+      number: { required, numeric },
+      id_motorcycle_type: {},
+      id_motorcycle_brand: {}
     }
   }

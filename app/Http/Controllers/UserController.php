@@ -112,9 +112,9 @@ class UserController extends RestController
         try {
 
             $users = User::find($id);
-
-            $users->username=$request->get('username');
-            $users->password=$request->get('password');
+            
+            //$users->username=$request->get('username');
+            $users->password=bcrypt($request->get('password'));
             $users->save();
 
             $response = $this->generateItem($users);

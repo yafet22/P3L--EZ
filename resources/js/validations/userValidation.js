@@ -6,7 +6,6 @@ import {
   
   export default {
     form: {
-      username: { required },
       password: { required }
     }
   }

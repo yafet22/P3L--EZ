@@ -1,176 +1,262 @@
 <template>
-  <VForm>
-    <VLayout>
-      <VFlex class="text-xs-center">
-        <img :src="imageUrl" height="150" v-if="imageUrl"/>
-        <img :src="'/images/'+form.image" height="150" :alt="form.image" v-else-if="form.image"/>
-        <img :src="defaultImg" height="150" v-else/>
-        <v-text-field label="Pilih Gambar" class="pa-1" @click='pickFile' v-model='imageName' @input="$v.form.image.$touch()"/>
-        <input
-          type="file"
-          style="display: none"
-          ref="image"
-          accept="image/*"
-          @change="onFilePicked"
-        >
-      </VFlex>
-    </VLayout>
-    <VLayout>
-      <VFlex>
-        <VTextField
-          label="Id Sparepart"
-          class="pa-1"
-          v-model="form.id_sparepart"
-          :error-messages="idErrors"
-          @input="$v.form.id_sparepart.$touch()"
-          required
-        />
-      </VFlex>
-    </VLayout>
-    <VLayout>
-      <VFlex>
-        <VTextField
-          label="Nama"
-          class="pa-1"
-          v-model="form.sparepart_name"
-          :error-messages="nameErrors"
-          @input="$v.form.sparepart_name.$touch()"
-          required
-        />
-      </VFlex>
-    </VLayout>
-    <VLayout>
-      <VFlex>
-        <VTextField
-          label="Merk"
-          class="pa-1"
-          v-model="form.merk"
-          :error-messages="merkErrors"
-          @input="$v.form.merk.$touch()"
-          required
-        />
-      </VFlex>
-    </VLayout>
-    <VLayout>
-      <VFlex>
-        <v-select
-          label="Sparepart type"
-          class="pa-1"
-          v-model="form.id_sparepart_type"
-          item-text="sparepart_type_name"
-          item-value="id_sparepart_type"
-          :items="items"
-          :return-object="false"
-          :error-messages="sparepartTypeErrors"
-          @input="$v.form.id_sparepart_type.$touch()"
-          required
-        ></v-select>
-      </VFlex>
-    </VLayout>
-    <VLayout>
-      <VFlex>
-        <VTextField
-          label="Stock"
-          class="pa-1"
-          v-model="form.stock"
-          :error-messages="stockErrors"
-          @input="$v.form.stock.$touch()"
-          required
-        />
-      </VFlex>
-    </VLayout>
-    <VLayout>
-      <VFlex>
-        <VTextField
-          label="Min Stock"
-          class="pa-1"
-          v-model="form.min_stock"
-          :error-messages="minStockErrors"
-          @input="$v.form.min_stock.$touch()"
-          required
-        />
-      </VFlex>
-    </VLayout>
-    <VLayout>
-      <VFlex>
-        <VTextField
-          label="Harga Beli"
-          class="pa-1"
-          v-model="form.purchase_price"
-          :error-messages="purchasePriceErrors"
-          @input="$v.form.purchase_price.$touch()"
-          required
-        />
-      </VFlex>
-    </VLayout>
-    <VLayout>
-      <VFlex>
-        <VTextField
-          label="Harga Jual"
-          class="pa-1"
-          v-model="form.sell_price"
-          :error-messages="sellPriceErrors"
-          @input="$v.form.sell_price.$touch()"
-          required
-        />
-      </VFlex>
-    </VLayout>
-    <VLayout>
-      <VFlex sm6>
-        <v-select
-          label="Posisi"
-          class="pa-1"
-          v-model="form.position"
-          item-text="text"
-          item-value="id"
-          :items="positions"
-          :return-object="false"
-          :error-messages="positionErrors"
-          @input="$v.form.position.$touch()"
-          required
-        ></v-select>
-      </VFlex>
-      <VFlex sm6>
-        <v-select
-          label="Tempat"
-          class="pa-1"
-          v-model="form.place"
-          item-text="text"
-          item-value="id"
-          :items="places"
-          :return-object="false"
-          :error-messages="placeErrors"
-          @input="$v.form.place.$touch()"
-          required
-        ></v-select>
-      </VFlex>
-      <VFlex sm6>
-          <VTextField
-          label="Nomor Urut"
-          class="pa-1"
-          v-model="form.number"
-          :error-messages="numberErrors"
-          @input="$v.form.number.$touch()"
-          required
-        />
-      </VFlex>
-    </VLayout>
-    <VSpacer />
-    <VLayout>
-      <VFlex
-        class="text-xs-center"
+  <div>
+    <VCardText
+      v-if="loading || error"
+      class="text-xs-center"
+    >
+      <VAlert
+        v-if="error"
+        :value="true"
+        dismissible
+        type="error"
       >
-        <VBtn
-          depressed
-          color="success"
-          @click="submitHandler"
-          :disabled="!this.value"
+      {{ error.message }}
+      </VAlert>
+      <VProgressCircular
+        v-if="loading"
+        :size="45"
+        indeterminate
+        class="loading-section"
+      />
+    </VCardText>
+    <VForm>
+      <VLayout>
+        <VFlex class="text-xs-center">
+          <img :src="imageUrl" height="150" v-if="imageUrl"/>
+          <img :src="'/images/'+form.image" height="150" :alt="form.image" v-else-if="form.image"/>
+          <img :src="defaultImg" height="150" v-else/>
+          <v-text-field label="Pilih Gambar" class="pa-1" @click='pickFile' v-model='imageName' @input="$v.form.image.$touch()"/>
+          <input
+            type="file"
+            style="display: none"
+            ref="image"
+            accept="image/*"
+            @change="onFilePicked"
+          >
+        </VFlex>
+      </VLayout>
+      <VLayout>
+        <VFlex>
+          <VTextField
+            label="Id Sparepart"
+            class="pa-1"
+            v-model="form.id_sparepart"
+            :error-messages="idErrors"
+            @input="$v.form.id_sparepart.$touch()"
+            required
+          />
+        </VFlex>
+      </VLayout>
+      <VLayout>
+        <VFlex>
+          <VTextField
+            label="Nama"
+            class="pa-1"
+            v-model="form.sparepart_name"
+            :error-messages="nameErrors"
+            @input="$v.form.sparepart_name.$touch()"
+            required
+          />
+        </VFlex>
+      </VLayout>
+      <VLayout>
+        <VFlex>
+          <VTextField
+            label="Merk"
+            class="pa-1"
+            v-model="form.merk"
+            :error-messages="merkErrors"
+            @input="$v.form.merk.$touch()"
+            required
+          />
+        </VFlex>
+      </VLayout>
+      <VLayout>
+        <VFlex>
+          <v-select
+            label="Sparepart type"
+            class="pa-1"
+            v-model="form.id_sparepart_type"
+            item-text="sparepart_type_name"
+            item-value="id_sparepart_type"
+            :items="items"
+            :return-object="false"
+            :error-messages="sparepartTypeErrors"
+            @input="$v.form.id_sparepart_type.$touch()"
+            required
+          ></v-select>
+        </VFlex>
+      </VLayout>
+      <VLayout>
+        <VFlex>
+          <VTextField
+            label="Stock"
+            class="pa-1"
+            v-model="form.stock"
+            :error-messages="stockErrors"
+            @input="$v.form.stock.$touch()"
+            required
+          />
+        </VFlex>
+      </VLayout>
+      <VLayout>
+        <VFlex>
+          <VTextField
+            label="Min Stock"
+            class="pa-1"
+            v-model="form.min_stock"
+            :error-messages="minStockErrors"
+            @input="$v.form.min_stock.$touch()"
+            required
+          />
+        </VFlex>
+      </VLayout>
+      <VLayout>
+        <VFlex>
+          <VTextField
+            label="Harga Beli"
+            class="pa-1"
+            v-model="form.purchase_price"
+            :error-messages="purchasePriceErrors"
+            @input="$v.form.purchase_price.$touch()"
+            required
+          />
+        </VFlex>
+      </VLayout>
+      <VLayout>
+        <VFlex>
+          <VTextField
+            label="Harga Jual"
+            class="pa-1"
+            v-model="form.sell_price"
+            :error-messages="sellPriceErrors"
+            @input="$v.form.sell_price.$touch()"
+            required
+          />
+        </VFlex>
+      </VLayout>
+      <VLayout>
+        <VFlex sm6>
+          <v-select
+            label="Posisi"
+            class="pa-1"
+            v-model="form.position"
+            item-text="text"
+            item-value="id"
+            :items="positions"
+            :return-object="false"
+            :error-messages="positionErrors"
+            @input="$v.form.position.$touch()"
+            required
+          ></v-select>
+        </VFlex>
+        <VFlex sm6>
+          <v-select
+            label="Tempat"
+            class="pa-1"
+            v-model="form.place"
+            item-text="text"
+            item-value="id"
+            :items="places"
+            :return-object="false"
+            :error-messages="placeErrors"
+            @input="$v.form.place.$touch()"
+            required
+          ></v-select>
+        </VFlex>
+        <VFlex sm6>
+            <VTextField
+            label="Nomor Urut"
+            class="pa-1"
+            v-model="form.number"
+            :error-messages="numberErrors"
+            @input="$v.form.number.$touch()"
+            required
+          />
+        </VFlex>
+      </VLayout>
+      <VLayout>
+        <VFlex sm5>
+          <v-select
+            label="merk motor"
+            class="pa-1"
+            v-model="form.id_motorcycle_brand"
+            item-text="motorcycle_brand_name"
+            item-value="id_motorcycle_brand"
+            :items="brands"
+            :return-object="false"
+            @input="$v.form.id_motorcycle_brand.$touch()"
+            @change="$v.form.id_motorcycle_brand.$touch()"
+            required
+          ></v-select>
+        </VFlex>
+        <VFlex sm5>
+          <v-select
+            label="type motor"
+            class="pa-1"
+            v-model="form.id_motorcycle_type"
+            item-text="motorcycle_type_name"
+            item-value="id_motorcycle_type"
+            :items="filtered"
+            :return-object="false"
+            @input="$v.form.id_motorcycle_type.$touch()"
+            @change="$v.form.id_motorcycle_type.$touch()"
+            required
+          ></v-select>
+        </VFlex>
+        <VFlex class="text-md-center" sm2>
+          <VBtn
+            flat
+            icon
+            depressed
+            color="success"
+            @click="compatibilityHandler(types)"
+          >
+            <v-icon>add_circle</v-icon>
+          </VBtn>
+        </VFlex>
+      </VLayout>
+      <h4 class="ml-1 my-1">Kecocokan Sparepart dengan Motor</h4>
+      <VLayout>
+        <VFlex class="text-md-center" sm8>
+          <v-list-tile
+              v-for="motorcycle in motorcycles"
+              :key="motorcycle.id_motorcycle_type"
+              avatar
+            >
+              <v-list-tile-avatar>
+                <v-icon > motorcycle </v-icon>
+              </v-list-tile-avatar>
+
+              <v-list-tile-content>
+                <v-list-tile-title >{{ motorcycle.motorcycle_type_name }}</v-list-tile-title>
+              </v-list-tile-content>
+
+              <v-list-tile-action>
+                <v-btn icon ripple @click="deleteList(motorcycle.id_motorcycle_type)">
+                  <v-icon color="grey lighten-1">remove_circle</v-icon>
+                </v-btn>
+              </v-list-tile-action>
+            </v-list-tile>
+        </VFlex>
+      </VLayout>
+      <VSpacer />
+      <VLayout>
+        <VFlex
+          class="text-xs-center"
         >
-          Kirim
-        </VBtn>
-      </VFlex>
-    </VLayout>
-  </VForm>
+          <VBtn
+            depressed
+            color="success"
+            @click="submitHandler"
+            :disabled="!this.value"
+          >
+            Kirim
+          </VBtn>
+        </VFlex>
+      </VLayout>
+    </VForm>
+   </div>
 </template>
 
 <script>
@@ -197,6 +283,9 @@ export default {
         { id: "DUS", text: 'Tumpukan Dus' },
         { id: "KAYU", text: 'Lemari Kayu' }
       ],
+      motorcycles: [],
+      motorcycleTypes: [],
+      id_motorcycle_type: '',
       imageName: '',
       defaultImg: 'http://localhost:8000/asset/default.png',
       imageUrl: '',
@@ -206,7 +295,16 @@ export default {
 
     ...mapState({
       items: state => state.SparepartType.sparepartTypes,
+      error: state => state.Sparepart.error,
+      loading: state => state.Sparepart.loading,
+      brands: state => state.MotorcycleBrand.motorcycleBrands,
+      types: state => state.MotorcycleType.motorcycleTypes,
     }),
+
+    filtered(){
+        let filter = this.types.filter( b => b.id_motorcycle_brand === this.form.id_motorcycle_brand)
+        return filter
+    },
 
     ...mapGetters({
       form: 'Sparepart/sparepart'
@@ -392,14 +490,31 @@ export default {
   methods: {
     ...mapActions({
       fetch: 'SparepartType/get',
+      fetchBrand: 'MotorcycleBrand/get',
+      fetchType: 'MotorcycleType/get'
     }),
+
+    deleteList(id)
+    {
+      let filter = this.motorcycles.filter(function( obj ) {
+          return obj.id_motorcycle_type !== id;
+      });
+      this.motorcycles=filter
+    },
+
     submitHandler () {
       this.$emit('submitted', this.form)
     },
     pickFile () {
-            this.$refs.image.click ()
-        },
-		
+        this.$refs.image.click ()
+    },
+
+    compatibilityHandler (items) {
+      var object = items[this.form.id_motorcycle_type-1]
+      this.motorcycles.push(JSON.parse(JSON.stringify(object)))
+      this.form.motorcycleTypes.push(this.form.id_motorcycle_type)
+    },
+
 		onFilePicked (e) {
 			const files = e.target.files
 			if(files[0] !== undefined) {
@@ -422,6 +537,8 @@ export default {
 
   mounted () {
     this.fetch()
+    this.fetchBrand()
+    this.fetchType()
   }
 }
 </script>

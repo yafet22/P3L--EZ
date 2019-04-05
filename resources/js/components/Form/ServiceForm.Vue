@@ -1,50 +1,71 @@
 <template>
-  <VForm>
-    <VLayout>
-      <VFlex>
-        <VTextField
-          label="Nama"
-          class="pa-1"
-          v-model="form.service_name"
-          :error-messages="nameErrors"
-          @input="$v.form.service_name.$touch()"
-          required
-        />
-      </VFlex>
-    </VLayout>
-    <VLayout>
-      <VFlex>
-        <VTextField
-          label="Harga"
-          class="pa-1"
-          v-model="form.price"
-          :error-messages="priceErrors"
-          @input="$v.form.price.$touch()"
-          required
-        />
-      </VFlex>
-    </VLayout>
-    <VSpacer />
-    <VLayout>
-      <VFlex
-        class="text-xs-center"
+  <div>
+    <VCardText
+      v-if="loading || error"
+      class="text-xs-center"
+    >
+      <VAlert
+        v-if="error"
+        :value="true"
+        dismissible
+        type="error"
       >
-        <VBtn
-          depressed
-          color="success"
-          @click="submitHandler"
-          :disabled="!this.value"
+      {{ error.message }}
+      </VAlert>
+      <VProgressCircular
+        v-if="loading"
+        :size="45"
+        indeterminate
+        class="loading-section"
+      />
+    </VCardText>
+    <VForm>
+      <VLayout>
+        <VFlex>
+          <VTextField
+            label="Nama"
+            class="pa-1"
+            v-model="form.service_name"
+            :error-messages="nameErrors"
+            @input="$v.form.service_name.$touch()"
+            required
+          />
+        </VFlex>
+      </VLayout>
+      <VLayout>
+        <VFlex>
+          <VTextField
+            label="Harga"
+            class="pa-1"
+            v-model="form.price"
+            :error-messages="priceErrors"
+            @input="$v.form.price.$touch()"
+            required
+          />
+        </VFlex>
+      </VLayout>
+      <VSpacer />
+      <VLayout>
+        <VFlex
+          class="text-xs-center"
         >
-          Kirim
-        </VBtn>
-      </VFlex>
-    </VLayout>
-  </VForm>
+          <VBtn
+            depressed
+            color="success"
+            @click="submitHandler"
+            :disabled="!this.value"
+          >
+            Kirim
+          </VBtn>
+        </VFlex>
+      </VLayout>
+    </VForm>
+   </div>
 </template>
 
 <script>
 import validator from '../../validations/serviceValidation'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
   props: {
@@ -57,6 +78,11 @@ export default {
   computed: {
     ...mapGetters({
       form: 'Service/service'
+    }),
+
+    ...mapState({
+      error: state => state.Service.error,
+      loading: state => state.Service.loading
     }),
     
     nameErrors () {

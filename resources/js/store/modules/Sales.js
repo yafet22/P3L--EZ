@@ -45,6 +45,14 @@ const actions = {
     }
   },
 
+  async findBySupplier(context,id) {
+    try {
+      context.commit('setSource', await salesService.findBySupplier(id))
+    } catch (err) {
+      context.commit('setFailedAction', err)
+    }
+  },
+
   async store(context, payload) {
     try {
       await salesService.store(payload)

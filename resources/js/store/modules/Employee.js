@@ -29,9 +29,26 @@ const mutations = {
     state.error = payload.error
   },
 
+  resetEmployeeForm(state){
+    state.employee.first_name = '',
+    state.employee.last_name= '',
+    state.employee.salary= '',
+    state.employee.phone_number= '',
+    state.employee.address= '',
+    state.employee.id_user= '',
+    state.employee.id_branch= '',
+    state.employee.id_role= ''
+  },
+
   setEmployeeForm(state, payload) {
-    state.employee.first_name = payload.name
-    state.employee.last_name = payload.last_name
+    var name = payload.name;
+    var word = name.split(' ');
+    
+    state.employee.first_name = word[0]
+    if(payload.name.split(' ').length>1)
+      state.employee.last_name = word[1]
+    else  
+    state.employee.last_name = ''
     state.employee.address = payload.address
     state.employee.phone_number = payload.phone_number
     state.employee.salary = payload.salary
@@ -99,7 +116,7 @@ const actions = {
   },
 
   resetForm(context) {
-    context.commit('setEmployeeForm', {})
+    context.commit('resetEmployeeForm', {})
   }
 }
 

@@ -31,7 +31,8 @@ export default {
 
   async update (id, payload) {
     try {
-      const res = await http.patch(`/api/spareparts/${id}`, payload)
+      console.log("pp")
+      const res = await http.post(`/api/updatesparepart/${id}`, payload)
 
       return res.data.data
     } catch (err) {
