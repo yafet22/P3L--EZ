@@ -31,6 +31,7 @@ export default {
 
   async update (id, payload) {
     try {
+
       const res = await http.patch(`/api/users/${id}`, payload)
 
       return res.data.data

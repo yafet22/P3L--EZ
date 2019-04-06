@@ -17,4 +17,8 @@ class Sales extends Model
     public function suppliers(){
         return $this->belongsTo('App\Supplier','id_supplier');
     }
+
+    public function procurements(){
+        return $this->hasMany('App\Procurement','id_sales');
+    }
 }

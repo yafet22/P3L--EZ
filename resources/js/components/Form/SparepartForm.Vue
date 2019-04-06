@@ -175,6 +175,7 @@
           />
         </VFlex>
       </VLayout>
+      <h4 class="ml-1 my-1">Kecocokan Sparepart dengan Motor</h4>
       <VLayout>
         <VFlex sm5>
           <v-select
@@ -216,12 +217,20 @@
           </VBtn>
         </VFlex>
       </VLayout>
-      <h4 class="ml-1 my-1">Kecocokan Sparepart dengan Motor</h4>
+      <VAlert
+        v-if="err"
+        :value="true"
+        dismissible
+        type="error"
+      >
+      Data sudah terdapat pada list
+      </VAlert>
       <VLayout>
-        <VFlex class="text-md-center" sm8>
+        <VFlex class="text-md-center" sm12>
           <v-list-tile
-              v-for="motorcycle in motorcycles"
+              v-for="motorcycle in form.compatibility"
               :key="motorcycle.id_motorcycle_type"
+              class="list"
               avatar
             >
               <v-list-tile-avatar>
@@ -229,12 +238,17 @@
               </v-list-tile-avatar>
 
               <v-list-tile-content>
-                <v-list-tile-title >{{ motorcycle.motorcycle_type_name }}</v-list-tile-title>
+                <v-list-tile-title >{{ motorcycle.motorcycle_brand + ' - ' + motorcycle.motorcycle_type_name }}</v-list-tile-title>
               </v-list-tile-content>
 
               <v-list-tile-action>
-                <v-btn icon ripple @click="deleteList(motorcycle.id_motorcycle_type)">
-                  <v-icon color="grey lighten-1">remove_circle</v-icon>
+                <v-btn 
+                  flat
+                  icon
+                  color="error"
+                  dark @click="deleteList(motorcycle.id_motorcycle_type)"
+                >
+                  <v-icon>remove_circle</v-icon>
                 </v-btn>
               </v-list-tile-action>
             </v-list-tile>
@@ -289,6 +303,7 @@ export default {
       imageName: '',
       defaultImg: 'http://localhost:8000/asset/default.png',
       imageUrl: '',
+      err: false
     }
   },
   computed: {
@@ -496,10 +511,15 @@ export default {
 
     deleteList(id)
     {
-      let filter = this.motorcycles.filter(function( obj ) {
+      let filter = this.form.compatibility.filter(function( obj ) {
           return obj.id_motorcycle_type !== id;
       });
-      this.motorcycles=filter
+      this.form.compatibility=filter
+
+      let filter2 = this.form.motorcycleTypes.filter(function( obj ) {
+          return obj !== id;
+      });
+      this.form.motorcycleTypes=filter2
     },
 
     submitHandler () {
@@ -510,9 +530,25 @@ export default {
     },
 
     compatibilityHandler (items) {
+      var i = 0
       var object = items[this.form.id_motorcycle_type-1]
-      this.motorcycles.push(JSON.parse(JSON.stringify(object)))
-      this.form.motorcycleTypes.push(this.form.id_motorcycle_type)
+      this.err = false
+      for(var data in this.form.compatibility)
+      {
+          console.log(this.form.compatibility[0].id_motorcycle_type)
+          if(this.form.compatibility[i].id_motorcycle_type==object.id_motorcycle_type)
+          {
+              this.err = true
+          }
+          i++;
+      }
+
+      if(!this.err)
+      {
+        this.form.compatibility.push(JSON.parse(JSON.stringify(object)))
+        this.form.motorcycleTypes.push(this.form.id_motorcycle_type)
+      }
+    
     },
 
 		onFilePicked (e) {
@@ -542,3 +578,18 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .loading-section {
+    text-align: center;
+  }
+
+  .list {
+    background: #ece5e4
+  }
+
+  .list:hover {
+    background: #def3bc;
+  }
+  
+</style>

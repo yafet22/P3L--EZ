@@ -17,6 +17,8 @@ class CompatibilityTransformer extends TransformerAbstract
         return [
             'id_motorcycle_type' => $motorcycle->id_motorcycle_type,
             'motorcycle_type_name' => $motorcycle->motorcycle_type_name,
+            'id_motorcycle_brand' => $motorcycle->id_motorcycle_brand,
+            'motorcycle_brand' => $motorcycle->motorcycle_brands->motorcycle_brand_name,
         ];
     }
 }

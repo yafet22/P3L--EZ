@@ -163,7 +163,8 @@
               { id: 6, to: 'sales', icon: 'people', text: 'Sales', name: 'Sales'},
               { id: 7, to: 'services', icon: 'pan_tool', text: 'Service', name: 'Service'},
               { id: 8, to: 'spareparts', icon: 'build', text: 'Sparepart', name: 'Sparepart'},
-              { id: 9, to: 'customers', icon: 'accessibility', text: 'Customer', name: 'Customer'},
+              { id: 9, to: 'customers', icon: 'accessibility', text: 'Pelanggan', name: 'Customer'},
+              { id: 10, to: 'procurements', icon: 'airport_shuttle', text: 'Pengadaan Sparepart', name: 'procurement'},
             ]
             break
 

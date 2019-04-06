@@ -325,6 +325,7 @@ export default {
         purchase_price: value.purchase_price,
         sell_price: value.sell_price,
         placement: value.position + '-'+ value.place + '-'+ value.number,
+        motorcycleTypes: value.motorcycleTypes,
         id_sparepart_type: value.id_sparepart_type
       }
 

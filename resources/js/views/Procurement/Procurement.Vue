@@ -2,7 +2,7 @@
   <PageWrapper :breadcrumbs="breadcrumbs">
     <card>
       <v-container grid-list-md mb-0>
-        <h1 class="text-md-center">DATA JASA SERVICE</h1>
+        <h1 class="text-md-center">DATA PENGADAAN SPAREPART</h1>
       </v-container> 
       <v-layout row wrap>
         <v-flex xs6>
@@ -14,7 +14,7 @@
             @click="dialog = true"
             >
             <VIcon>add</VIcon>
-                Tambah Service
+                Pesan Sparepart
             </VBtn>
         </v-flex>
         <v-flex xs6 class="text-xs-right">
@@ -27,7 +27,7 @@
             <CardSearchBar v-model="keyword" />
         </v-flex>
        </v-layout>
-      <ServiceControl ref="serviceControl">
+      <ProcurementControl ref="procurementControl">
         <template slot-scope="{ loading, error, items }">
           <VCardText
             v-if="loading || error"
@@ -54,16 +54,34 @@
             v-if="!loading && !error"
           >
             <template slot="items" slot-scope="props">
-              <td v-html="props.item.id_service" />
-              <td v-html="props.item.service_name" />
-              <td v-html="props.item.price"/>
+              <td v-html="props.item.id_procurement" />
+              <td v-html="props.item.date" />
+              <td v-html="props.item.procurement_status" />
+              <td class="text-xs-center">
+                <VBtn 
+                  flat
+                  color="info"
+                 
+                >
+                Detail
+                </VBtn>
+              </td>
+              <td class="text-xs-center">
+                <VBtn 
+                  flat
+                  color="warning"
+                 
+                >
+                Cetak
+                </VBtn>
+              </td>
               <td class="text-xs-center">
                 <VBtn 
                   flat
                   icon
                   color="indigo"
                   dark
-                  @click="editHandler(props.item.id_service)"
+                  @click="editHandler(props.item.id_procurement)"
                 >
                   <v-icon>edit</v-icon>
                 </VBtn>
@@ -72,7 +90,7 @@
                   icon
                   color="error"
                   dark
-                  @click="deleteWarning(props.item.id_service)"
+                  @click="deleteWarning(props.item.id_procurement)"
                 >
                   <v-icon>delete</v-icon>
                 </VBtn>
@@ -80,58 +98,25 @@
             </template>
           </VDataTable>
         </template>
-      </ServiceControl>
-      <v-dialog v-model="dialog" max-width="600px">
-        <UtilityCard title="Tambah Service">
-            <VCardText>
-                <VAlert
-                v-if="serviceError"
-                v-html="serviceError.message"
-                :value="true"
-                dismissible
-                type="error"
-                />
-                <ServiceForm 
-                v-model="isFormValid"
-                @submitted="submitHandler"
-                />
-            </VCardText>
-        </UtilityCard>
-      </v-dialog>
-      <v-dialog v-model="dialog2" max-width="600px">
-        <UtilityCard title="Ubah Data Servicer">
-            <VCardText>
-                <VAlert
-                v-if="serviceError"
-                v-html="serviceError.message"
-                :value="true"
-                dismissible
-                type="error"
-                />
-                <ServiceForm 
-                v-model="isFormValid"
-                @submitted="submitHandler2"
-                />
-            </VCardText>
-        </UtilityCard>
-      </v-dialog>
+      </ProcurementControl>
+    
       <v-dialog v-model="warning" persistent max-width="500">
         <v-card>
             <v-card-title class="headline">Warning!</v-card-title>
             <VCardText
-              v-if="serviceLoading || serviceError"
+              v-if="procurementLoading || procurementError"
               class="text-xs-center"
             >
               <VAlert
-                v-if="serviceError"
+                v-if="procurementError"
                 :value="true"
                 dismissible
-                type="serviceError"
+                type="error"
               >
-              {{ serviceError.message }}
+              {{ procurementError.message }}
               </VAlert>
               <VProgressCircular
-                v-if="serviceLoading"
+                v-if="procurementLoading"
                 :size="45"
                 indeterminate
                 class="loading-section"
@@ -151,15 +136,15 @@
 </template>
 
 <script>
-import ServiceForm from '../../components/Form/ServiceForm'
-import ServiceControl from '../../components/Renderless/ServiceControl'
-import serviceService from '../../service/Service'
+import ProcurementForm from '../../components/Form/ProcurementForm'
+import ProcurementControl from '../../components/Renderless/ProcurementControl'
+import procurementService from '../../service/Procurement'
 import { mapActions,mapState } from 'vuex';
 
 export default {
   components: {
-    ServiceControl,
-    ServiceForm
+    ProcurementControl,
+    ProcurementForm
   },
   data () {
     return {
@@ -169,19 +154,27 @@ export default {
       dialog2: false,
       warning: false,
       keyword: '',
-      id_service: '',
+      id_supplier: '',
       headers: [
           {
             text: 'ID',
-            value: 'id_service',
+            value: 'id_supplier',
           },
           {
-            text: 'Nama',
-            value: 'service_name'
+            text: 'Tanggal',
+            value: 'date'
           },
           {
-            text: 'Harga',
-            value: 'price'
+            text: 'Status',
+            value: 'procurement_status'
+          },
+          {
+            text: 'Verifikasi',
+            value: null
+          },
+          {
+            text: 'Cetak SP',
+            value: null
           },
           {
             text: 'Aksi',
@@ -195,7 +188,7 @@ export default {
           exact: true,
         },
         {
-          text: 'Service',
+          text: 'Procurement',
           disabled: true,
         },
       ]
@@ -204,53 +197,54 @@ export default {
 
   computed: {
     ...mapState({
-      serviceError: state => state.Service.error,
-      serviceLoading: state => state.Service.loading
+      procurementError: state => state.Procurement.error,
+      procurementLoading: state => state.Procurement.loading
     })
   },
 
 
   methods: {
     ...mapActions({
-      deleteService: 'Service/delete',
-      storeService: 'Service/store',
-      resetForm: 'Service/resetForm',
-      updateService: 'Service/update',
-      fetchService: 'Service/edit',
+      deleteProcurement: 'Procurement/delete',
+      storeProcurement: 'Procurement/store',
+      resetForm: 'Procurement/resetForm',
+      updateProcurement: 'Procurement/update',
+      fetchProcurement: 'Procurement/edit',
     }),
 
     fetch () {
-      this.$refs.serviceControl.fetch()
+      this.$refs.procurementControl.fetch()
     },
 
     async editHandler(id){
       console.log(id)
-      this.id_service=id
-      await this.fetchService(id)
+      this.id_procurement=id
+      await this.fetchProcurement(id)
       this.dialog2=true
     },
 
     deleteWarning(id){
-        this.id_service=id
+        this.id_procurement=id
         this.warning=true
     },
 
     async deleteHandler () {
-      console.log(this.id_service);
-      await this.deleteService(this.id_service)
+      console.log(this.id_procurement);
+      await this.deleteProcurement(this.id_procurement)
       this.fetch()
       this.warning=false
     },
 
     async submitHandler (value) {
       const payload = {
-        service_name: value.service_name,
-        price: value.price,
+        date: value.date,
+        procurement_status: value.procurement_status,
+        id_sales: value.id_sales
       }
 
-      await this.storeService(payload)
+      await this.storeProcurement(payload)
     
-      if (!this.serviceError) {
+      if (!this.procurementError) {
         this.dialog=false
         this.fetch()
       }
@@ -258,16 +252,17 @@ export default {
 
     async submitHandler2 (value) {
       
-      console.log(this.id_service);
+      console.log(this.id_procurement);
       const payload = {
-        id_service: this.id_service,
-        service_name: value.service_name,
-        price: value.price,
+        id_procurement: this.id_procurement,
+        date: value.date,
+        procurement_status: value.procurement_status,
+        id_sales: value.id_sales
       }
 
-      await this.updateService(payload)
+      await this.updateProcurement(payload)
     
-      if (!this.serviceError) {
+      if (!this.procurementError) {
         this.dialog2=false
         this.fetch()
       }

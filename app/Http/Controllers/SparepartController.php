@@ -60,7 +60,7 @@ class SparepartController extends RestController
                     $sparepart->image=NULL;
                 }
 
-                $motorcyle_types = $request->motorcycleTypes;
+                $motorcyle_types = explode(",",trim($request->motorcycleTypes));
 
                 $sparepart->id_sparepart=$request->get('id_sparepart');
                 $sparepart->sparepart_name=$request->get('sparepart_name');
@@ -125,18 +125,7 @@ class SparepartController extends RestController
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $this->validate($request,[
-            'sparepart_name' => 'required',
-            'merk' => 'required',
-            'stock' => 'required',
-            'min_stock' => 'required',
-            'purchase_price' => 'required',
-            'sell_price' => 'required',
-            'placement' => 'required',
-            'image' => 'required',
-            'id_sparepart_type' => 'required',
-        ]); 
+    { 
 
         try {
 
@@ -151,6 +140,8 @@ class SparepartController extends RestController
                 $sparepart->image=$name;
             }
 
+            $motorcyle_types = explode(",",trim($request->motorcycleTypes));
+
             $sparepart->sparepart_name=$request->get('sparepart_name');
             $sparepart->merk=$request->get('merk');
             $sparepart->stock=$request->get('stock');
@@ -160,6 +151,11 @@ class SparepartController extends RestController
             $sparepart->placement=$request->get('placement');
             $sparepart->id_sparepart_type=$request->get('id_sparepart_type');
             $sparepart->save();
+
+            $sparepart = DB::transaction(function () use ($sparepart,$motorcyle_types) {
+                $sparepart->motorcycleTypes()->sync($motorcyle_types);
+                return $sparepart;
+            });
 
             $response = $this->generateItem($sparepart);
 
@@ -198,6 +194,7 @@ class SparepartController extends RestController
 
             $sparepart=Sparepart::find($id);
 
+            $motorcyle_types = explode(",",trim($request->motorcycleTypes));
 
             if($request->hasfile('image'))
             {
@@ -216,6 +213,11 @@ class SparepartController extends RestController
             $sparepart->placement=$request->get('placement');
             $sparepart->id_sparepart_type=$request->get('id_sparepart_type');
             $sparepart->save();
+
+            $sparepart = DB::transaction(function () use ($sparepart,$motorcyle_types) {
+                $sparepart->motorcycleTypes()->sync($motorcyle_types);
+                return $sparepart;
+            });
 
             $response = $this->generateItem($sparepart);
 

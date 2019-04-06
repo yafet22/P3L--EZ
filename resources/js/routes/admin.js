@@ -25,6 +25,8 @@ import MotorcycleType from '../views/MotorcycleType/MotorcycleType'
 
 import Customer from '../views/Customer/Customer'
 
+import Procurement from '../views/Procurement/Procurement'
+
 export const routes = [
     {
         path: '/admin/login',
@@ -147,6 +149,15 @@ export const routes = [
       path: '/admin/customers',
       name: 'customers',
       component: Customer,
+      meta: { role: ['Administrator'] },
+      beforeEnter: middleware([
+        auth
+      ])
+    },
+    {
+      path: '/admin/procurements',
+      name: 'procurements',
+      component: Procurement,
       meta: { role: ['Administrator'] },
       beforeEnter: middleware([
         auth

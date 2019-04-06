@@ -18,7 +18,8 @@ const state = {
     id_sparepart_type: '',
     id_motorcycle_type: '',
     id_motorcycle_brand: '',
-    motorcycleTypes: []
+    motorcycleTypes: [],
+    compatibility: [],
   },
   loading: true,
   error: null
@@ -36,6 +37,18 @@ const mutations = {
     state.error = payload.error
   },
 
+  resetSparepartForm(state) {
+    state.sparepart.id_sparepart = ""
+    state.sparepart.sparepart_name = ""
+    state.sparepart.merk =  state.sparepart.stock = ""
+    state.sparepart.purchase_price = ""
+    state.sparepart.sell_price = ""
+    state.sparepart.placement = ""
+    state.sparepart.position = ""
+    state.sparepart.place = ""
+    state.sparepart.compatibility = []
+  },
+
   setSparepartForm(state, payload) {
     state.sparepart.id_sparepart = payload.id_sparepart
     state.sparepart.sparepart_name = payload.sparepart_name
@@ -50,6 +63,11 @@ const mutations = {
     state.sparepart.number = payload.number
     state.sparepart.image = payload.image
     state.sparepart.id_sparepart_type = payload.id_sparepart_type
+    state.sparepart.compatibility = payload.compatibility.data
+    var finalArray = payload.compatibility.data.map(function (obj) {
+      return obj.id_motorcycle_type;
+    });
+    state.sparepart.motorcycleTypes = finalArray
   }
 }
 
@@ -99,6 +117,7 @@ const actions = {
       data.append('sell_price',payload.sell_price)
       data.append('placement',payload.placement)
       data.append('id_sparepart_type',payload.id_sparepart_type)
+      data.append('motorcycleTypes',payload.motorcycleTypes)
 
       await sparepartService.update(payload.id_sparepart, data)
     } catch (err) {
@@ -115,7 +134,7 @@ const actions = {
   },
 
   resetForm(context) {
-    context.commit('setSparepartForm', {})
+    context.commit('resetSparepartForm')
   }
 }
 

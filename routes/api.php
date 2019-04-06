@@ -51,3 +51,5 @@ Route::resource('motorcycle_types','Motorcycle_typeController');
 
 Route::resource('motorcycles','MotorcycleController');
 Route::get('usermotorcycles/{id}','MotorcycleController@showByUser');
+
+Route::resource('procurements','ProcurementController');
