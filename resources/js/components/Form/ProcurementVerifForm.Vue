@@ -42,7 +42,7 @@
               :error-messages="dateErrors"
               @input="$v.form.date.$touch()"      
               required
-              readonly
+              disabled
               v-on="on"
             ></v-text-field>
           </template>
@@ -77,6 +77,7 @@
             :error-messages="procurementStatusErrors"
             @input="$v.form.procurement_status.$touch()"
             @change="$v.form.procurement_status.$touch()"
+            disabled
             required
           ></v-select>
         </VFlex>
@@ -94,6 +95,7 @@
             :error-messages="supplierErrors"
             @input="$v.form.id_supplier.$touch()"
             @change="$v.form.id_supplier.$touch()"
+            disabled
             required
           ></v-select>
         </VFlex>
@@ -109,6 +111,7 @@
             :error-messages="salesErrors"
             @input="$v.form.id_sales.$touch()"
             @change="$v.form.id_sales.$touch()"
+            disabled
             required
           ></v-select>
         </VFlex>
@@ -119,22 +122,20 @@
         dismissible
         type="error"
       >
-      Data sudah terdapat pada list
+        Data sudah terdapat pada list
       </VAlert>
       <VLayout>
-        <VFlex sm4>
-            <VBtn
-            depressed
-            dark
-            round
-            color = "green accent-3"
-            @click="add=true"
-            >
-            <VIcon>add</VIcon>
-                Tambah Pesanan
-            </VBtn>
+        <VFlex sm12>
+            <h2>Daftar Sparepart Datang</h2>
         </VFlex>
       </VLayout>
+      <VAlert
+        :value="true"
+        dismissible
+        type="info"
+      >
+        Verifikasi Data Sparepart dengan teliti!
+      </VAlert>
       <VLayout>
         <VFlex class="text-md-center" sm12 mt-2>
           <VCard
@@ -144,7 +145,7 @@
           >
               <v-card-title>
                 <VLayout>
-                    <VFlex sm5>
+                    <VFlex sm3>
                         <v-select
                         label="Sparepart"
                         class="pa-1"
@@ -157,7 +158,7 @@
                         required
                     ></v-select>
                     </VFlex>
-                    <VFlex sm5>
+                    <VFlex sm3>
                         <VTextField
                         label="Jumlah"
                         class="pa-1"
@@ -165,15 +166,21 @@
                         required
                         />
                     </VFlex>
-                    <VFlex class="text-xs-right" sm2>
-                        <v-btn 
-                        flat
-                        icon
-                        color="error"
-                        dark @click="deleteList(detail.id_sparepart)"
-                        >
-                        <v-icon>remove_circle</v-icon>
-                        </v-btn>
+                    <VFlex sm3>
+                        <VTextField
+                        label="Harga Beli"
+                        class="pa-1"
+                        v-model="detail.price"
+                        required
+                        />
+                    </VFlex>
+                    <VFlex sm3>
+                        <VTextField
+                        label="Harga Jual"
+                        class="pa-1"
+                        v-model="detail.sell_price"
+                        required
+                        />
                     </VFlex>
                 </VLayout>
               </v-card-title>
@@ -429,5 +436,4 @@ export default {
     background: #def3bc;
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
   }
-  
 </style>

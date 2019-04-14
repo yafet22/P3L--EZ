@@ -26,7 +26,7 @@
             </VBtn>
             <CardSearchBar v-model="keyword" />
         </v-flex>
-       </v-layout>
+      </v-layout>
       <ProcurementControl ref="procurementControl">
         <template slot-scope="{ loading, error, items }">
           <VCardText
@@ -59,9 +59,19 @@
               <td v-html="props.item.procurement_status" />
               <td class="text-xs-center">
                 <VBtn 
+                  v-if="props.item.procurement_status=='Finish'"
                   flat
                   color="info"
-                 
+                  @click="editHandler2(props.item.id_procurement)"
+                  disabled
+                >
+                Detail
+                </VBtn>
+                <VBtn 
+                  v-else
+                  flat
+                  color="info"
+                  @click="editHandler2(props.item.id_procurement)"
                 >
                 Detail
                 </VBtn>
@@ -77,6 +87,17 @@
               </td>
               <td class="text-xs-center">
                 <VBtn 
+                  v-if="props.item.procurement_status=='Finish' || props.item.procurement_status=='On Progress'"
+                  flat
+                  icon
+                  color="indigo"
+                  @click="editHandler(props.item.id_procurement)"
+                  disabled
+                >
+                  <v-icon>edit</v-icon>
+                </VBtn>
+                <VBtn 
+                  v-else
                   flat
                   icon
                   color="indigo"
@@ -86,6 +107,17 @@
                   <v-icon>edit</v-icon>
                 </VBtn>
                 <VBtn 
+                  v-if="props.item.procurement_status=='Finish' || props.item.procurement_status=='On Progress'"
+                  flat
+                  icon
+                  color="error"
+                  @click="deleteWarning(props.item.id_procurement)"
+                  disabled
+                >
+                  <v-icon>delete</v-icon>
+                </VBtn>
+                <VBtn 
+                  v-else
                   flat
                   icon
                   color="error"
@@ -99,7 +131,57 @@
           </VDataTable>
         </template>
       </ProcurementControl>
-    
+      <v-dialog v-model="dialog" max-width="800px">
+        <UtilityCard title="Pesan Sparepart">
+            <VCardText>
+                <VAlert
+                v-if="procurementError"
+                v-html="procurementError.message"
+                :value="true"
+                dismissible
+                type="error"
+                />
+                <ProcurementForm 
+                v-model="isFormValid"
+                @submitted="submitHandler"
+                />
+            </VCardText>
+        </UtilityCard>
+      </v-dialog>
+      <v-dialog v-model="dialog2" max-width="800px">
+        <UtilityCard title="Edit Pesanan Sparepart">
+            <VCardText>
+                <VAlert
+                v-if="procurementError"
+                v-html="procurementError.message"
+                :value="true"
+                dismissible
+                type="error"
+                />
+                <ProcurementForm 
+                v-model="isFormValid"
+                @submitted="submitHandler2"
+                />
+            </VCardText>
+        </UtilityCard>
+      </v-dialog>
+      <v-dialog v-model="dialog3" max-width="800px">
+        <UtilityCard title="Verifikasi Pesanan Sparepart">
+            <VCardText>
+                <VAlert
+                v-if="procurementError"
+                v-html="procurementError.message"
+                :value="true"
+                dismissible
+                type="error"
+                />
+                <ProcurementVerifForm 
+                v-model="isFormValid2"
+                @submitted="submitHandler3"
+                />
+            </VCardText>
+        </UtilityCard>
+      </v-dialog>
       <v-dialog v-model="warning" persistent max-width="500">
         <v-card>
             <v-card-title class="headline">Warning!</v-card-title>
@@ -137,6 +219,7 @@
 
 <script>
 import ProcurementForm from '../../components/Form/ProcurementForm'
+import ProcurementVerifForm from '../../components/Form/ProcurementVerifForm'
 import ProcurementControl from '../../components/Renderless/ProcurementControl'
 import procurementService from '../../service/Procurement'
 import { mapActions,mapState } from 'vuex';
@@ -144,14 +227,17 @@ import { mapActions,mapState } from 'vuex';
 export default {
   components: {
     ProcurementControl,
-    ProcurementForm
+    ProcurementForm,
+    ProcurementVerifForm
   },
   data () {
     return {
       name: '',
       isFormValid: false,
+      isFormValid2: false,
       dialog: false,
       dialog2: false,
+      dialog3: false,
       warning: false,
       keyword: '',
       id_supplier: '',
@@ -210,6 +296,7 @@ export default {
       resetForm: 'Procurement/resetForm',
       updateProcurement: 'Procurement/update',
       fetchProcurement: 'Procurement/edit',
+      verification: 'Sparepart/verification'
     }),
 
     fetch () {
@@ -221,6 +308,13 @@ export default {
       this.id_procurement=id
       await this.fetchProcurement(id)
       this.dialog2=true
+    },
+
+    async editHandler2(id){
+      console.log(id)
+      this.id_procurement=id
+      await this.fetchProcurement(id)
+      this.dialog3=true
     },
 
     deleteWarning(id){
@@ -239,8 +333,11 @@ export default {
       const payload = {
         date: value.date,
         procurement_status: value.procurement_status,
-        id_sales: value.id_sales
+        id_sales: value.id_sales,
+        detail: value.detail
       }
+
+      console.log(payload)
 
       await this.storeProcurement(payload)
     
@@ -251,14 +348,17 @@ export default {
     },
 
     async submitHandler2 (value) {
-      
+      this.procurementLoading=true
       console.log(this.id_procurement);
       const payload = {
         id_procurement: this.id_procurement,
         date: value.date,
         procurement_status: value.procurement_status,
-        id_sales: value.id_sales
+        id_sales: value.id_sales,
+        detail: value.detail
       }
+
+      console.log(payload)
 
       await this.updateProcurement(payload)
     
@@ -266,6 +366,25 @@ export default {
         this.dialog2=false
         this.fetch()
       }
+    },
+
+    async submitHandler3 (value) {
+      const payload = {
+        id_procurement: this.id_procurement,
+        date: value.date,
+        procurement_status: 'Finish',
+        id_sales: value.id_sales,
+        detail: value.detail
+      }
+
+      const payload2 = {
+        spareparts: value.detail
+      }
+
+      await this.updateProcurement(payload)
+      await this.verification(payload2)
+      this.dialog3=false
+      this.fetch()
     },
   },
 

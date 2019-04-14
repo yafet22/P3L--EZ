@@ -3,10 +3,11 @@ import procurementService from '../../service/Procurement'
 const state = {
   procurements: [],
   procurement: {
-    id_procurement: '',
-    procurement_status: '',
+    id_procurement: 0,
+    procurement_status: 'Unprocessed',
     date: '',
     id_sales: '',
+    id_supplier: '',
     sales: '',
     detail: [],
   },
@@ -27,16 +28,21 @@ const mutations = {
   },
 
   resetProcurementForm(state) {
-    state.procurement.procurement_status = ""
+    state.procurement.id_procurement = 0
+    state.procurement.procurement_status = "Unprocessed"
     state.procurement.id_sales = ""
     state.procurement.date = ""
     state.procurement.detail = []
   },
 
   setProcurementForm(state, payload) {
+    var name = payload.date;
+    var word = name.split(' ');
+    state.procurement.id_procurement = payload.id_procurement
     state.procurement.procurement_status = payload.procurement_status
     state.procurement.id_sales = payload.id_sales
-    state.procurement.date = payload.date
+    state.procurement.id_supplier = payload.id_supplier
+    state.procurement.date = word[0]
     state.procurement.detail = payload.detail.data
   }
 }
@@ -85,11 +91,13 @@ const actions = {
     try {
       const data = {
         procurement_status: payload.procurement_status,
-        id_supplier: payload.id_supplier,
-        procurement_phone_number: payload.procurement_phone_number
+        id_sales: payload.id_sales,
+        date: payload.date,
+        detail: payload.detail
       }
 
       await procurementService.update(payload.id_procurement, data)
+      state.loading = false
     } catch (err) {
       context.commit('setFailedAction', err)
     }

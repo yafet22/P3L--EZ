@@ -46,5 +46,13 @@ export default {
     } catch (err) {
       throw new Error('Gagal hapus data spareparts')
     }
-  }
+  },
+
+  async verification (payload) {
+    try {
+      await http.post(`/api/updatesparepart`, payload)
+    } catch (err) {
+      throw new Error('Gagal update data spareparts!')
+    }
+  },
 }

@@ -40,7 +40,7 @@
                     <h1 class="display-1 font-weight-medium white--text">DI SIBAAU LOGIN PANEL</h1>
                   </v-card-title>
                   <v-layout align-center justify-center>
-                    <img src="http://localhost:8000/asset/logo2.png" style="height:180px">
+                    <img src="/asset/logo2.png" style="height:180px">
                   </v-layout>                                
                 <v-card-text fill-height> </v-card-text>
               </v-card>

@@ -18,7 +18,8 @@ class UserTransformer extends TransformerAbstract
             'id' => $user->id_user,
             'username' => $user->username,
             'name' => optional($user->employees)->name,
-            'role' => optional(optional($user->employees)->roles)->role_name
+            'role' => optional(optional($user->employees)->roles)->role_name,
+            'id_employee' => optional($user->employees)->id_employee
         ];
     }
 }

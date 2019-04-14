@@ -8,6 +8,7 @@ import {
     form: {
       date: { required },
       id_sales: { required },
+      id_supplier: { required },
       procurement_status: { required }
     }
   }

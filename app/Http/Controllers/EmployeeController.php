@@ -86,7 +86,7 @@ class EmployeeController extends RestController
 
                     break;
 
-                case Role::COSTUMER_SERVICE:
+                case Role::CUSTOMER_SERVICE:
                     $employee = DB::transaction(function () use ($data, $first_name, $count) {
                         $user = User::create([
                             'username' => $first_name . $count,
@@ -118,7 +118,7 @@ class EmployeeController extends RestController
                         'salary' => $request->salary,
                     ];
 
-                    $employee = Employees::create($data);
+                    $employee = Employee::create($data);
                     break;
 
                 default:
@@ -185,7 +185,7 @@ class EmployeeController extends RestController
             $employee->salary=$request->get('salary');
             $employee->id_role=$request->get('id_role');
             $employee->id_branch=$request->get('id_branch');
-            $employee->id_user=$request->get('id_user');
+            //$employee->id_user=$request->get('id_user');
             $employee->save();
 
             $response = $this->generateItem($employee);

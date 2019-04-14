@@ -13,4 +13,8 @@ class Service extends Model
     'service_name',
     'price'];
 
+    protected $casts = [
+        'price' => 'double',
+    ];
+
 }

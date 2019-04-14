@@ -21,6 +21,15 @@ class Sparepart extends Model
     'image',
     'id_sparepart_type'];
 
+    protected $casts = [
+        'stock' => 'integer',
+        'min_stock' => 'integer',
+        'purchase_price' => 'double',
+        'sell_price' => 'double',
+        'id_sparepart_type' => 'integer'
+    ];
+
+
     public function sparepart_types(){
         return $this->belongsTo('App\Sparepart_type','id_sparepart_type');
     }

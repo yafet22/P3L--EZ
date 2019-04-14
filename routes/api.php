@@ -42,6 +42,7 @@ Route::resource('sparepart_types','Sparepart_typeController');
 
 Route::resource('spareparts','SparepartController');
 Route::post('updatesparepart/{id}','SparepartController@updateSparepart');
+Route::post('updatesparepart','SparepartController@sparepartVerification');
 
 Route::resource('customers','CustomerController');
 

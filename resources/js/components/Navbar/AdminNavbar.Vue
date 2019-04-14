@@ -78,7 +78,7 @@
       <VSpacer />
     
       
-      <img src="http://localhost:8000/asset/icons.png" style="height:45px;width:45px">
+      <img src="/asset/icons.png" style="height:45px;width:45px">
       
       <VToolbarTitle
         style="font-size: 21px;"
@@ -100,7 +100,7 @@
         </VBtn>
 
         <VList>
-          <VListTile>
+          <VListTile @click="dialog=true">
             <VListTileTitle>Ubah Password</VListTileTitle>
           </VListTile>
           <VListTile @click="logoutHandler">
@@ -109,22 +109,57 @@
         </VList>
       </VMenu>
     </VToolbar>
+    <v-dialog v-model="dialog" max-width="600px">
+      <UtilityCard title="Ubah Password">
+          <VAlert
+            v-if="err"
+            :value="true"
+            dismissible
+            type="error"
+          >
+          Password Tidak Cocok dengan Konfirmasi
+          </VAlert>
+          <VAlert
+            v-else-if="success"
+            :value="true"
+            dismissible
+            type="success"
+          >
+          Berhasil Ubah Password
+          </VAlert>
+          <VCardText>
+            <UserForm 
+              v-model="isFormValid"
+              @submitted="submitHandler"
+            />
+          </VCardText>
+      </UtilityCard>
+    </v-dialog>
   </div>
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+  import UserForm from '../Form/UserForm'
+  import { mapGetters,mapActions } from 'vuex'
   import Auth from '../../service/Auth'
 
   export default {
+    components: {
+      UserForm
+    },
     data() {
       return {
         drawer: null,
+        isFormValid: false,
+        dialog: false,
+        err: false,
+        success: false
       }
     },
 
     computed: {
       ...mapGetters({
+        id: 'LoggedUser/id',
         name: 'LoggedUser/name',
         username: 'LoggedUser/username',
         role: 'LoggedUser/role'
@@ -184,9 +219,34 @@
     },
 
     methods: {
+      ...mapActions({
+        resetForm: 'User/resetForm',
+        updateUser: 'User/update',
+      }),
       logoutHandler() {
         Auth.logout()
         this.$router.push({ name: 'login' })
+      },
+      async submitHandler (value) {
+        this.err = false
+        if(value.password === value.confirmPassword)
+        {
+            console.log(this.id);
+            const payload = {
+              id: this.id,
+              password: value.password
+            }
+            console.log(payload)
+            await this.updateUser(payload)
+            this.success=true
+            this.dialog=false  
+            this.err = false      
+        }
+        else
+        {
+            this.err = true
+        }
+        
       },
 
     } 

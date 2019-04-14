@@ -185,9 +185,9 @@
             item-text="motorcycle_brand_name"
             item-value="id_motorcycle_brand"
             :items="brands"
-            :return-object="false"
             @input="$v.form.id_motorcycle_brand.$touch()"
             @change="$v.form.id_motorcycle_brand.$touch()"
+            @blur="$v.form.id_motorcycle_brand.$touch()"
             required
           ></v-select>
         </VFlex>
@@ -196,12 +196,11 @@
             label="type motor"
             class="pa-1"
             v-model="form.id_motorcycle_type"
+            :items="filtered"
             item-text="motorcycle_type_name"
             item-value="id_motorcycle_type"
-            :items="filtered"
-            :return-object="false"
             @input="$v.form.id_motorcycle_type.$touch()"
-            @change="$v.form.id_motorcycle_type.$touch()"
+            @change="getSelectedIndex()"
             required
           ></v-select>
         </VFlex>
@@ -276,7 +275,7 @@
 <script>
 import validator from '../../validations/sparepartValidation'
 import sparepartTypeService from '../../service/SparepartType'
-import { mapGetters,mapState, mapActions } from 'vuex'
+import { mapGetters,mapState,mapActions } from 'vuex'
 
 export default {
   props: {
@@ -301,8 +300,9 @@ export default {
       motorcycleTypes: [],
       id_motorcycle_type: '',
       imageName: '',
-      defaultImg: 'http://localhost:8000/asset/default.png',
+      defaultImg: '/asset/default.png',
       imageUrl: '',
+      index: '',
       err: false
     }
   },
@@ -317,7 +317,7 @@ export default {
     }),
 
     filtered(){
-        let filter = this.types.filter( b => b.id_motorcycle_brand === this.form.id_motorcycle_brand)
+        let filter = this.types.filter( b => b.id_motorcycle_brand === this.form.id_motorcycle_brand )
         return filter
     },
 
@@ -529,13 +529,16 @@ export default {
         this.$refs.image.click ()
     },
 
+    getSelectedIndex(){
+       this.index = this.types.map(function(e) { return e.id_motorcycle_type; }).indexOf(this.form.id_motorcycle_type);
+    },
+
     compatibilityHandler (items) {
       var i = 0
-      var object = items[this.form.id_motorcycle_type-1]
+      var object = items[this.index]
       this.err = false
       for(var data in this.form.compatibility)
       {
-          console.log(this.form.compatibility[0].id_motorcycle_type)
           if(this.form.compatibility[i].id_motorcycle_type==object.id_motorcycle_type)
           {
               this.err = true

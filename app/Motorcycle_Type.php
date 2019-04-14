@@ -13,6 +13,10 @@ class Motorcycle_Type extends Model
     'motorcycle_type_name',
     'id_motorcycle_brand'];
 
+    protected $casts = [
+        'id_motorcycle_brand' => 'integer',
+    ];
+
     public function motorcycles(){
         return $this->hasMany('App\Motorcycle','id_motorcycle_type');
     }

@@ -5,7 +5,9 @@ const state = {
   user: {
     username: '',
     role: '',
-    name: ''
+    name: '',
+    password: '',
+    confirmPassword: ''
   },
   loading: true,
   error: null

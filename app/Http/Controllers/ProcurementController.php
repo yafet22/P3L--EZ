@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\DB;
 use App\Transformers\ProcurementTransformer;
 
 class ProcurementController extends RestController
@@ -47,12 +48,22 @@ class ProcurementController extends RestController
     {
         try {
 
+            date_default_timezone_set('Asia/Jakarta');
+
+            $detail = $request->get('detail');
+
             $procurement = new Procurement;
 
-            $procurement->date=$request->get('date');
+            $procurement->date=$request->get('date').' '.date('H:i:s');
             $procurement->procurement_status=$request->get('procurement_status');
             $procurement->id_sales=$request->get('id_sales');
             $procurement->save();
+
+            $procurement = DB::transaction(function () use ($procurement,$detail) {
+                $procurement->procurementdetails()->createMany($detail);
+                return $procurement;
+            });
+
 
             $response = $this->generateItem($procurement);
 
@@ -109,13 +120,23 @@ class ProcurementController extends RestController
         // ]);   
         
         try {
+            date_default_timezone_set('Asia/Jakarta');
 
+            $detail = $request->get('detail');
+            
             $procurement=Procurement::find($id);
 
-            $procurement->date=$request->get('date');
+            $procurement->procurementdetails()->delete();
+
+            $procurement->date=$request->get('date').' '.date('H:i:s');
             $procurement->procurement_status=$request->get('procurement_status');
             $procurement->id_sales=$request->get('id_sales');
             $procurement->save();
+
+            $procurement = DB::transaction(function () use ($procurement,$detail) {
+                $procurement->procurementdetails()->createMany($detail);
+                return $procurement;
+            });
 
             $response = $this->generateItem($procurement);
 

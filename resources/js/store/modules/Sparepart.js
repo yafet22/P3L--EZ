@@ -125,6 +125,17 @@ const actions = {
     }
   },
 
+  async verification(context, payload) {
+    try {
+      const data = {
+        spareparts: payload.spareparts,
+      }
+      await sparepartService.verification(data)
+    } catch (err) {
+      context.commit('setFailedAction', err)
+    }
+  },
+
   async delete (context, id) {
     try {
       await sparepartService.delete(id)

@@ -16,6 +16,14 @@ class Procurement_detail extends Model
     'subtotal',
     'amount'];
 
+    protected $casts = [
+        'price' => 'double',
+        'subtotal' => 'double',
+        'amount' => 'integer',
+        'id_procurement' => 'integer',
+        'id_sparepart' => 'integer',
+    ];
+
     public function procurements(){
         return $this->belongsTo('App\Procurement','id_procurement');
     }

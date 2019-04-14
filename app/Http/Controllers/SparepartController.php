@@ -73,10 +73,14 @@ class SparepartController extends RestController
                 $sparepart->id_sparepart_type=$request->get('id_sparepart_type');
                 $sparepart->save();
 
-                $sparepart = DB::transaction(function () use ($sparepart,$motorcyle_types) {
-                    $sparepart->motorcycleTypes()->sync($motorcyle_types);
-                    return $sparepart;
-                });
+                if($request->has('motorcycleTypes'))
+                {
+                    $sparepart = DB::transaction(function () use ($sparepart,$motorcyle_types) {
+                        $sparepart->motorcycleTypes()->sync($motorcyle_types);
+                        return $sparepart;
+                    });
+                }
+                
 
                 $response = $this->generateItem($sparepart);
 
@@ -134,6 +138,7 @@ class SparepartController extends RestController
 
             if($request->hasfile('image'))
             {
+                File::delete(public_path().'/images/'.$sparepart->image);
                 $file = $request->file('image');
                 $name=time().$file->getClientOriginalName();
                 $file->move(public_path().'/images/', $name);
@@ -152,10 +157,13 @@ class SparepartController extends RestController
             $sparepart->id_sparepart_type=$request->get('id_sparepart_type');
             $sparepart->save();
 
-            $sparepart = DB::transaction(function () use ($sparepart,$motorcyle_types) {
-                $sparepart->motorcycleTypes()->sync($motorcyle_types);
-                return $sparepart;
-            });
+            if($request->has('motorcycleTypes'))
+            {
+                $sparepart = DB::transaction(function () use ($sparepart,$motorcyle_types) {
+                    $sparepart->motorcycleTypes()->sync($motorcyle_types);
+                    return $sparepart;
+                });
+            }
 
             $response = $this->generateItem($sparepart);
 
@@ -179,6 +187,7 @@ class SparepartController extends RestController
     {
         try {
             $sparepart=Sparepart::find($id);
+            File::delete(public_path().'/images/'.$sparepart->image);
             $sparepart->delete();
             return response()->json('Success',200);
         } catch (ModelNotFoundException $e) {
@@ -198,6 +207,7 @@ class SparepartController extends RestController
 
             if($request->hasfile('image'))
             {
+                File::delete(public_path().'/images/'.$sparepart->image);
                 $file = $request->file('image');
                 $name=time().$file->getClientOriginalName();
                 $file->move(public_path().'/images/', $name);
@@ -214,10 +224,13 @@ class SparepartController extends RestController
             $sparepart->id_sparepart_type=$request->get('id_sparepart_type');
             $sparepart->save();
 
-            $sparepart = DB::transaction(function () use ($sparepart,$motorcyle_types) {
-                $sparepart->motorcycleTypes()->sync($motorcyle_types);
-                return $sparepart;
-            });
+            if($request->has('motorcycleTypes'))
+            {
+                $sparepart = DB::transaction(function () use ($sparepart,$motorcyle_types) {
+                    $sparepart->motorcycleTypes()->sync($motorcyle_types);
+                    return $sparepart;
+                });
+            }
 
             $response = $this->generateItem($sparepart);
 
@@ -227,6 +240,27 @@ class SparepartController extends RestController
             return $this->sendNotFoundResponse('sparepart_not_found');
         }
         catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
+    }
+
+    public function sparepartVerification(Request $request)
+    {
+        try {
+            $spareparts = $request->get('spareparts');
+            foreach($spareparts as $sparepart)
+            {
+                $data=Sparepart::find($sparepart['id_sparepart']);
+                $data->stock = $data->stock + $sparepart['amount'];
+                $data->purchase_price = $sparepart['price'];
+                $data->sell_price = $sparepart['sell_price'];
+                $data->save();
+                //DB::table('spareparts')->where('id_sparepart',$sparepart->id_sparepart)->increment('stock',$sparepart->stock)->update('purchase_price',$sparepart->purchase_price);
+            }
+            return response()->json('Success',200);
+        } catch (ModelNotFoundException $e) {
+            return $this->sendNotFoundResponse('sparepart_not_found');
+        } catch (\Exception $e) {
             return $this->sendIseResponse($e->getMessage());
         }
     }

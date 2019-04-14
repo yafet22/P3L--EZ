@@ -19,6 +19,10 @@ class Employee extends Model
     'id_user',
     ];
 
+    protected $casts = [
+        'salary' => 'double',
+    ];
+
     public function branchs(){
         return $this->belongsTo('App\Branch','id_branch');
     }

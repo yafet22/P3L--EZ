@@ -1,5 +1,6 @@
 const state = {
     User: {
+      id: null,
       name: null,
       username: null,
       role: null,
@@ -10,6 +11,7 @@ const state = {
   
   const mutations = {
     setLoggedUser (state, source) {
+      state.User.id = source.id
       state.User.name = source.name
       state.User.username = source.username
       state.User.role = source.role
@@ -22,6 +24,7 @@ const state = {
   }
   
   const getters = {
+    id: state => state.User.id,
     name: state => state.User.name,
     role: state => state.User.role,
     username: state => state.User.username

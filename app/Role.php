@@ -14,7 +14,7 @@ class Role extends Model
     /**
      * Constant variable for costumer service.
      */
-    const COSTUMER_SERVICE = 2;
+    const CUSTOMER_SERVICE = 2;
 
     /**
      * Constant variable for cashier.

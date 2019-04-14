@@ -124,7 +124,7 @@
               class="text-xs-center"
             >
               <VAlert
-                v-if="error"
+                v-if="branchError"
                 :value="true"
                 dismissible
                 type="error"

@@ -1,31 +1,28 @@
 <template>
   <div>
-    <VCardText
-      v-if="loading || error"
-      class="text-xs-center"
-    >
-      <VAlert
-        v-if="error"
-        :value="true"
-        dismissible
-        type="error"
-      >
-      {{ error.message }}
-      </VAlert>
-      <VProgressCircular
-        v-if="loading"
-        :size="45"
-        indeterminate
-        class="loading-section"
-      />
-    </VCardText>
     <VForm>
       <VLayout>
         <VFlex>
           <VTextField
-            label="Password"
+            label="Password Baru"
+            prepend-icon="lock" 
+            type="password"
             class="pa-1"
             v-model="form.password"
+            :error-messages="passwordErrors"
+            @input="$v.form.password.$touch()"
+            required
+          />
+        </VFlex>
+      </VLayout>
+      <VLayout>
+        <VFlex>
+          <VTextField
+            label="Konfirmasi Password"
+            prepend-icon="lock" 
+            type="password"
+            class="pa-1"
+            v-model="form.confirmPassword"
             :error-messages="passwordErrors"
             @input="$v.form.password.$touch()"
             required
