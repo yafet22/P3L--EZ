@@ -12,7 +12,7 @@ class CustomerTransformer extends TransformerAbstract
      *
      * @param Customer $customer
      */
-    public function transform(customer $customer)
+    public function transform(Customer $customer)
     {
         return [
             'id_customer' => $customer->id_customer,

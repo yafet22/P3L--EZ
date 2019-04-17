@@ -18,4 +18,8 @@ class Customer extends Model
     public function motorcycles(){
         return $this->hasMany('App\Motorcycle','id_customer');
     }
+
+    public function transactions(){
+        return $this->hasMany('App\Transaction','id_customer');
+    }
 }

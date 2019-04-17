@@ -14,6 +14,10 @@ class Sales extends Model
     'id_supplier',
     'sales_phone_number',];
 
+    protected $casts = [
+        'id_supplier' => 'integer',
+    ];
+
     public function suppliers(){
         return $this->belongsTo('App\Supplier','id_supplier');
     }

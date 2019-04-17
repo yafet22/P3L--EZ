@@ -21,6 +21,9 @@ class Employee extends Model
 
     protected $casts = [
         'salary' => 'double',
+        'id_branch' => 'integer',
+        'id_role' => 'integer',
+        'id_user' => 'integer'
     ];
 
     public function branchs(){
@@ -34,4 +37,12 @@ class Employee extends Model
     public function users(){
         return $this->belongsTo('App\User','id_user ');
     } 
+
+    public function transactions(){
+        return $this->belongsToMany('App\Transaction','employee_onduties','id_employee','id_transaction');
+    }
+
+    public function motorcycles(){
+        return $this->belongsToMany('App\Motorcycle','mechanic_onduties','id_employee','id_motorcycle');
+    }
 }

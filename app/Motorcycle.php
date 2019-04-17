@@ -14,11 +14,20 @@ class Motorcycle extends Model
     'id_motorcycle_type',
     'id_customer'];
 
+    protected $casts = [
+        'id_motorcycle_type' => 'integer',
+        'id_customer' => 'integer'
+    ];
+
     public function customers(){
         return $this->belongsTo('App\Customer','id_customer');
     }
 
     public function motorcycle_types(){
         return $this->belongsTo('App\Motorcycle_Type','id_motorcycle_type');
+    }
+
+    public function employees(){
+        return $this->belongsToMany('App\Employee','mechanic_onduties','id_motorcycle','id_employee');
     }
 }

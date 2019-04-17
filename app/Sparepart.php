@@ -41,4 +41,8 @@ class Sparepart extends Model
     public function procurementdetails(){
         return $this->hasMany('App\Procurement_detail','id_sparepart');
     }
+
+    public function detail_spareparts(){
+        return $this->hasMany('App\Detail_sparepart','id_sparepart');
+    }
 }

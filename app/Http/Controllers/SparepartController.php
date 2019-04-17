@@ -138,7 +138,7 @@ class SparepartController extends RestController
 
             if($request->hasfile('image'))
             {
-                File::delete(public_path().'/images/'.$sparepart->image);
+                // File::delete(public_path().'/images/'.$sparepart->image);
                 $file = $request->file('image');
                 $name=time().$file->getClientOriginalName();
                 $file->move(public_path().'/images/', $name);
@@ -187,7 +187,7 @@ class SparepartController extends RestController
     {
         try {
             $sparepart=Sparepart::find($id);
-            File::delete(public_path().'/images/'.$sparepart->image);
+            // File::delete(public_path().'/images/'.$sparepart->image);
             $sparepart->delete();
             return response()->json('Success',200);
         } catch (ModelNotFoundException $e) {
@@ -207,7 +207,7 @@ class SparepartController extends RestController
 
             if($request->hasfile('image'))
             {
-                File::delete(public_path().'/images/'.$sparepart->image);
+                // File::delete(public_path().'/images/'.$sparepart->image);
                 $file = $request->file('image');
                 $name=time().$file->getClientOriginalName();
                 $file->move(public_path().'/images/', $name);

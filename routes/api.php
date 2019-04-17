@@ -54,3 +54,5 @@ Route::resource('motorcycles','MotorcycleController');
 Route::get('usermotorcycles/{id}','MotorcycleController@showByUser');
 
 Route::resource('procurements','ProcurementController');
+
+Route::resource('transactions','TransactionController');
