@@ -74990,6 +74990,208 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./resources/js/service/Transaction.js":
+/*!*********************************************!*\
+  !*** ./resources/js/service/Transaction.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Http */ "./resources/js/service/Http.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/transactions');
+
+            case 3:
+              res = _context.sent;
+              return _context.abrupt("return", res.data.data);
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](0);
+              throw new Error('Gagal mendapatkan data transaction!');
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this, [[0, 7]]);
+    }));
+
+    function get() {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/transactions', payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              throw new Error('Gagal simpan transaction baru!');
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, this, [[0, 5]]);
+    }));
+
+    function store(_x) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  find: function () {
+    var _find = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/transactions/".concat(id));
+
+            case 3:
+              res = _context3.sent;
+              return _context3.abrupt("return", res.data.data);
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              throw new Error('Gagal mendapatkan data transaction!');
+
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, this, [[0, 7]]);
+    }));
+
+    function find(_x2) {
+      return _find.apply(this, arguments);
+    }
+
+    return find;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id, payload) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].patch("/api/transactions/".concat(id), payload);
+
+            case 3:
+              res = _context4.sent;
+              return _context4.abrupt("return", res.data.data);
+
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              throw new Error('Gagal update data transaction!');
+
+            case 10:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, this, [[0, 7]]);
+    }));
+
+    function update(_x3, _x4) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].delete("/api/transactions/".concat(id));
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              throw new Error('Gagal hapus data transaction');
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, this, [[0, 5]]);
+    }));
+
+    function _delete(_x5) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }()
+});
+
+/***/ }),
+
 /***/ "./resources/js/service/User.js":
 /*!**************************************!*\
   !*** ./resources/js/service/User.js ***!
@@ -78720,6 +78922,291 @@ var actions = {
 
 /***/ }),
 
+/***/ "./resources/js/store/modules/Transaction.js":
+/*!***************************************************!*\
+  !*** ./resources/js/store/modules/Transaction.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_Transaction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/Transaction */ "./resources/js/service/Transaction.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  transactions: [],
+  transaction: {
+    id_transaction: '',
+    transaction_status: 'Unprocessed',
+    transaction_paid: '',
+    transaction_type: '',
+    transaction_date: '',
+    transaction_discount: '',
+    transaction_total: '',
+    id_customer: '',
+    service: [],
+    sparepart: []
+  },
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.transactions = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  },
+  resetTransactionForm: function resetTransactionForm(state) {
+    state.transaction.id_transaction = '';
+    state.transaction.transaction_status = "Unprocessed";
+    state.transaction.transaction_paid = '', state.transaction.transaction_type = '', state.transaction.transaction_discount = '', state.transaction.transaction_total = '', state.transaction.transaction_date = '', state.transaction.id_customer = '', state.transaction.service = [], state.transaction.sparepart = [];
+  },
+  setTransactionForm: function setTransactionForm(state, payload) {
+    var name = payload.transaction_date;
+    var word = name.split(' ');
+    state.transaction.id_transaction = payload.id_transaction;
+    state.transaction.transaction_status = payload.transaction_status;
+    state.transaction.transaction_paid = payload.transaction_paid;
+    state.transaction.transaction_type = payload.transaction_type;
+    state.transaction.transaction_discount = payload.transaction_discount;
+    state.transaction.transaction_total = payload.transaction_total;
+    state.transaction.transaction_date = word[0];
+    state.transaction.id_customer = payload.id_customer;
+    state.transaction.service = payload.service.data;
+    state.transaction.sparepart = payload.sparepart.data;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  },
+  transaction: function transaction(state) {
+    return state.transaction;
+  }
+};
+var actions = {
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.t0 = context;
+              _context.next = 4;
+              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].get();
+
+            case 4:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'setSource', _context.t1);
+
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t2 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t2);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this, [[0, 8]]);
+    }));
+
+    function get(_x) {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              context.commit('setFailedStore', _context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, this, [[0, 5]]);
+    }));
+
+    function store(_x2, _x3) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  edit: function () {
+    var _edit = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
+
+            case 3:
+              res = _context3.sent;
+              context.commit('setTransactionForm', res);
+              _context3.next = 10;
+              break;
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              context.commit('setFailedAction', _context3.t0);
+
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, this, [[0, 7]]);
+    }));
+
+    function edit(_x4, _x5) {
+      return _edit.apply(this, arguments);
+    }
+
+    return edit;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              data = {
+                transaction_status: payload.transaction_status,
+                id_customer: payload.id_customer,
+                transaction_type: payload.transaction_type,
+                transaction_total: payload.transaction_total,
+                service: payload.service,
+                sparepart: payload.sparepart
+              };
+              _context4.next = 4;
+              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_transaction, data);
+
+            case 4:
+              state.loading = false;
+              _context4.next = 10;
+              break;
+
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              context.commit('setFailedAction', _context4.t0);
+
+            case 10:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, this, [[0, 7]]);
+    }));
+
+    function update(_x6, _x7) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, this, [[0, 5]]);
+    }));
+
+    function _delete(_x8, _x9) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }(),
+  resetForm: function resetForm(context) {
+    context.commit('resetTransactionForm');
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
 /***/ "./resources/js/store/modules/User.js":
 /*!********************************************!*\
   !*** ./resources/js/store/modules/User.js ***!
@@ -79004,6 +79491,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Customer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Customer */ "./resources/js/store/modules/Customer.js");
 /* harmony import */ var _Motorcycle__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Motorcycle */ "./resources/js/store/modules/Motorcycle.js");
 /* harmony import */ var _Procurement__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Procurement */ "./resources/js/store/modules/Procurement.js");
+/* harmony import */ var _Transaction__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Transaction */ "./resources/js/store/modules/Transaction.js");
+
 
 
 
@@ -79034,7 +79523,8 @@ __webpack_require__.r(__webpack_exports__);
   MotorcycleType: _MotorcycleType__WEBPACK_IMPORTED_MODULE_11__["default"],
   Customer: _Customer__WEBPACK_IMPORTED_MODULE_12__["default"],
   Motorcycle: _Motorcycle__WEBPACK_IMPORTED_MODULE_13__["default"],
-  Procurement: _Procurement__WEBPACK_IMPORTED_MODULE_14__["default"]
+  Procurement: _Procurement__WEBPACK_IMPORTED_MODULE_14__["default"],
+  Transaction: _Transaction__WEBPACK_IMPORTED_MODULE_15__["default"]
 });
 
 /***/ }),

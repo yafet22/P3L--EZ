@@ -13,6 +13,7 @@ import MotorcycleType from './MotorcycleType'
 import Customer from './Customer'
 import Motorcycle from './Motorcycle'
 import Procurement from './Procurement'
+import Transaction from './Transaction'
 
 export default {
   LoggedUser,
@@ -29,5 +30,6 @@ export default {
   MotorcycleType,
   Customer,
   Motorcycle,
-  Procurement
+  Procurement,
+  Transaction
 }
