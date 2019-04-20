@@ -20,7 +20,6 @@ class Transaction extends Model
     'id_customer'];
 
     protected $casts = [
-        'transaction_paid' => 'double',
         'transaction_discount' => 'double',
         'transaction_total' => 'double',
         'id_customer' => 'integer'

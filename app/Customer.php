@@ -14,7 +14,6 @@ class Customer extends Model
     'customer_phone_number',
     'customer_address',
     ];
-
     public function motorcycles(){
         return $this->hasMany('App\Motorcycle','id_customer');
     }

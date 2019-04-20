@@ -169,7 +169,7 @@
         switch (this.role) {
           case 'Administrator': 
             return [
-              { id: 'd1', icon: 'motorcycle',text: 'Motorcycle', name: 'Motorcycle'},
+              { id: 'd1', icon: 'motorcycle',text: 'Data Master Motor', name: 'Motorcycle'},
             ]
             break
         }
@@ -179,8 +179,8 @@
         switch (this.role) {
           case 'Administrator': 
             return [
-              { id: 's1', icon: 'filter_1', to: 'motorcycleBrands', text: 'MotorcycleBrand', name: 'MotorcycleBrand'},
-              { id: 's2', icon: 'filter_2', to: 'motorcycleTypes', text: 'MotorcycleType', name: 'MotorcycleType'},
+              { id: 's1', icon: 'filter_1', to: 'motorcycleBrands', text: 'Merk Motor', name: 'MotorcycleBrand'},
+              { id: 's2', icon: 'filter_2', to: 'motorcycleTypes', text: 'Tipe Motor', name: 'MotorcycleType'},
             ]
             break
         }
@@ -200,6 +200,7 @@
               { id: 8, to: 'spareparts', icon: 'build', text: 'Sparepart', name: 'Sparepart'},
               { id: 9, to: 'customers', icon: 'accessibility', text: 'Pelanggan', name: 'Customer'},
               { id: 10, to: 'procurements', icon: 'airport_shuttle', text: 'Pengadaan Sparepart', name: 'procurement'},
+              { id: 11, to: 'transactions', icon: 'euro_symbol', text: 'Transaksi', name: 'transaction'},
             ]
             break
 

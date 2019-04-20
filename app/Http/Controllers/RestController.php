@@ -40,7 +40,7 @@ abstract class RestController extends Controller
     {
         return response()->json(
             $this->manager->createData($data)->toArray(),
-            $status,[], JSON_NUMERIC_CHECK
+            $status
         );
     }
 

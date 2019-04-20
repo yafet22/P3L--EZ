@@ -27,6 +27,9 @@ import Customer from '../views/Customer/Customer'
 
 import Procurement from '../views/Procurement/Procurement'
 
+import Transaction from '../views/Transaction/Transaction'
+import TransactionCreate from '../views/Transaction/AddTransaction'
+
 export const routes = [
     {
         path: '/admin/login',
@@ -158,6 +161,24 @@ export const routes = [
       path: '/admin/procurements',
       name: 'procurements',
       component: Procurement,
+      meta: { role: ['Administrator'] },
+      beforeEnter: middleware([
+        auth
+      ])
+    },
+    {
+      path: '/admin/transactions',
+      name: 'transactions',
+      component: Transaction,
+      meta: { role: ['Administrator'] },
+      beforeEnter: middleware([
+        auth
+      ])
+    },
+    {
+      path: '/admin/transactions/create',
+      name: 'transactions.create',
+      component: TransactionCreate,
       meta: { role: ['Administrator'] },
       beforeEnter: middleware([
         auth

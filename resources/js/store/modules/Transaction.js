@@ -4,13 +4,15 @@ const state = {
   transactions: [],
   transaction: {
     id_transaction: '',
-    transaction_status: 'Unprocessed',
+    transaction_status: 'unprocessed',
     transaction_paid: '',
     transaction_type: '',
     transaction_date: '',
     transaction_discount: '',
     transaction_total: '',
     id_customer: '',
+    id_service: '',
+    id_employee: '',
     service: [],
     sparepart: []
   },
