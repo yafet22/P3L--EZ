@@ -20,8 +20,7 @@ class Procurement_detail extends Model
         'price' => 'double',
         'subtotal' => 'double',
         'amount' => 'integer',
-        'id_procurement' => 'integer',
-        'id_sparepart' => 'integer',
+        'id_procurement' => 'integer'
     ];
 
     public function procurements(){

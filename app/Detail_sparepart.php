@@ -21,8 +21,6 @@ class Detail_sparepart extends Model
         'detail_sparepart_amount' => 'integer',
         'detail_sparepart_price' => 'double',
         'detail_sparepart_subtotal' => 'double',
-        'id_transaction' => 'integer',
-        'id_sparepart' => 'integer',
         'id_mechanic_onduty' => 'integer'
     ];
 

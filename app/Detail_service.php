@@ -21,7 +21,6 @@ class Detail_service extends Model
         'detail_service_amount' => 'integer',
         'detail_service_price' => 'double',
         'detail_service_subtotal' => 'double',
-        'id_transaction' => 'integer',
         'id_service' => 'integer',
         'id_mechanic_onduty' => 'integer'
     ];

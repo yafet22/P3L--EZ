@@ -51,6 +51,7 @@ class TransactionController extends RestController
 
             $service = $request->get('service');
             $sparepart = $request->get('sparepart');
+            $employee = $request->get('employee');
 
             $transaction = new Transaction;
             $count = Transaction::get()
@@ -77,6 +78,11 @@ class TransactionController extends RestController
             $transaction->transaction_total=$request->get('transaction_total');
             $transaction->id_customer=$request->get('id_customer');
             $transaction->save();
+
+            $transaction = DB::transaction(function () use ($transaction,$employee) {
+                $transaction->employees()->attach($employee);
+                return $transaction;
+            });
 
             $transaction = DB::transaction(function () use ($transaction,$service) {
                 $transaction->detail_services()->createMany($service);

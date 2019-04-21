@@ -11721,6 +11721,712 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -11734,15 +12440,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       hide: true,
       add2: false,
       hide2: true,
+      add3: false,
+      hide3: true,
       value2: false,
       value: false,
       edit: false,
       switchnewcustomer: false,
       row: null,
       err: false,
+      err2: false,
       keyword: "",
       id_motorcycle: "",
       warning2: "",
+      editedService: "",
+      editedSparepart: "",
+      editedMotor: "",
+      servicePrice: 0,
+      sparepartPrice: 0,
+      sparepartName: "",
+      sparepartSubTotal: 0,
       status: [{
         id: "unprocessed",
         text: 'unprocessed'
@@ -11760,7 +12476,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         mechanic_name: "",
         id_motorcycle: "",
         license_number: "",
-        detail_service_price: ""
+        detail_service_price: 0
+      },
+      sparepart: {
+        id_sparepart_type: "",
+        id_sparepart: "",
+        sparepart_name: "",
+        merk: "",
+        id_employee: "",
+        mechanic_name: "",
+        id_motorcycle: "",
+        license_number: "",
+        detail_sparepart_price: 0,
+        detail_sparepart_amount: 0,
+        detail_sparepart_subtotal: 0
       },
       headers: [{
         text: 'ID',
@@ -11794,6 +12523,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         text: 'Aksi',
         value: null
       }],
+      headers3: [{
+        text: 'Type',
+        value: 'sparepart_type'
+      }, {
+        text: 'Nama',
+        value: 'sparepart_name'
+      }, {
+        text: 'Merk',
+        value: 'merk'
+      }, {
+        text: 'Satuan',
+        value: 'detail_sparepart_price'
+      }, {
+        text: 'Jumlah',
+        value: 'detail_sparepart_amount'
+      }, {
+        text: 'Motor Pelanggan',
+        value: 'license_number'
+      }, {
+        text: 'Montir',
+        value: 'mechanic_name'
+      }, {
+        text: 'Subtotal',
+        value: 'detail_sparepart_subtotal'
+      }, {
+        text: 'Aksi',
+        value: null
+      }],
       breadcrumbs: [{
         text: 'Dashboard',
         to: {
@@ -11817,6 +12574,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     transaction: 'Transaction/transaction',
     motorcycle: 'Motorcycle/motorcycle',
     serviceData: 'Service/service',
+    sparepartData: 'Sparepart/sparepart',
+    sparepartTypeData: 'SparepartType/sparepartType',
     employee: 'Employee/employee'
   }), Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
     customers: function customers(state) {
@@ -11840,6 +12599,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     services: function services(state) {
       return state.Service.services;
     },
+    spareparts: function spareparts(state) {
+      return state.Sparepart.spareparts;
+    },
+    sparepartTypes: function sparepartTypes(state) {
+      return state.SparepartType.sparepartTypes;
+    },
     employees: function employees(state) {
       return state.Employee.employees;
     }
@@ -11857,6 +12622,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return b.role === "Mechanic";
       });
       return filter;
+    },
+    filterSparepart: function filterSparepart() {
+      var _this2 = this;
+
+      var filter = this.spareparts.filter(function (b) {
+        return b.id_sparepart_type === _this2.sparepart.id_sparepart_type;
+      });
+      return filter;
     }
   }),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])({
@@ -11870,10 +12643,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     getBrand: 'MotorcycleBrand/get',
     getType: 'MotorcycleType/get',
     resetMotor: 'Motorcycle/resetForm',
+    getSparepart: 'Sparepart/get',
     getService: 'Service/get',
     getEmployee: 'Employee/get',
     findService: 'Service/edit',
-    findEmployee: 'Employee/edit'
+    findSparepart: 'Sparepart/edit',
+    findSparepartType: 'SparepartType/edit',
+    findEmployee: 'Employee/edit',
+    storeTransaction: 'Transaction/store',
+    getSparepartType: 'SparepartType/get'
   }), {
     editMotor: function () {
       var _editMotor = _asyncToGenerator(
@@ -11987,6 +12765,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.add2 = false;
       this.hide2 = true;
     },
+    cancelSubmit3: function cancelSubmit3() {
+      this.add3 = false;
+      this.hide3 = true;
+    },
     deleteWarning2: function deleteWarning2(id) {
       this.id_motorcycle = id;
       this.warning2 = true;
@@ -12060,6 +12842,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
                 if (!this.err) {
                   this.transaction.service.push(JSON.parse(JSON.stringify(object)));
+                  this.transaction.transaction_total = this.transaction.transaction_total + object.detail_service_price;
+                  this.add2 = false;
+                  this.hide2 = true;
                 }
 
               case 15:
@@ -12076,10 +12861,382 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       return submitService;
     }(),
+    submitSparepart: function () {
+      var _submitSparepart = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+        var i, object, data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                i = 0;
+                this.err2 = false;
+                object = this.sparepart;
+
+                for (data in this.transaction.sparepart) {
+                  if (this.transaction.sparepart[i].id_sparepart == object.id_sparepart && this.transaction.sparepart[i].id_motorcycle == object.id_motorcycle) {
+                    this.err2 = true;
+                  }
+
+                  i++;
+                }
+
+                _context6.next = 6;
+                return this.findSparepartType(this.sparepart.id_sparepart_type);
+
+              case 6:
+                object.sparepart_type = this.sparepartTypeData.sparepart_type_name;
+                _context6.next = 9;
+                return this.findSparepart(this.sparepart.id_sparepart);
+
+              case 9:
+                object.sparepart_name = this.sparepartData.sparepart_name;
+                object.merk = this.sparepartData.merk;
+                object.detail_sparepart_price = this.sparepartData.sell_price;
+                object.detail_sparepart_subtotal = this.sparepartData.sell_price * Number(this.sparepart.detail_sparepart_amount);
+                _context6.next = 15;
+                return this.fetchMotor(this.sparepart.id_motorcycle);
+
+              case 15:
+                object.license_number = this.motorcycle.license_number;
+                _context6.next = 18;
+                return this.findEmployee(this.sparepart.id_employee);
+
+              case 18:
+                object.mechanic_name = this.employee.first_name + ' ' + this.employee.last_name;
+
+                if (!this.err2) {
+                  this.transaction.sparepart.push(JSON.parse(JSON.stringify(object)));
+                  this.transaction.transaction_total = this.transaction.transaction_total + object.detail_sparepart_subtotal;
+                  this.add3 = false;
+                  this.hide3 = true;
+                }
+
+              case 20:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, this);
+      }));
+
+      function submitSparepart() {
+        return _submitSparepart.apply(this, arguments);
+      }
+
+      return submitSparepart;
+    }(),
+    deleteService: function deleteService(id_service, id_motorcycle) {
+      var i = 0;
+
+      for (var data in this.transaction.service) {
+        if (this.transaction.service[i].id_service == id_service && this.transaction.service[i].id_motorcycle == id_motorcycle) {
+          this.transaction.transaction_total = this.transaction.transaction_total - this.transaction.service[i].detail_service_price;
+        }
+
+        i++;
+      }
+
+      var filter = this.transaction.service.filter(function (obj) {
+        return obj.id_service != id_service && obj.id_motorcycle != id_motorcycle;
+      });
+      this.transaction.service = filter;
+    },
+    deleteSparepart: function deleteSparepart(id_sparepart, id_motorcycle) {
+      var i = 0;
+
+      for (var data in this.transaction.sparepart) {
+        if (this.transaction.sparepart[i].id_sparepart == id_sparepart && this.transaction.sparepart[i].id_motorcycle == id_motorcycle) {
+          this.transaction.transaction_total = this.transaction.transaction_total - this.transaction.sparepart[i].detail_sparepart_price;
+        }
+
+        i++;
+      }
+
+      var filter = this.transaction.sparepart.filter(function (obj) {
+        return obj.id_sparepart != id_sparepart && obj.id_motorcycle != id_motorcycle;
+      });
+      this.transaction.sparepart = filter;
+    },
+    editService: function () {
+      var _editService = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(id_service, id_motorcycle) {
+        var i, data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                i = 0;
+                _context7.t0 = _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.keys(this.transaction.service);
+
+              case 2:
+                if ((_context7.t1 = _context7.t0()).done) {
+                  _context7.next = 23;
+                  break;
+                }
+
+                data = _context7.t1.value;
+
+                if (!(this.transaction.service[i].id_service == id_service && this.transaction.service[i].id_motorcycle == id_motorcycle)) {
+                  _context7.next = 20;
+                  break;
+                }
+
+                this.transaction.transaction_total = this.transaction.transaction_total - this.transaction.service[i].detail_service_price;
+                this.transaction.service[i].id_service = this.service.id_service;
+                _context7.next = 9;
+                return this.findService(this.service.id_service);
+
+              case 9:
+                this.transaction.service[i].service_name = this.serviceData.service_name;
+                this.transaction.service[i].detail_service_price = this.serviceData.price;
+                this.transaction.service[i].id_motorcycle = this.service.id_motorcycle;
+                _context7.next = 14;
+                return this.fetchMotor(this.service.id_motorcycle);
+
+              case 14:
+                this.transaction.service[i].license_number = this.motorcycle.license_number;
+                this.transaction.service[i].id_employee = this.service.id_employee;
+                _context7.next = 18;
+                return this.findEmployee(this.service.id_employee);
+
+              case 18:
+                this.transaction.service[i].mechanic_name = this.employee.first_name + ' ' + this.employee.last_name;
+                this.transaction.transaction_total = this.transaction.transaction_total + this.transaction.service[i].detail_service_price;
+
+              case 20:
+                i++;
+                _context7.next = 2;
+                break;
+
+              case 23:
+                this.editedMotor = "";
+                this.editedService = "";
+
+              case 25:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, this);
+      }));
+
+      function editService(_x3, _x4) {
+        return _editService.apply(this, arguments);
+      }
+
+      return editService;
+    }(),
+    editSparepart: function () {
+      var _editSparepart = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8(id_sparepart, id_motorcycle) {
+        var i, data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                i = 0;
+                _context8.t0 = _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.keys(this.transaction.sparepart);
+
+              case 2:
+                if ((_context8.t1 = _context8.t0()).done) {
+                  _context8.next = 23;
+                  break;
+                }
+
+                data = _context8.t1.value;
+
+                if (!(this.transaction.sparepart[i].id_sparepart == id_sparepart && this.transaction.sparepart[i].id_motorcycle == id_motorcycle)) {
+                  _context8.next = 20;
+                  break;
+                }
+
+                this.transaction.transaction_total = this.transaction.transaction_total - this.transaction.sparepart[i].detail_sparepart_subtotal;
+                this.transaction.sparepart[i].id_sparepart = this.sparepart.id_sparepart;
+                this.transaction.sparepart[i].sparepart_name = this.sparepartName;
+                this.transaction.sparepart[i].detail_sparepart_amount = this.sparepart.detail_sparepart_amount;
+                this.transaction.sparepart[i].detail_sparepart_price = this.sparepartPrice;
+                this.transaction.sparepart[i].detail_sparepart_subtotal = this.sparepartSubTotal;
+                this.transaction.sparepart[i].id_motorcycle = this.sparepart.id_motorcycle;
+                _context8.next = 14;
+                return this.fetchMotor(this.sparepart.id_motorcycle);
+
+              case 14:
+                this.transaction.sparepart[i].license_number = this.motorcycle.license_number;
+                this.transaction.sparepart[i].id_employee = this.sparepart.id_employee;
+                _context8.next = 18;
+                return this.findEmployee(this.sparepart.id_employee);
+
+              case 18:
+                this.transaction.sparepart[i].mechanic_name = this.employee.first_name + ' ' + this.employee.last_name;
+                this.transaction.transaction_total = this.transaction.transaction_total + this.transaction.sparepart[i].detail_sparepart_subtotal;
+
+              case 20:
+                i++;
+                _context8.next = 2;
+                break;
+
+              case 23:
+                this.editedMotor = "";
+                this.editedSparepart = "";
+
+              case 25:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8, this);
+      }));
+
+      function editSparepart(_x5, _x6) {
+        return _editSparepart.apply(this, arguments);
+      }
+
+      return editSparepart;
+    }(),
+    calculatePrice: function () {
+      var _calculatePrice = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee9(id_service) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee9$(_context9) {
+          while (1) {
+            switch (_context9.prev = _context9.next) {
+              case 0:
+                _context9.next = 2;
+                return this.findService(id_service);
+
+              case 2:
+                this.servicePrice = this.serviceData.price;
+
+              case 3:
+              case "end":
+                return _context9.stop();
+            }
+          }
+        }, _callee9, this);
+      }));
+
+      function calculatePrice(_x7) {
+        return _calculatePrice.apply(this, arguments);
+      }
+
+      return calculatePrice;
+    }(),
+    calculateSparepart: function () {
+      var _calculateSparepart = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee10(id_sparepart) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                _context10.next = 2;
+                return this.findSparepart(id_sparepart);
+
+              case 2:
+                this.sparepartPrice = this.sparepartData.sell_price;
+                this.sparepartName = this.sparepartData.sparepart_name;
+                this.sparepartSubTotal = this.sparepart.detail_sparepart_amount * this.sparepartPrice;
+
+              case 5:
+              case "end":
+                return _context10.stop();
+            }
+          }
+        }, _callee10, this);
+      }));
+
+      function calculateSparepart(_x8) {
+        return _calculateSparepart.apply(this, arguments);
+      }
+
+      return calculateSparepart;
+    }(),
+    calculateSparepartPrice: function () {
+      var _calculateSparepartPrice = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee11(amount) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee11$(_context11) {
+          while (1) {
+            switch (_context11.prev = _context11.next) {
+              case 0:
+                this.sparepartSubTotal = amount * this.sparepartPrice;
+
+              case 1:
+              case "end":
+                return _context11.stop();
+            }
+          }
+        }, _callee11, this);
+      }));
+
+      function calculateSparepartPrice(_x9) {
+        return _calculateSparepartPrice.apply(this, arguments);
+      }
+
+      return calculateSparepartPrice;
+    }(),
+    submitTransaksi: function () {
+      var _submitTransaksi = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee12() {
+        var payload;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee12$(_context12) {
+          while (1) {
+            switch (_context12.prev = _context12.next) {
+              case 0:
+                payload = {
+                  id_customer: this.customer.id_customer,
+                  transaction_status: this.transaction.transaction_status,
+                  transaction_type: this.transaction.transaction_type,
+                  transaction_total: this.transaction.transaction_total,
+                  service: this.transaction.service,
+                  sparepart: this.transaction.sparepart
+                };
+                _context12.next = 3;
+                return this.storeTransaction(payload);
+
+              case 3:
+              case "end":
+                return _context12.stop();
+            }
+          }
+        }, _callee12, this);
+      }));
+
+      function submitTransaksi() {
+        return _submitTransaksi.apply(this, arguments);
+      }
+
+      return submitTransaksi;
+    }(),
     bindData: function bindData(item) {
       this.motorcycle.license_number = item.license_number;
       this.motorcycle.id_motorcycle_brand = item.id_motorcycle_brand;
       this.motorcycle.id_motorcycle_type = item.id_motorcycle_type;
+    },
+    bindDataService: function bindDataService(item) {
+      this.editedService = item.id_service;
+      this.editedMotor = item.id_motorcycle;
+      this.service.id_service = item.id_service;
+      this.service.id_motorcycle = item.id_motorcycle;
+      this.service.id_employee = item.id_employee;
+      this.servicePrice = item.detail_service_price;
+    },
+    bindDataSparepart: function bindDataSparepart(item) {
+      this.editedSparepart = item.id_sparepart;
+      this.editedMotor = item.id_motorcycle;
+      this.sparepart.id_sparepart_type = item.id_sparepart_type;
+      this.sparepart.id_sparepart = item.id_sparepart;
+      this.sparepart.id_motorcycle = item.id_motorcycle;
+      this.sparepart.detail_sparepart_amount = item.detail_sparepart_amount;
+      this.sparepart.id_employee = item.id_employee;
+      this.sparepartPrice = item.detail_sparepart_price;
+      this.sparepartName = item.sparepart_name;
+      this.sparepartSubTotal = item.detail_sparepart_subtotal;
     },
     filterType: function filterType(id) {
       console.log(id);
@@ -12093,43 +13250,47 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.add2 = true;
       this.hide2 = false;
     },
+    addHandler3: function addHandler3() {
+      this.add3 = true;
+      this.hide3 = false;
+    },
     submitMotor: function () {
       var _submitMotor = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(value) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee13(value) {
         var payload;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee13$(_context13) {
           while (1) {
-            switch (_context6.prev = _context6.next) {
+            switch (_context13.prev = _context13.next) {
               case 0:
                 payload = {
                   license_number: value.license_number,
                   id_motorcycle_type: value.id_motorcycle_type,
                   id_customer: this.customer.id_customer
                 };
-                _context6.next = 3;
+                _context13.next = 3;
                 return this.storeMotor(payload);
 
               case 3:
                 if (this.motorError) {
-                  _context6.next = 8;
+                  _context13.next = 8;
                   break;
                 }
 
                 this.add = false;
                 this.hide = true;
-                _context6.next = 8;
+                _context13.next = 8;
                 return this.findMotor(this.customer.id_customer);
 
               case 8:
               case "end":
-                return _context6.stop();
+                return _context13.stop();
             }
           }
-        }, _callee6, this);
+        }, _callee13, this);
       }));
 
-      function submitMotor(_x3) {
+      function submitMotor(_x10) {
         return _submitMotor.apply(this, arguments);
       }
 
@@ -12141,7 +13302,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.getBrand();
     this.getType();
     this.getService();
+    this.getSparepart();
     this.getEmployee();
+    this.getSparepartType();
   }
 });
 
@@ -27632,77 +28795,299 @@ var render = function() {
                                       key: "items",
                                       fn: function(props) {
                                         return [
-                                          _c("td", {
-                                            domProps: {
-                                              innerHTML: _vm._s(
-                                                props.item.service_name
-                                              )
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c("td", {
-                                            domProps: {
-                                              innerHTML: _vm._s(
-                                                props.item.license_number
-                                              )
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c("td", {
-                                            domProps: {
-                                              innerHTML: _vm._s(
-                                                props.item.mechanic_name
-                                              )
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c("td", {
-                                            domProps: {
-                                              innerHTML: _vm._s(
-                                                props.item.detail_service_price
-                                              )
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "td",
-                                            { staticClass: "text-xs-center" },
-                                            [
-                                              _c(
-                                                "VBtn",
-                                                {
-                                                  attrs: {
-                                                    flat: "",
-                                                    icon: "",
-                                                    color: "indigo",
-                                                    dark: ""
-                                                  }
-                                                },
+                                          _vm.editedService !=
+                                            props.item.id_service &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    props.item.service_name
+                                                  )
+                                                }
+                                              })
+                                            : _c(
+                                                "td",
                                                 [
-                                                  _c("v-icon", [_vm._v("edit")])
+                                                  _c("v-select", {
+                                                    staticClass: "pa-1",
+                                                    attrs: {
+                                                      label: "Tipe Service",
+                                                      "item-text":
+                                                        "service_name",
+                                                      "item-value":
+                                                        "id_service",
+                                                      items: _vm.services,
+                                                      "return-object": false,
+                                                      required: ""
+                                                    },
+                                                    on: {
+                                                      change: function($event) {
+                                                        return _vm.calculatePrice(
+                                                          _vm.service.id_service
+                                                        )
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.service.id_service,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.service,
+                                                          "id_service",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "service.id_service"
+                                                    }
+                                                  })
                                                 ],
                                                 1
                                               ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "VBtn",
+                                          _vm._v(" "),
+                                          _vm.editedService !=
+                                            props.item.id_service &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    props.item.license_number
+                                                  )
+                                                }
+                                              })
+                                            : _c(
+                                                "td",
+                                                [
+                                                  _c("v-select", {
+                                                    staticClass: "pa-1",
+                                                    attrs: {
+                                                      label: "Motor Pelanggan",
+                                                      "item-text":
+                                                        "license_number",
+                                                      "item-value":
+                                                        "id_motorcycle",
+                                                      items: _vm.motorcycles,
+                                                      "return-object": false,
+                                                      required: ""
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.service
+                                                          .id_motorcycle,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.service,
+                                                          "id_motorcycle",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "service.id_motorcycle"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              ),
+                                          _vm._v(" "),
+                                          _vm.editedService !=
+                                            props.item.id_service &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    props.item.mechanic_name
+                                                  )
+                                                }
+                                              })
+                                            : _c(
+                                                "td",
+                                                [
+                                                  _c("v-select", {
+                                                    staticClass: "pa-1",
+                                                    attrs: {
+                                                      label: "Montir",
+                                                      "item-text": "name",
+                                                      "item-value":
+                                                        "id_employee",
+                                                      items: _vm.mechanic,
+                                                      "return-object": false,
+                                                      required: ""
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.service.id_employee,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.service,
+                                                          "id_employee",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "service.id_employee"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              ),
+                                          _vm._v(" "),
+                                          _vm.editedService !=
+                                            props.item.id_service &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    props.item
+                                                      .detail_service_price
+                                                  )
+                                                }
+                                              })
+                                            : _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    _vm.servicePrice
+                                                  )
+                                                }
+                                              }),
+                                          _vm._v(" "),
+                                          _vm.editedService !=
+                                            props.item.id_service &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c(
+                                                "td",
                                                 {
-                                                  attrs: {
-                                                    flat: "",
-                                                    icon: "",
-                                                    color: "error"
-                                                  }
+                                                  staticClass: "text-xs-center"
                                                 },
                                                 [
-                                                  _c("v-icon", [
-                                                    _vm._v("delete")
-                                                  ])
+                                                  _c(
+                                                    "VBtn",
+                                                    {
+                                                      attrs: {
+                                                        flat: "",
+                                                        icon: "",
+                                                        color: "indigo",
+                                                        dark: ""
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.bindDataService(
+                                                            props.item
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v("edit")
+                                                      ])
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "VBtn",
+                                                    {
+                                                      attrs: {
+                                                        flat: "",
+                                                        icon: "",
+                                                        color: "error"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.deleteService(
+                                                            props.item
+                                                              .id_service,
+                                                            props.item
+                                                              .id_motorcycle
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v("delete")
+                                                      ])
+                                                    ],
+                                                    1
+                                                  )
                                                 ],
                                                 1
                                               )
-                                            ],
-                                            1
-                                          )
+                                            : _c(
+                                                "td",
+                                                {
+                                                  staticClass: "text-xs-center"
+                                                },
+                                                [
+                                                  _c(
+                                                    "VBtn",
+                                                    {
+                                                      attrs: {
+                                                        flat: "",
+                                                        icon: "",
+                                                        depressed: "",
+                                                        color: "success"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.editService(
+                                                            props.item
+                                                              .id_service,
+                                                            props.item
+                                                              .id_motorcycle
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v("check_circle")
+                                                      ])
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "VBtn",
+                                                    {
+                                                      attrs: {
+                                                        flat: "",
+                                                        icon: "",
+                                                        depressed: "",
+                                                        color: "error"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          ;(_vm.editedMotor =
+                                                            ""),
+                                                            (_vm.editedService =
+                                                              "")
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v("remove_circle")
+                                                      ])
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
                                         ]
                                       }
                                     },
@@ -27972,9 +29357,32 @@ var render = function() {
                                   ],
                                   null,
                                   false,
-                                  3719760010
+                                  3491980816
                                 )
                               })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-card-actions",
+                            [
+                              _c("VSpacer"),
+                              _vm._v(" "),
+                              _c(
+                                "VBtn",
+                                {
+                                  attrs: { depressed: "", color: "success" },
+                                  on: { click: _vm.submitTransaksi }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                 Tambah Transaksi\n               "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("VSpacer")
                             ],
                             1
                           )
@@ -28012,7 +29420,813 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _c("v-card-text")
+                          _c(
+                            "v-card-text",
+                            [
+                              _vm.err2
+                                ? _c(
+                                    "VAlert",
+                                    {
+                                      attrs: {
+                                        value: true,
+                                        dismissible: "",
+                                        type: "error"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n               Transaki yang sama telah dilakukan\n               "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c("VDataTable", {
+                                attrs: {
+                                  headers: _vm.headers3,
+                                  items: _vm.transaction.sparepart,
+                                  search: _vm.keyword
+                                },
+                                scopedSlots: _vm._u([
+                                  {
+                                    key: "items",
+                                    fn: function(props) {
+                                      return [
+                                        _vm.editedSparepart !=
+                                          props.item.id_sparepart &&
+                                        _vm.editMotor !=
+                                          props.item.id_motorcycle
+                                          ? _c("td", {
+                                              domProps: {
+                                                innerHTML: _vm._s(
+                                                  props.item.sparepart_type
+                                                )
+                                              }
+                                            })
+                                          : _c(
+                                              "td",
+                                              [
+                                                _c("v-select", {
+                                                  staticClass: "pa-1",
+                                                  attrs: {
+                                                    label: "Tipe Sparepart",
+                                                    "item-text":
+                                                      "sparepart_type_name",
+                                                    "item-value":
+                                                      "id_sparepart_type",
+                                                    items: _vm.sparepartTypes,
+                                                    "return-object": false,
+                                                    required: ""
+                                                  },
+                                                  model: {
+                                                    value:
+                                                      _vm.sparepart
+                                                        .id_sparepart_type,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        _vm.sparepart,
+                                                        "id_sparepart_type",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "sparepart.id_sparepart_type"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            ),
+                                        _vm._v(" "),
+                                        _vm.editedSparepart !=
+                                          props.item.id_sparepart &&
+                                        _vm.editMotor !=
+                                          props.item.id_motorcycle
+                                          ? _c("td", {
+                                              domProps: {
+                                                innerHTML: _vm._s(
+                                                  props.item.sparepart_name
+                                                )
+                                              }
+                                            })
+                                          : _c("td", {
+                                              domProps: {
+                                                innerHTML: _vm._s(
+                                                  _vm.sparepartName
+                                                )
+                                              }
+                                            }),
+                                        _vm._v(" "),
+                                        _vm.editedSparepart !=
+                                          props.item.id_sparepart &&
+                                        _vm.editMotor !=
+                                          props.item.id_motorcycle
+                                          ? _c("td", {
+                                              domProps: {
+                                                innerHTML: _vm._s(
+                                                  props.item.merk
+                                                )
+                                              }
+                                            })
+                                          : _c(
+                                              "td",
+                                              [
+                                                _c("v-select", {
+                                                  staticClass: "pa-1",
+                                                  attrs: {
+                                                    label: "Merk",
+                                                    "item-text": "merk",
+                                                    "item-value":
+                                                      "id_sparepart",
+                                                    items: _vm.filterSparepart,
+                                                    "return-object": false,
+                                                    required: ""
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      return _vm.calculateSparepart(
+                                                        _vm.sparepart
+                                                          .id_sparepart
+                                                      )
+                                                    }
+                                                  },
+                                                  model: {
+                                                    value:
+                                                      _vm.sparepart
+                                                        .id_sparepart,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        _vm.sparepart,
+                                                        "id_sparepart",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "sparepart.id_sparepart"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            ),
+                                        _vm._v(" "),
+                                        _vm.editedSparepart !=
+                                          props.item.id_sparepart &&
+                                        _vm.editMotor !=
+                                          props.item.id_motorcycle
+                                          ? _c("td", {
+                                              domProps: {
+                                                innerHTML: _vm._s(
+                                                  props.item
+                                                    .detail_sparepart_price
+                                                )
+                                              }
+                                            })
+                                          : _c("td", {
+                                              domProps: {
+                                                innerHTML: _vm._s(
+                                                  _vm.sparepartPrice
+                                                )
+                                              }
+                                            }),
+                                        _vm._v(" "),
+                                        _vm.editedSparepart !=
+                                          props.item.id_sparepart &&
+                                        _vm.editMotor !=
+                                          props.item.id_motorcycle
+                                          ? _c("td", {
+                                              domProps: {
+                                                innerHTML: _vm._s(
+                                                  props.item
+                                                    .detail_sparepart_amount
+                                                )
+                                              }
+                                            })
+                                          : _c(
+                                              "td",
+                                              [
+                                                _c("v-text-field", {
+                                                  staticClass: "pa-1",
+                                                  attrs: {
+                                                    label: "Jumlah",
+                                                    required: ""
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      return _vm.calculateSparepartPrice(
+                                                        _vm.sparepart
+                                                          .detail_sparepart_amount
+                                                      )
+                                                    }
+                                                  },
+                                                  model: {
+                                                    value:
+                                                      _vm.sparepart
+                                                        .detail_sparepart_amount,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        _vm.sparepart,
+                                                        "detail_sparepart_amount",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "sparepart.detail_sparepart_amount"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            ),
+                                        _vm._v(" "),
+                                        _vm.editedSparepart !=
+                                          props.item.id_sparepart &&
+                                        _vm.editMotor !=
+                                          props.item.id_motorcycle
+                                          ? _c("td", {
+                                              domProps: {
+                                                innerHTML: _vm._s(
+                                                  props.item.license_number
+                                                )
+                                              }
+                                            })
+                                          : _c(
+                                              "td",
+                                              [
+                                                _c("v-select", {
+                                                  staticClass: "pa-1",
+                                                  attrs: {
+                                                    label: "Motor Pelanggan",
+                                                    "item-text":
+                                                      "license_number",
+                                                    "item-value":
+                                                      "id_motorcycle",
+                                                    items: _vm.motorcycles,
+                                                    "return-object": false,
+                                                    required: ""
+                                                  },
+                                                  model: {
+                                                    value:
+                                                      _vm.sparepart
+                                                        .id_motorcycle,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        _vm.sparepart,
+                                                        "id_motorcycle",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "sparepart.id_motorcycle"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            ),
+                                        _vm._v(" "),
+                                        _vm.editedSparepart !=
+                                          props.item.id_sparepart &&
+                                        _vm.editMotor !=
+                                          props.item.id_motorcycle
+                                          ? _c("td", {
+                                              domProps: {
+                                                innerHTML: _vm._s(
+                                                  props.item.mechanic_name
+                                                )
+                                              }
+                                            })
+                                          : _c(
+                                              "td",
+                                              [
+                                                _c("v-select", {
+                                                  staticClass: "pa-1",
+                                                  attrs: {
+                                                    label: "Montir",
+                                                    "item-text": "name",
+                                                    "item-value": "id_employee",
+                                                    items: _vm.mechanic,
+                                                    "return-object": false,
+                                                    required: ""
+                                                  },
+                                                  model: {
+                                                    value:
+                                                      _vm.sparepart.id_employee,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        _vm.sparepart,
+                                                        "id_employee",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "sparepart.id_employee"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            ),
+                                        _vm._v(" "),
+                                        _vm.editedSparepart !=
+                                          props.item.id_sparepart &&
+                                        _vm.editMotor !=
+                                          props.item.id_motorcycle
+                                          ? _c("td", {
+                                              domProps: {
+                                                innerHTML: _vm._s(
+                                                  props.item
+                                                    .detail_sparepart_subtotal
+                                                )
+                                              }
+                                            })
+                                          : _c("td", {
+                                              domProps: {
+                                                innerHTML: _vm._s(
+                                                  _vm.sparepartSubTotal
+                                                )
+                                              }
+                                            }),
+                                        _vm._v(" "),
+                                        _vm.editedSparepart !=
+                                          props.item.id_sparepart &&
+                                        _vm.editMotor !=
+                                          props.item.id_motorcycle
+                                          ? _c(
+                                              "td",
+                                              { staticClass: "text-xs-center" },
+                                              [
+                                                _c(
+                                                  "VBtn",
+                                                  {
+                                                    attrs: {
+                                                      flat: "",
+                                                      icon: "",
+                                                      color: "indigo",
+                                                      dark: ""
+                                                    },
+                                                    on: {
+                                                      click: function($event) {
+                                                        return _vm.bindDataSparepart(
+                                                          props.item
+                                                        )
+                                                      }
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("v-icon", [
+                                                      _vm._v("edit")
+                                                    ])
+                                                  ],
+                                                  1
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "VBtn",
+                                                  {
+                                                    attrs: {
+                                                      flat: "",
+                                                      icon: "",
+                                                      color: "error"
+                                                    },
+                                                    on: {
+                                                      click: function($event) {
+                                                        return _vm.deleteSparepart(
+                                                          props.item
+                                                            .id_sparepart,
+                                                          props.item
+                                                            .id_motorcycle
+                                                        )
+                                                      }
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("v-icon", [
+                                                      _vm._v("delete")
+                                                    ])
+                                                  ],
+                                                  1
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          : _c(
+                                              "td",
+                                              { staticClass: "text-xs-center" },
+                                              [
+                                                _c(
+                                                  "VBtn",
+                                                  {
+                                                    attrs: {
+                                                      flat: "",
+                                                      icon: "",
+                                                      depressed: "",
+                                                      color: "success"
+                                                    },
+                                                    on: {
+                                                      click: function($event) {
+                                                        return _vm.editSparepart(
+                                                          props.item
+                                                            .id_sparepart,
+                                                          props.item
+                                                            .id_motorcycle
+                                                        )
+                                                      }
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("v-icon", [
+                                                      _vm._v("check_circle")
+                                                    ])
+                                                  ],
+                                                  1
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "VBtn",
+                                                  {
+                                                    attrs: {
+                                                      flat: "",
+                                                      icon: "",
+                                                      depressed: "",
+                                                      color: "error"
+                                                    },
+                                                    on: {
+                                                      click: function($event) {
+                                                        ;(_vm.editedMotor = ""),
+                                                          (_vm.editedSparepart =
+                                                            "")
+                                                      }
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("v-icon", [
+                                                      _vm._v("remove_circle")
+                                                    ])
+                                                  ],
+                                                  1
+                                                )
+                                              ],
+                                              1
+                                            )
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    key: "footer",
+                                    fn: function() {
+                                      return [
+                                        _vm.add3
+                                          ? _c(
+                                              "td",
+                                              {
+                                                attrs: {
+                                                  colspan: _vm.headers3.length
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "v-form",
+                                                  { staticClass: "mt-2" },
+                                                  [
+                                                    _c(
+                                                      "VLayout",
+                                                      [
+                                                        _c(
+                                                          "VFlex",
+                                                          {
+                                                            attrs: { sm3: "" }
+                                                          },
+                                                          [
+                                                            _c("v-select", {
+                                                              staticClass:
+                                                                "pa-1",
+                                                              attrs: {
+                                                                label:
+                                                                  "Tipe Sparepart",
+                                                                "item-text":
+                                                                  "sparepart_type_name",
+                                                                "item-value":
+                                                                  "id_sparepart_type",
+                                                                items:
+                                                                  _vm.sparepartTypes,
+                                                                "return-object": false,
+                                                                required: ""
+                                                              },
+                                                              model: {
+                                                                value:
+                                                                  _vm.sparepart
+                                                                    .id_sparepart_type,
+                                                                callback: function(
+                                                                  $$v
+                                                                ) {
+                                                                  _vm.$set(
+                                                                    _vm.sparepart,
+                                                                    "id_sparepart_type",
+                                                                    $$v
+                                                                  )
+                                                                },
+                                                                expression:
+                                                                  "sparepart.id_sparepart_type"
+                                                              }
+                                                            })
+                                                          ],
+                                                          1
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "VFlex",
+                                                          {
+                                                            attrs: { sm2: "" }
+                                                          },
+                                                          [
+                                                            _c("v-select", {
+                                                              staticClass:
+                                                                "pa-1",
+                                                              attrs: {
+                                                                label: "Merk",
+                                                                "item-text":
+                                                                  "merk",
+                                                                "item-value":
+                                                                  "id_sparepart",
+                                                                items:
+                                                                  _vm.filterSparepart,
+                                                                "return-object": false,
+                                                                required: ""
+                                                              },
+                                                              model: {
+                                                                value:
+                                                                  _vm.sparepart
+                                                                    .id_sparepart,
+                                                                callback: function(
+                                                                  $$v
+                                                                ) {
+                                                                  _vm.$set(
+                                                                    _vm.sparepart,
+                                                                    "id_sparepart",
+                                                                    $$v
+                                                                  )
+                                                                },
+                                                                expression:
+                                                                  "sparepart.id_sparepart"
+                                                              }
+                                                            })
+                                                          ],
+                                                          1
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "VFlex",
+                                                          {
+                                                            attrs: { sm1: "" }
+                                                          },
+                                                          [
+                                                            _c("v-text-field", {
+                                                              staticClass:
+                                                                "pa-1",
+                                                              attrs: {
+                                                                label: "Jumlah",
+                                                                required: ""
+                                                              },
+                                                              model: {
+                                                                value:
+                                                                  _vm.sparepart
+                                                                    .detail_sparepart_amount,
+                                                                callback: function(
+                                                                  $$v
+                                                                ) {
+                                                                  _vm.$set(
+                                                                    _vm.sparepart,
+                                                                    "detail_sparepart_amount",
+                                                                    $$v
+                                                                  )
+                                                                },
+                                                                expression:
+                                                                  "sparepart.detail_sparepart_amount"
+                                                              }
+                                                            })
+                                                          ],
+                                                          1
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "VFlex",
+                                                          {
+                                                            attrs: { sm2: "" }
+                                                          },
+                                                          [
+                                                            _c("v-select", {
+                                                              staticClass:
+                                                                "pa-1",
+                                                              attrs: {
+                                                                label:
+                                                                  "Motor Pelanggan",
+                                                                "item-text":
+                                                                  "license_number",
+                                                                "item-value":
+                                                                  "id_motorcycle",
+                                                                items:
+                                                                  _vm.motorcycles,
+                                                                "return-object": false,
+                                                                required: ""
+                                                              },
+                                                              model: {
+                                                                value:
+                                                                  _vm.sparepart
+                                                                    .id_motorcycle,
+                                                                callback: function(
+                                                                  $$v
+                                                                ) {
+                                                                  _vm.$set(
+                                                                    _vm.sparepart,
+                                                                    "id_motorcycle",
+                                                                    $$v
+                                                                  )
+                                                                },
+                                                                expression:
+                                                                  "sparepart.id_motorcycle"
+                                                              }
+                                                            })
+                                                          ],
+                                                          1
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "VFlex",
+                                                          {
+                                                            attrs: { sm2: "" }
+                                                          },
+                                                          [
+                                                            _c("v-select", {
+                                                              staticClass:
+                                                                "pa-1",
+                                                              attrs: {
+                                                                label: "Montir",
+                                                                "item-text":
+                                                                  "name",
+                                                                "item-value":
+                                                                  "id_employee",
+                                                                items:
+                                                                  _vm.mechanic,
+                                                                "return-object": false,
+                                                                required: ""
+                                                              },
+                                                              model: {
+                                                                value:
+                                                                  _vm.sparepart
+                                                                    .id_employee,
+                                                                callback: function(
+                                                                  $$v
+                                                                ) {
+                                                                  _vm.$set(
+                                                                    _vm.sparepart,
+                                                                    "id_employee",
+                                                                    $$v
+                                                                  )
+                                                                },
+                                                                expression:
+                                                                  "sparepart.id_employee"
+                                                              }
+                                                            })
+                                                          ],
+                                                          1
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "VFlex",
+                                                          {
+                                                            staticClass:
+                                                              "text-xs-center",
+                                                            attrs: { sm2: "" }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "VBtn",
+                                                              {
+                                                                attrs: {
+                                                                  flat: "",
+                                                                  icon: "",
+                                                                  depressed: "",
+                                                                  color:
+                                                                    "success"
+                                                                },
+                                                                on: {
+                                                                  click:
+                                                                    _vm.submitSparepart
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("v-icon", [
+                                                                  _vm._v(
+                                                                    "check_box"
+                                                                  )
+                                                                ])
+                                                              ],
+                                                              1
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "VBtn",
+                                                              {
+                                                                attrs: {
+                                                                  flat: "",
+                                                                  icon: "",
+                                                                  depressed: "",
+                                                                  color: "error"
+                                                                },
+                                                                on: {
+                                                                  click:
+                                                                    _vm.cancelSubmit3
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("v-icon", [
+                                                                  _vm._v(
+                                                                    "remove_circle"
+                                                                  )
+                                                                ])
+                                                              ],
+                                                              1
+                                                            )
+                                                          ],
+                                                          1
+                                                        )
+                                                      ],
+                                                      1
+                                                    )
+                                                  ],
+                                                  1
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.hide3
+                                          ? _c(
+                                              "td",
+                                              {
+                                                staticStyle: {
+                                                  "text-align": "right"
+                                                },
+                                                attrs: {
+                                                  colspan: _vm.headers3.length
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "VBtn",
+                                                  {
+                                                    attrs: {
+                                                      flat: "",
+                                                      icon: "",
+                                                      depressed: "",
+                                                      color: "success"
+                                                    },
+                                                    on: {
+                                                      click: function($event) {
+                                                        return _vm.addHandler3()
+                                                      }
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("v-icon", [
+                                                      _vm._v("add_circle")
+                                                    ])
+                                                  ],
+                                                  1
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e()
+                                      ]
+                                    },
+                                    proxy: true
+                                  }
+                                ])
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-card-actions",
+                            [
+                              _c("VSpacer"),
+                              _vm._v(" "),
+                              _c(
+                                "VBtn",
+                                {
+                                  attrs: { depressed: "", color: "success" },
+                                  on: { click: _vm.submitTransaksi }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                 Tambah Transaksi\n               "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("VSpacer")
+                            ],
+                            1
+                          )
                         ],
                         1
                       )
@@ -28049,7 +30263,607 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _c("v-card-text")
+                          _c(
+                            "v-card-text",
+                            [
+                              _vm.err
+                                ? _c(
+                                    "VAlert",
+                                    {
+                                      attrs: {
+                                        value: true,
+                                        dismissible: "",
+                                        type: "error"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n               Transaki yang sama telah dilakukan\n               "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c("VDataTable", {
+                                attrs: {
+                                  headers: _vm.headers2,
+                                  items: _vm.transaction.service,
+                                  search: _vm.keyword
+                                },
+                                scopedSlots: _vm._u(
+                                  [
+                                    {
+                                      key: "items",
+                                      fn: function(props) {
+                                        return [
+                                          _vm.editedService !=
+                                            props.item.id_service &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    props.item.service_name
+                                                  )
+                                                }
+                                              })
+                                            : _c(
+                                                "td",
+                                                [
+                                                  _c("v-select", {
+                                                    staticClass: "pa-1",
+                                                    attrs: {
+                                                      label: "Tipe Service",
+                                                      "item-text":
+                                                        "service_name",
+                                                      "item-value":
+                                                        "id_service",
+                                                      items: _vm.services,
+                                                      "return-object": false,
+                                                      required: ""
+                                                    },
+                                                    on: {
+                                                      change: function($event) {
+                                                        return _vm.calculatePrice(
+                                                          _vm.service.id_service
+                                                        )
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.service.id_service,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.service,
+                                                          "id_service",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "service.id_service"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              ),
+                                          _vm._v(" "),
+                                          _vm.editedService !=
+                                            props.item.id_service &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    props.item.license_number
+                                                  )
+                                                }
+                                              })
+                                            : _c(
+                                                "td",
+                                                [
+                                                  _c("v-select", {
+                                                    staticClass: "pa-1",
+                                                    attrs: {
+                                                      label: "Motor Pelanggan",
+                                                      "item-text":
+                                                        "license_number",
+                                                      "item-value":
+                                                        "id_motorcycle",
+                                                      items: _vm.motorcycles,
+                                                      "return-object": false,
+                                                      required: ""
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.service
+                                                          .id_motorcycle,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.service,
+                                                          "id_motorcycle",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "service.id_motorcycle"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              ),
+                                          _vm._v(" "),
+                                          _vm.editedService !=
+                                            props.item.id_service &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    props.item.mechanic_name
+                                                  )
+                                                }
+                                              })
+                                            : _c(
+                                                "td",
+                                                [
+                                                  _c("v-select", {
+                                                    staticClass: "pa-1",
+                                                    attrs: {
+                                                      label: "Montir",
+                                                      "item-text": "name",
+                                                      "item-value":
+                                                        "id_employee",
+                                                      items: _vm.mechanic,
+                                                      "return-object": false,
+                                                      required: ""
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.service.id_employee,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.service,
+                                                          "id_employee",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "service.id_employee"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              ),
+                                          _vm._v(" "),
+                                          _vm.editedService !=
+                                            props.item.id_service &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    props.item
+                                                      .detail_service_price
+                                                  )
+                                                }
+                                              })
+                                            : _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    _vm.servicePrice
+                                                  )
+                                                }
+                                              }),
+                                          _vm._v(" "),
+                                          _vm.editedService !=
+                                            props.item.id_service &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c(
+                                                "td",
+                                                {
+                                                  staticClass: "text-xs-center"
+                                                },
+                                                [
+                                                  _c(
+                                                    "VBtn",
+                                                    {
+                                                      attrs: {
+                                                        flat: "",
+                                                        icon: "",
+                                                        color: "indigo",
+                                                        dark: ""
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.bindDataService(
+                                                            props.item
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v("edit")
+                                                      ])
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "VBtn",
+                                                    {
+                                                      attrs: {
+                                                        flat: "",
+                                                        icon: "",
+                                                        color: "error"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.deleteService(
+                                                            props.item
+                                                              .id_service,
+                                                            props.item
+                                                              .id_motorcycle
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v("delete")
+                                                      ])
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            : _c(
+                                                "td",
+                                                {
+                                                  staticClass: "text-xs-center"
+                                                },
+                                                [
+                                                  _c(
+                                                    "VBtn",
+                                                    {
+                                                      attrs: {
+                                                        flat: "",
+                                                        icon: "",
+                                                        depressed: "",
+                                                        color: "success"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.editService(
+                                                            props.item
+                                                              .id_service,
+                                                            props.item
+                                                              .id_motorcycle
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v("check_circle")
+                                                      ])
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "VBtn",
+                                                    {
+                                                      attrs: {
+                                                        flat: "",
+                                                        icon: "",
+                                                        depressed: "",
+                                                        color: "error"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          ;(_vm.editedMotor =
+                                                            ""),
+                                                            (_vm.editedService =
+                                                              "")
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v("remove_circle")
+                                                      ])
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      key: "footer",
+                                      fn: function() {
+                                        return [
+                                          _vm.add2
+                                            ? _c(
+                                                "td",
+                                                {
+                                                  attrs: {
+                                                    colspan: _vm.headers.length
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "v-form",
+                                                    { staticClass: "mt-2" },
+                                                    [
+                                                      _c(
+                                                        "VLayout",
+                                                        [
+                                                          _c(
+                                                            "VFlex",
+                                                            {
+                                                              attrs: { sm3: "" }
+                                                            },
+                                                            [
+                                                              _c("v-select", {
+                                                                staticClass:
+                                                                  "pa-1",
+                                                                attrs: {
+                                                                  label:
+                                                                    "Tipe Service",
+                                                                  "item-text":
+                                                                    "service_name",
+                                                                  "item-value":
+                                                                    "id_service",
+                                                                  items:
+                                                                    _vm.services,
+                                                                  "return-object": false,
+                                                                  required: ""
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    _vm.service
+                                                                      .id_service,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.service,
+                                                                      "id_service",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                  expression:
+                                                                    "service.id_service"
+                                                                }
+                                                              })
+                                                            ],
+                                                            1
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "VFlex",
+                                                            {
+                                                              attrs: { sm3: "" }
+                                                            },
+                                                            [
+                                                              _c("v-select", {
+                                                                staticClass:
+                                                                  "pa-1",
+                                                                attrs: {
+                                                                  label:
+                                                                    "Motor Pelanggan",
+                                                                  "item-text":
+                                                                    "license_number",
+                                                                  "item-value":
+                                                                    "id_motorcycle",
+                                                                  items:
+                                                                    _vm.motorcycles,
+                                                                  "return-object": false,
+                                                                  required: ""
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    _vm.service
+                                                                      .id_motorcycle,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.service,
+                                                                      "id_motorcycle",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                  expression:
+                                                                    "service.id_motorcycle"
+                                                                }
+                                                              })
+                                                            ],
+                                                            1
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "VFlex",
+                                                            {
+                                                              attrs: { sm3: "" }
+                                                            },
+                                                            [
+                                                              _c("v-select", {
+                                                                staticClass:
+                                                                  "pa-1",
+                                                                attrs: {
+                                                                  label:
+                                                                    "Montir",
+                                                                  "item-text":
+                                                                    "name",
+                                                                  "item-value":
+                                                                    "id_employee",
+                                                                  items:
+                                                                    _vm.mechanic,
+                                                                  "return-object": false,
+                                                                  required: ""
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    _vm.service
+                                                                      .id_employee,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.service,
+                                                                      "id_employee",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                  expression:
+                                                                    "service.id_employee"
+                                                                }
+                                                              })
+                                                            ],
+                                                            1
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "VFlex",
+                                                            {
+                                                              staticClass:
+                                                                "text-xs-center",
+                                                              attrs: { sm3: "" }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "VBtn",
+                                                                {
+                                                                  attrs: {
+                                                                    flat: "",
+                                                                    icon: "",
+                                                                    depressed:
+                                                                      "",
+                                                                    color:
+                                                                      "success"
+                                                                  },
+                                                                  on: {
+                                                                    click:
+                                                                      _vm.submitService
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c("v-icon", [
+                                                                    _vm._v(
+                                                                      "check_box"
+                                                                    )
+                                                                  ])
+                                                                ],
+                                                                1
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "VBtn",
+                                                                {
+                                                                  attrs: {
+                                                                    flat: "",
+                                                                    icon: "",
+                                                                    depressed:
+                                                                      "",
+                                                                    color:
+                                                                      "error"
+                                                                  },
+                                                                  on: {
+                                                                    click:
+                                                                      _vm.cancelSubmit2
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c("v-icon", [
+                                                                    _vm._v(
+                                                                      "remove_circle"
+                                                                    )
+                                                                  ])
+                                                                ],
+                                                                1
+                                                              )
+                                                            ],
+                                                            1
+                                                          )
+                                                        ],
+                                                        1
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.hide2
+                                            ? _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "right"
+                                                  },
+                                                  attrs: {
+                                                    colspan: _vm.headers.length
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "VBtn",
+                                                    {
+                                                      attrs: {
+                                                        flat: "",
+                                                        icon: "",
+                                                        depressed: "",
+                                                        color: "success"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.addHandler2()
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v("add_circle")
+                                                      ])
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            : _vm._e()
+                                        ]
+                                      },
+                                      proxy: true
+                                    }
+                                  ],
+                                  null,
+                                  false,
+                                  3491980816
+                                )
+                              })
+                            ],
+                            1
+                          )
                         ],
                         1
                       )
@@ -28086,7 +30900,849 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _c("v-card-text")
+                          _c(
+                            "v-card-text",
+                            [
+                              _vm.err2
+                                ? _c(
+                                    "VAlert",
+                                    {
+                                      attrs: {
+                                        value: true,
+                                        dismissible: "",
+                                        type: "error"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n               Transaki yang sama telah dilakukan\n               "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c("VDataTable", {
+                                attrs: {
+                                  headers: _vm.headers3,
+                                  items: _vm.transaction.sparepart,
+                                  search: _vm.keyword
+                                },
+                                scopedSlots: _vm._u(
+                                  [
+                                    {
+                                      key: "items",
+                                      fn: function(props) {
+                                        return [
+                                          _vm.editedSparepart !=
+                                            props.item.id_sparepart &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    props.item.sparepart_type
+                                                  )
+                                                }
+                                              })
+                                            : _c(
+                                                "td",
+                                                [
+                                                  _c("v-select", {
+                                                    staticClass: "pa-1",
+                                                    attrs: {
+                                                      label: "Tipe Sparepart",
+                                                      "item-text":
+                                                        "sparepart_type_name",
+                                                      "item-value":
+                                                        "id_sparepart_type",
+                                                      items: _vm.sparepartTypes,
+                                                      "return-object": false,
+                                                      required: ""
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.sparepart
+                                                          .id_sparepart_type,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.sparepart,
+                                                          "id_sparepart_type",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "sparepart.id_sparepart_type"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              ),
+                                          _vm._v(" "),
+                                          _vm.editedSparepart !=
+                                            props.item.id_sparepart &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    props.item.sparepart_name
+                                                  )
+                                                }
+                                              })
+                                            : _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    _vm.sparepartName
+                                                  )
+                                                }
+                                              }),
+                                          _vm._v(" "),
+                                          _vm.editedSparepart !=
+                                            props.item.id_sparepart &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    props.item.merk
+                                                  )
+                                                }
+                                              })
+                                            : _c(
+                                                "td",
+                                                [
+                                                  _c("v-select", {
+                                                    staticClass: "pa-1",
+                                                    attrs: {
+                                                      label: "Merk",
+                                                      "item-text": "merk",
+                                                      "item-value":
+                                                        "id_sparepart",
+                                                      items:
+                                                        _vm.filterSparepart,
+                                                      "return-object": false,
+                                                      required: ""
+                                                    },
+                                                    on: {
+                                                      change: function($event) {
+                                                        return _vm.calculateSparepart(
+                                                          _vm.sparepart
+                                                            .id_sparepart
+                                                        )
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.sparepart
+                                                          .id_sparepart,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.sparepart,
+                                                          "id_sparepart",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "sparepart.id_sparepart"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              ),
+                                          _vm._v(" "),
+                                          _vm.editedSparepart !=
+                                            props.item.id_sparepart &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    props.item
+                                                      .detail_sparepart_price
+                                                  )
+                                                }
+                                              })
+                                            : _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    _vm.sparepartPrice
+                                                  )
+                                                }
+                                              }),
+                                          _vm._v(" "),
+                                          _vm.editedSparepart !=
+                                            props.item.id_sparepart &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    props.item
+                                                      .detail_sparepart_amount
+                                                  )
+                                                }
+                                              })
+                                            : _c(
+                                                "td",
+                                                [
+                                                  _c("v-text-field", {
+                                                    staticClass: "pa-1",
+                                                    attrs: {
+                                                      label: "Jumlah",
+                                                      required: ""
+                                                    },
+                                                    on: {
+                                                      change: function($event) {
+                                                        return _vm.calculateSparepartPrice(
+                                                          _vm.sparepart
+                                                            .detail_sparepart_amount
+                                                        )
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.sparepart
+                                                          .detail_sparepart_amount,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.sparepart,
+                                                          "detail_sparepart_amount",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "sparepart.detail_sparepart_amount"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              ),
+                                          _vm._v(" "),
+                                          _vm.editedSparepart !=
+                                            props.item.id_sparepart &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    props.item.license_number
+                                                  )
+                                                }
+                                              })
+                                            : _c(
+                                                "td",
+                                                [
+                                                  _c("v-select", {
+                                                    staticClass: "pa-1",
+                                                    attrs: {
+                                                      label: "Motor Pelanggan",
+                                                      "item-text":
+                                                        "license_number",
+                                                      "item-value":
+                                                        "id_motorcycle",
+                                                      items: _vm.motorcycles,
+                                                      "return-object": false,
+                                                      required: ""
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.sparepart
+                                                          .id_motorcycle,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.sparepart,
+                                                          "id_motorcycle",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "sparepart.id_motorcycle"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              ),
+                                          _vm._v(" "),
+                                          _vm.editedSparepart !=
+                                            props.item.id_sparepart &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    props.item.mechanic_name
+                                                  )
+                                                }
+                                              })
+                                            : _c(
+                                                "td",
+                                                [
+                                                  _c("v-select", {
+                                                    staticClass: "pa-1",
+                                                    attrs: {
+                                                      label: "Montir",
+                                                      "item-text": "name",
+                                                      "item-value":
+                                                        "id_employee",
+                                                      items: _vm.mechanic,
+                                                      "return-object": false,
+                                                      required: ""
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.sparepart
+                                                          .id_employee,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.sparepart,
+                                                          "id_employee",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "sparepart.id_employee"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              ),
+                                          _vm._v(" "),
+                                          _vm.editedSparepart !=
+                                            props.item.id_sparepart &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    props.item
+                                                      .detail_sparepart_subtotal
+                                                  )
+                                                }
+                                              })
+                                            : _c("td", {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    _vm.sparepartSubTotal
+                                                  )
+                                                }
+                                              }),
+                                          _vm._v(" "),
+                                          _vm.editedSparepart !=
+                                            props.item.id_sparepart &&
+                                          _vm.editMotor !=
+                                            props.item.id_motorcycle
+                                            ? _c(
+                                                "td",
+                                                {
+                                                  staticClass: "text-xs-center"
+                                                },
+                                                [
+                                                  _c(
+                                                    "VBtn",
+                                                    {
+                                                      attrs: {
+                                                        flat: "",
+                                                        icon: "",
+                                                        color: "indigo",
+                                                        dark: ""
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.bindDataSparepart(
+                                                            props.item
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v("edit")
+                                                      ])
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "VBtn",
+                                                    {
+                                                      attrs: {
+                                                        flat: "",
+                                                        icon: "",
+                                                        color: "error"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.deleteSparepart(
+                                                            props.item
+                                                              .id_sparepart,
+                                                            props.item
+                                                              .id_motorcycle
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v("delete")
+                                                      ])
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            : _c(
+                                                "td",
+                                                {
+                                                  staticClass: "text-xs-center"
+                                                },
+                                                [
+                                                  _c(
+                                                    "VBtn",
+                                                    {
+                                                      attrs: {
+                                                        flat: "",
+                                                        icon: "",
+                                                        depressed: "",
+                                                        color: "success"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.editSparepart(
+                                                            props.item
+                                                              .id_sparepart,
+                                                            props.item
+                                                              .id_motorcycle
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v("check_circle")
+                                                      ])
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "VBtn",
+                                                    {
+                                                      attrs: {
+                                                        flat: "",
+                                                        icon: "",
+                                                        depressed: "",
+                                                        color: "error"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          ;(_vm.editedMotor =
+                                                            ""),
+                                                            (_vm.editedSparepart =
+                                                              "")
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v("remove_circle")
+                                                      ])
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      key: "footer",
+                                      fn: function() {
+                                        return [
+                                          _vm.add3
+                                            ? _c(
+                                                "td",
+                                                {
+                                                  attrs: {
+                                                    colspan: _vm.headers3.length
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "v-form",
+                                                    { staticClass: "mt-2" },
+                                                    [
+                                                      _c(
+                                                        "VLayout",
+                                                        [
+                                                          _c(
+                                                            "VFlex",
+                                                            {
+                                                              attrs: { sm3: "" }
+                                                            },
+                                                            [
+                                                              _c("v-select", {
+                                                                staticClass:
+                                                                  "pa-1",
+                                                                attrs: {
+                                                                  label:
+                                                                    "Tipe Sparepart",
+                                                                  "item-text":
+                                                                    "sparepart_type_name",
+                                                                  "item-value":
+                                                                    "id_sparepart_type",
+                                                                  items:
+                                                                    _vm.sparepartTypes,
+                                                                  "return-object": false,
+                                                                  required: ""
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    _vm
+                                                                      .sparepart
+                                                                      .id_sparepart_type,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.sparepart,
+                                                                      "id_sparepart_type",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                  expression:
+                                                                    "sparepart.id_sparepart_type"
+                                                                }
+                                                              })
+                                                            ],
+                                                            1
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "VFlex",
+                                                            {
+                                                              attrs: { sm2: "" }
+                                                            },
+                                                            [
+                                                              _c("v-select", {
+                                                                staticClass:
+                                                                  "pa-1",
+                                                                attrs: {
+                                                                  label: "Merk",
+                                                                  "item-text":
+                                                                    "merk",
+                                                                  "item-value":
+                                                                    "id_sparepart",
+                                                                  items:
+                                                                    _vm.filterSparepart,
+                                                                  "return-object": false,
+                                                                  required: ""
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    _vm
+                                                                      .sparepart
+                                                                      .id_sparepart,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.sparepart,
+                                                                      "id_sparepart",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                  expression:
+                                                                    "sparepart.id_sparepart"
+                                                                }
+                                                              })
+                                                            ],
+                                                            1
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "VFlex",
+                                                            {
+                                                              attrs: { sm1: "" }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "v-text-field",
+                                                                {
+                                                                  staticClass:
+                                                                    "pa-1",
+                                                                  attrs: {
+                                                                    label:
+                                                                      "Jumlah",
+                                                                    required: ""
+                                                                  },
+                                                                  model: {
+                                                                    value:
+                                                                      _vm
+                                                                        .sparepart
+                                                                        .detail_sparepart_amount,
+                                                                    callback: function(
+                                                                      $$v
+                                                                    ) {
+                                                                      _vm.$set(
+                                                                        _vm.sparepart,
+                                                                        "detail_sparepart_amount",
+                                                                        $$v
+                                                                      )
+                                                                    },
+                                                                    expression:
+                                                                      "sparepart.detail_sparepart_amount"
+                                                                  }
+                                                                }
+                                                              )
+                                                            ],
+                                                            1
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "VFlex",
+                                                            {
+                                                              attrs: { sm2: "" }
+                                                            },
+                                                            [
+                                                              _c("v-select", {
+                                                                staticClass:
+                                                                  "pa-1",
+                                                                attrs: {
+                                                                  label:
+                                                                    "Motor Pelanggan",
+                                                                  "item-text":
+                                                                    "license_number",
+                                                                  "item-value":
+                                                                    "id_motorcycle",
+                                                                  items:
+                                                                    _vm.motorcycles,
+                                                                  "return-object": false,
+                                                                  required: ""
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    _vm
+                                                                      .sparepart
+                                                                      .id_motorcycle,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.sparepart,
+                                                                      "id_motorcycle",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                  expression:
+                                                                    "sparepart.id_motorcycle"
+                                                                }
+                                                              })
+                                                            ],
+                                                            1
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "VFlex",
+                                                            {
+                                                              attrs: { sm2: "" }
+                                                            },
+                                                            [
+                                                              _c("v-select", {
+                                                                staticClass:
+                                                                  "pa-1",
+                                                                attrs: {
+                                                                  label:
+                                                                    "Montir",
+                                                                  "item-text":
+                                                                    "name",
+                                                                  "item-value":
+                                                                    "id_employee",
+                                                                  items:
+                                                                    _vm.mechanic,
+                                                                  "return-object": false,
+                                                                  required: ""
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    _vm
+                                                                      .sparepart
+                                                                      .id_employee,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.sparepart,
+                                                                      "id_employee",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                  expression:
+                                                                    "sparepart.id_employee"
+                                                                }
+                                                              })
+                                                            ],
+                                                            1
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "VFlex",
+                                                            {
+                                                              staticClass:
+                                                                "text-xs-center",
+                                                              attrs: { sm2: "" }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "VBtn",
+                                                                {
+                                                                  attrs: {
+                                                                    flat: "",
+                                                                    icon: "",
+                                                                    depressed:
+                                                                      "",
+                                                                    color:
+                                                                      "success"
+                                                                  },
+                                                                  on: {
+                                                                    click:
+                                                                      _vm.submitSparepart
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c("v-icon", [
+                                                                    _vm._v(
+                                                                      "check_box"
+                                                                    )
+                                                                  ])
+                                                                ],
+                                                                1
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "VBtn",
+                                                                {
+                                                                  attrs: {
+                                                                    flat: "",
+                                                                    icon: "",
+                                                                    depressed:
+                                                                      "",
+                                                                    color:
+                                                                      "error"
+                                                                  },
+                                                                  on: {
+                                                                    click:
+                                                                      _vm.cancelSubmit3
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c("v-icon", [
+                                                                    _vm._v(
+                                                                      "remove_circle"
+                                                                    )
+                                                                  ])
+                                                                ],
+                                                                1
+                                                              )
+                                                            ],
+                                                            1
+                                                          )
+                                                        ],
+                                                        1
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.hide3
+                                            ? _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "right"
+                                                  },
+                                                  attrs: {
+                                                    colspan: _vm.headers3.length
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "VBtn",
+                                                    {
+                                                      attrs: {
+                                                        flat: "",
+                                                        icon: "",
+                                                        depressed: "",
+                                                        color: "success"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.addHandler3()
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-icon", [
+                                                        _vm._v("add_circle")
+                                                      ])
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            : _vm._e()
+                                        ]
+                                      },
+                                      proxy: true
+                                    }
+                                  ],
+                                  null,
+                                  false,
+                                  2932161457
+                                )
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-card-actions",
+                            [
+                              _c("VSpacer"),
+                              _vm._v(" "),
+                              _c(
+                                "VBtn",
+                                {
+                                  attrs: { depressed: "", color: "success" },
+                                  on: { click: _vm.submitTransaksi }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                 Tambah Transaksi\n               "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("VSpacer")
+                            ],
+                            1
+                          )
                         ],
                         1
                       )
@@ -82291,8 +85947,8 @@ var state = {
     transaction_paid: '',
     transaction_type: '',
     transaction_date: '',
-    transaction_discount: '',
-    transaction_total: '',
+    transaction_discount: 0,
+    transaction_total: 0,
     id_customer: '',
     id_service: '',
     id_employee: '',
@@ -82315,7 +85971,7 @@ var mutations = {
   resetTransactionForm: function resetTransactionForm(state) {
     state.transaction.id_transaction = '';
     state.transaction.transaction_status = "Unprocessed";
-    state.transaction.transaction_paid = '', state.transaction.transaction_type = '', state.transaction.transaction_discount = '', state.transaction.transaction_total = '', state.transaction.transaction_date = '', state.transaction.id_customer = '', state.transaction.service = [], state.transaction.sparepart = [];
+    state.transaction.transaction_paid = '', state.transaction.transaction_type = '', state.transaction.transaction_discount = 0, state.transaction.transaction_total = 0, state.transaction.transaction_date = '', state.transaction.id_customer = '', state.transaction.service = [], state.transaction.sparepart = [];
   },
   setTransactionForm: function setTransactionForm(state, payload) {
     var name = payload.transaction_date;

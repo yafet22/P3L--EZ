@@ -249,16 +249,55 @@
                   :search="keyword"
                 >
                   <template slot="items" slot-scope="props">
-                    <td v-html="props.item.service_name"/>
-                    <td v-html="props.item.license_number" />         
-                    <td v-html="props.item.mechanic_name" />                      
-                    <td v-html="props.item.detail_service_price" />     
-                    <td class="text-xs-center">
+                    <td v-html="props.item.service_name" v-if="editedService != props.item.id_service && editMotor != props.item.id_motorcycle"/>
+                    <td v-else>
+                      <v-select
+                          label="Tipe Service"
+                          class="pa-1"
+                          v-model="service.id_service"
+                          item-text="service_name"
+                          item-value="id_service"
+                          @change="calculatePrice(service.id_service)"
+                          :items="services"
+                          :return-object="false"
+                          required
+                      ></v-select>
+                    </td>
+                    <td v-html="props.item.license_number" v-if="editedService != props.item.id_service && editMotor != props.item.id_motorcycle" />
+                    <td v-else>
+                      <v-select
+                          label="Motor Pelanggan"
+                          class="pa-1"
+                          v-model="service.id_motorcycle"
+                          item-text="license_number"
+                          item-value="id_motorcycle"
+                          :items="motorcycles"
+                          :return-object="false"
+                          required
+                      ></v-select>
+                    </td>         
+                    <td v-html="props.item.mechanic_name" v-if="editedService != props.item.id_service && editMotor != props.item.id_motorcycle" />   
+                    <td v-else>
+                      <v-select
+                          label="Montir"
+                          class="pa-1"
+                          v-model="service.id_employee"
+                          item-text="name"
+                          item-value="id_employee"
+                          :items="mechanic"
+                          :return-object="false"
+                          required
+                      ></v-select>
+                    </td>                         
+                    <td v-html="props.item.detail_service_price" v-if="editedService != props.item.id_service && editMotor != props.item.id_motorcycle"/>    
+                    <td v-html="servicePrice" v-else/>     
+                    <td class="text-xs-center" v-if="editedService != props.item.id_service && editMotor != props.item.id_motorcycle">
                       <VBtn 
                         flat
                         icon
                         color="indigo"
                         dark
+                        @click="bindDataService(props.item)"
                       >
                         <v-icon>edit</v-icon>
                       </VBtn>
@@ -266,8 +305,468 @@
                         flat
                         icon
                         color="error"
+                        @click="deleteService(props.item.id_service,props.item.id_motorcycle)"
                       >
                         <v-icon>delete</v-icon>
+                      </VBtn>
+                    </td>
+                    <td class="text-xs-center" v-else>
+                       <VBtn
+                        flat
+                        icon
+                        depressed
+                        color="success"
+                        @click="editService(props.item.id_service,props.item.id_motorcycle)"
+                      >
+                        <v-icon>check_circle</v-icon>
+                      </VBtn>
+                      <VBtn
+                        flat
+                        icon
+                        depressed
+                        color="error"
+                        @click="editedMotor='',editedService=''"
+                      >
+                        <v-icon>remove_circle</v-icon>
+                      </VBtn>
+                    </td>
+                  </template>
+                  <template v-slot:footer>
+                    <td :colspan="headers.length" v-if="add2">
+                      <v-form class="mt-2">
+                        <VLayout>
+                            <VFlex sm3>
+                            <v-select
+                                label="Tipe Service"
+                                class="pa-1"
+                                v-model="service.id_service"
+                                item-text="service_name"
+                                item-value="id_service"
+                                :items="services"
+                                :return-object="false"
+                                required
+                            ></v-select>
+                            </VFlex>
+                            <VFlex sm3>
+                            <v-select
+                                label="Motor Pelanggan"
+                                class="pa-1"
+                                v-model="service.id_motorcycle"
+                                item-text="license_number"
+                                item-value="id_motorcycle"
+                                :items="motorcycles"
+                                :return-object="false"
+                                required
+                            ></v-select>
+                            </VFlex>
+                            <VFlex sm3>
+                            <v-select
+                                label="Montir"
+                                class="pa-1"
+                                v-model="service.id_employee"
+                                item-text="name"
+                                item-value="id_employee"
+                                :items="mechanic"
+                                :return-object="false"
+                                required
+                            ></v-select>
+                            </VFlex>
+                            <VFlex sm3
+                            class="text-xs-center"
+                            >
+                            <VBtn
+                                flat
+                                icon
+                                depressed
+                                color="success"
+                                @click="submitService"
+                            >
+                                <v-icon>check_box</v-icon>
+                            </VBtn>
+                            <VBtn
+                                flat
+                                icon
+                                depressed
+                                @click="cancelSubmit2"
+                                color="error"
+                            >
+                                <v-icon>remove_circle</v-icon>
+                            </VBtn>
+                            </VFlex>
+                        </VLayout>
+                    </v-form>
+                    </td>
+                    <td style="text-align:right;" :colspan="headers.length" v-if="hide2" >
+                      <VBtn
+                        flat
+                        icon
+                        depressed
+                        color="success"
+                        @click="addHandler2()"
+                      >
+                        <v-icon>add_circle</v-icon>
+                      </VBtn>
+                    </td>
+                  </template>
+                </VDataTable>
+            </v-card-text>
+            <v-card-actions>
+                <VSpacer />
+                <VBtn
+                  depressed
+                  color="success"
+                  @click="submitTransaksi"
+                >
+                  Tambah Transaksi
+                </VBtn>
+                <VSpacer />
+            </v-card-actions>
+         </v-card>  
+         </v-flex>
+     </v-layout>
+     <v-layout row wrap mt-1 v-else-if="transaction.transaction_type=='Sparepart'">
+         <v-flex sm12 >
+           <v-card>
+            <v-card-title primary-title class="justify-center">
+                <div class="headline">DAFTAR SPAREPART</div>
+            </v-card-title>
+            <v-card-text>
+                <VAlert
+                    v-if="err2"
+                    :value="true"
+                    dismissible
+                    type="error"
+                >
+                Transaki yang sama telah dilakukan
+                </VAlert>
+                <VDataTable
+                  :headers="headers3"
+                  :items="transaction.sparepart"
+                  :search="keyword"
+                >
+                  <template slot="items" slot-scope="props">
+                    <td v-html="props.item.sparepart_type" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle"/>
+                    <td v-else>
+                      <v-select
+                          label="Tipe Sparepart"
+                          class="pa-1"
+                          v-model="sparepart.id_sparepart_type"
+                          item-text="sparepart_type_name"
+                          item-value="id_sparepart_type"
+                          :items="sparepartTypes"
+                          :return-object="false"
+                          required
+                      ></v-select>
+                    </td>
+                    <td v-html="props.item.sparepart_name" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle"/>   
+                    <td v-html="sparepartName" v-else/>       
+                    <td v-html="props.item.merk" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle"/>  
+                    <td v-else>
+                      <v-select
+                          label="Merk"
+                          class="pa-1"
+                          v-model="sparepart.id_sparepart"
+                          item-text="merk"
+                          item-value="id_sparepart"
+                          @change="calculateSparepart(sparepart.id_sparepart)"
+                          :items="filterSparepart"
+                          :return-object="false"
+                          required
+                      ></v-select>
+                    </td>
+                    <td v-html="props.item.detail_sparepart_price" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle"/>
+                    <td v-html="sparepartPrice" v-else/>                          
+                    <td v-html="props.item.detail_sparepart_amount" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle"/>
+                    <td v-else>
+                      <v-text-field
+                        v-model="sparepart.detail_sparepart_amount"
+                        class="pa-1"
+                        label="Jumlah"
+                        required
+                        @change="calculateSparepartPrice(sparepart.detail_sparepart_amount)"
+                      ></v-text-field>
+                    </td>  
+                    <td v-html="props.item.license_number" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle"/> 
+                    <td v-else>
+                      <v-select
+                          label="Motor Pelanggan"
+                          class="pa-1"
+                          v-model="sparepart.id_motorcycle"
+                          item-text="license_number"
+                          item-value="id_motorcycle"
+                          :items="motorcycles"
+                          :return-object="false"
+                          required
+                      ></v-select>
+                    </td>  
+                    <td v-html="props.item.mechanic_name" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle"/>
+                    <td v-else>
+                      <v-select
+                          label="Montir"
+                          class="pa-1"
+                          v-model="sparepart.id_employee"
+                          item-text="name"
+                          item-value="id_employee"
+                          :items="mechanic"
+                          :return-object="false"
+                          required
+                      ></v-select>
+                    </td>   
+                    <td v-html="props.item.detail_sparepart_subtotal" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle"/>
+                    <td v-html="sparepartSubTotal" v-else/>     
+                    <td class="text-xs-center" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle">
+                      <VBtn 
+                        flat
+                        icon
+                        color="indigo"
+                        dark
+                        @click="bindDataSparepart(props.item)"
+                      >
+                        <v-icon>edit</v-icon>
+                      </VBtn>
+                      <VBtn 
+                        flat
+                        icon
+                        color="error"
+                        @click="deleteSparepart(props.item.id_sparepart,props.item.id_motorcycle)"
+                      >
+                        <v-icon>delete</v-icon>
+                      </VBtn>
+                    </td>
+                    <td class="text-xs-center" v-else>
+                       <VBtn
+                        flat
+                        icon
+                        depressed
+                        color="success"
+                        @click="editSparepart(props.item.id_sparepart,props.item.id_motorcycle)"
+                      >
+                        <v-icon>check_circle</v-icon>
+                      </VBtn>
+                      <VBtn
+                        flat
+                        icon
+                        depressed
+                        color="error"
+                        @click="editedMotor='',editedSparepart=''"
+                      >
+                        <v-icon>remove_circle</v-icon>
+                      </VBtn>
+                    </td>
+                  </template>
+                  <template v-slot:footer>
+                    <td :colspan="headers3.length" v-if="add3">
+                      <v-form class="mt-2">
+                        <VLayout>
+                            <VFlex sm3>
+                            <v-select
+                                label="Tipe Sparepart"
+                                class="pa-1"
+                                v-model="sparepart.id_sparepart_type"
+                                item-text="sparepart_type_name"
+                                item-value="id_sparepart_type"
+                                :items="sparepartTypes"
+                                :return-object="false"
+                                required
+                            ></v-select>
+                            </VFlex>
+                            <VFlex sm2>
+                            <v-select
+                                label="Merk"
+                                class="pa-1"
+                                v-model="sparepart.id_sparepart"
+                                item-text="merk"
+                                item-value="id_sparepart"
+                                :items="filterSparepart"
+                                :return-object="false"
+                                required
+                            ></v-select>
+                            </VFlex>
+                            <VFlex sm1>
+                              <v-text-field
+                                v-model="sparepart.detail_sparepart_amount"
+                                class="pa-1"
+                                label="Jumlah"
+                                required
+                              ></v-text-field>
+                            </VFlex>
+                            <VFlex sm2>
+                            <v-select
+                                label="Motor Pelanggan"
+                                class="pa-1"
+                                v-model="sparepart.id_motorcycle"
+                                item-text="license_number"
+                                item-value="id_motorcycle"
+                                :items="motorcycles"
+                                :return-object="false"
+                                required
+                            ></v-select>
+                            </VFlex>
+                            <VFlex sm2>
+                            <v-select
+                                label="Montir"
+                                class="pa-1"
+                                v-model="sparepart.id_employee"
+                                item-text="name"
+                                item-value="id_employee"
+                                :items="mechanic"
+                                :return-object="false"
+                                required
+                            ></v-select>
+                            </VFlex>
+                            <VFlex sm2
+                            class="text-xs-center"
+                            >
+                            <VBtn
+                                flat
+                                icon
+                                depressed
+                                color="success"
+                                @click="submitSparepart"
+                            >
+                                <v-icon>check_box</v-icon>
+                            </VBtn>
+                            <VBtn
+                                flat
+                                icon
+                                depressed
+                                @click="cancelSubmit3"
+                                color="error"
+                            >
+                                <v-icon>remove_circle</v-icon>
+                            </VBtn>
+                            </VFlex>
+                        </VLayout>
+                    </v-form>
+                    </td>
+                    <td style="text-align:right;" :colspan="headers3.length" v-if="hide3" >
+                      <VBtn
+                        flat
+                        icon
+                        depressed
+                        color="success"
+                        @click="addHandler3()"
+                      >
+                        <v-icon>add_circle</v-icon>
+                      </VBtn>
+                    </td>
+                  </template>
+                </VDataTable>
+            </v-card-text>
+            <v-card-actions>
+                <VSpacer />
+                <VBtn
+                  depressed
+                  color="success"
+                  @click="submitTransaksi"
+                >
+                  Tambah Transaksi
+                </VBtn>
+                <VSpacer />
+            </v-card-actions>
+         </v-card>  
+         </v-flex>
+     </v-layout>
+     <v-layout row wrap mt-1 v-if="transaction.transaction_type=='Service And Sparepart'">
+         <v-flex sm12 >
+           <v-card>
+            <v-card-title primary-title class="justify-center">
+                <div class="headline">JASA SERVICE</div>
+            </v-card-title>
+            <v-card-text>
+                <VAlert
+                    v-if="err"
+                    :value="true"
+                    dismissible
+                    type="error"
+                >
+                Transaki yang sama telah dilakukan
+                </VAlert>
+                <VDataTable
+                  :headers="headers2"
+                  :items="transaction.service"
+                  :search="keyword"
+                >
+                  <template slot="items" slot-scope="props">
+                    <td v-html="props.item.service_name" v-if="editedService != props.item.id_service && editMotor != props.item.id_motorcycle"/>
+                    <td v-else>
+                      <v-select
+                          label="Tipe Service"
+                          class="pa-1"
+                          v-model="service.id_service"
+                          item-text="service_name"
+                          item-value="id_service"
+                          @change="calculatePrice(service.id_service)"
+                          :items="services"
+                          :return-object="false"
+                          required
+                      ></v-select>
+                    </td>
+                    <td v-html="props.item.license_number" v-if="editedService != props.item.id_service && editMotor != props.item.id_motorcycle" />
+                    <td v-else>
+                      <v-select
+                          label="Motor Pelanggan"
+                          class="pa-1"
+                          v-model="service.id_motorcycle"
+                          item-text="license_number"
+                          item-value="id_motorcycle"
+                          :items="motorcycles"
+                          :return-object="false"
+                          required
+                      ></v-select>
+                    </td>         
+                    <td v-html="props.item.mechanic_name" v-if="editedService != props.item.id_service && editMotor != props.item.id_motorcycle" />   
+                    <td v-else>
+                      <v-select
+                          label="Montir"
+                          class="pa-1"
+                          v-model="service.id_employee"
+                          item-text="name"
+                          item-value="id_employee"
+                          :items="mechanic"
+                          :return-object="false"
+                          required
+                      ></v-select>
+                    </td>                         
+                    <td v-html="props.item.detail_service_price" v-if="editedService != props.item.id_service && editMotor != props.item.id_motorcycle"/>    
+                    <td v-html="servicePrice" v-else/>     
+                    <td class="text-xs-center" v-if="editedService != props.item.id_service && editMotor != props.item.id_motorcycle">
+                      <VBtn 
+                        flat
+                        icon
+                        color="indigo"
+                        dark
+                        @click="bindDataService(props.item)"
+                      >
+                        <v-icon>edit</v-icon>
+                      </VBtn>
+                      <VBtn 
+                        flat
+                        icon
+                        color="error"
+                        @click="deleteService(props.item.id_service,props.item.id_motorcycle)"
+                      >
+                        <v-icon>delete</v-icon>
+                      </VBtn>
+                    </td>
+                    <td class="text-xs-center" v-else>
+                       <VBtn
+                        flat
+                        icon
+                        depressed
+                        color="success"
+                        @click="editService(props.item.id_service,props.item.id_motorcycle)"
+                      >
+                        <v-icon>check_circle</v-icon>
+                      </VBtn>
+                      <VBtn
+                        flat
+                        icon
+                        depressed
+                        color="error"
+                        @click="editedMotor='',editedService=''"
+                      >
+                        <v-icon>remove_circle</v-icon>
                       </VBtn>
                     </td>
                   </template>
@@ -353,30 +852,6 @@
          </v-card>  
          </v-flex>
      </v-layout>
-     <v-layout row wrap mt-1 v-else-if="transaction.transaction_type=='Sparepart'">
-         <v-flex sm12 >
-           <v-card>
-            <v-card-title primary-title class="justify-center">
-                <div class="headline">DAFTAR SPAREPART</div>
-            </v-card-title>
-            <v-card-text>
-                
-            </v-card-text>
-         </v-card>  
-         </v-flex>
-     </v-layout>
-     <v-layout row wrap mt-1 v-if="transaction.transaction_type=='Service And Sparepart'">
-         <v-flex sm12 >
-           <v-card>
-            <v-card-title primary-title class="justify-center">
-                <div class="headline">JASA SERVICE</div>
-            </v-card-title>
-            <v-card-text>
-                
-            </v-card-text>
-         </v-card>  
-         </v-flex>
-     </v-layout>
      <v-layout row wrap mt-1 v-if="transaction.transaction_type=='Service And Sparepart'">
          <v-flex sm12 >
            <v-card>
@@ -384,8 +859,239 @@
                 <div class="headline">DAFTAR SPAREPART</div>
             </v-card-title>
             <v-card-text>
-                
+                <VAlert
+                    v-if="err2"
+                    :value="true"
+                    dismissible
+                    type="error"
+                >
+                Transaki yang sama telah dilakukan
+                </VAlert>
+                <VDataTable
+                  :headers="headers3"
+                  :items="transaction.sparepart"
+                  :search="keyword"
+                >
+                  <template slot="items" slot-scope="props">
+                    <td v-html="props.item.sparepart_type" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle"/>
+                    <td v-else>
+                      <v-select
+                          label="Tipe Sparepart"
+                          class="pa-1"
+                          v-model="sparepart.id_sparepart_type"
+                          item-text="sparepart_type_name"
+                          item-value="id_sparepart_type"
+                          :items="sparepartTypes"
+                          :return-object="false"
+                          required
+                      ></v-select>
+                    </td>
+                    <td v-html="props.item.sparepart_name" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle"/>   
+                    <td v-html="sparepartName" v-else/>       
+                    <td v-html="props.item.merk" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle"/>  
+                    <td v-else>
+                      <v-select
+                          label="Merk"
+                          class="pa-1"
+                          v-model="sparepart.id_sparepart"
+                          item-text="merk"
+                          item-value="id_sparepart"
+                          @change="calculateSparepart(sparepart.id_sparepart)"
+                          :items="filterSparepart"
+                          :return-object="false"
+                          required
+                      ></v-select>
+                    </td>
+                    <td v-html="props.item.detail_sparepart_price" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle"/>
+                    <td v-html="sparepartPrice" v-else/>                          
+                    <td v-html="props.item.detail_sparepart_amount" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle"/>
+                    <td v-else>
+                      <v-text-field
+                        v-model="sparepart.detail_sparepart_amount"
+                        class="pa-1"
+                        label="Jumlah"
+                        required
+                        @change="calculateSparepartPrice(sparepart.detail_sparepart_amount)"
+                      ></v-text-field>
+                    </td>  
+                    <td v-html="props.item.license_number" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle"/> 
+                    <td v-else>
+                      <v-select
+                          label="Motor Pelanggan"
+                          class="pa-1"
+                          v-model="sparepart.id_motorcycle"
+                          item-text="license_number"
+                          item-value="id_motorcycle"
+                          :items="motorcycles"
+                          :return-object="false"
+                          required
+                      ></v-select>
+                    </td>  
+                    <td v-html="props.item.mechanic_name" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle"/>
+                    <td v-else>
+                      <v-select
+                          label="Montir"
+                          class="pa-1"
+                          v-model="sparepart.id_employee"
+                          item-text="name"
+                          item-value="id_employee"
+                          :items="mechanic"
+                          :return-object="false"
+                          required
+                      ></v-select>
+                    </td>   
+                    <td v-html="props.item.detail_sparepart_subtotal" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle"/>
+                    <td v-html="sparepartSubTotal" v-else/>     
+                    <td class="text-xs-center" v-if="editedSparepart != props.item.id_sparepart && editMotor != props.item.id_motorcycle">
+                      <VBtn 
+                        flat
+                        icon
+                        color="indigo"
+                        dark
+                        @click="bindDataSparepart(props.item)"
+                      >
+                        <v-icon>edit</v-icon>
+                      </VBtn>
+                      <VBtn 
+                        flat
+                        icon
+                        color="error"
+                        @click="deleteSparepart(props.item.id_sparepart,props.item.id_motorcycle)"
+                      >
+                        <v-icon>delete</v-icon>
+                      </VBtn>
+                    </td>
+                    <td class="text-xs-center" v-else>
+                       <VBtn
+                        flat
+                        icon
+                        depressed
+                        color="success"
+                        @click="editSparepart(props.item.id_sparepart,props.item.id_motorcycle)"
+                      >
+                        <v-icon>check_circle</v-icon>
+                      </VBtn>
+                      <VBtn
+                        flat
+                        icon
+                        depressed
+                        color="error"
+                        @click="editedMotor='',editedSparepart=''"
+                      >
+                        <v-icon>remove_circle</v-icon>
+                      </VBtn>
+                    </td>
+                  </template>
+                  <template v-slot:footer>
+                    <td :colspan="headers3.length" v-if="add3">
+                      <v-form class="mt-2">
+                        <VLayout>
+                            <VFlex sm3>
+                            <v-select
+                                label="Tipe Sparepart"
+                                class="pa-1"
+                                v-model="sparepart.id_sparepart_type"
+                                item-text="sparepart_type_name"
+                                item-value="id_sparepart_type"
+                                :items="sparepartTypes"
+                                :return-object="false"
+                                required
+                            ></v-select>
+                            </VFlex>
+                            <VFlex sm2>
+                            <v-select
+                                label="Merk"
+                                class="pa-1"
+                                v-model="sparepart.id_sparepart"
+                                item-text="merk"
+                                item-value="id_sparepart"
+                                :items="filterSparepart"
+                                :return-object="false"
+                                required
+                            ></v-select>
+                            </VFlex>
+                            <VFlex sm1>
+                              <v-text-field
+                                v-model="sparepart.detail_sparepart_amount"
+                                class="pa-1"
+                                label="Jumlah"
+                                required
+                              ></v-text-field>
+                            </VFlex>
+                            <VFlex sm2>
+                            <v-select
+                                label="Motor Pelanggan"
+                                class="pa-1"
+                                v-model="sparepart.id_motorcycle"
+                                item-text="license_number"
+                                item-value="id_motorcycle"
+                                :items="motorcycles"
+                                :return-object="false"
+                                required
+                            ></v-select>
+                            </VFlex>
+                            <VFlex sm2>
+                            <v-select
+                                label="Montir"
+                                class="pa-1"
+                                v-model="sparepart.id_employee"
+                                item-text="name"
+                                item-value="id_employee"
+                                :items="mechanic"
+                                :return-object="false"
+                                required
+                            ></v-select>
+                            </VFlex>
+                            <VFlex sm2
+                            class="text-xs-center"
+                            >
+                            <VBtn
+                                flat
+                                icon
+                                depressed
+                                color="success"
+                                @click="submitSparepart"
+                            >
+                                <v-icon>check_box</v-icon>
+                            </VBtn>
+                            <VBtn
+                                flat
+                                icon
+                                depressed
+                                @click="cancelSubmit3"
+                                color="error"
+                            >
+                                <v-icon>remove_circle</v-icon>
+                            </VBtn>
+                            </VFlex>
+                        </VLayout>
+                    </v-form>
+                    </td>
+                    <td style="text-align:right;" :colspan="headers3.length" v-if="hide3" >
+                      <VBtn
+                        flat
+                        icon
+                        depressed
+                        color="success"
+                        @click="addHandler3()"
+                      >
+                        <v-icon>add_circle</v-icon>
+                      </VBtn>
+                    </td>
+                  </template>
+                </VDataTable>
             </v-card-text>
+            <v-card-actions>
+                <VSpacer />
+                <VBtn
+                  depressed
+                  color="success"
+                  @click="submitTransaksi"
+                >
+                  Tambah Transaksi
+                </VBtn>
+                <VSpacer />
+            </v-card-actions>
          </v-card>  
          </v-flex>
      </v-layout>
@@ -420,15 +1126,25 @@ export default {
       hide: true,
       add2: false,
       hide2: true,
+      add3: false,
+      hide3: true,
       value2: false,
       value: false,
       edit: false,
       switchnewcustomer: false,
       row: null,
       err: false,
+      err2: false,
       keyword: "",
       id_motorcycle: "",
       warning2: "",
+      editedService: "",
+      editedSparepart: "",
+      editedMotor: "",
+      servicePrice:0,
+      sparepartPrice:0,
+      sparepartName:"",
+      sparepartSubTotal:0,
       status: [
         { id: "unprocessed", text: 'unprocessed' },
         { id: "on progress", text: 'on progress' },
@@ -441,7 +1157,20 @@ export default {
           mechanic_name: "",
           id_motorcycle: "",
           license_number: "",
-          detail_service_price: ""
+          detail_service_price: 0
+      },
+      sparepart: {
+          id_sparepart_type: "",
+          id_sparepart: "",
+          sparepart_name: "",
+          merk: "",
+          id_employee: "",
+          mechanic_name: "",
+          id_motorcycle: "",
+          license_number: "",
+          detail_sparepart_price: 0,
+          detail_sparepart_amount: 0,
+          detail_sparepart_subtotal: 0
       },
       headers: [
           {
@@ -487,6 +1216,44 @@ export default {
             value: null
           },
       ],
+      headers3: [
+          {
+            text: 'Type',
+            value: 'sparepart_type'
+          },
+          {
+            text: 'Nama',
+            value: 'sparepart_name'
+          },
+          {
+            text: 'Merk',
+            value: 'merk'
+          },
+          {
+            text: 'Satuan',
+            value: 'detail_sparepart_price'
+          },
+          {
+            text: 'Jumlah',
+            value: 'detail_sparepart_amount'
+          },
+          {
+            text: 'Motor Pelanggan',
+            value: 'license_number'
+          },
+          {
+            text: 'Montir',
+            value: 'mechanic_name'
+          },
+          {
+            text: 'Subtotal',
+            value: 'detail_sparepart_subtotal'
+          },
+          {
+            text: 'Aksi',
+            value: null
+          },
+      ],
       breadcrumbs: [
         {
           text: 'Dashboard',
@@ -511,6 +1278,8 @@ export default {
         transaction: 'Transaction/transaction',
         motorcycle: 'Motorcycle/motorcycle',
         serviceData: 'Service/service',
+        sparepartData: 'Sparepart/sparepart',
+        sparepartTypeData: 'SparepartType/sparepartType',
         employee: 'Employee/employee'
     }),
 
@@ -522,6 +1291,8 @@ export default {
         brand: state => state.MotorcycleBrand.motorcycleBrands,
         type: state => state.MotorcycleType.motorcycleTypes,
         services: state => state.Service.services,
+        spareparts: state => state.Sparepart.spareparts,
+        sparepartTypes: state => state.SparepartType.sparepartTypes,
         employees: state => state.Employee.employees
     }),
 
@@ -534,6 +1305,11 @@ export default {
         let filter = this.employees.filter( b => b.role === "Mechanic")
         return filter
     },
+
+    filterSparepart(){
+        let filter = this.spareparts.filter( b => b.id_sparepart_type === this.sparepart.id_sparepart_type)
+        return filter
+    }
   },  
 
   methods: {
@@ -548,10 +1324,15 @@ export default {
       getBrand: 'MotorcycleBrand/get',
       getType: 'MotorcycleType/get',
       resetMotor: 'Motorcycle/resetForm',
+      getSparepart: 'Sparepart/get',
       getService: 'Service/get',
       getEmployee: 'Employee/get',
       findService: 'Service/edit',
+      findSparepart: 'Sparepart/edit',
+      findSparepartType: 'SparepartType/edit',
       findEmployee: 'Employee/edit',
+      storeTransaction: 'Transaction/store',
+      getSparepartType: 'SparepartType/get'
     }),
     async editMotor(id,item){
       const payload = {
@@ -588,6 +1369,10 @@ export default {
       this.add2=false
       this.hide2=true
     },
+    cancelSubmit3(){
+      this.add3=false
+      this.hide3=true
+    },
     deleteWarning2(id){
         this.id_motorcycle=id
         this.warning2=true
@@ -620,15 +1405,186 @@ export default {
         object.license_number=this.motorcycle.license_number
         await this.findEmployee(this.service.id_employee)
         object.mechanic_name=this.employee.first_name + ' ' + this.employee.last_name
+
         if(!this.err)
         {
             this.transaction.service.push(JSON.parse(JSON.stringify(object)))
+            this.transaction.transaction_total=this.transaction.transaction_total+object.detail_service_price
+            this.add2=false
+            this.hide2=true
         }
+    },
+    async submitSparepart()
+    {
+        var i = 0
+        this.err2 = false
+        var object = this.sparepart
+        for(var data in this.transaction.sparepart)
+        {
+            if(this.transaction.sparepart[i].id_sparepart==object.id_sparepart && this.transaction.sparepart[i].id_motorcycle==object.id_motorcycle )
+            {
+                this.err2 = true
+            }
+            i++;
+        }
+        await this.findSparepartType(this.sparepart.id_sparepart_type)
+        object.sparepart_type=this.sparepartTypeData.sparepart_type_name
+        await this.findSparepart(this.sparepart.id_sparepart)
+        object.sparepart_name=this.sparepartData.sparepart_name
+        object.merk=this.sparepartData.merk
+        object.detail_sparepart_price=this.sparepartData.sell_price
+        object.detail_sparepart_subtotal=this.sparepartData.sell_price*(Number(this.sparepart.detail_sparepart_amount))
+        await this.fetchMotor(this.sparepart.id_motorcycle)
+        object.license_number=this.motorcycle.license_number
+        await this.findEmployee(this.sparepart.id_employee)
+        object.mechanic_name=this.employee.first_name + ' ' + this.employee.last_name
+
+        if(!this.err2)
+        {
+            this.transaction.sparepart.push(JSON.parse(JSON.stringify(object)))
+            this.transaction.transaction_total=this.transaction.transaction_total+object.detail_sparepart_subtotal
+            this.add3=false
+            this.hide3=true
+        }
+    },
+    deleteService(id_service,id_motorcycle)
+    {
+      var i = 0
+      for(var data in this.transaction.service)
+      {
+          if(this.transaction.service[i].id_service==id_service && this.transaction.service[i].id_motorcycle==id_motorcycle )
+          {
+              this.transaction.transaction_total=this.transaction.transaction_total-this.transaction.service[i].detail_service_price
+          }
+          i++;
+      }
+      let filter = this.transaction.service.filter(function( obj ) {
+        return obj.id_service != id_service && obj.id_motorcycle !=id_motorcycle;
+      });
+      this.transaction.service=filter
+    },
+    deleteSparepart(id_sparepart,id_motorcycle)
+    {
+      var i = 0
+      for(var data in this.transaction.sparepart)
+      {
+          if(this.transaction.sparepart[i].id_sparepart==id_sparepart && this.transaction.sparepart[i].id_motorcycle==id_motorcycle )
+          {
+              this.transaction.transaction_total=this.transaction.transaction_total-this.transaction.sparepart[i].detail_sparepart_price
+          }
+          i++;
+      }
+      let filter = this.transaction.sparepart.filter(function( obj ) {
+        return obj.id_sparepart != id_sparepart && obj.id_motorcycle !=id_motorcycle;
+      });
+      this.transaction.sparepart=filter
+    },
+    async editService(id_service,id_motorcycle)
+    {
+        var i = 0
+        for(var data in this.transaction.service)
+        {
+            if(this.transaction.service[i].id_service==id_service && this.transaction.service[i].id_motorcycle==id_motorcycle )
+            {
+                this.transaction.transaction_total=this.transaction.transaction_total-this.transaction.service[i].detail_service_price
+                this.transaction.service[i].id_service=this.service.id_service
+                await this.findService(this.service.id_service)
+                this.transaction.service[i].service_name=this.serviceData.service_name
+                this.transaction.service[i].detail_service_price=this.serviceData.price
+                this.transaction.service[i].id_motorcycle=this.service.id_motorcycle
+                await this.fetchMotor(this.service.id_motorcycle)
+                this.transaction.service[i].license_number=this.motorcycle.license_number
+                this.transaction.service[i].id_employee=this.service.id_employee
+                await this.findEmployee(this.service.id_employee)
+                this.transaction.service[i].mechanic_name=this.employee.first_name + ' ' + this.employee.last_name
+                this.transaction.transaction_total=this.transaction.transaction_total+this.transaction.service[i].detail_service_price
+            }
+            i++;
+        }
+        this.editedMotor=""
+        this.editedService=""
+    },
+    async editSparepart(id_sparepart,id_motorcycle)
+    {
+        var i = 0
+        for(var data in this.transaction.sparepart)
+        {
+            if(this.transaction.sparepart[i].id_sparepart==id_sparepart && this.transaction.sparepart[i].id_motorcycle==id_motorcycle )
+            {
+                this.transaction.transaction_total=this.transaction.transaction_total-this.transaction.sparepart[i].detail_sparepart_subtotal
+                this.transaction.sparepart[i].id_sparepart=this.sparepart.id_sparepart
+                this.transaction.sparepart[i].sparepart_name=this.sparepartName
+                this.transaction.sparepart[i].detail_sparepart_amount=this.sparepart.detail_sparepart_amount
+                this.transaction.sparepart[i].detail_sparepart_price=this.sparepartPrice
+                this.transaction.sparepart[i].detail_sparepart_subtotal=this.sparepartSubTotal
+                this.transaction.sparepart[i].id_motorcycle=this.sparepart.id_motorcycle
+                await this.fetchMotor(this.sparepart.id_motorcycle)
+                this.transaction.sparepart[i].license_number=this.motorcycle.license_number
+                this.transaction.sparepart[i].id_employee=this.sparepart.id_employee
+                await this.findEmployee(this.sparepart.id_employee)
+                this.transaction.sparepart[i].mechanic_name=this.employee.first_name + ' ' + this.employee.last_name
+                this.transaction.transaction_total=this.transaction.transaction_total+this.transaction.sparepart[i].detail_sparepart_subtotal
+            }
+            i++;
+        }
+        this.editedMotor=""
+        this.editedSparepart=""
+    },
+    async calculatePrice(id_service)
+    {
+        await this.findService(id_service)
+        this.servicePrice = this.serviceData.price
+    },
+    async calculateSparepart(id_sparepart)
+    {
+        await this.findSparepart(id_sparepart)
+        this.sparepartPrice = this.sparepartData.sell_price
+        this.sparepartName = this.sparepartData.sparepart_name
+        this.sparepartSubTotal = this.sparepart.detail_sparepart_amount * this.sparepartPrice
+    },
+    async calculateSparepartPrice(amount)
+    {
+        this.sparepartSubTotal = amount * this.sparepartPrice
+    },
+    async submitTransaksi()
+    {
+        const payload = {
+          id_customer: this.customer.id_customer,
+          transaction_status: this.transaction.transaction_status,
+          transaction_type: this.transaction.transaction_type,
+          transaction_total: this.transaction.transaction_total,
+          service: this.transaction.service,
+          sparepart: this.transaction.sparepart
+        }
+
+        await this.storeTransaction(payload)
     },
     bindData(item){
         this.motorcycle.license_number=item.license_number
         this.motorcycle.id_motorcycle_brand=item.id_motorcycle_brand
         this.motorcycle.id_motorcycle_type=item.id_motorcycle_type
+    },
+    bindDataService(item)
+    {
+        this.editedService = item.id_service
+        this.editedMotor = item.id_motorcycle
+        this.service.id_service=item.id_service
+        this.service.id_motorcycle=item.id_motorcycle
+        this.service.id_employee=item.id_employee
+        this.servicePrice = item.detail_service_price
+    },
+    bindDataSparepart(item)
+    {
+        this.editedSparepart = item.id_sparepart
+        this.editedMotor = item.id_motorcycle
+        this.sparepart.id_sparepart_type=item.id_sparepart_type
+        this.sparepart.id_sparepart=item.id_sparepart
+        this.sparepart.id_motorcycle=item.id_motorcycle
+        this.sparepart.detail_sparepart_amount=item.detail_sparepart_amount
+        this.sparepart.id_employee=item.id_employee
+        this.sparepartPrice = item.detail_sparepart_price
+        this.sparepartName = item.sparepart_name
+        this.sparepartSubTotal = item.detail_sparepart_subtotal
     },
     filterType(id){
       console.log(id)
@@ -641,6 +1597,10 @@ export default {
     addHandler2(){
       this.add2=true
       this.hide2=false
+    },
+    addHandler3(){
+      this.add3=true
+      this.hide3=false
     },
     async submitMotor (value) {
       const payload = {
@@ -664,7 +1624,9 @@ export default {
     this.getBrand()
     this.getType()
     this.getService()
+    this.getSparepart()
     this.getEmployee()
+    this.getSparepartType()
   }
    
 }
