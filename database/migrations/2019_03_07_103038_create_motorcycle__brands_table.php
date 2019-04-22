@@ -27,6 +27,6 @@ class CreateMotorcycleBrandsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('motorcycle__brands');
+        Schema::dropIfExists('motorcycle_brands');
     }
 }

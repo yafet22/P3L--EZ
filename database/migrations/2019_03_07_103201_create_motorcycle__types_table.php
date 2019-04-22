@@ -29,6 +29,6 @@ class CreateMotorcycleTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('motorcycle__types');
+        Schema::dropIfExists('motorcycle_types');
     }
 }

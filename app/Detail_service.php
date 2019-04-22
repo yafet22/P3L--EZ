@@ -15,6 +15,8 @@ class Detail_service extends Model
     'detail_service_subtotal',
     'id_transaction',
     'id_service',
+    'id_employee',
+    'id_motorcycle',
     'id_mechanic_onduty'];
 
     protected $casts = [
@@ -22,7 +24,9 @@ class Detail_service extends Model
         'detail_service_price' => 'double',
         'detail_service_subtotal' => 'double',
         'id_service' => 'integer',
-        'id_mechanic_onduty' => 'integer'
+        'id_mechanic_onduty' => 'integer',
+        'id_employee' => 'integer',
+        'id_motorcycle' => 'integer',
     ];
 
     public function transactions(){
@@ -33,7 +37,11 @@ class Detail_service extends Model
         return $this->belongsTo('App\Service','id_service');
     }
 
-    public function mechanic_onduties(){
-        return $this->belongsTo('App\Mechanic_onduty','id_mechanic_onduty');
+    public function mechanics(){
+        return $this->belongsTo('App\Employee','id_employee');
+    }
+
+    public function motorcycles(){
+        return $this->belongsTo('App\Motorcycle','id_motorcycle');
     }
 }

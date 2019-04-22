@@ -15,13 +15,17 @@ class Detail_sparepart extends Model
     'detail_sparepart_subtotal',
     'id_transaction',
     'id_sparepart',
+    'id_employee',
+    'id_motorcycle',
     'id_mechanic_onduty'];
 
     protected $casts = [
         'detail_sparepart_amount' => 'integer',
         'detail_sparepart_price' => 'double',
         'detail_sparepart_subtotal' => 'double',
-        'id_mechanic_onduty' => 'integer'
+        'id_mechanic_onduty' => 'integer',
+        'id_employee' => 'integer',
+        'id_motorcycle' => 'integer',
     ];
 
     public function transactions(){
@@ -32,7 +36,11 @@ class Detail_sparepart extends Model
         return $this->belongsTo('App\Sparepart','id_sparepart');
     }
 
-    public function mechanic_onduties(){
-        return $this->belongsTo('App\Mechanic_onduty','id_mechanic_onduty');
+    public function mechanics(){
+        return $this->belongsTo('App\Employee','id_employee');
+    }
+
+    public function motorcycles(){
+        return $this->belongsTo('App\Motorcycle','id_motorcycle');
     }
 }

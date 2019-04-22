@@ -30,7 +30,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SparepartSeeder::class);
         $this->call(ProcurementSeeder::class);
         $this->call(ProcurementDetailSeeder::class);
-        $this->call(MechanicOnDutySeeder::class);
         $this->call(TransactionSeeder::class);
         $this->call(DetailServiceSeeder::class);
         $this->call(DetailSparepartSeeder::class);

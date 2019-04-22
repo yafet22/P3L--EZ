@@ -27,7 +27,11 @@ class Motorcycle extends Model
         return $this->belongsTo('App\Motorcycle_Type','id_motorcycle_type');
     }
 
-    public function employees(){
-        return $this->belongsToMany('App\Employee','mechanic_onduties','id_motorcycle','id_employee');
+    public function detailServices(){
+        return $this->hasMany('App\Detail_service','id_motorcycle');
+    }
+
+    public function detailSpareparts(){
+        return $this->hasMany('App\Detail_sparepart','id_motorcycle');
     }
 }

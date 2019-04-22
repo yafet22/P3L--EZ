@@ -9,7 +9,8 @@ class TransactionTransformer extends TransformerAbstract
 {
     protected $defaultIncludes = [
         'service',
-        'sparepart'
+        'sparepart',
+        'employee'
     ];
     /**
      * Transform Barang.
@@ -39,5 +40,10 @@ class TransactionTransformer extends TransformerAbstract
     public function includeSparepart(Transaction $transaction)
     {
         return $this->collection($transaction->detail_spareparts, new Detail_sparepartTransformer);
+    }
+
+    public function includeEmployee(Transaction $transaction)
+    {
+        return $this->collection($transaction->employees, new EmployeeTransformer);
     }
 }

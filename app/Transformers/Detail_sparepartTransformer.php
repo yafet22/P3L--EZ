@@ -24,9 +24,9 @@ class Detail_sparepartTransformer extends TransformerAbstract
             'sparepart_type' => $detail_sparepart->spareparts->sparepart_types->sparepart_type_name,
             'sparepart_name' => $detail_sparepart->spareparts->sparepart_name,
             'merk' => $detail_sparepart->spareparts->merk,
-            'id_mechanic_onduty' => $detail_sparepart->id_mechanic_onduty,
-            'mechanic_name' => $detail_sparepart->mechanic_onduties->employees->name,
-            'license_number' => $detail_sparepart->mechanic_onduties->motorcycles->license_number,
+            'id_mechanic' => $detail_sparepart->id_employee,
+            'mechanic_name' => $detail_sparepart->mechanics->name,
+            'license_number' => $detail_sparepart->motorcycles->license_number,
         ];
     }
 }

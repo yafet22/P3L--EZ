@@ -12427,6 +12427,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -12449,6 +12476,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       row: null,
       err: false,
       err2: false,
+      success: false,
       keyword: "",
       id_motorcycle: "",
       warning2: "",
@@ -12576,13 +12604,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     serviceData: 'Service/service',
     sparepartData: 'Sparepart/sparepart',
     sparepartTypeData: 'SparepartType/sparepartType',
-    employee: 'Employee/employee'
+    employee: 'Employee/employee',
+    id_employee: 'LoggedUser/id'
   }), Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
     customers: function customers(state) {
       return state.Customer.customers;
     },
     customerloading: function customerloading(state) {
       return state.Customer.loading;
+    },
+    transactionloading: function transactionloading(state) {
+      return state.Transaction.loading;
+    },
+    transactionerror: function transactionerror(state) {
+      return state.Transaction.error;
     },
     motorcycles: function motorcycles(state) {
       return state.Motorcycle.motorcycles;
@@ -12839,6 +12874,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 13:
                 object.mechanic_name = this.employee.first_name + ' ' + this.employee.last_name;
+                object.detail_service_amount = 1;
+                object.detail_service_subtotal = object.detail_service_amount = 1 * object.detail_service_price;
 
                 if (!this.err) {
                   this.transaction.service.push(JSON.parse(JSON.stringify(object)));
@@ -12847,7 +12884,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   this.hide2 = true;
                 }
 
-              case 15:
+              case 17:
               case "end":
                 return _context5.stop();
             }
@@ -13194,12 +13231,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   transaction_type: this.transaction.transaction_type,
                   transaction_total: this.transaction.transaction_total,
                   service: this.transaction.service,
-                  sparepart: this.transaction.sparepart
+                  sparepart: this.transaction.sparepart,
+                  employee: this.id_employee
                 };
                 _context12.next = 3;
                 return this.storeTransaction(payload);
 
               case 3:
+                if (!this.transactionerror) {
+                  this.success = true;
+                }
+
+              case 4:
               case "end":
                 return _context12.stop();
             }
@@ -31822,6 +31865,98 @@ var render = function() {
                           }
                         },
                         [_vm._v("Agree")]
+                      ),
+                      _vm._v(" "),
+                      _c("v-spacer")
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { persistent: "", "max-width": "500" },
+              model: {
+                value: _vm.success,
+                callback: function($$v) {
+                  _vm.success = $$v
+                },
+                expression: "success"
+              }
+            },
+            [
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", { staticClass: "headline" }, [
+                    _vm._v("Transaksi Berhasil!")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "VCardText",
+                    { staticClass: "text-xs-center" },
+                    [
+                      _vm.transactionerror
+                        ? _c(
+                            "VAlert",
+                            {
+                              attrs: {
+                                value: true,
+                                dismissible: "",
+                                type: "transactionerror"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n             " +
+                                  _vm._s(_vm.sparepartError.message) +
+                                  "\n             "
+                              )
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.transactionloading
+                        ? _c("VProgressLinear", {
+                            attrs: { indeterminate: "" }
+                          })
+                        : _vm._e()
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-text",
+                    {
+                      staticClass: "text-md-center",
+                      staticStyle: { "font-size": "15px" }
+                    },
+                    [_vm._v("Kembali Ke halaman transaksi")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "VBtn",
+                        {
+                          staticClass: "mb-4",
+                          attrs: {
+                            depressed: "",
+                            dark: "",
+                            color: "green accent-3",
+                            to: { name: "transactions" }
+                          }
+                        },
+                        [_vm._v("Ok")]
                       ),
                       _vm._v(" "),
                       _c("v-spacer")

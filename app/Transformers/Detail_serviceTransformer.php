@@ -22,9 +22,9 @@ class Detail_serviceTransformer extends TransformerAbstract
             'id_transaction' => $detail_service->id_transaction,
             'id_service' => $detail_service->id_service,
             'service_name' => $detail_service->services->service_name,
-            'id_mechanic_onduty' => $detail_service->id_mechanic_onduty,
-            'mechanic_name' => $detail_service->mechanic_onduties->employees->name,
-            'license_number' => $detail_service->mechanic_onduties->motorcycles->license_number,
+            'id_mechanic' => $detail_service->id_employee,
+            'mechanic_name' => $detail_service->mechanics->name,
+            'license_number' => $detail_service->motorcycles->license_number,
         ];
     }
 }

@@ -19,11 +19,13 @@ class CreateDetailSparepartsTable extends Migration
             $table->double('detail_sparepart_price');
             $table->double('detail_sparepart_subtotal');
             $table->string('id_transaction',30);
-            $table->foreign('id_transaction')->references('id_transaction')->on('transactions')->onUpdate('cascade');
+            $table->foreign('id_transaction')->references('id_transaction')->on('transactions')->onUpdate('cascade')->onDelete('cascade');
             $table->string('id_sparepart',30);
             $table->foreign('id_sparepart')->references('id_sparepart')->on('spareparts')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('id_mechanic_onduty')->unsigned();
-            $table->foreign('id_mechanic_onduty')->references('id_mechanic_onduty')->on('mechanic_onduties')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('id_employee')->unsigned()->nullable();
+            $table->foreign('id_employee')->references('id_employee')->on('employees')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('id_motorcycle')->unsigned()->nullable();
+            $table->foreign('id_motorcycle')->references('id_motorcycle')->on('motorcycles')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

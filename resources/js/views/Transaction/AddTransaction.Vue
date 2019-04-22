@@ -1107,6 +1107,33 @@
             </v-card-actions>
         </v-card>
       </v-dialog>
+      <v-dialog v-model="success" persistent max-width="500">
+        <v-card>
+            <v-card-title class="headline">Transaksi Berhasil!</v-card-title>
+            <VCardText
+              class="text-xs-center"
+            >
+              <VAlert
+                v-if="transactionerror"
+                :value="true"
+                dismissible
+                type="transactionerror"
+              >
+              {{ sparepartError.message }}
+              </VAlert>
+              <VProgressLinear 
+                  v-if="transactionloading"
+                  indeterminate
+              />
+            </VCardText>
+            <v-card-text class="text-md-center" style="font-size:15px">Kembali Ke halaman transaksi</v-card-text>
+            <v-card-actions>
+            <v-spacer/>
+            <VBtn class="mb-4" depressed dark color="green accent-3"  :to="{ name: 'transactions' }">Ok</VBtn>
+            <v-spacer/>
+            </v-card-actions>
+        </v-card>
+      </v-dialog>
     </card>
  </PageWrapper>
 </template>
@@ -1135,6 +1162,7 @@ export default {
       row: null,
       err: false,
       err2: false,
+      success: false,
       keyword: "",
       id_motorcycle: "",
       warning2: "",
@@ -1280,12 +1308,15 @@ export default {
         serviceData: 'Service/service',
         sparepartData: 'Sparepart/sparepart',
         sparepartTypeData: 'SparepartType/sparepartType',
-        employee: 'Employee/employee'
+        employee: 'Employee/employee',
+        id_employee: 'LoggedUser/id',
     }),
 
     ...mapState({
         customers: state => state.Customer.customers,
         customerloading: state => state.Customer.loading,
+        transactionloading: state => state.Transaction.loading,
+        transactionerror: state => state.Transaction.error,
         motorcycles: state => state.Motorcycle.motorcycles, 
         motorError: state => state.Motorcycle.error,       
         brand: state => state.MotorcycleBrand.motorcycleBrands,
@@ -1405,6 +1436,8 @@ export default {
         object.license_number=this.motorcycle.license_number
         await this.findEmployee(this.service.id_employee)
         object.mechanic_name=this.employee.first_name + ' ' + this.employee.last_name
+        object.detail_service_amount=1
+        object.detail_service_subtotal=object.detail_service_amount=1*object.detail_service_price
 
         if(!this.err)
         {
@@ -1438,7 +1471,6 @@ export default {
         object.license_number=this.motorcycle.license_number
         await this.findEmployee(this.sparepart.id_employee)
         object.mechanic_name=this.employee.first_name + ' ' + this.employee.last_name
-
         if(!this.err2)
         {
             this.transaction.sparepart.push(JSON.parse(JSON.stringify(object)))
@@ -1554,10 +1586,15 @@ export default {
           transaction_type: this.transaction.transaction_type,
           transaction_total: this.transaction.transaction_total,
           service: this.transaction.service,
-          sparepart: this.transaction.sparepart
+          sparepart: this.transaction.sparepart,
+          employee: this.id_employee
         }
 
         await this.storeTransaction(payload)
+
+        if (!this.transactionerror) {
+          this.success=true
+      }
     },
     bindData(item){
         this.motorcycle.license_number=item.license_number
@@ -1606,7 +1643,7 @@ export default {
       const payload = {
         license_number: value.license_number,
         id_motorcycle_type: value.id_motorcycle_type,
-        id_customer: this.customer.id_customer
+        id_customer: this.customer.id_customer,
       }
 
       await this.storeMotor(payload)

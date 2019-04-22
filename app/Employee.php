@@ -42,7 +42,11 @@ class Employee extends Model
         return $this->belongsToMany('App\Transaction','employee_onduties','id_employee','id_transaction');
     }
 
-    public function motorcycles(){
-        return $this->belongsToMany('App\Motorcycle','mechanic_onduties','id_employee','id_motorcycle');
+    public function detailServices(){
+        return $this->hasMany('App\Detail_service','id_employee');
+    }
+
+    public function detailSpareparts(){
+        return $this->hasMany('App\Detail_sparepart','id_employee');
     }
 }
