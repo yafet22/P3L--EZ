@@ -75,7 +75,7 @@
                 <v-card-text>
                     <VLayout>
                         <VFlex>
-                         <v-radio-group v-model="transaction.transaction_type" class="justify-center" row>
+                         <v-radio-group v-model="transaction.transaction_type" @change="resetList(transaction.transaction_type)" class="justify-center" row>
                          <v-radio label="Sparepart" value="Sparepart"></v-radio>
                          <v-radio label="Service And Sparepart" value="Service And Sparepart"></v-radio>
                          <v-radio label="Service" value="Service"></v-radio>
@@ -1365,6 +1365,19 @@ export default {
       storeTransaction: 'Transaction/store',
       getSparepartType: 'SparepartType/get'
     }),
+
+    resetList(id){
+        if(id=='Service')
+        {
+            console.log("hehe")
+            this.transaction.sparepart=[]
+        }
+        else if(id=='Sparepart')
+        {
+            this.transaction.service=[]
+        }
+    },
+
     async editMotor(id,item){
       const payload = {
         id_motorcycle: id,

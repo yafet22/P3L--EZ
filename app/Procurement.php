@@ -14,6 +14,10 @@ class Procurement extends Model
     'id_sales',
     'procurement_status',];
 
+    protected $casts = [
+        'id_sales' => 'integer'
+    ];
+
     public function sales(){
         return $this->belongsTo('App\Sales','id_sales');
     }

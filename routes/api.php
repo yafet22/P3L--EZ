@@ -43,6 +43,7 @@ Route::resource('sparepart_types','Sparepart_typeController');
 Route::resource('spareparts','SparepartController');
 Route::post('updatesparepart/{id}','SparepartController@updateSparepart');
 Route::post('updatesparepart','SparepartController@sparepartVerification');
+Route::put('updatesparepartmobile/{id}','SparepartController@sparepartVerificationMobile');
 
 Route::resource('customers','CustomerController');
 
@@ -54,5 +55,9 @@ Route::resource('motorcycles','MotorcycleController');
 Route::get('usermotorcycles/{id}','MotorcycleController@showByUser');
 
 Route::resource('procurements','ProcurementController');
+Route::post('procurementDetails','ProcurementController@storeDetail');
+Route::put('procurementDetails/{id}','ProcurementController@updateDetail');
+Route::get('procurementDetails/{id}','ProcurementController@showdetail');
 
 Route::resource('transactions','TransactionController');
+Route::put('payment/{id}','TransactionController@payment');

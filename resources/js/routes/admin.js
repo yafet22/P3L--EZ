@@ -29,6 +29,7 @@ import Procurement from '../views/Procurement/Procurement'
 
 import Transaction from '../views/Transaction/Transaction'
 import TransactionCreate from '../views/Transaction/AddTransaction'
+import TransactionEdit from '../views/Transaction/EditTransaction'
 
 export const routes = [
     {
@@ -179,6 +180,15 @@ export const routes = [
       path: '/admin/transactions/create',
       name: 'transactions.create',
       component: TransactionCreate,
+      meta: { role: ['Administrator'] },
+      beforeEnter: middleware([
+        auth
+      ])
+    },
+    {
+      path: '/admin/transactions/edit',
+      name: 'transactions.edit',
+      component: TransactionEdit,
       meta: { role: ['Administrator'] },
       beforeEnter: middleware([
         auth

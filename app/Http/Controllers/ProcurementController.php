@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Procurement;
+use App\Procurement_detail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\DB;
 use App\Transformers\ProcurementTransformer;
+use App\Transformers\Procurement_detailTransformer;
 
 class ProcurementController extends RestController
 {
@@ -59,16 +61,75 @@ class ProcurementController extends RestController
             $procurement->id_sales=$request->get('id_sales');
             $procurement->save();
 
-            $procurement = DB::transaction(function () use ($procurement,$detail) {
-                $procurement->procurementdetails()->createMany($detail);
-                return $procurement;
-            });
-
-
+            if($request->has('detail'))
+            {
+                $procurement = DB::transaction(function () use ($procurement,$detail) {
+                    $procurement->procurementdetails()->createMany($detail);
+                    return $procurement;
+                });
+            }
+            
             $response = $this->generateItem($procurement);
 
             return $this->sendResponse($response, 201);
 
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
+    }
+
+    public function storeDetail(Request $request)
+    {
+        try {
+
+
+            $detail = new Procurement_detail;
+
+            $detail->id_procurement=$request->get('id_procurement');
+            $detail->price=$request->get('price');
+            $detail->amount=$request->get('amount');
+            $detail->subtotal=$request->get('subtotal');
+            $detail->id_sparepart=$request->get('id_sparepart');
+            $detail->save();
+
+            $response = $this->generateItem($detail, Procurement_detailTransformer::class);
+
+            return $this->sendResponse($response, 201);
+
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
+    }
+
+    public function updateDetail(Request $request,$id)
+    {
+        try {
+
+
+            $detail = Procurement_detail::find($id);
+
+            $detail->price=$request->get('price');
+            $detail->amount=$request->get('amount');
+            $detail->subtotal=$request->get('subtotal');
+            $detail->save();
+
+            $response = $this->generateItem($detail, Procurement_detailTransformer::class);
+
+            return $this->sendResponse($response, 201);
+
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
+    }
+
+    public function showdetail($id)
+    {
+        try {
+            $detail=Procurement_detail::where("id_procurement",$id)->get();
+            $response = $this->generateCollection($detail,Procurement_detailTransformer::class);
+            return $this->sendResponse($response);
+        } catch (ModelNotFoundException $e) {
+            return $this->sendNotFoundResponse('procurement_detail_not_found');
         } catch (\Exception $e) {
             return $this->sendIseResponse($e->getMessage());
         }
@@ -133,10 +194,13 @@ class ProcurementController extends RestController
             $procurement->id_sales=$request->get('id_sales');
             $procurement->save();
 
-            $procurement = DB::transaction(function () use ($procurement,$detail) {
-                $procurement->procurementdetails()->createMany($detail);
-                return $procurement;
-            });
+            if($request->has('detail'))
+            {
+                $procurement = DB::transaction(function () use ($procurement,$detail) {
+                    $procurement->procurementdetails()->createMany($detail);
+                    return $procurement;
+                });
+            }
 
             $response = $this->generateItem($procurement);
 

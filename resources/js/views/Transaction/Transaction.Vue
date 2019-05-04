@@ -77,15 +77,38 @@
               </td>
               <td class="text-xs-center">
                 <VBtn 
+                  v-if="props.item.transaction_status=='finish'"
                   flat
                   icon
                   color="indigo"
-                  dark
-                  @click="editHandler(props.item.id_transaction)"
+                  :to="{ name: 'transactions.edit', params: { id: props.item.id_transaction }}"
+                  disabled
                 >
                   <v-icon>edit</v-icon>
                 </VBtn>
                 <VBtn 
+                  v-else
+                  flat
+                  icon
+                  color="indigo"
+                  dark
+                  :to="{ name: 'transactions.edit', params: { id: props.item.id_transaction }}"
+                >
+                  <v-icon>edit</v-icon>
+                </VBtn>
+                <VBtn 
+                  v-if="props.item.transaction_status=='finish'"
+                  flat
+                  icon
+                  color="error"
+                  
+                  @click="deleteWarning(props.item.id_transaction)"
+                  disabled
+                >
+                  <v-icon>delete</v-icon>
+                </VBtn>
+                <VBtn 
+                  v-else
                   flat
                   icon
                   color="error"
@@ -223,12 +246,12 @@ export default {
      
     },
 
-    async editHandler(id){
-      console.log(id)
-      this.id_transaction=id
-      await this.fetchTransaction(id)
-      this.dialog2=true
-    },
+    // async editHandler(id){
+    //   console.log(id)
+    //   this.id_transaction=id
+    //   await this.fetchTransaction(id)
+    //   this.dialog2=true
+    // },
 
     deleteWarning(id){
         this.id_transaction=id

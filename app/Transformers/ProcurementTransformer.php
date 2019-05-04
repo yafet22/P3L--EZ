@@ -24,7 +24,8 @@ class ProcurementTransformer extends TransformerAbstract
             'procurement_status' => $procurement->procurement_status,
             'id_sales' => $procurement->id_sales,
             'id_supplier' => $procurement->sales->suppliers->id_supplier,
-            'sales' => $procurement->sales->sales_name
+            'sales' => $procurement->sales->sales_name,
+            'supplier' => $procurement->sales->suppliers->supplier_name
         ];
     }
 

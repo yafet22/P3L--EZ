@@ -5,7 +5,9 @@ import {
   
   export default {
     form: {
-      id_sparepart : { required },
+      id_sparepart : { required,
+          
+      },
       sparepart_name: { required },
       merk: { required },
       id_sparepart_type: { required },

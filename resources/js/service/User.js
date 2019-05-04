@@ -42,9 +42,9 @@ export default {
 
   async delete (id) {
     try {
-      await http.delete(`/api/suppliers/${id}`)
+      await http.delete(`/api/users/${id}`)
     } catch (err) {
-      throw new Error('Gagal hapus data supplier')
+      throw new Error('Gagal hapus data user')
     }
   }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Transaction;
+use App\Sparepart;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -94,6 +95,56 @@ class TransactionController extends RestController
                 return $transaction;
             });
 
+            foreach($sparepart as $value)
+            {
+                $data = Sparepart::find($value['id_sparepart']);
+                $data->stock = $data->stock - $value['detail_sparepart_amount'];
+                $data->save();
+                if($data->stock<$data->min_stock)
+                {
+                    $token=['cBy9I4NDXro:APA91bF0sDMutZo5aQo4VY9hMfmoOvY3mUjSXWwdZaGsKNVRgOtWRgVyBGX-SIAWRdbFLnURZQ-boB9_p3MaN03DUxKyyN-helrFnDgig_UdH2ffIGWCNSTsvdQ_FAbu42B-iPbzkvaK','fzQS5wVJYt4:APA91bG8Ldrp_8ksxZyC446z1TkPkux5_a8bpRkAwIDhEh7exYw6n4WoYUesq9EAKoUWG6FS5xHp1DxoVBU2andL1elkCqB4IpmTLIAYGVkOUEAMAGOR1XJ9DH6HoR6-A72K3O0rFLrd','cpb9nmgdPwg:APA91bFB2HkGGRhaPmzhkrAq7g2TjFsrYvTJ_S6DrjVhLGWaG7sy2S8nqIMi5JfAkX96Er-WvXdMbhrycSbRY4L49P_BUDW32nrzDJinUMW-UgfZqTEi8OfeQOnUBqv869Hdf_Yw-ybd','evv7Xzo4w_Y:APA91bEz8LNHRLzG4hqOY5ExDoF_50uy9dQdnCpt3bCGf-LezeUgGtzLXzLCx2wrTSfuRV6hSKr7tDEz8pYg0uZwHSG6JLWPrkzkKBWbSxsLAkT6Kp4R-1fRsRAyXkgYg6q81LwhPgxa'];
+
+                    // $notification = [
+                    //     'body' => 'this is test',
+                    //     'sound' => true,
+                    // ];
+                    
+                    $data = array('title' => $data->sparepart_name ,'body' => 'kurang dari jumlah stock minimal');
+                    $fcmNotification = [
+                        'registration_ids' => $token, 
+                        // 'to'        => $token, //single token
+                        'priority' => "high",
+                        'notification' => $data,
+                    ];
+                
+                    
+                    $url = 'https://fcm.googleapis.com/fcm/send';
+                    $server_key = "AAAA49vwxPw:APA91bGsqHe9cRCcMcU2X47Tao1GWIDbA029PnPxgXaSL5wEvia2mJJiuINEV0dt-Wy9e2Jls8OV3T87h6SsH70DmitZg8J0f3aeENRCuoLDIWH58o9lXNKNc_4wSZ35Ya8cXwiNq0jX";
+
+                    $headers = [
+                        'Authorization: key='.$server_key,
+                        'Content-Type: application/json'
+                    ];
+
+
+                    $ch = curl_init();
+                    curl_setopt($ch, CURLOPT_URL,$url);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fcmNotification));
+                    $result = curl_exec($ch);
+                    if ($result === FALSE) {
+                        return curl_error($ch);
+                    }
+                    curl_close($ch);
+                }
+            }
+
+
+            // return $result;
+
             $response = $this->generateItem($transaction);
 
             return $this->sendResponse($response, 201);
@@ -101,6 +152,56 @@ class TransactionController extends RestController
         } catch (\Exception $e) {
             return $this->sendIseResponse($e->getMessage());
         }
+    }
+
+    public function notification($token, $title)
+    {
+
+        $token=$token;
+
+        // $notification = [
+        //     'title' => $title,
+        //     'sound' => true,
+        // ];
+        
+        // $extraNotificationData = ["message" => $notification,"moredata" =>'dd'];
+
+        // $fcmNotification = [
+        //     //'registration_ids' => $tokenList, //multple token array
+        //     'to'        => $token, //single token
+        //     'notification' => $notification,
+        //     'data' => $extraNotificationData
+        // ];
+
+        $res = array();
+        $res['body'] = $title;
+
+        $fields = array(
+            'to' => $token,
+            'notification' => $res,
+        );
+        
+        $url = 'https://fcm.googleapis.com/fcm/send';
+        $server_key = "AIzaSyCSJo9-q8CzX6QTqXgbuAnJAixFl-XKbrQ";
+
+        $headers = [
+            'Authorization: key='.$server_key,
+            'Content-Type: application/json'
+        ];
+
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
+        $result = curl_exec($ch);
+        if ($result === FALSE) {
+            echo 'Curl failed: ' . curl_error($ch);
+        }
+        curl_close($ch);
     }
 
     /**
@@ -151,6 +252,24 @@ class TransactionController extends RestController
 
             $transaction = Transaction::find($id);
 
+            $t= Transaction::with('detail_spareparts')->get();
+
+            foreach($t as $value )
+            {
+                if($value->id_transaction==$id)
+                {
+                    $sparepart2=$value->detail_spareparts;
+                }
+            }
+            // $sparepart2 = $t->detail_spareparts;
+
+            foreach($sparepart2 as $value)
+            {
+                $data = Sparepart::find($value->id_sparepart);
+                $data->stock = $data->stock + $value->detail_sparepart_amount;
+                $data->save();
+            }
+
             $transaction->detail_services()->delete();
             $transaction->detail_spareparts()->delete();
 
@@ -190,6 +309,74 @@ class TransactionController extends RestController
                 $transaction->detail_spareparts()->createMany($sparepart);
                 return $transaction;
             });
+
+            foreach($sparepart as $value)
+            {
+                $data = Sparepart::find($value['id_sparepart']);
+                $data->stock = $data->stock - $value['detail_sparepart_amount'];
+                $data->save();
+                if($data->stock<$data->min_stock)
+                {
+                    $token=['cBy9I4NDXro:APA91bF0sDMutZo5aQo4VY9hMfmoOvY3mUjSXWwdZaGsKNVRgOtWRgVyBGX-SIAWRdbFLnURZQ-boB9_p3MaN03DUxKyyN-helrFnDgig_UdH2ffIGWCNSTsvdQ_FAbu42B-iPbzkvaK','fzQS5wVJYt4:APA91bG8Ldrp_8ksxZyC446z1TkPkux5_a8bpRkAwIDhEh7exYw6n4WoYUesq9EAKoUWG6FS5xHp1DxoVBU2andL1elkCqB4IpmTLIAYGVkOUEAMAGOR1XJ9DH6HoR6-A72K3O0rFLrd','cpb9nmgdPwg:APA91bFB2HkGGRhaPmzhkrAq7g2TjFsrYvTJ_S6DrjVhLGWaG7sy2S8nqIMi5JfAkX96Er-WvXdMbhrycSbRY4L49P_BUDW32nrzDJinUMW-UgfZqTEi8OfeQOnUBqv869Hdf_Yw-ybd','evv7Xzo4w_Y:APA91bEz8LNHRLzG4hqOY5ExDoF_50uy9dQdnCpt3bCGf-LezeUgGtzLXzLCx2wrTSfuRV6hSKr7tDEz8pYg0uZwHSG6JLWPrkzkKBWbSxsLAkT6Kp4R-1fRsRAyXkgYg6q81LwhPgxa'];
+
+                    // $notification = [
+                    //     'body' => 'this is test',
+                    //     'sound' => true,
+                    // ];
+                    
+                    $data = array('title' => $data->sparepart_name ,'body' => 'kurang dari jumlah stock minimal');
+                    $fcmNotification = [
+                        'registration_ids' => $token, 
+                        // 'to'        => $token, //single token
+                        'priority' => "high",
+                        'notification' => $data,
+                    ];
+                
+                    
+                    $url = 'https://fcm.googleapis.com/fcm/send';
+                    $server_key = "AAAA49vwxPw:APA91bGsqHe9cRCcMcU2X47Tao1GWIDbA029PnPxgXaSL5wEvia2mJJiuINEV0dt-Wy9e2Jls8OV3T87h6SsH70DmitZg8J0f3aeENRCuoLDIWH58o9lXNKNc_4wSZ35Ya8cXwiNq0jX";
+
+                    $headers = [
+                        'Authorization: key='.$server_key,
+                        'Content-Type: application/json'
+                    ];
+
+
+                    $ch = curl_init();
+                    curl_setopt($ch, CURLOPT_URL,$url);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fcmNotification));
+                    $result = curl_exec($ch);
+                    if ($result === FALSE) {
+                        return curl_error($ch);
+                    }
+                    curl_close($ch);
+                }
+            }
+
+            $response = $this->generateItem($transaction);
+
+            return $this->sendResponse($response, 201);
+
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
+    }
+
+    public function payment(Request $request, $id)
+    {
+        try {
+
+
+            $transaction = Transaction::find($id);
+
+            $transaction->transaction_paid="paid";
+            $transaction->transaction_discount=$request->get('discount');;
+            $transaction->transaction_total=$request->get('transaction_total');
+            $transaction->save();
 
             $response = $this->generateItem($transaction);
 

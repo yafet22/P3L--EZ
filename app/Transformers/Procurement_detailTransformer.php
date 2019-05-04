@@ -22,7 +22,8 @@ class Procurement_detailTransformer extends TransformerAbstract
             'subtotal' => $procurement_detail->subtotal,
             'id_procurement' => $procurement_detail->id_procurement,
             'id_sparepart' => $procurement_detail->id_sparepart,
-            'sparepart_name' => $procurement_detail->spareparts->sparepart_name
+            'sparepart_name' => $procurement_detail->spareparts->sparepart_name,
+            'merk' => $procurement_detail->spareparts->merk
         ];
     }
 
