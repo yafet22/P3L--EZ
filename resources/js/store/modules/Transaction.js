@@ -111,6 +111,20 @@ const actions = {
     }
   },
 
+  async payment(context, payload) {
+    try {
+      const data = {
+        transaction_total: payload.total,
+        transaction_discount: payload.discount
+      }
+
+      await transactionService.payment(payload.id_transaction, data)
+      state.loading = false
+    } catch (err) {
+      context.commit('setFailedAction', err)
+    }
+  },
+
   async delete (context, id) {
     try {
       await transactionService.delete(id)

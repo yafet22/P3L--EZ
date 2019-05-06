@@ -374,7 +374,7 @@ class TransactionController extends RestController
             $transaction = Transaction::find($id);
 
             $transaction->transaction_paid="paid";
-            $transaction->transaction_discount=$request->get('discount');;
+            $transaction->transaction_discount=$request->get('transaction_discount');;
             $transaction->transaction_total=$request->get('transaction_total');
             $transaction->save();
 

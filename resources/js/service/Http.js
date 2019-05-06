@@ -48,6 +48,18 @@ export default {
     }
   },
 
+  put(url, data) {
+    try {
+      return axios.request({
+        url,
+        data,
+        method: 'put'
+      })
+    } catch (err) {
+      throw err
+    }
+  },
+
   delete(url) {
     try {
       return axios.request({

@@ -38,6 +38,16 @@ export default {
       throw new Error('Gagal update data transaction!')
     }
   },
+
+  async payment (id, payload) {
+    try {
+      const res = await http.put(`/api/payment/${id}`, payload)
+
+      return res.data.data
+    } catch (err) {
+      throw new Error('Gagal update data transaction!')
+    }
+  },
   
   async delete (id) {
     try {

@@ -207,12 +207,14 @@
           case 'Customer Service': 
             return [
               { id: 1, to: 'dashboard', icon: 'dashboard', text: 'Dashboard', name: 'Dashboard' },
+              { id: 2, to: 'transactions', icon: 'euro_symbol', text: 'Transaksi', name: 'transaction'},
             ]
             break
 
           case 'Cashier': 
             return [
               { id: 1, to: 'dashboard', icon: 'dashboard', text: 'Dashboard', name: 'Dashboard' },
+              { id: 2, to: 'transactions', icon: 'euro_symbol', text: 'Transaksi', name: 'transaction'},
             ]
             break
         }

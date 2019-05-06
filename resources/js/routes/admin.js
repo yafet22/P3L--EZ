@@ -171,7 +171,7 @@ export const routes = [
       path: '/admin/transactions',
       name: 'transactions',
       component: Transaction,
-      meta: { role: ['Administrator'] },
+      meta: { role: ['Administrator','Cashier'] },
       beforeEnter: middleware([
         auth
       ])

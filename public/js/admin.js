@@ -5407,6 +5407,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             icon: 'dashboard',
             text: 'Dashboard',
             name: 'Dashboard'
+          }, {
+            id: 2,
+            to: 'transactions',
+            icon: 'euro_symbol',
+            text: 'Transaksi',
+            name: 'transaction'
           }];
           break;
 
@@ -5417,6 +5423,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             icon: 'dashboard',
             text: 'Dashboard',
             name: 'Dashboard'
+          }, {
+            id: 2,
+            to: 'transactions',
+            icon: 'euro_symbol',
+            text: 'Transaksi',
+            name: 'transaction'
           }];
           break;
       }
@@ -15474,7 +15486,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Renderless_TransactionControl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Renderless/TransactionControl */ "./resources/js/components/Renderless/TransactionControl.vue");
 /* harmony import */ var _service_Transaction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../service/Transaction */ "./resources/js/service/Transaction.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -15644,97 +15658,440 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
+
+
+
+function payMinimal() {
+  if (this.payment.payamount < this.payment.total) {
+    return false;
+  }
+
+  return true;
+}
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     TransactionControl: _components_Renderless_TransactionControl__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  data: function data() {
-    return {
-      name: '',
-      isFormValid: false,
-      dialog: false,
-      dialog2: false,
-      warning: false,
-      dialog3: false,
-      keyword: '',
-      id_transaction: '',
-      keyword2: '',
-      headers: [{
-        text: 'ID',
-        value: 'id_transaction'
-      }, {
-        text: 'Nama Pelanggan',
-        value: 'customer_name'
-      }, {
-        text: 'Tanggal',
-        value: 'transaction_date'
-      }, {
-        text: 'Status Transaksi',
-        value: 'transaction_status'
-      }, {
-        text: 'Detail Transaki',
-        value: null
-      }, {
-        text: 'SPK',
-        value: null
-      }, {
-        text: 'Aksi',
-        value: null
-      }],
-      breadcrumbs: [{
-        text: 'Dashboard',
-        to: {
-          name: 'dashboard'
-        },
-        exact: true
-      }, {
-        text: 'Transaksi',
-        disabled: true
-      }]
-    };
+  validations: {
+    payment: {
+      payamount: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_3__["required"],
+        payMinimal: payMinimal,
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_3__["numeric"]
+      },
+      discount: {
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_3__["numeric"]
+      }
+    }
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapState"])({
+  data: function data() {
+    var _ref;
+
+    return _ref = {
+      name: '',
+      success: false,
+      dialog: false,
+      isFormValid: false
+    }, _defineProperty(_ref, "dialog", false), _defineProperty(_ref, "dialog2", false), _defineProperty(_ref, "warning", false), _defineProperty(_ref, "dialog3", false), _defineProperty(_ref, "totalSparepart", 0), _defineProperty(_ref, "totalService", 0), _defineProperty(_ref, "transaction", []), _defineProperty(_ref, "cs", []), _defineProperty(_ref, "employees", []), _defineProperty(_ref, "spareparts", []), _defineProperty(_ref, "services", []), _defineProperty(_ref, "mechanics", []), _defineProperty(_ref, "payment", {
+      id_transaction: '',
+      total: 0,
+      change: 0,
+      discount: 0,
+      payamount: 0
+    }), _defineProperty(_ref, "keyword", ''), _defineProperty(_ref, "id_transaction", ''), _defineProperty(_ref, "keyword2", ''), _defineProperty(_ref, "headers", [{
+      text: 'ID',
+      value: 'id_transaction'
+    }, {
+      text: 'Nama Pelanggan',
+      value: 'customer_name'
+    }, {
+      text: 'Tanggal',
+      value: 'transaction_date'
+    }, {
+      text: 'Status Transaksi',
+      value: 'transaction_status'
+    }, {
+      text: 'Detail Transaki',
+      value: null
+    }, {
+      text: 'SPK',
+      value: null
+    }, {
+      text: 'Aksi',
+      value: null
+    }]), _defineProperty(_ref, "headers2", [{
+      text: 'kode',
+      value: 'id_sparepart'
+    }, {
+      text: 'Nama',
+      value: 'sparepart_name'
+    }, {
+      text: 'Merk',
+      value: 'merk'
+    }, {
+      text: 'Harga',
+      value: 'detail_sparepart_price'
+    }, {
+      text: 'Jumlah',
+      value: 'detail_sparepart_amount'
+    }, {
+      text: 'Subtotal',
+      value: 'detail_sparepart_subtotal'
+    }]), _defineProperty(_ref, "headers3", [{
+      text: 'ID Service',
+      value: 'id_service'
+    }, {
+      text: 'Type',
+      value: 'service_name'
+    }, {
+      text: 'Harga',
+      value: 'detail_service_price'
+    }, {
+      text: 'Jumlah',
+      value: 'detail_service_amount'
+    }, {
+      text: 'Subtotal',
+      value: 'detail_service_subtotal'
+    }]), _defineProperty(_ref, "headers4", [{
+      text: 'ID',
+      value: 'id_transaction'
+    }, {
+      text: 'Nama Pelanggan',
+      value: 'customer_name'
+    }, {
+      text: 'Tanggal',
+      value: 'transaction_date'
+    }, {
+      text: 'Status Transaksi',
+      value: 'transaction_status'
+    }, {
+      text: 'Status Bayar',
+      value: 'transaction_paid'
+    }, {
+      text: 'Pembayaran',
+      value: null
+    }, {
+      text: 'Cetak Nota',
+      value: null
+    }]), _defineProperty(_ref, "breadcrumbs", [{
+      text: 'Dashboard',
+      to: {
+        name: 'dashboard'
+      },
+      exact: true
+    }, {
+      text: 'Transaksi',
+      disabled: true
+    }]), _ref;
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapState"])({
     transactionError: function transactionError(state) {
       return state.Transaction.error;
     },
     transactionLoading: function transactionLoading(state) {
       return state.Transaction.loading;
     }
-  })),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])({
+  }), Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapGetters"])({
+    role: 'LoggedUser/role'
+  }), {
+    payamountErrors: function payamountErrors() {
+      var errors = [];
+      if (!this.$v.payment.payamount.$dirty) return errors;
+      !this.$v.payment.payamount.numeric && errors.push('Inputan total tidak valid');
+      !this.$v.payment.payamount.payMinimal && errors.push('Pembayaran harus melebihi total harga');
+      return errors;
+    },
+    discountErrors: function discountErrors() {
+      var errors = [];
+      if (!this.$v.payment.discount.$dirty) return errors;
+      !this.$v.payment.discount.numeric && errors.push('Inputan diskon tidak valid');
+      return errors;
+    }
+  }),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapActions"])({
     deleteTransaction: 'Transaction/delete',
     storeTransaction: 'Transaction/store',
     resetForm: 'Transaction/resetForm',
     updateTransaction: 'Transaction/update',
-    fetchTransaction: 'Transaction/edit'
+    fetchTransaction: 'Transaction/edit',
+    paymentTransaction: 'Transaction/payment'
   }), {
     fetch: function fetch() {
       this.$refs.transactionControl.fetch();
     },
-    detailHandler: function () {
-      var _detailHandler = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-              case "end":
-                return _context.stop();
+    detailHandler: function detailHandler(transaction) {
+      var _this = this;
+
+      this.payment.id_transaction = transaction.id_transaction;
+      this.mechanics = [];
+      this.totalService = 0;
+      this.totalSparepart = 0;
+      console.log("cek");
+      this.transaction = transaction;
+      this.employees = transaction.employee.data;
+      this.spareparts = transaction.sparepart.data;
+      this.services = transaction.service.data;
+      this.employees.forEach(function (employee) {
+        if (employee.id_role == 2 || employee.id_role == 1) {
+          _this.cs = employee;
+        }
+      });
+      this.spareparts.forEach(function (sparepart) {
+        _this.totalSparepart = _this.totalSparepart + sparepart.detail_sparepart_subtotal;
+        console.log(sparepart.mechanic_name);
+
+        if (_this.mechanics.length == 0) {
+          _this.mechanics.push(sparepart.mechanic_name);
+        } else {
+          _this.mechanics.forEach(function (mechanic) {
+            console.log(mechanic);
+
+            if (sparepart.mechanic_name != mechanic) {
+              console.log("coba");
+
+              _this.mechanics.push(sparepart.mechanic_name);
             }
-          }
-        }, _callee, this);
-      }));
+          });
+        }
+      });
+      this.services.forEach(function (service) {
+        _this.totalService = _this.totalService + service.detail_service_subtotal;
 
-      function detailHandler(_x) {
-        return _detailHandler.apply(this, arguments);
-      }
+        if (_this.mechanics.length == 0) {
+          _this.mechanics.push(service.mechanic_name);
+        } else {
+          _this.mechanics.forEach(function (mechanic) {
+            console.log(mechanic);
+            console.log("cekcek");
 
-      return detailHandler;
-    }(),
+            if (service.mechanic_name != mechanic) {
+              console.log("coba2");
+
+              _this.mechanics.push(service.mechanic_name);
+            }
+          });
+        }
+      });
+      this.payment.total = this.totalService + this.totalSparepart;
+      this.dialog = true;
+    },
     // async editHandler(id){
     //   console.log(id)
     //   this.id_transaction=id
@@ -15745,16 +16102,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.id_transaction = id;
       this.warning = true;
     },
+    calculateDiscount: function calculateDiscount() {
+      this.payment.total = this.totalService + this.totalSparepart;
+      this.payment.total = this.payment.total - this.payment.discount;
+    },
+    calculateChange: function calculateChange() {
+      this.payment.change = this.payment.payamount - this.payment.total;
+    },
     deleteHandler: function () {
       var _deleteHandler = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context.prev = _context.next) {
               case 0:
                 console.log(this.id_transaction);
-                _context2.next = 3;
+                _context.next = 3;
                 return this.deleteTransaction(this.id_transaction);
 
               case 3:
@@ -15763,10 +16127,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 5:
               case "end":
-                return _context2.stop();
+                return _context.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee, this);
       }));
 
       function deleteHandler() {
@@ -15778,18 +16142,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     submitHandler: function () {
       var _submitHandler = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(value) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(value) {
         var payload;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 payload = {
                   transaction_name: value.transaction_name,
                   transaction_address: value.transaction_address,
                   transaction_phone_number: value.transaction_phone_number
                 };
-                _context3.next = 3;
+                _context2.next = 3;
                 return this.storeTransaction(payload);
 
               case 3:
@@ -15800,17 +16164,49 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 4:
               case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function submitHandler(_x) {
+        return _submitHandler.apply(this, arguments);
+      }
+
+      return submitHandler;
+    }(),
+    paymentProcess: function () {
+      var _paymentProcess = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return this.paymentTransaction(this.payment);
+
+              case 2:
+                if (!this.transactionError) {
+                  this.dialog = false;
+                  this.fetch();
+                  this.success = true;
+                }
+
+              case 3:
+              case "end":
                 return _context3.stop();
             }
           }
         }, _callee3, this);
       }));
 
-      function submitHandler(_x2) {
-        return _submitHandler.apply(this, arguments);
+      function paymentProcess() {
+        return _paymentProcess.apply(this, arguments);
       }
 
-      return submitHandler;
+      return paymentProcess;
     }(),
     submitHandler2: function () {
       var _submitHandler2 = _asyncToGenerator(
@@ -15842,7 +16238,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee4, this);
       }));
 
-      function submitHandler2(_x3) {
+      function submitHandler2(_x2) {
         return _submitHandler2.apply(this, arguments);
       }
 
@@ -38173,23 +38569,27 @@ var render = function() {
                 "v-flex",
                 { attrs: { xs6: "" } },
                 [
-                  _c(
-                    "VBtn",
-                    {
-                      attrs: {
-                        depressed: "",
-                        dark: "",
-                        round: "",
-                        color: "green accent-3",
-                        to: { name: "transactions.create" }
-                      }
-                    },
-                    [
-                      _c("VIcon", [_vm._v("add")]),
-                      _vm._v("\n              Buat Transaksi Baru\n          ")
-                    ],
-                    1
-                  )
+                  _vm.role != "Cashier"
+                    ? _c(
+                        "VBtn",
+                        {
+                          attrs: {
+                            depressed: "",
+                            dark: "",
+                            round: "",
+                            color: "green accent-3",
+                            to: { name: "transactions.create" }
+                          }
+                        },
+                        [
+                          _c("VIcon", [_vm._v("add")]),
+                          _vm._v(
+                            "\n              Buat Transaksi Baru\n          "
+                          )
+                        ],
+                        1
+                      )
+                    : _vm._e()
                 ],
                 1
               ),
@@ -38272,7 +38672,7 @@ var render = function() {
                         )
                       : _vm._e(),
                     _vm._v(" "),
-                    !loading && !error
+                    !loading && !error && _vm.role != "Cashier"
                       ? _c("VDataTable", {
                           attrs: {
                             headers: _vm.headers,
@@ -38328,7 +38728,7 @@ var render = function() {
                                             on: {
                                               click: function($event) {
                                                 return _vm.detailHandler(
-                                                  props.item.id_transaction
+                                                  props.item
                                                 )
                                               }
                                             }
@@ -38471,12 +38871,777 @@ var render = function() {
                             true
                           )
                         })
+                      : !loading && !error
+                      ? _c("VDataTable", {
+                          attrs: {
+                            headers: _vm.headers4,
+                            items: items,
+                            search: _vm.keyword
+                          },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "items",
+                                fn: function(props) {
+                                  return [
+                                    _c("td", {
+                                      domProps: {
+                                        innerHTML: _vm._s(
+                                          props.item.id_transaction
+                                        )
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("td", {
+                                      domProps: {
+                                        innerHTML: _vm._s(
+                                          props.item.customer_name
+                                        )
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("td", {
+                                      domProps: {
+                                        innerHTML: _vm._s(
+                                          props.item.transaction_date
+                                        )
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("td", {
+                                      domProps: {
+                                        innerHTML: _vm._s(
+                                          props.item.transaction_status
+                                        )
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("td", {
+                                      domProps: {
+                                        innerHTML: _vm._s(
+                                          props.item.transaction_paid
+                                        )
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      { staticClass: "text-xs-center" },
+                                      [
+                                        props.item.transaction_paid ==
+                                          "unpaid" &&
+                                        props.item.transaction_status ==
+                                          "finish"
+                                          ? _c(
+                                              "VBtn",
+                                              {
+                                                attrs: {
+                                                  flat: "",
+                                                  color: "info"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.detailHandler(
+                                                      props.item
+                                                    )
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n              Bayar\n              "
+                                                )
+                                              ]
+                                            )
+                                          : _c(
+                                              "VBtn",
+                                              {
+                                                attrs: {
+                                                  disabled: "",
+                                                  flat: "",
+                                                  color: "info"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.detailHandler(
+                                                      props.item
+                                                    )
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n              Bayar\n              "
+                                                )
+                                              ]
+                                            )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      { staticClass: "text-xs-center" },
+                                      [
+                                        _c(
+                                          "VBtn",
+                                          {
+                                            attrs: {
+                                              flat: "",
+                                              color: "warning"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n              Cetak\n              "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                }
+                              }
+                            ],
+                            null,
+                            true
+                          )
+                        })
                       : _vm._e()
                   ]
                 }
               }
             ])
           }),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "800px" },
+              model: {
+                value: _vm.dialog,
+                callback: function($$v) {
+                  _vm.dialog = $$v
+                },
+                expression: "dialog"
+              }
+            },
+            [
+              _c(
+                "UtilityCard",
+                { attrs: { title: "Detail Transaksi" } },
+                [
+                  _c(
+                    "VCardText",
+                    [
+                      _c(
+                        "VLayout",
+                        [
+                          _c(
+                            "VFlex",
+                            { staticClass: "text-md-left", attrs: { sm6: "" } },
+                            [
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(_vm.transaction.id_transaction) +
+                                  "\n              "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "VFlex",
+                            {
+                              staticClass: "text-md-right",
+                              attrs: { sm6: "" }
+                            },
+                            [
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(_vm.transaction.transaction_date) +
+                                  "\n              "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "VLayout",
+                        [
+                          _c(
+                            "VFlex",
+                            { staticClass: "text-md-left", attrs: { sm6: "" } },
+                            [
+                              _vm._v(
+                                "\n                Cost : " +
+                                  _vm._s(_vm.transaction.customer_name) +
+                                  "\n              "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "VFlex",
+                            {
+                              staticClass: "text-md-right",
+                              attrs: { sm6: "" }
+                            },
+                            [
+                              _vm._v(
+                                "\n                Cs : \n                " +
+                                  _vm._s(_vm.cs.name) +
+                                  "\n              "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "VLayout",
+                        [
+                          _c(
+                            "VFlex",
+                            { staticClass: "text-md-left", attrs: { sm6: "" } },
+                            [
+                              _vm._v(
+                                "\n                Telepon : " +
+                                  _vm._s(_vm.transaction.customer_name) +
+                                  "\n              "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "VFlex",
+                            {
+                              staticClass: "text-md-right",
+                              attrs: { sm6: "" }
+                            },
+                            [
+                              _c(
+                                "VLayout",
+                                [
+                                  _c(
+                                    "VFlex",
+                                    {
+                                      staticClass: "text-md-right",
+                                      attrs: { sm10: "" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                       Montir : \n                  "
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "VFlex",
+                                    {
+                                      staticClass: "text-md-right",
+                                      attrs: { sm2: "" }
+                                    },
+                                    _vm._l(_vm.mechanics, function(mechanic) {
+                                      return _c(
+                                        "li",
+                                        {
+                                          key: mechanic,
+                                          staticStyle: { "list-style": "none" }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(mechanic) +
+                                              "\n                      "
+                                          )
+                                        ]
+                                      )
+                                    }),
+                                    0
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _vm.spareparts.length != 0
+                        ? _c(
+                            "VLayout",
+                            [
+                              _c(
+                                "VFlex",
+                                {
+                                  staticClass: "text-md-center",
+                                  attrs: { sm12: "" }
+                                },
+                                [_c("h2", [_vm._v("DATA SPAREPART")])]
+                              )
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.spareparts.length != 0
+                        ? _c(
+                            "VLayout",
+                            [
+                              _c(
+                                "VFlex",
+                                { attrs: { sm12: "" } },
+                                [
+                                  !_vm.loading && !_vm.error
+                                    ? _c("VDataTable", {
+                                        attrs: {
+                                          headers: _vm.headers2,
+                                          items: _vm.spareparts,
+                                          search: _vm.keyword,
+                                          "hide-actions": ""
+                                        },
+                                        scopedSlots: _vm._u(
+                                          [
+                                            {
+                                              key: "items",
+                                              fn: function(props) {
+                                                return [
+                                                  _c("td", {
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        props.item.id_sparepart
+                                                      )
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("td", {
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        props.item
+                                                          .sparepart_name
+                                                      )
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("td", {
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        props.item.merk
+                                                      )
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("td", {
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        props.item
+                                                          .detail_sparepart_price
+                                                      )
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("td", {
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        props.item
+                                                          .detail_sparepart_amount
+                                                      )
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("td", {
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        props.item
+                                                          .detail_sparepart_subtotal
+                                                      )
+                                                    }
+                                                  })
+                                                ]
+                                              }
+                                            },
+                                            {
+                                              key: "footer",
+                                              fn: function() {
+                                                return [
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "text-md-right",
+                                                      attrs: {
+                                                        colspan:
+                                                          _vm.headers.length
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                      Total Sparepart : Rp  " +
+                                                          _vm._s(
+                                                            _vm.totalSparepart
+                                                          ) +
+                                                          "\n                    "
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              },
+                                              proxy: true
+                                            }
+                                          ],
+                                          null,
+                                          false,
+                                          2790301247
+                                        )
+                                      })
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.services.length != 0
+                        ? _c(
+                            "VLayout",
+                            [
+                              _c(
+                                "VFlex",
+                                {
+                                  staticClass: "text-md-center",
+                                  attrs: { sm12: "" }
+                                },
+                                [_c("h2", [_vm._v("DATA SERVICE")])]
+                              )
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.services.length != 0
+                        ? _c(
+                            "VLayout",
+                            [
+                              _c(
+                                "VFlex",
+                                { attrs: { sm12: "" } },
+                                [
+                                  !_vm.loading && !_vm.error
+                                    ? _c("VDataTable", {
+                                        attrs: {
+                                          headers: _vm.headers3,
+                                          items: _vm.services,
+                                          search: _vm.keyword,
+                                          "hide-actions": ""
+                                        },
+                                        scopedSlots: _vm._u(
+                                          [
+                                            {
+                                              key: "items",
+                                              fn: function(props) {
+                                                return [
+                                                  _c("td", {
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        props.item.id_service
+                                                      )
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("td", {
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        props.item.service_name
+                                                      )
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("td", {
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        props.item
+                                                          .detail_service_price
+                                                      )
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("td", {
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        props.item
+                                                          .detail_service_amount
+                                                      )
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("td", {
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        props.item
+                                                          .detail_service_subtotal
+                                                      )
+                                                    }
+                                                  })
+                                                ]
+                                              }
+                                            },
+                                            {
+                                              key: "footer",
+                                              fn: function() {
+                                                return [
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "text-md-right",
+                                                      attrs: {
+                                                        colspan:
+                                                          _vm.headers.length
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                      Total Service : Rp  " +
+                                                          _vm._s(
+                                                            _vm.totalService
+                                                          ) +
+                                                          "\n                    "
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              },
+                                              proxy: true
+                                            }
+                                          ],
+                                          null,
+                                          false,
+                                          3000612517
+                                        )
+                                      })
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.role == "Cashier"
+                        ? _c(
+                            "VLayout",
+                            [
+                              _c(
+                                "VFlex",
+                                {
+                                  staticClass: "text-md-center",
+                                  attrs: { sm12: "" }
+                                },
+                                [_c("h2", [_vm._v("PEMBAYARAN")])]
+                              )
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.role == "Cashier"
+                        ? _c(
+                            "VLayout",
+                            [
+                              _c("VFlex", [
+                                _c("strong", [
+                                  _vm._v(
+                                    " Total :  Rp " +
+                                      _vm._s(this.payment.total) +
+                                      " "
+                                  )
+                                ])
+                              ])
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.role == "Cashier"
+                        ? _c(
+                            "VLayout",
+                            [
+                              _c("VFlex", [
+                                _c("strong", [
+                                  _vm._v(
+                                    " Diskon : Rp " +
+                                      _vm._s(this.payment.discount) +
+                                      " "
+                                  )
+                                ])
+                              ])
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.role == "Cashier"
+                        ? _c(
+                            "VLayout",
+                            [
+                              _c("VFlex", [
+                                _c("strong", [
+                                  _vm._v(
+                                    " Jumlah Bayar : Rp " +
+                                      _vm._s(this.payment.payamount) +
+                                      " "
+                                  )
+                                ])
+                              ])
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.role == "Cashier"
+                        ? _c(
+                            "VLayout",
+                            [
+                              _c("VFlex", [
+                                _c("strong", [
+                                  _vm._v(
+                                    " Kembalian : Rp " +
+                                      _vm._s(this.payment.change) +
+                                      " "
+                                  )
+                                ])
+                              ])
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.role == "Cashier"
+                        ? _c(
+                            "VLayout",
+                            { staticClass: "mt-2" },
+                            [
+                              _c(
+                                "VFlex",
+                                { attrs: { sm6: "" } },
+                                [
+                                  _c("VTextField", {
+                                    staticClass: "pa-1",
+                                    attrs: {
+                                      label: "Diskon",
+                                      required: "",
+                                      "error-messages": _vm.discountErrors
+                                    },
+                                    on: {
+                                      change: function($event) {
+                                        _vm.calculateDiscount(),
+                                          _vm.$v.form.discount.$touch()
+                                      },
+                                      blur: function($event) {
+                                        return _vm.$v.form.discount.$touch()
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.payment.discount,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.payment, "discount", $$v)
+                                      },
+                                      expression: "payment.discount"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "VFlex",
+                                { attrs: { sm6: "" } },
+                                [
+                                  _c("VTextField", {
+                                    staticClass: "pa-1",
+                                    attrs: {
+                                      label: "Jumlah Bayar",
+                                      required: "",
+                                      "error-messages": _vm.payamountErrors
+                                    },
+                                    on: {
+                                      change: function($event) {
+                                        return _vm.calculateChange()
+                                      },
+                                      input: function($event) {
+                                        return _vm.$v.form.payamount.$touch()
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.payment.payamount,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.payment, "payamount", $$v)
+                                      },
+                                      expression: "payment.payamount"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("VSpacer"),
+                      _vm._v(" "),
+                      _vm.role == "Cashier"
+                        ? _c(
+                            "VLayout",
+                            [
+                              _c(
+                                "VFlex",
+                                { staticClass: "text-xs-center" },
+                                [
+                                  _c(
+                                    "VBtn",
+                                    {
+                                      attrs: {
+                                        depressed: "",
+                                        color: "success"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.paymentProcess()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                  Konfirmasi Pembayarann\n                "
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        : _vm._e()
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
           _vm._v(" "),
           _c(
             "v-dialog",
@@ -38580,6 +39745,65 @@ var render = function() {
                           }
                         },
                         [_vm._v("Agree")]
+                      ),
+                      _vm._v(" "),
+                      _c("v-spacer")
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { persistent: "", "max-width": "500" },
+              model: {
+                value: _vm.success,
+                callback: function($$v) {
+                  _vm.success = $$v
+                },
+                expression: "success"
+              }
+            },
+            [
+              _c(
+                "v-card",
+                [
+                  _c(
+                    "v-card-text",
+                    {
+                      staticClass: "text-md-center",
+                      staticStyle: { "font-size": "15px" }
+                    },
+                    [_vm._v("Pembayaran Berhasil")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "VBtn",
+                        {
+                          staticClass: "mb-4",
+                          attrs: {
+                            depressed: "",
+                            dark: "",
+                            color: "green accent-3"
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.success = false
+                            }
+                          }
+                        },
+                        [_vm._v("Ok")]
                       ),
                       _vm._v(" "),
                       _c("v-spacer")
@@ -85325,7 +86549,7 @@ var routes = [{
   name: 'transactions',
   component: _views_Transaction_Transaction__WEBPACK_IMPORTED_MODULE_16__["default"],
   meta: {
-    role: ['Administrator']
+    role: ['Administrator', 'Cashier']
   },
   beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
 }, {
@@ -86190,6 +87414,17 @@ __webpack_require__.r(__webpack_exports__);
         url: url,
         data: data,
         method: 'patch'
+      });
+    } catch (err) {
+      throw err;
+    }
+  },
+  put: function put(url, data) {
+    try {
+      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.request({
+        url: url,
+        data: data,
+        method: 'put'
       });
     } catch (err) {
       throw err;
@@ -88500,36 +89735,72 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     return update;
   }(),
-  delete: function () {
-    var _delete2 = _asyncToGenerator(
+  payment: function () {
+    var _payment = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id) {
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id, payload) {
+      var res;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
             case 0:
               _context5.prev = 0;
               _context5.next = 3;
-              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].delete("/api/transactions/".concat(id));
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].put("/api/payment/".concat(id), payload);
 
             case 3:
-              _context5.next = 8;
-              break;
+              res = _context5.sent;
+              return _context5.abrupt("return", res.data.data);
 
-            case 5:
-              _context5.prev = 5;
+            case 7:
+              _context5.prev = 7;
               _context5.t0 = _context5["catch"](0);
-              throw new Error('Gagal hapus data transaction');
+              throw new Error('Gagal update data transaction!');
 
-            case 8:
+            case 10:
             case "end":
               return _context5.stop();
           }
         }
-      }, _callee5, this, [[0, 5]]);
+      }, _callee5, this, [[0, 7]]);
     }));
 
-    function _delete(_x5) {
+    function payment(_x5, _x6) {
+      return _payment.apply(this, arguments);
+    }
+
+    return payment;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.prev = 0;
+              _context6.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].delete("/api/transactions/".concat(id));
+
+            case 3:
+              _context6.next = 8;
+              break;
+
+            case 5:
+              _context6.prev = 5;
+              _context6.t0 = _context6["catch"](0);
+              throw new Error('Gagal hapus data transaction');
+
+            case 8:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, this, [[0, 5]]);
+    }));
+
+    function _delete(_x7) {
       return _delete2.apply(this, arguments);
     }
 
@@ -92507,36 +93778,77 @@ var actions = {
 
     return update;
   }(),
-  delete: function () {
-    var _delete2 = _asyncToGenerator(
+  payment: function () {
+    var _payment = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, id) {
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, payload) {
+      var data;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
             case 0:
               _context5.prev = 0;
-              _context5.next = 3;
-              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+              data = {
+                transaction_total: payload.total,
+                transaction_discount: payload.discount
+              };
+              _context5.next = 4;
+              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].payment(payload.id_transaction, data);
 
-            case 3:
-              _context5.next = 8;
+            case 4:
+              state.loading = false;
+              _context5.next = 10;
               break;
 
-            case 5:
-              _context5.prev = 5;
+            case 7:
+              _context5.prev = 7;
               _context5.t0 = _context5["catch"](0);
               context.commit('setFailedAction', _context5.t0);
 
-            case 8:
+            case 10:
             case "end":
               return _context5.stop();
           }
         }
-      }, _callee5, this, [[0, 5]]);
+      }, _callee5, this, [[0, 7]]);
     }));
 
-    function _delete(_x8, _x9) {
+    function payment(_x8, _x9) {
+      return _payment.apply(this, arguments);
+    }
+
+    return payment;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.prev = 0;
+              _context6.next = 3;
+              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+
+            case 3:
+              _context6.next = 8;
+              break;
+
+            case 5:
+              _context6.prev = 5;
+              _context6.t0 = _context6["catch"](0);
+              context.commit('setFailedAction', _context6.t0);
+
+            case 8:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, this, [[0, 5]]);
+    }));
+
+    function _delete(_x10, _x11) {
       return _delete2.apply(this, arguments);
     }
 
