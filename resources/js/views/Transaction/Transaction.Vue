@@ -292,9 +292,9 @@
                       class="pa-1"
                       v-model="payment.discount"
                       required
-                      @change="calculateDiscount(),$v.form.discount.$touch()"
+                      @change="calculateDiscount(),$v.payment.discount.$touch()"
                       :error-messages="discountErrors"
-                      @blur="$v.form.discount.$touch()"
+                      @blur="$v.payment.discount.$touch()"
                     />
                 </VFlex>
                 <VFlex sm6>
@@ -305,7 +305,7 @@
                       required
                       @change="calculateChange()"
                       :error-messages="payamountErrors"
-                      @input="$v.form.payamount.$touch()"
+                      @input="$v.payment.payamount.$touch()"
                     />
                 </VFlex>
               </VLayout>
@@ -318,6 +318,7 @@
                     depressed
                     color="success"
                     @click="paymentProcess()"
+                    :disabled="$v.payment.$invalid"
                   >
                     Konfirmasi Pembayarann
                   </VBtn>
@@ -374,7 +375,7 @@
 <script>
 import TransactionControl from '../../components/Renderless/TransactionControl'
 import transactionService from '../../service/Transaction'
-import { required, maxLength, numeric, sameAs, not} from 'vuelidate/lib/validators'
+import { required,maxLength,numeric} from 'vuelidate/lib/validators'
 import { mapActions,mapState,mapGetters } from 'vuex'
 
 function payMinimal(){

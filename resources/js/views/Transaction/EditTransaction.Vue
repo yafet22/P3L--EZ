@@ -35,6 +35,8 @@
                             label="Nama"
                             class="pa-1"
                             v-model="customer.customer_name"
+                            :error-messages="customerNameErrors"
+                            @input="$v.customer.customer_name.$touch()"
                             required
                         />
                         </VFlex>
@@ -46,6 +48,8 @@
                             class="pa-1"
                             v-model="customer.customer_address"
                             :disabled="!switchnewcustomer"
+                            :error-messages="customerAddressErrors"
+                            @input="$v.customer.customer_address.$touch()"
                             required
                         />
                         </VFlex>
@@ -57,6 +61,8 @@
                             class="pa-1"
                             v-model="customer.customer_phone_number"
                             :disabled="!switchnewcustomer"
+                            :error-messages="customerPhoneNumberErrors"
+                            @input="$v.customer.customer_phone_number.$touch()"
                             required
                         />
                         </VFlex>
@@ -344,6 +350,8 @@
                                 item-value="id_service"
                                 :items="services"
                                 :return-object="false"
+                                :error-messages="serviceNameErrors"
+                                @input="$v.service.id_service.$touch()"
                                 required
                             ></v-select>
                             </VFlex>
@@ -356,6 +364,8 @@
                                 item-value="id_motorcycle"
                                 :items="motorcycles"
                                 :return-object="false"
+                                :error-messages="serviceMotorErrors"
+                                @input="$v.service.id_motorcycle.$touch()"
                                 required
                             ></v-select>
                             </VFlex>
@@ -368,6 +378,8 @@
                                 item-value="id_employee"
                                 :items="mechanic"
                                 :return-object="false"
+                                :error-messages="serviceMechanicErrorsErrors"
+                                @input="$v.service.id_employee.$touch()"
                                 required
                             ></v-select>
                             </VFlex>
@@ -380,6 +392,7 @@
                                 depressed
                                 color="success"
                                 @click="submitService"
+                                :disabled="$v.service.$invalid"
                             >
                                 <v-icon>check_box</v-icon>
                             </VBtn>
@@ -567,6 +580,8 @@
                                 item-value="id_sparepart_type"
                                 :items="sparepartTypes"
                                 :return-object="false"
+                                :error-messages="sparepartTypeErrors"
+                                @input="$v.sparepart.id_sparepart_type.$touch()"
                                 required
                             ></v-select>
                             </VFlex>
@@ -579,6 +594,8 @@
                                 item-value="id_sparepart"
                                 :items="filterSparepart"
                                 :return-object="false"
+                                :error-messages="sparepartMerkErrors"
+                                @input="$v.sparepart.id_sparepart.$touch()"
                                 required
                             ></v-select>
                             </VFlex>
@@ -587,6 +604,8 @@
                                 v-model="sparepart.detail_sparepart_amount"
                                 class="pa-1"
                                 label="Jumlah"
+                                :error-messages="sparepartAmountErrors"
+                                @input="$v.sparepart.detail_sparepart_amount.$touch()"
                                 required
                               ></v-text-field>
                             </VFlex>
@@ -623,6 +642,7 @@
                                 depressed
                                 color="success"
                                 @click="submitSparepart"
+                                :disabled="$v.sparepart.$invalid"
                             >
                                 <v-icon>check_box</v-icon>
                             </VBtn>
@@ -783,6 +803,8 @@
                                 item-value="id_service"
                                 :items="services"
                                 :return-object="false"
+                                :error-messages="serviceNameErrors"
+                                @input="$v.service.id_service.$touch()"
                                 required
                             ></v-select>
                             </VFlex>
@@ -795,6 +817,8 @@
                                 item-value="id_motorcycle"
                                 :items="motorcycles"
                                 :return-object="false"
+                                :error-messages="serviceMotorErrors"
+                                @input="$v.service.id_motorcycle.$touch()"
                                 required
                             ></v-select>
                             </VFlex>
@@ -807,6 +831,8 @@
                                 item-value="id_employee"
                                 :items="mechanic"
                                 :return-object="false"
+                                :error-messages="serviceMechanicErrorsErrors"
+                                @input="$v.service.id_employee.$touch()"
                                 required
                             ></v-select>
                             </VFlex>
@@ -819,6 +845,7 @@
                                 depressed
                                 color="success"
                                 @click="submitService"
+                                :disabled="$v.service.$invalid"
                             >
                                 <v-icon>check_box</v-icon>
                             </VBtn>
@@ -995,6 +1022,8 @@
                                 item-value="id_sparepart_type"
                                 :items="sparepartTypes"
                                 :return-object="false"
+                                :error-messages="sparepartTypeErrors"
+                                @input="$v.sparepart.id_sparepart_type.$touch()"
                                 required
                             ></v-select>
                             </VFlex>
@@ -1007,6 +1036,8 @@
                                 item-value="id_sparepart"
                                 :items="filterSparepart"
                                 :return-object="false"
+                                :error-messages="sparepartMerkErrors"
+                                @input="$v.sparepart.id_sparepart.$touch()"
                                 required
                             ></v-select>
                             </VFlex>
@@ -1015,6 +1046,8 @@
                                 v-model="sparepart.detail_sparepart_amount"
                                 class="pa-1"
                                 label="Jumlah"
+                                :error-messages="sparepartAmountErrors"
+                                @input="$v.sparepart.detail_sparepart_amount.$touch()"
                                 required
                               ></v-text-field>
                             </VFlex>
@@ -1051,6 +1084,7 @@
                                 depressed
                                 color="success"
                                 @click="submitSparepart"
+                                :disabled="$v.sparepart.$invalid"
                             >
                                 <v-icon>check_box</v-icon>
                             </VBtn>
@@ -1140,11 +1174,29 @@
 
 <script>
 import MotorcycleForm from '../../components/Form/MotorcycleForm'
+import { required,maxLength,numeric} from 'vuelidate/lib/validators'
 import { mapGetters,mapState, mapActions } from 'vuex';
 
 export default {
   components: {
       MotorcycleForm
+  },
+  validations: {
+    customer : {
+      customer_name: { required },
+      customer_address : { required },
+      customer_phone_number : {required }
+    },
+    sparepart: {
+        id_sparepart_type: { required },
+        id_sparepart: { required },
+        detail_sparepart_amount: { required,numeric }
+    },
+    service: {
+        id_service: { required },
+        id_employee: { required },
+        id_motorcycle: { required },
+    },
   },
   data () {
     return {
@@ -1340,7 +1392,99 @@ export default {
     filterSparepart(){
         let filter = this.spareparts.filter( b => b.id_sparepart_type === this.sparepart.id_sparepart_type)
         return filter
-    }
+    },
+
+    customerNameErrors () {
+      const errors = []
+
+      if (!this.$v.customer.customer_name.$dirty) return errors 
+     
+      !this.$v.customer.customer_name.required && errors.push('Nama Customer tidak boleh kosong')
+
+      return errors
+    },
+
+    customerAddressErrors () {
+      const errors = []
+
+      if (!this.$v.customer.customer_address.$dirty) return errors 
+     
+      !this.$v.customer.customer_address.required && errors.push('Alamat Customer tidak boleh kosong')
+
+      return errors
+    },
+
+    customerPhoneNumberErrors () {
+      const errors = []
+
+      if (!this.$v.customer.customer_phone_number.$dirty) return errors 
+     
+      !this.$v.customer.customer_phone_number.required && errors.push('Nomor HP Customer tidak boleh kosong')
+
+      return errors
+    },
+
+    sparepartTypeErrors () {
+      const errors = []
+
+      if (!this.$v.sparepart.id_sparepart_type.$dirty) return errors 
+     
+      !this.$v.sparepart.id_sparepart_type.required && errors.push('Sparepart type tidak boleh kosong')
+
+      return errors
+    },
+
+    sparepartMerkErrors () {
+      const errors = []
+
+      if (!this.$v.sparepart.id_sparepart.$dirty) return errors 
+     
+      !this.$v.sparepart.id_sparepart.required && errors.push('Merk sparepart tidak boleh kosong')
+
+      return errors
+    },
+
+    sparepartAmountErrors () {
+      const errors = []
+
+      if (!this.$v.sparepart.detail_sparepart_amount.$dirty) return errors 
+
+      !this.$v.sparepart.detail_sparepart_amount.numeric && errors.push('Input jumlah tidak valid')
+
+      !this.$v.sparepart.detail_sparepart_amount.required && errors.push('Merk sparepart tidak boleh kosong')
+
+      return errors
+    },
+
+    serviceNameErrors () {
+      const errors = []
+
+      if (!this.$v.service.id_service.$dirty) return errors 
+     
+      !this.$v.service.id_service.required && errors.push('jasa service tidak boleh kosong')
+
+      return errors
+    },
+
+    serviceMotorErrors () {
+      const errors = []
+
+      if (!this.$v.service.id_motorcycle.$dirty) return errors 
+     
+      !this.$v.service.id_motorcycle.required && errors.push('Motor tidak boleh kosong')
+
+      return errors
+    },
+
+    serviceMechanicErrors () {
+      const errors = []
+
+      if (!this.$v.service.id_employee.$dirty) return errors 
+     
+      !this.$v.service.id_employee.required && errors.push('Mechanic tidak boleh kosong')
+
+      return errors
+    },
   },  
 
   methods: {

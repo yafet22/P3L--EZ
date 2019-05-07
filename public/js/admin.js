@@ -11315,7 +11315,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Form_MotorcycleForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Form/MotorcycleForm */ "./resources/js/components/Form/MotorcycleForm.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -12466,11 +12468,85 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     MotorcycleForm: _components_Form_MotorcycleForm__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  validations: {
+    customer: {
+      customer_name: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"]
+      },
+      customer_address: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"]
+      },
+      customer_phone_number: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"]
+      }
+    },
+    sparepart: {
+      id_sparepart_type: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"]
+      },
+      id_sparepart: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"]
+      },
+      detail_sparepart_amount: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"],
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["numeric"]
+      }
+    },
+    service: {
+      id_service: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"]
+      },
+      id_employee: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"]
+      },
+      id_motorcycle: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"]
+      }
+    }
   },
   data: function data() {
     return {
@@ -12609,7 +12685,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }]
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])({
     customer: 'Customer/customer',
     transaction: 'Transaction/transaction',
     motorcycle: 'Motorcycle/motorcycle',
@@ -12618,7 +12694,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     sparepartTypeData: 'SparepartType/sparepartType',
     employee: 'Employee/employee',
     id_employee: 'LoggedUser/id'
-  }), Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
+  }), Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapState"])({
     customers: function customers(state) {
       return state.Customer.customers;
     },
@@ -12677,9 +12753,64 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return b.id_sparepart_type === _this2.sparepart.id_sparepart_type;
       });
       return filter;
+    },
+    customerNameErrors: function customerNameErrors() {
+      var errors = [];
+      if (!this.$v.customer.customer_name.$dirty) return errors;
+      !this.$v.customer.customer_name.required && errors.push('Nama Customer tidak boleh kosong');
+      return errors;
+    },
+    customerAddressErrors: function customerAddressErrors() {
+      var errors = [];
+      if (!this.$v.customer.customer_address.$dirty) return errors;
+      !this.$v.customer.customer_address.required && errors.push('Alamat Customer tidak boleh kosong');
+      return errors;
+    },
+    customerPhoneNumberErrors: function customerPhoneNumberErrors() {
+      var errors = [];
+      if (!this.$v.customer.customer_phone_number.$dirty) return errors;
+      !this.$v.customer.customer_phone_number.required && errors.push('Nomor HP Customer tidak boleh kosong');
+      return errors;
+    },
+    sparepartTypeErrors: function sparepartTypeErrors() {
+      var errors = [];
+      if (!this.$v.sparepart.id_sparepart_type.$dirty) return errors;
+      !this.$v.sparepart.id_sparepart_type.required && errors.push('Sparepart type tidak boleh kosong');
+      return errors;
+    },
+    sparepartMerkErrors: function sparepartMerkErrors() {
+      var errors = [];
+      if (!this.$v.sparepart.id_sparepart.$dirty) return errors;
+      !this.$v.sparepart.id_sparepart.required && errors.push('Merk sparepart tidak boleh kosong');
+      return errors;
+    },
+    sparepartAmountErrors: function sparepartAmountErrors() {
+      var errors = [];
+      if (!this.$v.sparepart.detail_sparepart_amount.$dirty) return errors;
+      !this.$v.sparepart.detail_sparepart_amount.numeric && errors.push('Input jumlah tidak valid');
+      !this.$v.sparepart.detail_sparepart_amount.required && errors.push('Merk sparepart tidak boleh kosong');
+      return errors;
+    },
+    serviceNameErrors: function serviceNameErrors() {
+      var errors = [];
+      if (!this.$v.service.id_service.$dirty) return errors;
+      !this.$v.service.id_service.required && errors.push('jasa service tidak boleh kosong');
+      return errors;
+    },
+    serviceMotorErrors: function serviceMotorErrors() {
+      var errors = [];
+      if (!this.$v.service.id_motorcycle.$dirty) return errors;
+      !this.$v.service.id_motorcycle.required && errors.push('Motor tidak boleh kosong');
+      return errors;
+    },
+    serviceMechanicErrors: function serviceMechanicErrors() {
+      var errors = [];
+      if (!this.$v.service.id_employee.$dirty) return errors;
+      !this.$v.service.id_employee.required && errors.push('Mechanic tidak boleh kosong');
+      return errors;
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])({
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])({
     fetchCustomer: 'Customer/get',
     findCustomer: 'Customer/edit',
     findMotor: 'Motorcycle/findByUser',
@@ -13385,7 +13516,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Form_MotorcycleForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Form/MotorcycleForm */ "./resources/js/components/Form/MotorcycleForm.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -14536,11 +14669,82 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     MotorcycleForm: _components_Form_MotorcycleForm__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  validations: {
+    customer: {
+      customer_name: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"]
+      },
+      customer_address: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"]
+      },
+      customer_phone_number: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"]
+      }
+    },
+    sparepart: {
+      id_sparepart_type: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"]
+      },
+      id_sparepart: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"]
+      },
+      detail_sparepart_amount: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"],
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["numeric"]
+      }
+    },
+    service: {
+      id_service: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"]
+      },
+      id_employee: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"]
+      },
+      id_motorcycle: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"]
+      }
+    }
   },
   data: function data() {
     return {
@@ -14679,7 +14883,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }]
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])({
     customer: 'Customer/customer',
     transaction: 'Transaction/transaction',
     motorcycle: 'Motorcycle/motorcycle',
@@ -14688,7 +14892,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     sparepartTypeData: 'SparepartType/sparepartType',
     employee: 'Employee/employee',
     id_employee: 'LoggedUser/id'
-  }), Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
+  }), Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapState"])({
     customers: function customers(state) {
       return state.Customer.customers;
     },
@@ -14747,9 +14951,64 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return b.id_sparepart_type === _this2.sparepart.id_sparepart_type;
       });
       return filter;
+    },
+    customerNameErrors: function customerNameErrors() {
+      var errors = [];
+      if (!this.$v.customer.customer_name.$dirty) return errors;
+      !this.$v.customer.customer_name.required && errors.push('Nama Customer tidak boleh kosong');
+      return errors;
+    },
+    customerAddressErrors: function customerAddressErrors() {
+      var errors = [];
+      if (!this.$v.customer.customer_address.$dirty) return errors;
+      !this.$v.customer.customer_address.required && errors.push('Alamat Customer tidak boleh kosong');
+      return errors;
+    },
+    customerPhoneNumberErrors: function customerPhoneNumberErrors() {
+      var errors = [];
+      if (!this.$v.customer.customer_phone_number.$dirty) return errors;
+      !this.$v.customer.customer_phone_number.required && errors.push('Nomor HP Customer tidak boleh kosong');
+      return errors;
+    },
+    sparepartTypeErrors: function sparepartTypeErrors() {
+      var errors = [];
+      if (!this.$v.sparepart.id_sparepart_type.$dirty) return errors;
+      !this.$v.sparepart.id_sparepart_type.required && errors.push('Sparepart type tidak boleh kosong');
+      return errors;
+    },
+    sparepartMerkErrors: function sparepartMerkErrors() {
+      var errors = [];
+      if (!this.$v.sparepart.id_sparepart.$dirty) return errors;
+      !this.$v.sparepart.id_sparepart.required && errors.push('Merk sparepart tidak boleh kosong');
+      return errors;
+    },
+    sparepartAmountErrors: function sparepartAmountErrors() {
+      var errors = [];
+      if (!this.$v.sparepart.detail_sparepart_amount.$dirty) return errors;
+      !this.$v.sparepart.detail_sparepart_amount.numeric && errors.push('Input jumlah tidak valid');
+      !this.$v.sparepart.detail_sparepart_amount.required && errors.push('Merk sparepart tidak boleh kosong');
+      return errors;
+    },
+    serviceNameErrors: function serviceNameErrors() {
+      var errors = [];
+      if (!this.$v.service.id_service.$dirty) return errors;
+      !this.$v.service.id_service.required && errors.push('jasa service tidak boleh kosong');
+      return errors;
+    },
+    serviceMotorErrors: function serviceMotorErrors() {
+      var errors = [];
+      if (!this.$v.service.id_motorcycle.$dirty) return errors;
+      !this.$v.service.id_motorcycle.required && errors.push('Motor tidak boleh kosong');
+      return errors;
+    },
+    serviceMechanicErrors: function serviceMechanicErrors() {
+      var errors = [];
+      if (!this.$v.service.id_employee.$dirty) return errors;
+      !this.$v.service.id_employee.required && errors.push('Mechanic tidak boleh kosong');
+      return errors;
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])({
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])({
     fetchCustomer: 'Customer/get',
     findCustomer: 'Customer/edit',
     findMotor: 'Motorcycle/findByUser',
@@ -15499,6 +15758,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
 //
 //
 //
@@ -30661,7 +30921,14 @@ var render = function() {
                                             staticClass: "pa-1",
                                             attrs: {
                                               label: "Nama",
+                                              "error-messages":
+                                                _vm.customerNameErrors,
                                               required: ""
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                return _vm.$v.customer.customer_name.$touch()
+                                              }
                                             },
                                             model: {
                                               value: _vm.customer.customer_name,
@@ -30694,7 +30961,14 @@ var render = function() {
                                         attrs: {
                                           label: "Alamat",
                                           disabled: !_vm.switchnewcustomer,
+                                          "error-messages":
+                                            _vm.customerAddressErrors,
                                           required: ""
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            return _vm.$v.customer.customer_address.$touch()
+                                          }
                                         },
                                         model: {
                                           value: _vm.customer.customer_address,
@@ -30727,7 +31001,14 @@ var render = function() {
                                         attrs: {
                                           label: "No Telepon",
                                           disabled: !_vm.switchnewcustomer,
+                                          "error-messages":
+                                            _vm.customerPhoneNumberErrors,
                                           required: ""
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            return _vm.$v.customer.customer_phone_number.$touch()
+                                          }
                                         },
                                         model: {
                                           value:
@@ -31733,7 +32014,16 @@ var render = function() {
                                                                   items:
                                                                     _vm.services,
                                                                   "return-object": false,
+                                                                  "error-messages":
+                                                                    _vm.serviceNameErrors,
                                                                   required: ""
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.$v.service.id_service.$touch()
+                                                                  }
                                                                 },
                                                                 model: {
                                                                   value:
@@ -31775,7 +32065,16 @@ var render = function() {
                                                                   items:
                                                                     _vm.motorcycles,
                                                                   "return-object": false,
+                                                                  "error-messages":
+                                                                    _vm.serviceMotorErrors,
                                                                   required: ""
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.$v.service.id_motorcycle.$touch()
+                                                                  }
                                                                 },
                                                                 model: {
                                                                   value:
@@ -31817,7 +32116,16 @@ var render = function() {
                                                                   items:
                                                                     _vm.mechanic,
                                                                   "return-object": false,
+                                                                  "error-messages":
+                                                                    _vm.serviceMechanicErrorsErrors,
                                                                   required: ""
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.$v.service.id_employee.$touch()
+                                                                  }
                                                                 },
                                                                 model: {
                                                                   value:
@@ -31857,7 +32165,11 @@ var render = function() {
                                                                     depressed:
                                                                       "",
                                                                     color:
-                                                                      "success"
+                                                                      "success",
+                                                                    disabled:
+                                                                      _vm.$v
+                                                                        .service
+                                                                        .$invalid
                                                                   },
                                                                   on: {
                                                                     click:
@@ -31960,7 +32272,7 @@ var render = function() {
                                   ],
                                   null,
                                   false,
-                                  3491980816
+                                  2936206669
                                 )
                               })
                             ],
@@ -31975,7 +32287,13 @@ var render = function() {
                               _c(
                                 "VBtn",
                                 {
-                                  attrs: { depressed: "", color: "success" },
+                                  attrs: {
+                                    depressed: "",
+                                    color: "success",
+                                    disabled:
+                                      _vm.$v.customer.$invalid ||
+                                      _vm.transaction.service.length == 0
+                                  },
                                   on: { click: _vm.submitTransaksi }
                                 },
                                 [
@@ -32509,7 +32827,16 @@ var render = function() {
                                                                 items:
                                                                   _vm.sparepartTypes,
                                                                 "return-object": false,
+                                                                "error-messages":
+                                                                  _vm.sparepartTypeErrors,
                                                                 required: ""
+                                                              },
+                                                              on: {
+                                                                input: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.$v.sparepart.id_sparepart_type.$touch()
+                                                                }
                                                               },
                                                               model: {
                                                                 value:
@@ -32550,7 +32877,16 @@ var render = function() {
                                                                 items:
                                                                   _vm.filterSparepart,
                                                                 "return-object": false,
+                                                                "error-messages":
+                                                                  _vm.sparepartMerkErrors,
                                                                 required: ""
+                                                              },
+                                                              on: {
+                                                                input: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.$v.sparepart.id_sparepart.$touch()
+                                                                }
                                                               },
                                                               model: {
                                                                 value:
@@ -32584,7 +32920,16 @@ var render = function() {
                                                                 "pa-1",
                                                               attrs: {
                                                                 label: "Jumlah",
+                                                                "error-messages":
+                                                                  _vm.sparepartAmountErrors,
                                                                 required: ""
+                                                              },
+                                                              on: {
+                                                                input: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.$v.sparepart.detail_sparepart_amount.$touch()
+                                                                }
                                                               },
                                                               model: {
                                                                 value:
@@ -32706,7 +33051,11 @@ var render = function() {
                                                                   icon: "",
                                                                   depressed: "",
                                                                   color:
-                                                                    "success"
+                                                                    "success",
+                                                                  disabled:
+                                                                    _vm.$v
+                                                                      .sparepart
+                                                                      .$invalid
                                                                 },
                                                                 on: {
                                                                   click:
@@ -32816,7 +33165,13 @@ var render = function() {
                               _c(
                                 "VBtn",
                                 {
-                                  attrs: { depressed: "", color: "success" },
+                                  attrs: {
+                                    depressed: "",
+                                    color: "success",
+                                    disabled:
+                                      _vm.$v.customer.$invalid ||
+                                      _vm.transaction.sparepart.length == 0
+                                  },
                                   on: { click: _vm.submitTransaksi }
                                 },
                                 [
@@ -33234,7 +33589,16 @@ var render = function() {
                                                                   items:
                                                                     _vm.services,
                                                                   "return-object": false,
+                                                                  "error-messages":
+                                                                    _vm.serviceNameErrors,
                                                                   required: ""
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.$v.service.id_service.$touch()
+                                                                  }
                                                                 },
                                                                 model: {
                                                                   value:
@@ -33276,7 +33640,16 @@ var render = function() {
                                                                   items:
                                                                     _vm.motorcycles,
                                                                   "return-object": false,
+                                                                  "error-messages":
+                                                                    _vm.serviceMotorErrors,
                                                                   required: ""
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.$v.service.id_motorcycle.$touch()
+                                                                  }
                                                                 },
                                                                 model: {
                                                                   value:
@@ -33318,7 +33691,16 @@ var render = function() {
                                                                   items:
                                                                     _vm.mechanic,
                                                                   "return-object": false,
+                                                                  "error-messages":
+                                                                    _vm.serviceMechanicErrorsErrors,
                                                                   required: ""
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.$v.service.id_employee.$touch()
+                                                                  }
                                                                 },
                                                                 model: {
                                                                   value:
@@ -33358,7 +33740,11 @@ var render = function() {
                                                                     depressed:
                                                                       "",
                                                                     color:
-                                                                      "success"
+                                                                      "success",
+                                                                    disabled:
+                                                                      _vm.$v
+                                                                        .service
+                                                                        .$invalid
                                                                   },
                                                                   on: {
                                                                     click:
@@ -33461,7 +33847,7 @@ var render = function() {
                                   ],
                                   null,
                                   false,
-                                  3491980816
+                                  2936206669
                                 )
                               })
                             ],
@@ -34006,7 +34392,16 @@ var render = function() {
                                                                   items:
                                                                     _vm.sparepartTypes,
                                                                   "return-object": false,
+                                                                  "error-messages":
+                                                                    _vm.sparepartTypeErrors,
                                                                   required: ""
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.$v.sparepart.id_sparepart_type.$touch()
+                                                                  }
                                                                 },
                                                                 model: {
                                                                   value:
@@ -34048,7 +34443,16 @@ var render = function() {
                                                                   items:
                                                                     _vm.filterSparepart,
                                                                   "return-object": false,
+                                                                  "error-messages":
+                                                                    _vm.sparepartMerkErrors,
                                                                   required: ""
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.$v.sparepart.id_sparepart.$touch()
+                                                                  }
                                                                 },
                                                                 model: {
                                                                   value:
@@ -34086,7 +34490,16 @@ var render = function() {
                                                                   attrs: {
                                                                     label:
                                                                       "Jumlah",
+                                                                    "error-messages":
+                                                                      _vm.sparepartAmountErrors,
                                                                     required: ""
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$v.sparepart.detail_sparepart_amount.$touch()
+                                                                    }
                                                                   },
                                                                   model: {
                                                                     value:
@@ -34214,7 +34627,11 @@ var render = function() {
                                                                     depressed:
                                                                       "",
                                                                     color:
-                                                                      "success"
+                                                                      "success",
+                                                                    disabled:
+                                                                      _vm.$v
+                                                                        .sparepart
+                                                                        .$invalid
                                                                   },
                                                                   on: {
                                                                     click:
@@ -34317,7 +34734,7 @@ var render = function() {
                                   ],
                                   null,
                                   false,
-                                  2932161457
+                                  2130552985
                                 )
                               })
                             ],
@@ -34332,7 +34749,14 @@ var render = function() {
                               _c(
                                 "VBtn",
                                 {
-                                  attrs: { depressed: "", color: "success" },
+                                  attrs: {
+                                    depressed: "",
+                                    color: "success",
+                                    disabled:
+                                      _vm.$v.customer.$invalid ||
+                                      _vm.transaction.service.length == 0 ||
+                                      _vm.transaction.sparepart.length == 0
+                                  },
                                   on: { click: _vm.submitTransaksi }
                                 },
                                 [
@@ -34651,7 +35075,14 @@ var render = function() {
                                             staticClass: "pa-1",
                                             attrs: {
                                               label: "Nama",
+                                              "error-messages":
+                                                _vm.customerNameErrors,
                                               required: ""
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                return _vm.$v.customer.customer_name.$touch()
+                                              }
                                             },
                                             model: {
                                               value: _vm.customer.customer_name,
@@ -34684,7 +35115,14 @@ var render = function() {
                                         attrs: {
                                           label: "Alamat",
                                           disabled: !_vm.switchnewcustomer,
+                                          "error-messages":
+                                            _vm.customerAddressErrors,
                                           required: ""
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            return _vm.$v.customer.customer_address.$touch()
+                                          }
                                         },
                                         model: {
                                           value: _vm.customer.customer_address,
@@ -34717,7 +35155,14 @@ var render = function() {
                                         attrs: {
                                           label: "No Telepon",
                                           disabled: !_vm.switchnewcustomer,
+                                          "error-messages":
+                                            _vm.customerPhoneNumberErrors,
                                           required: ""
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            return _vm.$v.customer.customer_phone_number.$touch()
+                                          }
                                         },
                                         model: {
                                           value:
@@ -35723,7 +36168,16 @@ var render = function() {
                                                                   items:
                                                                     _vm.services,
                                                                   "return-object": false,
+                                                                  "error-messages":
+                                                                    _vm.serviceNameErrors,
                                                                   required: ""
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.$v.service.id_service.$touch()
+                                                                  }
                                                                 },
                                                                 model: {
                                                                   value:
@@ -35765,7 +36219,16 @@ var render = function() {
                                                                   items:
                                                                     _vm.motorcycles,
                                                                   "return-object": false,
+                                                                  "error-messages":
+                                                                    _vm.serviceMotorErrors,
                                                                   required: ""
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.$v.service.id_motorcycle.$touch()
+                                                                  }
                                                                 },
                                                                 model: {
                                                                   value:
@@ -35807,7 +36270,16 @@ var render = function() {
                                                                   items:
                                                                     _vm.mechanic,
                                                                   "return-object": false,
+                                                                  "error-messages":
+                                                                    _vm.serviceMechanicErrorsErrors,
                                                                   required: ""
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.$v.service.id_employee.$touch()
+                                                                  }
                                                                 },
                                                                 model: {
                                                                   value:
@@ -35847,7 +36319,11 @@ var render = function() {
                                                                     depressed:
                                                                       "",
                                                                     color:
-                                                                      "success"
+                                                                      "success",
+                                                                    disabled:
+                                                                      _vm.$v
+                                                                        .service
+                                                                        .$invalid
                                                                   },
                                                                   on: {
                                                                     click:
@@ -35950,7 +36426,7 @@ var render = function() {
                                   ],
                                   null,
                                   false,
-                                  3491980816
+                                  2936206669
                                 )
                               })
                             ],
@@ -36499,7 +36975,16 @@ var render = function() {
                                                                 items:
                                                                   _vm.sparepartTypes,
                                                                 "return-object": false,
+                                                                "error-messages":
+                                                                  _vm.sparepartTypeErrors,
                                                                 required: ""
+                                                              },
+                                                              on: {
+                                                                input: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.$v.sparepart.id_sparepart_type.$touch()
+                                                                }
                                                               },
                                                               model: {
                                                                 value:
@@ -36540,7 +37025,16 @@ var render = function() {
                                                                 items:
                                                                   _vm.filterSparepart,
                                                                 "return-object": false,
+                                                                "error-messages":
+                                                                  _vm.sparepartMerkErrors,
                                                                 required: ""
+                                                              },
+                                                              on: {
+                                                                input: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.$v.sparepart.id_sparepart.$touch()
+                                                                }
                                                               },
                                                               model: {
                                                                 value:
@@ -36574,7 +37068,16 @@ var render = function() {
                                                                 "pa-1",
                                                               attrs: {
                                                                 label: "Jumlah",
+                                                                "error-messages":
+                                                                  _vm.sparepartAmountErrors,
                                                                 required: ""
+                                                              },
+                                                              on: {
+                                                                input: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.$v.sparepart.detail_sparepart_amount.$touch()
+                                                                }
                                                               },
                                                               model: {
                                                                 value:
@@ -36696,7 +37199,11 @@ var render = function() {
                                                                   icon: "",
                                                                   depressed: "",
                                                                   color:
-                                                                    "success"
+                                                                    "success",
+                                                                  disabled:
+                                                                    _vm.$v
+                                                                      .sparepart
+                                                                      .$invalid
                                                                 },
                                                                 on: {
                                                                   click:
@@ -37224,7 +37731,16 @@ var render = function() {
                                                                   items:
                                                                     _vm.services,
                                                                   "return-object": false,
+                                                                  "error-messages":
+                                                                    _vm.serviceNameErrors,
                                                                   required: ""
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.$v.service.id_service.$touch()
+                                                                  }
                                                                 },
                                                                 model: {
                                                                   value:
@@ -37266,7 +37782,16 @@ var render = function() {
                                                                   items:
                                                                     _vm.motorcycles,
                                                                   "return-object": false,
+                                                                  "error-messages":
+                                                                    _vm.serviceMotorErrors,
                                                                   required: ""
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.$v.service.id_motorcycle.$touch()
+                                                                  }
                                                                 },
                                                                 model: {
                                                                   value:
@@ -37308,7 +37833,16 @@ var render = function() {
                                                                   items:
                                                                     _vm.mechanic,
                                                                   "return-object": false,
+                                                                  "error-messages":
+                                                                    _vm.serviceMechanicErrorsErrors,
                                                                   required: ""
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.$v.service.id_employee.$touch()
+                                                                  }
                                                                 },
                                                                 model: {
                                                                   value:
@@ -37348,7 +37882,11 @@ var render = function() {
                                                                     depressed:
                                                                       "",
                                                                     color:
-                                                                      "success"
+                                                                      "success",
+                                                                    disabled:
+                                                                      _vm.$v
+                                                                        .service
+                                                                        .$invalid
                                                                   },
                                                                   on: {
                                                                     click:
@@ -37451,7 +37989,7 @@ var render = function() {
                                   ],
                                   null,
                                   false,
-                                  3491980816
+                                  2936206669
                                 )
                               })
                             ],
@@ -37996,7 +38534,16 @@ var render = function() {
                                                                   items:
                                                                     _vm.sparepartTypes,
                                                                   "return-object": false,
+                                                                  "error-messages":
+                                                                    _vm.sparepartTypeErrors,
                                                                   required: ""
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.$v.sparepart.id_sparepart_type.$touch()
+                                                                  }
                                                                 },
                                                                 model: {
                                                                   value:
@@ -38038,7 +38585,16 @@ var render = function() {
                                                                   items:
                                                                     _vm.filterSparepart,
                                                                   "return-object": false,
+                                                                  "error-messages":
+                                                                    _vm.sparepartMerkErrors,
                                                                   required: ""
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.$v.sparepart.id_sparepart.$touch()
+                                                                  }
                                                                 },
                                                                 model: {
                                                                   value:
@@ -38076,7 +38632,16 @@ var render = function() {
                                                                   attrs: {
                                                                     label:
                                                                       "Jumlah",
+                                                                    "error-messages":
+                                                                      _vm.sparepartAmountErrors,
                                                                     required: ""
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$v.sparepart.detail_sparepart_amount.$touch()
+                                                                    }
                                                                   },
                                                                   model: {
                                                                     value:
@@ -38204,7 +38769,11 @@ var render = function() {
                                                                     depressed:
                                                                       "",
                                                                     color:
-                                                                      "success"
+                                                                      "success",
+                                                                    disabled:
+                                                                      _vm.$v
+                                                                        .sparepart
+                                                                        .$invalid
                                                                   },
                                                                   on: {
                                                                     click:
@@ -38307,7 +38876,7 @@ var render = function() {
                                   ],
                                   null,
                                   false,
-                                  2932161457
+                                  2130552985
                                 )
                               })
                             ],
@@ -39544,10 +40113,10 @@ var render = function() {
                                     on: {
                                       change: function($event) {
                                         _vm.calculateDiscount(),
-                                          _vm.$v.form.discount.$touch()
+                                          _vm.$v.payment.discount.$touch()
                                       },
                                       blur: function($event) {
-                                        return _vm.$v.form.discount.$touch()
+                                        return _vm.$v.payment.discount.$touch()
                                       }
                                     },
                                     model: {
@@ -39578,7 +40147,7 @@ var render = function() {
                                         return _vm.calculateChange()
                                       },
                                       input: function($event) {
-                                        return _vm.$v.form.payamount.$touch()
+                                        return _vm.$v.payment.payamount.$touch()
                                       }
                                     },
                                     model: {
@@ -39612,7 +40181,8 @@ var render = function() {
                                     {
                                       attrs: {
                                         depressed: "",
-                                        color: "success"
+                                        color: "success",
+                                        disabled: _vm.$v.payment.$invalid
                                       },
                                       on: {
                                         click: function($event) {

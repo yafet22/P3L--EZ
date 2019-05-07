@@ -25,6 +25,7 @@ class Detail_serviceTransformer extends TransformerAbstract
             'id_mechanic' => $detail_service->id_employee,
             'mechanic_name' => $detail_service->mechanics->name,
             'license_number' => $detail_service->motorcycles->license_number,
+            'id_motorcycle' => $detail_service->motorcycles->id_motorcycle,
         ];
     }
 }

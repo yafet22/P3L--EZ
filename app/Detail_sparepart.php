@@ -16,8 +16,7 @@ class Detail_sparepart extends Model
     'id_transaction',
     'id_sparepart',
     'id_employee',
-    'id_motorcycle',
-    'id_mechanic_onduty'];
+    'id_motorcycle'];
 
     protected $casts = [
         'detail_sparepart_amount' => 'integer',

@@ -16,8 +16,7 @@ class Detail_service extends Model
     'id_transaction',
     'id_service',
     'id_employee',
-    'id_motorcycle',
-    'id_mechanic_onduty'];
+    'id_motorcycle'];
 
     protected $casts = [
         'detail_service_amount' => 'integer',
