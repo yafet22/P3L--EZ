@@ -65,3 +65,4 @@ Route::get('detailService/{id}','TransactionController@showDetailService');
 Route::post('detailSparepart','TransactionController@storeDetailSparepart');
 Route::get('detailSparepart/{id}','TransactionController@showDetailSparepart');
 Route::put('payment/{id}','TransactionController@payment');
+Route::post('searchDetail','TransactionController@searchDetailService');

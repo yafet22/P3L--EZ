@@ -12505,6 +12505,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -12701,6 +12712,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     customerloading: function customerloading(state) {
       return state.Customer.loading;
     },
+    customererror: function customererror(state) {
+      return state.Customer.error;
+    },
     transactionloading: function transactionloading(state) {
       return state.Transaction.loading;
     },
@@ -12813,6 +12827,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])({
     fetchCustomer: 'Customer/get',
     findCustomer: 'Customer/edit',
+    storeCustomer: 'Customer/store',
     findMotor: 'Motorcycle/findByUser',
     storeMotor: 'Motorcycle/store',
     deleteMotor: 'Motorcycle/delete',
@@ -13407,6 +13422,47 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       return submitTransaksi;
     }(),
+    submitCustomer: function () {
+      var _submitCustomer = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee13() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee13$(_context13) {
+          while (1) {
+            switch (_context13.prev = _context13.next) {
+              case 0:
+                _context13.next = 2;
+                return this.storeCustomer(this.customer);
+
+              case 2:
+                if (this.customererror) {
+                  _context13.next = 8;
+                  break;
+                }
+
+                _context13.next = 5;
+                return this.fetchCustomer();
+
+              case 5:
+                _context13.next = 7;
+                return this.findCustomer(this.customer.id_customer);
+
+              case 7:
+                this.switchnewcustomer = false; // this.success=true
+
+              case 8:
+              case "end":
+                return _context13.stop();
+            }
+          }
+        }, _callee13, this);
+      }));
+
+      function submitCustomer() {
+        return _submitCustomer.apply(this, arguments);
+      }
+
+      return submitCustomer;
+    }(),
     bindData: function bindData(item) {
       this.motorcycle.license_number = item.license_number;
       this.motorcycle.id_motorcycle_brand = item.id_motorcycle_brand;
@@ -13451,37 +13507,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     submitMotor: function () {
       var _submitMotor = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee13(value) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee14(value) {
         var payload;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee13$(_context13) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee14$(_context14) {
           while (1) {
-            switch (_context13.prev = _context13.next) {
+            switch (_context14.prev = _context14.next) {
               case 0:
                 payload = {
                   license_number: value.license_number,
                   id_motorcycle_type: value.id_motorcycle_type,
                   id_customer: this.customer.id_customer
                 };
-                _context13.next = 3;
+                _context14.next = 3;
                 return this.storeMotor(payload);
 
               case 3:
                 if (this.motorError) {
-                  _context13.next = 8;
+                  _context14.next = 8;
                   break;
                 }
 
                 this.add = false;
                 this.hide = true;
-                _context13.next = 8;
+                _context14.next = 8;
                 return this.findMotor(this.customer.id_customer);
 
               case 8:
               case "end":
-                return _context13.stop();
+                return _context14.stop();
             }
           }
-        }, _callee13, this);
+        }, _callee14, this);
       }));
 
       function submitMotor(_x10) {
@@ -13529,8 +13585,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
 //
 //
 //
@@ -14899,6 +14953,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     customerloading: function customerloading(state) {
       return state.Customer.loading;
     },
+    customererror: function customererror(state) {
+      return state.Customer.error;
+    },
     transactionloading: function transactionloading(state) {
       return state.Transaction.loading;
     },
@@ -15011,6 +15068,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])({
     fetchCustomer: 'Customer/get',
     findCustomer: 'Customer/edit',
+    storeCustomer: 'Customer/store',
     findMotor: 'Motorcycle/findByUser',
     storeMotor: 'Motorcycle/store',
     deleteMotor: 'Motorcycle/delete',
@@ -15608,6 +15666,47 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       return submitTransaksi;
     }(),
+    submitCustomer: function () {
+      var _submitCustomer = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee13() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee13$(_context13) {
+          while (1) {
+            switch (_context13.prev = _context13.next) {
+              case 0:
+                _context13.next = 2;
+                return this.storeCustomer(this.customer);
+
+              case 2:
+                if (this.customererror) {
+                  _context13.next = 8;
+                  break;
+                }
+
+                _context13.next = 5;
+                return this.fetchCustomer();
+
+              case 5:
+                _context13.next = 7;
+                return this.findCustomer(this.customer.id_customer);
+
+              case 7:
+                this.switchnewcustomer = false; // this.success=true
+
+              case 8:
+              case "end":
+                return _context13.stop();
+            }
+          }
+        }, _callee13, this);
+      }));
+
+      function submitCustomer() {
+        return _submitCustomer.apply(this, arguments);
+      }
+
+      return submitCustomer;
+    }(),
     bindData: function bindData(item) {
       this.motorcycle.license_number = item.license_number;
       this.motorcycle.id_motorcycle_brand = item.id_motorcycle_brand;
@@ -15652,37 +15751,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     submitMotor: function () {
       var _submitMotor = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee13(value) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee14(value) {
         var payload;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee13$(_context13) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee14$(_context14) {
           while (1) {
-            switch (_context13.prev = _context13.next) {
+            switch (_context14.prev = _context14.next) {
               case 0:
                 payload = {
                   license_number: value.license_number,
                   id_motorcycle_type: value.id_motorcycle_type,
                   id_customer: this.transaction.id_customer
                 };
-                _context13.next = 3;
+                _context14.next = 3;
                 return this.storeMotor(payload);
 
               case 3:
                 if (this.motorError) {
-                  _context13.next = 8;
+                  _context14.next = 8;
                   break;
                 }
 
                 this.add = false;
                 this.hide = true;
-                _context13.next = 8;
+                _context14.next = 8;
                 return this.findMotor(this.transaction.id_customer);
 
               case 8:
               case "end":
-                return _context13.stop();
+                return _context14.stop();
             }
           }
-        }, _callee13, this);
+        }, _callee14, this);
       }));
 
       function submitMotor(_x10) {
@@ -15695,13 +15794,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function () {
     var _mounted = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee14() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee14$(_context14) {
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee15() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee15$(_context15) {
         while (1) {
-          switch (_context14.prev = _context14.next) {
+          switch (_context15.prev = _context15.next) {
             case 0:
               this.fetchCustomer();
-              _context14.next = 3;
+              _context15.next = 3;
               return this.fetchTransaction(this.$route.params.id);
 
             case 3:
@@ -15716,10 +15815,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
             case 11:
             case "end":
-              return _context14.stop();
+              return _context15.stop();
           }
         }
-      }, _callee14, this);
+      }, _callee15, this);
     }));
 
     function mounted() {
@@ -15758,8 +15857,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
 //
 //
 //
@@ -16308,6 +16405,7 @@ function payMinimal() {
       this.employees = transaction.employee.data;
       this.spareparts = transaction.sparepart.data;
       this.services = transaction.service.data;
+      console.log(this.services);
       this.employees.forEach(function (employee) {
         if (employee.id_role == 2 || employee.id_role == 1) {
           _this.cs = employee;
@@ -30843,209 +30941,7 @@ var render = function() {
             [
               _c(
                 "v-flex",
-                { attrs: { sm6: "" } },
-                [
-                  _c(
-                    "v-card",
-                    [
-                      _c(
-                        "v-card-title",
-                        {
-                          staticClass: "justify-center",
-                          attrs: { "primary-title": "" }
-                        },
-                        [
-                          _c("div", { staticClass: "headline" }, [
-                            _vm._v("DATA PELANGGAN")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-card-text",
-                        [
-                          _c("v-switch", {
-                            attrs: { label: "Pelanggan baru" },
-                            on: { change: _vm.resetcustomer },
-                            model: {
-                              value: _vm.switchnewcustomer,
-                              callback: function($$v) {
-                                _vm.switchnewcustomer = $$v
-                              },
-                              expression: "switchnewcustomer"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "v-form",
-                            [
-                              _c(
-                                "VLayout",
-                                [
-                                  _c(
-                                    "VFlex",
-                                    [
-                                      _vm.customerloading
-                                        ? _c("VProgressLinear", {
-                                            attrs: { indeterminate: "" }
-                                          })
-                                        : _vm._e(),
-                                      _vm._v(" "),
-                                      !_vm.switchnewcustomer
-                                        ? _c("v-autocomplete", {
-                                            staticClass: "pa-1",
-                                            attrs: {
-                                              items: _vm.customers,
-                                              "item-text": "customer_name",
-                                              "item-value": "id_customer",
-                                              label: "Nama"
-                                            },
-                                            on: {
-                                              change: function($event) {
-                                                return _vm.searchcustomer()
-                                              }
-                                            },
-                                            model: {
-                                              value: _vm.customer.id_customer,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  _vm.customer,
-                                                  "id_customer",
-                                                  $$v
-                                                )
-                                              },
-                                              expression: "customer.id_customer"
-                                            }
-                                          })
-                                        : _c("VTextField", {
-                                            staticClass: "pa-1",
-                                            attrs: {
-                                              label: "Nama",
-                                              "error-messages":
-                                                _vm.customerNameErrors,
-                                              required: ""
-                                            },
-                                            on: {
-                                              input: function($event) {
-                                                return _vm.$v.customer.customer_name.$touch()
-                                              }
-                                            },
-                                            model: {
-                                              value: _vm.customer.customer_name,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  _vm.customer,
-                                                  "customer_name",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "customer.customer_name"
-                                            }
-                                          })
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "VLayout",
-                                [
-                                  _c(
-                                    "VFlex",
-                                    [
-                                      _c("VTextField", {
-                                        staticClass: "pa-1",
-                                        attrs: {
-                                          label: "Alamat",
-                                          disabled: !_vm.switchnewcustomer,
-                                          "error-messages":
-                                            _vm.customerAddressErrors,
-                                          required: ""
-                                        },
-                                        on: {
-                                          input: function($event) {
-                                            return _vm.$v.customer.customer_address.$touch()
-                                          }
-                                        },
-                                        model: {
-                                          value: _vm.customer.customer_address,
-                                          callback: function($$v) {
-                                            _vm.$set(
-                                              _vm.customer,
-                                              "customer_address",
-                                              $$v
-                                            )
-                                          },
-                                          expression:
-                                            "customer.customer_address"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "VLayout",
-                                [
-                                  _c(
-                                    "VFlex",
-                                    [
-                                      _c("VTextField", {
-                                        staticClass: "pa-1",
-                                        attrs: {
-                                          label: "No Telepon",
-                                          disabled: !_vm.switchnewcustomer,
-                                          "error-messages":
-                                            _vm.customerPhoneNumberErrors,
-                                          required: ""
-                                        },
-                                        on: {
-                                          input: function($event) {
-                                            return _vm.$v.customer.customer_phone_number.$touch()
-                                          }
-                                        },
-                                        model: {
-                                          value:
-                                            _vm.customer.customer_phone_number,
-                                          callback: function($$v) {
-                                            _vm.$set(
-                                              _vm.customer,
-                                              "customer_phone_number",
-                                              $$v
-                                            )
-                                          },
-                                          expression:
-                                            "customer.customer_phone_number"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-flex",
-                { attrs: { sm6: "" } },
+                { attrs: { sm12: "" } },
                 [
                   _c(
                     "v-card",
@@ -31056,7 +30952,253 @@ var render = function() {
                         [
                           _c(
                             "v-flex",
-                            { attrs: { sm12: "" } },
+                            { attrs: { sm6: "" } },
+                            [
+                              _c(
+                                "v-card-title",
+                                {
+                                  staticClass: "justify-center",
+                                  attrs: { "primary-title": "" }
+                                },
+                                [
+                                  _c("div", { staticClass: "headline" }, [
+                                    _vm._v("DATA PELANGGAN")
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-card-text",
+                                [
+                                  _c("v-switch", {
+                                    attrs: { label: "Pelanggan baru" },
+                                    on: { change: _vm.resetcustomer },
+                                    model: {
+                                      value: _vm.switchnewcustomer,
+                                      callback: function($$v) {
+                                        _vm.switchnewcustomer = $$v
+                                      },
+                                      expression: "switchnewcustomer"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-form",
+                                    [
+                                      _c(
+                                        "VLayout",
+                                        [
+                                          _c(
+                                            "VFlex",
+                                            [
+                                              _vm.customerloading
+                                                ? _c("VProgressLinear", {
+                                                    attrs: { indeterminate: "" }
+                                                  })
+                                                : _vm._e(),
+                                              _vm._v(" "),
+                                              !_vm.switchnewcustomer
+                                                ? _c("v-autocomplete", {
+                                                    staticClass: "pa-1",
+                                                    attrs: {
+                                                      items: _vm.customers,
+                                                      "item-text":
+                                                        "customer_name",
+                                                      "item-value":
+                                                        "id_customer",
+                                                      label: "Nama"
+                                                    },
+                                                    on: {
+                                                      change: function($event) {
+                                                        return _vm.searchcustomer()
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.customer
+                                                          .id_customer,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.customer,
+                                                          "id_customer",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "customer.id_customer"
+                                                    }
+                                                  })
+                                                : _c("VTextField", {
+                                                    staticClass: "pa-1",
+                                                    attrs: {
+                                                      label: "Nama",
+                                                      "error-messages":
+                                                        _vm.customerNameErrors,
+                                                      required: ""
+                                                    },
+                                                    on: {
+                                                      input: function($event) {
+                                                        return _vm.$v.customer.customer_name.$touch()
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.customer
+                                                          .customer_name,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.customer,
+                                                          "customer_name",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "customer.customer_name"
+                                                    }
+                                                  })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "VLayout",
+                                        [
+                                          _c(
+                                            "VFlex",
+                                            [
+                                              _c("VTextField", {
+                                                staticClass: "pa-1",
+                                                attrs: {
+                                                  label: "Alamat",
+                                                  disabled: !_vm.switchnewcustomer,
+                                                  "error-messages":
+                                                    _vm.customerAddressErrors,
+                                                  required: ""
+                                                },
+                                                on: {
+                                                  input: function($event) {
+                                                    return _vm.$v.customer.customer_address.$touch()
+                                                  }
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.customer
+                                                      .customer_address,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.customer,
+                                                      "customer_address",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "customer.customer_address"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "VLayout",
+                                        [
+                                          _c(
+                                            "VFlex",
+                                            [
+                                              _c("VTextField", {
+                                                staticClass: "pa-1",
+                                                attrs: {
+                                                  label: "No Telepon",
+                                                  disabled: !_vm.switchnewcustomer,
+                                                  "error-messages":
+                                                    _vm.customerPhoneNumberErrors,
+                                                  required: ""
+                                                },
+                                                on: {
+                                                  input: function($event) {
+                                                    return _vm.$v.customer.customer_phone_number.$touch()
+                                                  }
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.customer
+                                                      .customer_phone_number,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.customer,
+                                                      "customer_phone_number",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "customer.customer_phone_number"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "VLayout",
+                                        [
+                                          _c(
+                                            "VFlex",
+                                            {
+                                              staticClass: "text-xs-center",
+                                              attrs: { sm12: "" }
+                                            },
+                                            [
+                                              _vm.switchnewcustomer
+                                                ? _c(
+                                                    "VBtn",
+                                                    {
+                                                      attrs: {
+                                                        depressed: "",
+                                                        color: "success",
+                                                        disabled:
+                                                          _vm.$v.customer
+                                                            .$invalid
+                                                      },
+                                                      on: {
+                                                        click:
+                                                          _vm.submitCustomer
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                           Tambah Pelanggan\n                         "
+                                                      )
+                                                    ]
+                                                  )
+                                                : _vm._e()
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-flex",
+                            { attrs: { sm6: "" } },
                             [
                               _c(
                                 "v-card-title",
@@ -34995,211 +35137,7 @@ var render = function() {
             [
               _c(
                 "v-flex",
-                { attrs: { sm6: "" } },
-                [
-                  _c(
-                    "v-card",
-                    [
-                      _c(
-                        "v-card-title",
-                        {
-                          staticClass: "justify-center",
-                          attrs: { "primary-title": "" }
-                        },
-                        [
-                          _c("div", { staticClass: "headline" }, [
-                            _vm._v("DATA PELANGGAN")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-card-text",
-                        [
-                          _c("v-switch", {
-                            attrs: { label: "Pelanggan baru" },
-                            on: { change: _vm.resetcustomer },
-                            model: {
-                              value: _vm.switchnewcustomer,
-                              callback: function($$v) {
-                                _vm.switchnewcustomer = $$v
-                              },
-                              expression: "switchnewcustomer"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "v-form",
-                            [
-                              _c(
-                                "VLayout",
-                                [
-                                  _c(
-                                    "VFlex",
-                                    [
-                                      _vm.customerloading
-                                        ? _c("VProgressLinear", {
-                                            attrs: { indeterminate: "" }
-                                          })
-                                        : _vm._e(),
-                                      _vm._v(" "),
-                                      !_vm.switchnewcustomer
-                                        ? _c("v-autocomplete", {
-                                            staticClass: "pa-1",
-                                            attrs: {
-                                              items: _vm.customers,
-                                              "item-text": "customer_name",
-                                              "item-value": "id_customer",
-                                              label: "Nama"
-                                            },
-                                            on: {
-                                              change: function($event) {
-                                                return _vm.searchcustomer()
-                                              }
-                                            },
-                                            model: {
-                                              value:
-                                                _vm.transaction.id_customer,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  _vm.transaction,
-                                                  "id_customer",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "transaction.id_customer"
-                                            }
-                                          })
-                                        : _c("VTextField", {
-                                            staticClass: "pa-1",
-                                            attrs: {
-                                              label: "Nama",
-                                              "error-messages":
-                                                _vm.customerNameErrors,
-                                              required: ""
-                                            },
-                                            on: {
-                                              input: function($event) {
-                                                return _vm.$v.customer.customer_name.$touch()
-                                              }
-                                            },
-                                            model: {
-                                              value: _vm.customer.customer_name,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  _vm.customer,
-                                                  "customer_name",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "customer.customer_name"
-                                            }
-                                          })
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "VLayout",
-                                [
-                                  _c(
-                                    "VFlex",
-                                    [
-                                      _c("VTextField", {
-                                        staticClass: "pa-1",
-                                        attrs: {
-                                          label: "Alamat",
-                                          disabled: !_vm.switchnewcustomer,
-                                          "error-messages":
-                                            _vm.customerAddressErrors,
-                                          required: ""
-                                        },
-                                        on: {
-                                          input: function($event) {
-                                            return _vm.$v.customer.customer_address.$touch()
-                                          }
-                                        },
-                                        model: {
-                                          value: _vm.customer.customer_address,
-                                          callback: function($$v) {
-                                            _vm.$set(
-                                              _vm.customer,
-                                              "customer_address",
-                                              $$v
-                                            )
-                                          },
-                                          expression:
-                                            "customer.customer_address"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "VLayout",
-                                [
-                                  _c(
-                                    "VFlex",
-                                    [
-                                      _c("VTextField", {
-                                        staticClass: "pa-1",
-                                        attrs: {
-                                          label: "No Telepon",
-                                          disabled: !_vm.switchnewcustomer,
-                                          "error-messages":
-                                            _vm.customerPhoneNumberErrors,
-                                          required: ""
-                                        },
-                                        on: {
-                                          input: function($event) {
-                                            return _vm.$v.customer.customer_phone_number.$touch()
-                                          }
-                                        },
-                                        model: {
-                                          value:
-                                            _vm.customer.customer_phone_number,
-                                          callback: function($$v) {
-                                            _vm.$set(
-                                              _vm.customer,
-                                              "customer_phone_number",
-                                              $$v
-                                            )
-                                          },
-                                          expression:
-                                            "customer.customer_phone_number"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-flex",
-                { attrs: { sm6: "" } },
+                { attrs: { sm12: "" } },
                 [
                   _c(
                     "v-card",
@@ -35210,7 +35148,213 @@ var render = function() {
                         [
                           _c(
                             "v-flex",
-                            { attrs: { sm12: "" } },
+                            { attrs: { sm6: "" } },
+                            [
+                              _c(
+                                "v-card-title",
+                                {
+                                  staticClass: "justify-center",
+                                  attrs: { "primary-title": "" }
+                                },
+                                [
+                                  _c("div", { staticClass: "headline" }, [
+                                    _vm._v("DATA PELANGGAN")
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-card-text",
+                                [
+                                  _c("v-switch", {
+                                    attrs: { label: "Pelanggan baru" },
+                                    on: { change: _vm.resetcustomer },
+                                    model: {
+                                      value: _vm.switchnewcustomer,
+                                      callback: function($$v) {
+                                        _vm.switchnewcustomer = $$v
+                                      },
+                                      expression: "switchnewcustomer"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-form",
+                                    [
+                                      _c(
+                                        "VLayout",
+                                        [
+                                          _c(
+                                            "VFlex",
+                                            [
+                                              _vm.customerloading
+                                                ? _c("VProgressLinear", {
+                                                    attrs: { indeterminate: "" }
+                                                  })
+                                                : _vm._e(),
+                                              _vm._v(" "),
+                                              !_vm.switchnewcustomer
+                                                ? _c("v-autocomplete", {
+                                                    staticClass: "pa-1",
+                                                    attrs: {
+                                                      items: _vm.customers,
+                                                      "item-text":
+                                                        "customer_name",
+                                                      "item-value":
+                                                        "id_customer",
+                                                      label: "Nama"
+                                                    },
+                                                    on: {
+                                                      change: function($event) {
+                                                        return _vm.searchcustomer()
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.transaction
+                                                          .id_customer,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.transaction,
+                                                          "id_customer",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "transaction.id_customer"
+                                                    }
+                                                  })
+                                                : _c("VTextField", {
+                                                    staticClass: "pa-1",
+                                                    attrs: {
+                                                      label: "Nama",
+                                                      "error-messages":
+                                                        _vm.customerNameErrors,
+                                                      required: ""
+                                                    },
+                                                    on: {
+                                                      input: function($event) {
+                                                        return _vm.$v.customer.customer_name.$touch()
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.customer
+                                                          .customer_name,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.customer,
+                                                          "customer_name",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "customer.customer_name"
+                                                    }
+                                                  })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "VLayout",
+                                        [
+                                          _c(
+                                            "VFlex",
+                                            [
+                                              _c("VTextField", {
+                                                staticClass: "pa-1",
+                                                attrs: {
+                                                  label: "Alamat",
+                                                  disabled: !_vm.switchnewcustomer,
+                                                  "error-messages":
+                                                    _vm.customerAddressErrors,
+                                                  required: ""
+                                                },
+                                                on: {
+                                                  input: function($event) {
+                                                    return _vm.$v.customer.customer_address.$touch()
+                                                  }
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.customer
+                                                      .customer_address,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.customer,
+                                                      "customer_address",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "customer.customer_address"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "VLayout",
+                                        [
+                                          _c(
+                                            "VFlex",
+                                            [
+                                              _c("VTextField", {
+                                                staticClass: "pa-1",
+                                                attrs: {
+                                                  label: "No Telepon",
+                                                  disabled: !_vm.switchnewcustomer,
+                                                  "error-messages":
+                                                    _vm.customerPhoneNumberErrors,
+                                                  required: ""
+                                                },
+                                                on: {
+                                                  input: function($event) {
+                                                    return _vm.$v.customer.customer_phone_number.$touch()
+                                                  }
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.customer
+                                                      .customer_phone_number,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.customer,
+                                                      "customer_phone_number",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "customer.customer_phone_number"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-flex",
+                            { attrs: { sm6: "" } },
                             [
                               _c(
                                 "v-card-title",
@@ -39772,7 +39916,6 @@ var render = function() {
                                         attrs: {
                                           headers: _vm.headers2,
                                           items: _vm.spareparts,
-                                          search: _vm.keyword,
                                           "hide-actions": ""
                                         },
                                         scopedSlots: _vm._u(
@@ -39908,7 +40051,6 @@ var render = function() {
                                         attrs: {
                                           headers: _vm.headers3,
                                           items: _vm.services,
-                                          search: _vm.keyword,
                                           "hide-actions": ""
                                         },
                                         scopedSlots: _vm._u(
@@ -87591,6 +87733,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var _store = _asyncToGenerator(
     /*#__PURE__*/
     _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(payload) {
+      var res;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
@@ -87600,20 +87743,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/customers', payload);
 
             case 3:
-              _context2.next = 8;
-              break;
+              res = _context2.sent;
+              return _context2.abrupt("return", res.data.data);
 
-            case 5:
-              _context2.prev = 5;
+            case 7:
+              _context2.prev = 7;
               _context2.t0 = _context2["catch"](0);
               throw new Error('Gagal simpan customer baru!');
 
-            case 8:
+            case 10:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, this, [[0, 5]]);
+      }, _callee2, this, [[0, 7]]);
     }));
 
     function store(_x) {
@@ -90233,10 +90376,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     return store;
   }(),
-  find: function () {
-    var _find = _asyncToGenerator(
+  search: function () {
+    var _search = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id) {
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(payload) {
       var res;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
         while (1) {
@@ -90244,7 +90387,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 0:
               _context3.prev = 0;
               _context3.next = 3;
-              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/transactions/".concat(id));
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/searchDetail', payload);
 
             case 3:
               res = _context3.sent;
@@ -90253,7 +90396,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 7:
               _context3.prev = 7;
               _context3.t0 = _context3["catch"](0);
-              throw new Error('Gagal mendapatkan data transaction!');
+              throw new Error('Gagal simpan cari data!');
 
             case 10:
             case "end":
@@ -90263,16 +90406,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, _callee3, this, [[0, 7]]);
     }));
 
-    function find(_x2) {
-      return _find.apply(this, arguments);
+    function search(_x2) {
+      return _search.apply(this, arguments);
     }
 
-    return find;
+    return search;
   }(),
-  update: function () {
-    var _update = _asyncToGenerator(
+  find: function () {
+    var _find = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id, payload) {
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id) {
       var res;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
         while (1) {
@@ -90280,7 +90423,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 0:
               _context4.prev = 0;
               _context4.next = 3;
-              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].patch("/api/transactions/".concat(id), payload);
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/transactions/".concat(id));
 
             case 3:
               res = _context4.sent;
@@ -90289,7 +90432,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 7:
               _context4.prev = 7;
               _context4.t0 = _context4["catch"](0);
-              throw new Error('Gagal update data transaction!');
+              throw new Error('Gagal mendapatkan data transaction!');
 
             case 10:
             case "end":
@@ -90299,14 +90442,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, _callee4, this, [[0, 7]]);
     }));
 
-    function update(_x3, _x4) {
-      return _update.apply(this, arguments);
+    function find(_x3) {
+      return _find.apply(this, arguments);
     }
 
-    return update;
+    return find;
   }(),
-  payment: function () {
-    var _payment = _asyncToGenerator(
+  update: function () {
+    var _update = _asyncToGenerator(
     /*#__PURE__*/
     _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id, payload) {
       var res;
@@ -90316,7 +90459,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 0:
               _context5.prev = 0;
               _context5.next = 3;
-              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].put("/api/payment/".concat(id), payload);
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].patch("/api/transactions/".concat(id), payload);
 
             case 3:
               res = _context5.sent;
@@ -90335,7 +90478,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, _callee5, this, [[0, 7]]);
     }));
 
-    function payment(_x5, _x6) {
+    function update(_x4, _x5) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  payment: function () {
+    var _payment = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(id, payload) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.prev = 0;
+              _context6.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].put("/api/payment/".concat(id), payload);
+
+            case 3:
+              res = _context6.sent;
+              return _context6.abrupt("return", res.data.data);
+
+            case 7:
+              _context6.prev = 7;
+              _context6.t0 = _context6["catch"](0);
+              throw new Error('Gagal update data transaction!');
+
+            case 10:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, this, [[0, 7]]);
+    }));
+
+    function payment(_x6, _x7) {
       return _payment.apply(this, arguments);
     }
 
@@ -90344,33 +90523,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   delete: function () {
     var _delete2 = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(id) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
         while (1) {
-          switch (_context6.prev = _context6.next) {
+          switch (_context7.prev = _context7.next) {
             case 0:
-              _context6.prev = 0;
-              _context6.next = 3;
+              _context7.prev = 0;
+              _context7.next = 3;
               return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].delete("/api/transactions/".concat(id));
 
             case 3:
-              _context6.next = 8;
+              _context7.next = 8;
               break;
 
             case 5:
-              _context6.prev = 5;
-              _context6.t0 = _context6["catch"](0);
+              _context7.prev = 5;
+              _context7.t0 = _context7["catch"](0);
               throw new Error('Gagal hapus data transaction');
 
             case 8:
             case "end":
-              return _context6.stop();
+              return _context7.stop();
           }
         }
-      }, _callee6, this, [[0, 5]]);
+      }, _callee7, this, [[0, 5]]);
     }));
 
-    function _delete(_x7) {
+    function _delete(_x8) {
       return _delete2.apply(this, arguments);
     }
 
@@ -90887,6 +91066,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var state = {
   customers: [],
   customer: {
+    id_customer: '',
     customer_name: '',
     customer_address: '',
     customer_phone_number: ''
@@ -90905,6 +91085,7 @@ var mutations = {
     state.error = payload.error;
   },
   setCustomerForm: function setCustomerForm(state, payload) {
+    state.customer.id_customer = payload.id_customer;
     state.customer.customer_name = payload.customer_name;
     state.customer.customer_address = payload.customer_address;
     state.customer.customer_phone_number = payload.customer_phone_number;
@@ -90971,24 +91152,29 @@ var actions = {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.prev = 0;
-              _context2.next = 3;
+              _context2.t0 = context;
+              _context2.next = 4;
               return _service_Customer__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
 
-            case 3:
-              _context2.next = 8;
+            case 4:
+              _context2.t1 = _context2.sent;
+
+              _context2.t0.commit.call(_context2.t0, 'setCustomerForm', _context2.t1);
+
+              _context2.next = 11;
               break;
 
-            case 5:
-              _context2.prev = 5;
-              _context2.t0 = _context2["catch"](0);
-              context.commit('setFailedStore', _context2.t0);
-
             case 8:
+              _context2.prev = 8;
+              _context2.t2 = _context2["catch"](0);
+              context.commit('setFailedStore', _context2.t2);
+
+            case 11:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, this, [[0, 5]]);
+      }, _callee2, this, [[0, 8]]);
     }));
 
     function store(_x2, _x3) {
@@ -94142,9 +94328,12 @@ var state = {
     id_customer: '',
     id_service: '',
     id_employee: '',
+    customer_name: '',
     service: [],
-    sparepart: []
+    sparepart: [],
+    employee: []
   },
+  details: [],
   loading: true,
   error: null
 };
@@ -94154,7 +94343,13 @@ var mutations = {
     state.loading = false;
     state.error = null;
   },
+  setDetail: function setDetail(state, payload) {
+    state.details = payload;
+    state.loading = false;
+    state.error = null;
+  },
   setFailedAction: function setFailedAction(state, payload) {
+    state.details = null;
     state.loading = false;
     state.error = payload.error;
   },
@@ -94176,6 +94371,8 @@ var mutations = {
     state.transaction.id_customer = payload.id_customer;
     state.transaction.service = payload.service.data;
     state.transaction.sparepart = payload.sparepart.data;
+    state.transaction.employee = payload.employee.data;
+    state.transaction.customer_name = payload.customer_name;
   }
 };
 var getters = {
@@ -94187,6 +94384,9 @@ var getters = {
   },
   transaction: function transaction(state) {
     return state.transaction;
+  },
+  details: function details(state) {
+    return state.details;
   }
 };
 var actions = {
@@ -94265,67 +94465,62 @@ var actions = {
 
     return store;
   }(),
-  edit: function () {
-    var _edit = _asyncToGenerator(
+  search: function () {
+    var _search = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, id) {
-      var res;
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, payload) {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
               _context3.prev = 0;
-              _context3.next = 3;
-              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
+              _context3.t0 = context;
+              _context3.next = 4;
+              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].search(payload);
 
-            case 3:
-              res = _context3.sent;
-              context.commit('setTransactionForm', res);
-              _context3.next = 10;
+            case 4:
+              _context3.t1 = _context3.sent;
+
+              _context3.t0.commit.call(_context3.t0, 'setDetail', _context3.t1);
+
+              _context3.next = 11;
               break;
 
-            case 7:
-              _context3.prev = 7;
-              _context3.t0 = _context3["catch"](0);
-              context.commit('setFailedAction', _context3.t0);
+            case 8:
+              _context3.prev = 8;
+              _context3.t2 = _context3["catch"](0);
+              context.commit('setFailedAction', _context3.t2);
 
-            case 10:
+            case 11:
             case "end":
               return _context3.stop();
           }
         }
-      }, _callee3, this, [[0, 7]]);
+      }, _callee3, this, [[0, 8]]);
     }));
 
-    function edit(_x4, _x5) {
-      return _edit.apply(this, arguments);
+    function search(_x4, _x5) {
+      return _search.apply(this, arguments);
     }
 
-    return edit;
+    return search;
   }(),
-  update: function () {
-    var _update = _asyncToGenerator(
+  edit: function () {
+    var _edit = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, payload) {
-      var data;
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, id) {
+      var res;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
               _context4.prev = 0;
-              data = {
-                transaction_status: payload.transaction_status,
-                id_customer: payload.id_customer,
-                transaction_type: payload.transaction_type,
-                transaction_total: payload.transaction_total,
-                service: payload.service,
-                sparepart: payload.sparepart
-              };
-              _context4.next = 4;
-              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_transaction, data);
+              _context4.next = 3;
+              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
 
-            case 4:
-              state.loading = false;
+            case 3:
+              res = _context4.sent;
+              context.commit('setTransactionForm', res);
               _context4.next = 10;
               break;
 
@@ -94342,14 +94537,14 @@ var actions = {
       }, _callee4, this, [[0, 7]]);
     }));
 
-    function update(_x6, _x7) {
-      return _update.apply(this, arguments);
+    function edit(_x6, _x7) {
+      return _edit.apply(this, arguments);
     }
 
-    return update;
+    return edit;
   }(),
-  payment: function () {
-    var _payment = _asyncToGenerator(
+  update: function () {
+    var _update = _asyncToGenerator(
     /*#__PURE__*/
     _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, payload) {
       var data;
@@ -94359,11 +94554,15 @@ var actions = {
             case 0:
               _context5.prev = 0;
               data = {
-                transaction_total: payload.total,
-                transaction_discount: payload.discount
+                transaction_status: payload.transaction_status,
+                id_customer: payload.id_customer,
+                transaction_type: payload.transaction_type,
+                transaction_total: payload.transaction_total,
+                service: payload.service,
+                sparepart: payload.sparepart
               };
               _context5.next = 4;
-              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].payment(payload.id_transaction, data);
+              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_transaction, data);
 
             case 4:
               state.loading = false;
@@ -94383,7 +94582,48 @@ var actions = {
       }, _callee5, this, [[0, 7]]);
     }));
 
-    function payment(_x8, _x9) {
+    function update(_x8, _x9) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  payment: function () {
+    var _payment = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.prev = 0;
+              data = {
+                transaction_total: payload.total,
+                transaction_discount: payload.discount
+              };
+              _context6.next = 4;
+              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].payment(payload.id_transaction, data);
+
+            case 4:
+              state.loading = false;
+              _context6.next = 10;
+              break;
+
+            case 7:
+              _context6.prev = 7;
+              _context6.t0 = _context6["catch"](0);
+              context.commit('setFailedAction', _context6.t0);
+
+            case 10:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, this, [[0, 7]]);
+    }));
+
+    function payment(_x10, _x11) {
       return _payment.apply(this, arguments);
     }
 
@@ -94392,33 +94632,33 @@ var actions = {
   delete: function () {
     var _delete2 = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(context, id) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
         while (1) {
-          switch (_context6.prev = _context6.next) {
+          switch (_context7.prev = _context7.next) {
             case 0:
-              _context6.prev = 0;
-              _context6.next = 3;
+              _context7.prev = 0;
+              _context7.next = 3;
               return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
 
             case 3:
-              _context6.next = 8;
+              _context7.next = 8;
               break;
 
             case 5:
-              _context6.prev = 5;
-              _context6.t0 = _context6["catch"](0);
-              context.commit('setFailedAction', _context6.t0);
+              _context7.prev = 5;
+              _context7.t0 = _context7["catch"](0);
+              context.commit('setFailedAction', _context7.t0);
 
             case 8:
             case "end":
-              return _context6.stop();
+              return _context7.stop();
           }
         }
-      }, _callee6, this, [[0, 5]]);
+      }, _callee7, this, [[0, 5]]);
     }));
 
-    function _delete(_x10, _x11) {
+    function _delete(_x12, _x13) {
       return _delete2.apply(this, arguments);
     }
 

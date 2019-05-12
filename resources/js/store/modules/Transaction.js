@@ -13,9 +13,12 @@ const state = {
     id_customer: '',
     id_service: '',
     id_employee: '',
+    customer_name: '',
     service: [],
-    sparepart: []
+    sparepart: [],
+    employee: []
   },
+  details: [],
   loading: true,
   error: null
 }
@@ -27,7 +30,14 @@ const mutations = {
     state.error = null
   },
 
+  setDetail(state, payload) {
+    state.details = payload
+    state.loading = false
+    state.error = null
+  },
+
   setFailedAction(state, payload) {
+    state.details = null
     state.loading = false
     state.error = payload.error
   },
@@ -58,13 +68,16 @@ const mutations = {
     state.transaction.id_customer = payload.id_customer
     state.transaction.service = payload.service.data
     state.transaction.sparepart = payload.sparepart.data
+    state.transaction.employee = payload.employee.data
+    state.transaction.customer_name = payload.customer_name
   }
 }
 
 const getters = {
   error: state => state.error,
   loading: state => state.loading,
-  transaction: state => state.transaction
+  transaction: state => state.transaction,
+  details: state => state.details
 }
 
 const actions = {
@@ -81,6 +94,14 @@ const actions = {
       await transactionService.store(payload)
     } catch (err) {
       context.commit('setFailedStore', err)
+    }
+  },
+
+  async search(context, payload) {
+    try {
+      context.commit('setDetail', await transactionService.search(payload))
+    } catch (err) {
+      context.commit('setFailedAction', err)
     }
   },
 

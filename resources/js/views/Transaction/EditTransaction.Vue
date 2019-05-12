@@ -2,80 +2,78 @@
  <PageWrapper :breadcrumbs="breadcrumbs">
     <card>
      <v-layout row wrap>
-        <v-flex sm6>
+        <v-flex sm12>
          <v-card>
-            <v-card-title primary-title class="justify-center">
-                <div class="headline">DATA PELANGGAN</div>
-            </v-card-title>
-            <v-card-text>
-                <v-switch
-                v-model="switchnewcustomer"
-                label="Pelanggan baru"
-                @change="resetcustomer"
-                ></v-switch>
-                <v-form>
-                    <VLayout>
-                        <VFlex>
-                        <VProgressLinear 
-                            v-if="customerloading"
-                            indeterminate
-                        />
-                        <v-autocomplete
-                            v-if="!switchnewcustomer"
-                            v-model="transaction.id_customer"
-                            :items="customers"
-                            item-text="customer_name"
-                            item-value="id_customer"
-                            class="pa-1"
-                            label="Nama"
-                            @change="searchcustomer()"
-                        ></v-autocomplete>
-                        <VTextField
-                            v-else
-                            label="Nama"
-                            class="pa-1"
-                            v-model="customer.customer_name"
-                            :error-messages="customerNameErrors"
-                            @input="$v.customer.customer_name.$touch()"
-                            required
-                        />
-                        </VFlex>
-                    </VLayout>
-                    <VLayout>
-                        <VFlex>
-                        <VTextField
-                            label="Alamat"
-                            class="pa-1"
-                            v-model="customer.customer_address"
-                            :disabled="!switchnewcustomer"
-                            :error-messages="customerAddressErrors"
-                            @input="$v.customer.customer_address.$touch()"
-                            required
-                        />
-                        </VFlex>
-                    </VLayout>
-                    <VLayout>
-                        <VFlex>
-                        <VTextField
-                            label="No Telepon"
-                            class="pa-1"
-                            v-model="customer.customer_phone_number"
-                            :disabled="!switchnewcustomer"
-                            :error-messages="customerPhoneNumberErrors"
-                            @input="$v.customer.customer_phone_number.$touch()"
-                            required
-                        />
-                        </VFlex>
-                    </VLayout>
-                </v-form>
-            </v-card-text>
-         </v-card>
-        </v-flex>
-        <v-flex sm6>
-         <v-card>
-         <v-layout row wrap>
-             <v-flex sm12>
-                <v-card-title primary-title class="justify-center">
+           <v-layout row wrap>
+            <v-flex sm6>
+              <v-card-title primary-title class="justify-center">
+                  <div class="headline">DATA PELANGGAN</div>
+              </v-card-title>
+              <v-card-text>
+                  <v-switch
+                  v-model="switchnewcustomer"
+                  label="Pelanggan baru"
+                  @change="resetcustomer"
+                  ></v-switch>
+                  <v-form>
+                      <VLayout>
+                          <VFlex>
+                          <VProgressLinear 
+                              v-if="customerloading"
+                              indeterminate
+                          />
+                          <v-autocomplete
+                              v-if="!switchnewcustomer"
+                              v-model="transaction.id_customer"
+                              :items="customers"
+                              item-text="customer_name"
+                              item-value="id_customer"
+                              class="pa-1"
+                              label="Nama"
+                              @change="searchcustomer()"
+                          ></v-autocomplete>
+                          <VTextField
+                              v-else
+                              label="Nama"
+                              class="pa-1"
+                              v-model="customer.customer_name"
+                              :error-messages="customerNameErrors"
+                              @input="$v.customer.customer_name.$touch()"
+                              required
+                          />
+                          </VFlex>
+                      </VLayout>
+                      <VLayout>
+                          <VFlex>
+                          <VTextField
+                              label="Alamat"
+                              class="pa-1"
+                              v-model="customer.customer_address"
+                              :disabled="!switchnewcustomer"
+                              :error-messages="customerAddressErrors"
+                              @input="$v.customer.customer_address.$touch()"
+                              required
+                          />
+                          </VFlex>
+                      </VLayout>
+                      <VLayout>
+                          <VFlex>
+                          <VTextField
+                              label="No Telepon"
+                              class="pa-1"
+                              v-model="customer.customer_phone_number"
+                              :disabled="!switchnewcustomer"
+                              :error-messages="customerPhoneNumberErrors"
+                              @input="$v.customer.customer_phone_number.$touch()"
+                              required
+                          />
+                          </VFlex>
+                      </VLayout>
+                  </v-form>
+              </v-card-text>
+            </v-flex>
+            <v-flex sm6>
+              <v-card-title primary-title class="justify-center">
                     <div class="headline">JENIS TRANSAKSI</div>
                 </v-card-title>
                 <v-card-text>
@@ -112,7 +110,7 @@
                     </VLayout>
                 </v-card-text>
              </v-flex>
-         </v-layout> 
+            </v-layout>
          </v-card>
         </v-flex>
      </v-layout>
@@ -1367,6 +1365,7 @@ export default {
     ...mapState({
         customers: state => state.Customer.customers,
         customerloading: state => state.Customer.loading,
+        customererror: state => state.Customer.error,
         transactionloading: state => state.Transaction.loading,
         transactionerror: state => state.Transaction.error,
         motorcycles: state => state.Motorcycle.motorcycles, 
@@ -1491,6 +1490,7 @@ export default {
     ...mapActions({
       fetchCustomer: 'Customer/get',
       findCustomer: 'Customer/edit',
+      storeCustomer: 'Customer/store',
       findMotor: 'Motorcycle/findByUser',
       storeMotor: 'Motorcycle/store',
       deleteMotor: 'Motorcycle/delete',
@@ -1754,6 +1754,26 @@ export default {
 
         if (!this.transactionerror) {
           this.success=true
+      }
+    },
+    async submitCustomer()
+    {
+        // const payload = {
+        //   id_customer: this.customer.id_customer,
+        //   transaction_status: this.transaction.transaction_status,
+        //   transaction_type: this.transaction.transaction_type,
+        //   transaction_total: this.transaction.transaction_total,
+        //   service: this.transaction.service,
+        //   sparepart: this.transaction.sparepart,
+        //   employee: this.id_employee
+        // }
+
+        await this.storeCustomer(this.customer)
+        if (!this.customererror) {
+          await this.fetchCustomer()
+          await this.findCustomer(this.customer.id_customer);
+          this.switchnewcustomer=false
+          // this.success=true
       }
     },
     bindData(item){

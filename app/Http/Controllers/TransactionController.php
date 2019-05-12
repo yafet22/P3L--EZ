@@ -8,6 +8,7 @@ use App\Transaction;
 use App\Detail_service;
 use App\Detail_sparepart;
 use App\Sparepart;
+use App\Motorcycle;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\DB;
 use App\Transformers\TransactionTransformer;
 use App\Transformers\Detail_serviceTransformer;
 use App\Transformers\Detail_sparepartTransformer;
+use App\Transformers\CheckStatusTransformer;
 
 class TransactionController extends RestController
 {
@@ -235,6 +237,36 @@ class TransactionController extends RestController
         try {
             $detail=Detail_service::where("id_transaction",$id)->get();
             $response = $this->generateCollection($detail,Detail_serviceTransformer::class);
+            return $this->sendResponse($response);
+        } catch (ModelNotFoundException $e) {
+            return $this->sendNotFoundResponse('detail_service_not_found');
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
+    }
+
+    public function searchDetailService(Request $request)
+    {
+        try {
+            $motorcycle=Motorcycle::where("license_number",$request->license_number)->first();
+            $details=Detail_service::where("id_motorcycle",$motorcycle->id_motorcycle)->get();
+            $search=[];
+            foreach($details as $detail)
+            {
+                if($detail->transactions->customers->customer_phone_number==$request->phone_number)
+                {
+                    array_push($search,$detail);
+                }
+            }
+            // $details=Detail_sparepart::where("id_motorcycle",$motorcycle->id_motorcycle)->get();
+            // foreach($details as $detail)
+            // {
+            //     if($detail->transactions->customers->customer_phone_number==$request->phone_number)
+            //     {
+            //         array_push($search,$detail);
+            //     }
+            // }
+            $response = $this->generateCollection($search,CheckStatusTransformer::class);
             return $this->sendResponse($response);
         } catch (ModelNotFoundException $e) {
             return $this->sendNotFoundResponse('detail_service_not_found');

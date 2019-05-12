@@ -19,6 +19,15 @@ export default {
     }
   },
 
+  async search (payload) {
+    try {
+      const res = await http.post('/api/searchDetail', payload)
+      return res.data.data
+    } catch (err) {
+      throw new Error('Gagal simpan cari data!')
+    }
+  },
+
   async find (id) {
     try {
       const res = await http.get(`/api/transactions/${id}`)

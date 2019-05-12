@@ -13,7 +13,9 @@ export default {
 
   async store (payload) {
     try {
-      await http.post('/api/customers', payload)
+      const res = await http.post('/api/customers', payload)
+
+      return res.data.data
     } catch (err) {
       throw new Error('Gagal simpan customer baru!')
     }

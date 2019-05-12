@@ -3,6 +3,7 @@ import customerService from '../../service/Customer'
 const state = {
   customers: [],
   customer: {
+    id_customer: '',
     customer_name: '',
     customer_address: '',
     customer_phone_number: '',
@@ -24,6 +25,7 @@ const mutations = {
   },
 
   setCustomerForm(state, payload) {
+    state.customer.id_customer = payload.id_customer
     state.customer.customer_name = payload.customer_name
     state.customer.customer_address = payload.customer_address
     state.customer.customer_phone_number = payload.customer_phone_number
@@ -47,7 +49,7 @@ const actions = {
 
   async store(context, payload) {
     try {
-      await customerService.store(payload)
+      context.commit('setCustomerForm', await customerService.store(payload))
     } catch (err) {
       context.commit('setFailedStore', err)
     }

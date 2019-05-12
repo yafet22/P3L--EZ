@@ -211,7 +211,6 @@
                   <VDataTable
                     :headers="headers2"
                     :items="spareparts"
-                    :search="keyword"
                     hide-actions
                     v-if="!loading && !error"
                   >
@@ -241,7 +240,6 @@
                   <VDataTable
                     :headers="headers3"
                     :items="services"
-                    :search="keyword"
                     hide-actions
                     v-if="!loading && !error"
                   >
@@ -604,6 +602,7 @@ export default {
       this.employees=transaction.employee.data
       this.spareparts=transaction.sparepart.data
       this.services=transaction.service.data
+      console.log(this.services)
       this.employees.forEach(employee => {
           if(employee.id_role==2 || employee.id_role==1)
           {
