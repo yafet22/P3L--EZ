@@ -14,6 +14,7 @@ import Customer from './Customer'
 import Motorcycle from './Motorcycle'
 import Procurement from './Procurement'
 import Transaction from './Transaction'
+import Report from './Report'
 
 export default {
   LoggedUser,
@@ -31,5 +32,6 @@ export default {
   Customer,
   Motorcycle,
   Procurement,
-  Transaction
+  Transaction,
+  Report
 }

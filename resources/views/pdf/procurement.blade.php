@@ -12,6 +12,7 @@
 
 	.header-section .image {
 		float: left;
+		height: 125px;
 	}
 
 	.header-section .title {
@@ -72,10 +73,8 @@
 				<div>
 					Jl. Babarsari No.43 Yogyakarta 552181 <br>
 					Telp. (0274) 487711 <br>
-                </div>
-                <div>
-                http://www.atmaauto.com
-                </div>
+					http://www.atmaauto.com
+				</div>
 			</div>
 		</div>
 

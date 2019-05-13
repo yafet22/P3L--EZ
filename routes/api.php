@@ -69,6 +69,7 @@ Route::post('searchDetail','TransactionController@searchDetailService');
 
 Route::get('/generate-procurement-docs/{id}', 'FileController@generateProcurementDocs');
 Route::get('/generate-work-order-docs/{id}', 'FileController@generateWorkOrderDocs');
+Route::get('/generate-transaction-per-month/{year}', 'FileController@generateTransactionPerMonth');
 
 Route::get('/transaction-per-year/{year}','ReportController@TransactionperYear');
 Route::get('/expense-per-year/{year}','ReportController@ExpenseperYear');

@@ -60,6 +60,30 @@
             </VListTileContent>
           </VListTile>
         </VList-group>
+        <VList-group
+          v-for="menu in dropmenus2"
+          :key="menu.id"
+          :prepend-icon="menu.icon"
+          class="ml-1"
+        >
+          <template v-slot:activator>
+            <v-list-tile>
+              <v-list-tile-title>{{menu.text}}</v-list-tile-title>
+            </v-list-tile>
+          </template>
+          <VListTile 
+            v-for="submenu in submenus2"
+            :key="submenu.id"
+            @click="$router.push({ name: submenu.to })"
+          >
+            <VListTileAction>
+              <VIcon>{{ submenu.icon }}</VIcon>
+            </VListTileAction>
+            <VListTileContent>
+              <VListTileTitle v-html="submenu.text" />
+            </VListTileContent>
+          </VListTile>
+        </VList-group>
       </VList>
     </VNavigationDrawer>
 
@@ -175,12 +199,32 @@
         }
       },
 
+      dropmenus2(){
+        switch (this.role) {
+          case 'Administrator': 
+            return [
+              { id: 'd1', icon: 'motorcycle',text: 'Report', name: 'Report'},
+            ]
+            break
+        }
+      },
+
       submenus(){
         switch (this.role) {
           case 'Administrator': 
             return [
               { id: 's1', icon: 'filter_1', to: 'motorcycleBrands', text: 'Merk Motor', name: 'MotorcycleBrand'},
               { id: 's2', icon: 'filter_2', to: 'motorcycleTypes', text: 'Tipe Motor', name: 'MotorcycleType'},
+            ]
+            break
+        }
+      },
+
+      submenus2(){
+        switch (this.role) {
+          case 'Administrator': 
+            return [
+              { id: 'p1', icon: 'filter_1', to: 'transactionperYear', text: 'Transaksi per Bulan', name: 'transactionperYear'},
             ]
             break
         }

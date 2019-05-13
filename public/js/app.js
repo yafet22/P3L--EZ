@@ -52706,6 +52706,101 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./resources/js/service/Report.js":
+/*!****************************************!*\
+  !*** ./resources/js/service/Report.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Http */ "./resources/js/service/Http.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  transactionperYear: function () {
+    var _transactionperYear = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(year) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/transaction-per-year/".concat(year));
+
+            case 3:
+              res = _context.sent;
+              return _context.abrupt("return", res.data);
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](0);
+              throw new Error('Gagal mendapatkan data reports!');
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this, [[0, 7]]);
+    }));
+
+    function transactionperYear(_x) {
+      return _transactionperYear.apply(this, arguments);
+    }
+
+    return transactionperYear;
+  }(),
+  printTransactionperMonth: function () {
+    var _printTransactionperMonth = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(year) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/generate-transaction-per-month/".concat(year));
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              throw new Error('Gagal mendapatkan data reports!');
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, this, [[0, 5]]);
+    }));
+
+    function printTransactionperMonth(_x2) {
+      return _printTransactionperMonth.apply(this, arguments);
+    }
+
+    return printTransactionperMonth;
+  }()
+});
+
+/***/ }),
+
 /***/ "./resources/js/service/Role.js":
 /*!**************************************!*\
   !*** ./resources/js/service/Role.js ***!
@@ -56512,6 +56607,137 @@ var actions = {
 
 /***/ }),
 
+/***/ "./resources/js/store/modules/Report.js":
+/*!**********************************************!*\
+  !*** ./resources/js/store/modules/Report.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_Report__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/Report */ "./resources/js/service/Report.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  reports: [],
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.reports = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  },
+  setReportForm: function setReportForm(state, payload) {
+    state.reports = payload;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  }
+};
+var actions = {
+  transactionperYear: function () {
+    var _transactionperYear = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return _service_Report__WEBPACK_IMPORTED_MODULE_1__["default"].transactionperYear(id);
+
+            case 3:
+              res = _context.sent;
+              context.commit('setReportForm', res);
+              _context.next = 10;
+              break;
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t0);
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this, [[0, 7]]);
+    }));
+
+    function transactionperYear(_x, _x2) {
+      return _transactionperYear.apply(this, arguments);
+    }
+
+    return transactionperYear;
+  }(),
+  printTransactionperMonth: function () {
+    var _printTransactionperMonth = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _service_Report__WEBPACK_IMPORTED_MODULE_1__["default"].printTransactionperMonth(id);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              context.commit('setFailedAction', _context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, this, [[0, 5]]);
+    }));
+
+    function printTransactionperMonth(_x3, _x4) {
+      return _printTransactionperMonth.apply(this, arguments);
+    }
+
+    return printTransactionperMonth;
+  }()
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
 /***/ "./resources/js/store/modules/Role.js":
 /*!********************************************!*\
   !*** ./resources/js/store/modules/Role.js ***!
@@ -58703,6 +58929,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Motorcycle__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Motorcycle */ "./resources/js/store/modules/Motorcycle.js");
 /* harmony import */ var _Procurement__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Procurement */ "./resources/js/store/modules/Procurement.js");
 /* harmony import */ var _Transaction__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Transaction */ "./resources/js/store/modules/Transaction.js");
+/* harmony import */ var _Report__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Report */ "./resources/js/store/modules/Report.js");
+
 
 
 
@@ -58735,7 +58963,8 @@ __webpack_require__.r(__webpack_exports__);
   Customer: _Customer__WEBPACK_IMPORTED_MODULE_12__["default"],
   Motorcycle: _Motorcycle__WEBPACK_IMPORTED_MODULE_13__["default"],
   Procurement: _Procurement__WEBPACK_IMPORTED_MODULE_14__["default"],
-  Transaction: _Transaction__WEBPACK_IMPORTED_MODULE_15__["default"]
+  Transaction: _Transaction__WEBPACK_IMPORTED_MODULE_15__["default"],
+  Report: _Report__WEBPACK_IMPORTED_MODULE_16__["default"]
 });
 
 /***/ }),

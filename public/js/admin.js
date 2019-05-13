@@ -5275,6 +5275,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5309,6 +5333,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           break;
       }
     },
+    dropmenus2: function dropmenus2() {
+      switch (this.role) {
+        case 'Administrator':
+          return [{
+            id: 'd1',
+            icon: 'motorcycle',
+            text: 'Report',
+            name: 'Report'
+          }];
+          break;
+      }
+    },
     submenus: function submenus() {
       switch (this.role) {
         case 'Administrator':
@@ -5324,6 +5360,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             to: 'motorcycleTypes',
             text: 'Tipe Motor',
             name: 'MotorcycleType'
+          }];
+          break;
+      }
+    },
+    submenus2: function submenus2() {
+      switch (this.role) {
+        case 'Administrator':
+          return [{
+            id: 'p1',
+            icon: 'filter_1',
+            to: 'transactionperYear',
+            text: 'Transaksi per Bulan',
+            name: 'transactionperYear'
           }];
           break;
       }
@@ -9653,6 +9702,225 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   mounted: function mounted() {
     this.resetForm();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Report/TransactionperYear.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Report/TransactionperYear.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      name: '',
+      date: null,
+      menu: false,
+      isFormValid: false,
+      dialog: false,
+      dialog2: false,
+      warning: false,
+      keyword: '',
+      id_service: '',
+      headers: [{
+        text: 'Bulan',
+        value: 'service_name'
+      }, {
+        text: 'Service',
+        value: 'price'
+      }, {
+        text: 'Spareparts',
+        value: null
+      }, {
+        text: 'Total',
+        value: null
+      }],
+      breadcrumbs: [{
+        text: 'Dashboard',
+        to: {
+          name: 'dashboard'
+        },
+        exact: true
+      }, {
+        text: 'TransactionPerMonth',
+        disabled: true
+      }]
+    };
+  },
+  watch: {
+    menu: function menu(val) {
+      var _this = this;
+
+      val && this.$nextTick(function () {
+        return _this.$refs.picker.activePicker = 'YEAR';
+      });
+    }
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
+    reports: function reports(state) {
+      return state.Report.reports;
+    },
+    Error: function Error(state) {
+      return state.Report.error;
+    },
+    Loading: function Loading(state) {
+      return state.Report.loading;
+    }
+  })),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
+    fetchReport: 'Report/transactionperYear',
+    printReport: 'Report/printTransactionperMonth'
+  }), {
+    print: function () {
+      var _print = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return this.printReport(2019);
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function print() {
+        return _print.apply(this, arguments);
+      }
+
+      return print;
+    }(),
+    fetch: function () {
+      var _fetch = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return this.fetchReport(2019);
+
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function fetch() {
+        return _fetch.apply(this, arguments);
+      }
+
+      return fetch;
+    }(),
+    save: function save(date) {
+      this.$refs.menu.save(date);
+      this.$refs.picker.activePicker = 'YEAR';
+      this.menu = false;
+    }
+  }),
+  mounted: function mounted() {
+    this.fetch();
   }
 });
 
@@ -17159,6 +17427,25 @@ exports.push([module.i, "\n.loading-section[data-v-4691293c] {\r\n  text-align: 
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Report/TransactionperYear.vue?vue&type=style&index=0&id=5861bfa8&scoped=true&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Report/TransactionperYear.vue?vue&type=style&index=0&id=5861bfa8&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.loading-section[data-v-5861bfa8] {\r\n  text-align: center;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Sales/Sales.vue?vue&type=style&index=0&id=66dd515a&scoped=true&lang=css&":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Sales/Sales.vue?vue&type=style&index=0&id=66dd515a&scoped=true&lang=css& ***!
@@ -19092,6 +19379,36 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Procurement.vue?vue&type=style&index=0&id=4691293c&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Procurement/Procurement.vue?vue&type=style&index=0&id=4691293c&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Report/TransactionperYear.vue?vue&type=style&index=0&id=5861bfa8&scoped=true&lang=css&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Report/TransactionperYear.vue?vue&type=style&index=0&id=5861bfa8&scoped=true&lang=css& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./TransactionperYear.vue?vue&type=style&index=0&id=5861bfa8&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Report/TransactionperYear.vue?vue&type=style&index=0&id=5861bfa8&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -24206,6 +24523,75 @@ var render = function() {
                   ],
                   2
                 )
+              }),
+              _vm._v(" "),
+              _vm._l(_vm.dropmenus2, function(menu) {
+                return _c(
+                  "VList-group",
+                  {
+                    key: menu.id,
+                    staticClass: "ml-1",
+                    attrs: { "prepend-icon": menu.icon },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function() {
+                            return [
+                              _c(
+                                "v-list-tile",
+                                [
+                                  _c("v-list-tile-title", [
+                                    _vm._v(_vm._s(menu.text))
+                                  ])
+                                ],
+                                1
+                              )
+                            ]
+                          },
+                          proxy: true
+                        }
+                      ],
+                      null,
+                      true
+                    )
+                  },
+                  [
+                    _vm._v(" "),
+                    _vm._l(_vm.submenus2, function(submenu) {
+                      return _c(
+                        "VListTile",
+                        {
+                          key: submenu.id,
+                          on: {
+                            click: function($event) {
+                              return _vm.$router.push({ name: submenu.to })
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "VListTileAction",
+                            [_c("VIcon", [_vm._v(_vm._s(submenu.icon))])],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "VListTileContent",
+                            [
+                              _c("VListTileTitle", {
+                                domProps: { innerHTML: _vm._s(submenu.text) }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    })
+                  ],
+                  2
+                )
               })
             ],
             2
@@ -28920,6 +29306,150 @@ var render = function() {
             ],
             1
           )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Report/TransactionperYear.vue?vue&type=template&id=5861bfa8&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Report/TransactionperYear.vue?vue&type=template&id=5861bfa8&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "PageWrapper",
+    { attrs: { breadcrumbs: _vm.breadcrumbs } },
+    [
+      _c(
+        "card",
+        [
+          _c("v-container", { attrs: { "grid-list-md": "", "mb-0": "" } }, [
+            _c("h1", { staticClass: "text-md-center" }, [
+              _vm._v("PENJUALAN PERBULAN")
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "v-layout",
+            { attrs: { row: "", wrap: "" } },
+            [
+              _c("v-flex", { attrs: { xs6: "" } }),
+              _vm._v(" "),
+              _c(
+                "v-flex",
+                { staticClass: "text-xs-right", attrs: { xs6: "" } },
+                [
+                  _c(
+                    "VBtn",
+                    {
+                      attrs: {
+                        depressed: "",
+                        dark: "",
+                        round: "",
+                        color: "green accent-3"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.print()
+                        }
+                      }
+                    },
+                    [
+                      _c("VIcon", [_vm._v("print")]),
+                      _vm._v("\n              Print\n          ")
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "VBtn",
+                    {
+                      attrs: { icon: "" },
+                      on: {
+                        click: function($event) {
+                          return _vm.fetch()
+                        }
+                      }
+                    },
+                    [_c("VIcon", [_vm._v("refresh")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("CardSearchBar", {
+                    model: {
+                      value: _vm.keyword,
+                      callback: function($$v) {
+                        _vm.keyword = $$v
+                      },
+                      expression: "keyword"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          !_vm.loading && !_vm.error
+            ? _c("VDataTable", {
+                attrs: {
+                  headers: _vm.headers,
+                  items: _vm.reports,
+                  search: _vm.keyword
+                },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "items",
+                      fn: function(props) {
+                        return [
+                          _c("td", {
+                            domProps: { innerHTML: _vm._s(props.item.Bulan) }
+                          }),
+                          _vm._v(" "),
+                          _c("td", {
+                            domProps: {
+                              innerHTML: _vm._s(props.item.Sparepart)
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("td", {
+                            domProps: { innerHTML: _vm._s(props.item.Service) }
+                          }),
+                          _vm._v(" "),
+                          _c("td", {
+                            domProps: { innerHTML: _vm._s(props.item.Total) }
+                          })
+                        ]
+                      }
+                    }
+                  ],
+                  null,
+                  false,
+                  2570779856
+                )
+              })
+            : _vm._e()
         ],
         1
       )
@@ -87205,6 +87735,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_Transaction_Transaction__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../views/Transaction/Transaction */ "./resources/js/views/Transaction/Transaction.vue");
 /* harmony import */ var _views_Transaction_AddTransaction__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../views/Transaction/AddTransaction */ "./resources/js/views/Transaction/AddTransaction.vue");
 /* harmony import */ var _views_Transaction_EditTransaction__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../views/Transaction/EditTransaction */ "./resources/js/views/Transaction/EditTransaction.vue");
+/* harmony import */ var _views_Report_TransactionperYear__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../views/Report/TransactionperYear */ "./resources/js/views/Report/TransactionperYear.vue");
+
 
 
 
@@ -87360,6 +87892,14 @@ var routes = [{
   path: '/admin/transactions/edit',
   name: 'transactions.edit',
   component: _views_Transaction_EditTransaction__WEBPACK_IMPORTED_MODULE_18__["default"],
+  meta: {
+    role: ['Administrator']
+  },
+  beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
+}, {
+  path: '/admin/transaction-per-year',
+  name: 'transactionperYear',
+  component: _views_Report_TransactionperYear__WEBPACK_IMPORTED_MODULE_19__["default"],
   meta: {
     role: ['Administrator']
   },
@@ -89115,6 +89655,101 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
 
     return _delete;
+  }()
+});
+
+/***/ }),
+
+/***/ "./resources/js/service/Report.js":
+/*!****************************************!*\
+  !*** ./resources/js/service/Report.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Http */ "./resources/js/service/Http.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  transactionperYear: function () {
+    var _transactionperYear = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(year) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/transaction-per-year/".concat(year));
+
+            case 3:
+              res = _context.sent;
+              return _context.abrupt("return", res.data);
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](0);
+              throw new Error('Gagal mendapatkan data reports!');
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this, [[0, 7]]);
+    }));
+
+    function transactionperYear(_x) {
+      return _transactionperYear.apply(this, arguments);
+    }
+
+    return transactionperYear;
+  }(),
+  printTransactionperMonth: function () {
+    var _printTransactionperMonth = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(year) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/generate-transaction-per-month/".concat(year));
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              throw new Error('Gagal mendapatkan data reports!');
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, this, [[0, 5]]);
+    }));
+
+    function printTransactionperMonth(_x2) {
+      return _printTransactionperMonth.apply(this, arguments);
+    }
+
+    return printTransactionperMonth;
   }()
 });
 
@@ -92926,6 +93561,137 @@ var actions = {
 
 /***/ }),
 
+/***/ "./resources/js/store/modules/Report.js":
+/*!**********************************************!*\
+  !*** ./resources/js/store/modules/Report.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_Report__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/Report */ "./resources/js/service/Report.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  reports: [],
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.reports = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  },
+  setReportForm: function setReportForm(state, payload) {
+    state.reports = payload;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  }
+};
+var actions = {
+  transactionperYear: function () {
+    var _transactionperYear = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return _service_Report__WEBPACK_IMPORTED_MODULE_1__["default"].transactionperYear(id);
+
+            case 3:
+              res = _context.sent;
+              context.commit('setReportForm', res);
+              _context.next = 10;
+              break;
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t0);
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this, [[0, 7]]);
+    }));
+
+    function transactionperYear(_x, _x2) {
+      return _transactionperYear.apply(this, arguments);
+    }
+
+    return transactionperYear;
+  }(),
+  printTransactionperMonth: function () {
+    var _printTransactionperMonth = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _service_Report__WEBPACK_IMPORTED_MODULE_1__["default"].printTransactionperMonth(id);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              context.commit('setFailedAction', _context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, this, [[0, 5]]);
+    }));
+
+    function printTransactionperMonth(_x3, _x4) {
+      return _printTransactionperMonth.apply(this, arguments);
+    }
+
+    return printTransactionperMonth;
+  }()
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
 /***/ "./resources/js/store/modules/Role.js":
 /*!********************************************!*\
   !*** ./resources/js/store/modules/Role.js ***!
@@ -95117,6 +95883,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Motorcycle__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Motorcycle */ "./resources/js/store/modules/Motorcycle.js");
 /* harmony import */ var _Procurement__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Procurement */ "./resources/js/store/modules/Procurement.js");
 /* harmony import */ var _Transaction__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Transaction */ "./resources/js/store/modules/Transaction.js");
+/* harmony import */ var _Report__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Report */ "./resources/js/store/modules/Report.js");
+
 
 
 
@@ -95149,7 +95917,8 @@ __webpack_require__.r(__webpack_exports__);
   Customer: _Customer__WEBPACK_IMPORTED_MODULE_12__["default"],
   Motorcycle: _Motorcycle__WEBPACK_IMPORTED_MODULE_13__["default"],
   Procurement: _Procurement__WEBPACK_IMPORTED_MODULE_14__["default"],
-  Transaction: _Transaction__WEBPACK_IMPORTED_MODULE_15__["default"]
+  Transaction: _Transaction__WEBPACK_IMPORTED_MODULE_15__["default"],
+  Report: _Report__WEBPACK_IMPORTED_MODULE_16__["default"]
 });
 
 /***/ }),
@@ -96427,6 +97196,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Procurement_vue_vue_type_template_id_4691293c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Procurement_vue_vue_type_template_id_4691293c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/Report/TransactionperYear.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/views/Report/TransactionperYear.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TransactionperYear_vue_vue_type_template_id_5861bfa8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TransactionperYear.vue?vue&type=template&id=5861bfa8&scoped=true& */ "./resources/js/views/Report/TransactionperYear.vue?vue&type=template&id=5861bfa8&scoped=true&");
+/* harmony import */ var _TransactionperYear_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TransactionperYear.vue?vue&type=script&lang=js& */ "./resources/js/views/Report/TransactionperYear.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _TransactionperYear_vue_vue_type_style_index_0_id_5861bfa8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TransactionperYear.vue?vue&type=style&index=0&id=5861bfa8&scoped=true&lang=css& */ "./resources/js/views/Report/TransactionperYear.vue?vue&type=style&index=0&id=5861bfa8&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _TransactionperYear_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TransactionperYear_vue_vue_type_template_id_5861bfa8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TransactionperYear_vue_vue_type_template_id_5861bfa8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "5861bfa8",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/Report/TransactionperYear.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/Report/TransactionperYear.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/views/Report/TransactionperYear.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionperYear_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./TransactionperYear.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Report/TransactionperYear.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionperYear_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/Report/TransactionperYear.vue?vue&type=style&index=0&id=5861bfa8&scoped=true&lang=css&":
+/*!*******************************************************************************************************************!*\
+  !*** ./resources/js/views/Report/TransactionperYear.vue?vue&type=style&index=0&id=5861bfa8&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionperYear_vue_vue_type_style_index_0_id_5861bfa8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./TransactionperYear.vue?vue&type=style&index=0&id=5861bfa8&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Report/TransactionperYear.vue?vue&type=style&index=0&id=5861bfa8&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionperYear_vue_vue_type_style_index_0_id_5861bfa8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionperYear_vue_vue_type_style_index_0_id_5861bfa8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionperYear_vue_vue_type_style_index_0_id_5861bfa8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionperYear_vue_vue_type_style_index_0_id_5861bfa8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionperYear_vue_vue_type_style_index_0_id_5861bfa8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/views/Report/TransactionperYear.vue?vue&type=template&id=5861bfa8&scoped=true&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/views/Report/TransactionperYear.vue?vue&type=template&id=5861bfa8&scoped=true& ***!
+  \*****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionperYear_vue_vue_type_template_id_5861bfa8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./TransactionperYear.vue?vue&type=template&id=5861bfa8&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Report/TransactionperYear.vue?vue&type=template&id=5861bfa8&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionperYear_vue_vue_type_template_id_5861bfa8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TransactionperYear_vue_vue_type_template_id_5861bfa8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

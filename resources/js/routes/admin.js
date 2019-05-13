@@ -31,6 +31,8 @@ import Transaction from '../views/Transaction/Transaction'
 import TransactionCreate from '../views/Transaction/AddTransaction'
 import TransactionEdit from '../views/Transaction/EditTransaction'
 
+import TransactionperYear from '../views/Report/TransactionperYear'
+
 export const routes = [
     {
         path: '/admin/login',
@@ -189,6 +191,15 @@ export const routes = [
       path: '/admin/transactions/edit',
       name: 'transactions.edit',
       component: TransactionEdit,
+      meta: { role: ['Administrator'] },
+      beforeEnter: middleware([
+        auth
+      ])
+    },
+    {
+      path: '/admin/transaction-per-year',
+      name: 'transactionperYear',
+      component: TransactionperYear,
       meta: { role: ['Administrator'] },
       beforeEnter: middleware([
         auth
