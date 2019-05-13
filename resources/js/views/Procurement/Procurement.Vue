@@ -80,7 +80,7 @@
                 <VBtn 
                   flat
                   color="warning"
-                 
+                   @click="printHandler(props.item,props.item.id_procurement)"
                 >
                 Cetak
                 </VBtn>
@@ -296,7 +296,8 @@ export default {
       resetForm: 'Procurement/resetForm',
       updateProcurement: 'Procurement/update',
       fetchProcurement: 'Procurement/edit',
-      verification: 'Sparepart/verification'
+      verification: 'Sparepart/verification',
+      print: 'Procurement/print'
     }),
 
     fetch () {
@@ -385,6 +386,22 @@ export default {
       await this.verification(payload2)
       this.dialog3=false
       this.fetch()
+    },
+
+     async printHandler (value,id) {
+       var name = value.date;
+       var word = name.split(' ');
+       const payload = {
+          id_procurement: id,
+          date: word[0],
+          procurement_status: 'On Progress',
+          id_sales: value.id_sales,
+        }
+       await this.print(id)
+
+       await this.updateProcurement(payload)
+
+       this.fetch()
     },
   },
 

@@ -135,7 +135,7 @@
               <td v-html="props.item.transaction_paid" />
               <td class="text-xs-center">
                 <VBtn 
-                  v-if="props.item.transaction_paid=='unpaid' && props.item.transaction_status=='finish'"
+                  v-if="props.item.transaction_paid=='unpaid'"
                   flat
                   color="info"
                   @click="detailHandler(props.item)"

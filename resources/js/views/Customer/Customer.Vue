@@ -147,6 +147,14 @@
               />
             </VCardText>
             <VCardText>
+                <v-layout row wrap>
+                  <v-flex xs6>
+                      
+                  </v-flex>
+                  <v-flex xs6 class="text-xs-right">
+                      <CardSearchBar v-model="keyword2" />
+                  </v-flex>
+                </v-layout>
                 <VDataTable
                   :headers="headers2"
                   :items="motorcycle"

@@ -29,6 +29,14 @@ export default {
     }
   },
 
+  async print (id) {
+    try {
+        await http.get(`/api/generate-procurement-docs/${id}`)
+    } catch (err) {
+      throw new Error('Gagal mendapatkan data procurements!')
+    }
+  },
+
   async update (id, payload) {
     try {
       const res = await http.patch(`/api/procurements/${id}`, payload)

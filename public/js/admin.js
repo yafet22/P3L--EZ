@@ -7155,6 +7155,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -9376,7 +9384,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     resetForm: 'Procurement/resetForm',
     updateProcurement: 'Procurement/update',
     fetchProcurement: 'Procurement/edit',
-    verification: 'Sparepart/verification'
+    verification: 'Sparepart/verification',
+    print: 'Procurement/print'
   }), {
     fetch: function fetch() {
       this.$refs.procurementControl.fetch();
@@ -9599,6 +9608,47 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       return submitHandler3;
+    }(),
+    printHandler: function () {
+      var _printHandler = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(value, id) {
+        var name, word, payload;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                name = value.date;
+                word = name.split(' ');
+                payload = {
+                  id_procurement: id,
+                  date: word[0],
+                  procurement_status: 'On Progress',
+                  id_sales: value.id_sales
+                };
+                _context7.next = 5;
+                return this.print(id);
+
+              case 5:
+                _context7.next = 7;
+                return this.updateProcurement(payload);
+
+              case 7:
+                this.fetch();
+
+              case 8:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, this);
+      }));
+
+      function printHandler(_x6, _x7) {
+        return _printHandler.apply(this, arguments);
+      }
+
+      return printHandler;
     }()
   }),
   mounted: function mounted() {
@@ -25842,6 +25892,35 @@ var render = function() {
                   _c(
                     "VCardText",
                     [
+                      _c(
+                        "v-layout",
+                        { attrs: { row: "", wrap: "" } },
+                        [
+                          _c("v-flex", { attrs: { xs6: "" } }),
+                          _vm._v(" "),
+                          _c(
+                            "v-flex",
+                            {
+                              staticClass: "text-xs-right",
+                              attrs: { xs6: "" }
+                            },
+                            [
+                              _c("CardSearchBar", {
+                                model: {
+                                  value: _vm.keyword2,
+                                  callback: function($$v) {
+                                    _vm.keyword2 = $$v
+                                  },
+                                  expression: "keyword2"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
                       _c("VDataTable", {
                         attrs: {
                           headers: _vm.headers2,
@@ -28433,6 +28512,14 @@ var render = function() {
                                             attrs: {
                                               flat: "",
                                               color: "warning"
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.printHandler(
+                                                  props.item,
+                                                  props.item.id_procurement
+                                                )
+                                              }
                                             }
                                           },
                                           [
@@ -39641,10 +39728,7 @@ var render = function() {
                                       "td",
                                       { staticClass: "text-xs-center" },
                                       [
-                                        props.item.transaction_paid ==
-                                          "unpaid" &&
-                                        props.item.transaction_status ==
-                                          "finish"
+                                        props.item.transaction_paid == "unpaid"
                                           ? _c(
                                               "VBtn",
                                               {
@@ -88926,37 +89010,72 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     return find;
   }(),
-  update: function () {
-    var _update = _asyncToGenerator(
+  print: function () {
+    var _print = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id, payload) {
-      var res;
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id) {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
               _context4.prev = 0;
               _context4.next = 3;
-              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].patch("/api/procurements/".concat(id), payload);
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/generate-procurement-docs/".concat(id));
 
             case 3:
-              res = _context4.sent;
-              return _context4.abrupt("return", res.data.data);
+              _context4.next = 8;
+              break;
 
-            case 7:
-              _context4.prev = 7;
+            case 5:
+              _context4.prev = 5;
               _context4.t0 = _context4["catch"](0);
-              throw new Error('Gagal update data procurements!');
+              throw new Error('Gagal mendapatkan data procurements!');
 
-            case 10:
+            case 8:
             case "end":
               return _context4.stop();
           }
         }
-      }, _callee4, this, [[0, 7]]);
+      }, _callee4, this, [[0, 5]]);
     }));
 
-    function update(_x3, _x4) {
+    function print(_x3) {
+      return _print.apply(this, arguments);
+    }
+
+    return print;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id, payload) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].patch("/api/procurements/".concat(id), payload);
+
+            case 3:
+              res = _context5.sent;
+              return _context5.abrupt("return", res.data.data);
+
+            case 7:
+              _context5.prev = 7;
+              _context5.t0 = _context5["catch"](0);
+              throw new Error('Gagal update data procurements!');
+
+            case 10:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, this, [[0, 7]]);
+    }));
+
+    function update(_x4, _x5) {
       return _update.apply(this, arguments);
     }
 
@@ -88965,33 +89084,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   delete: function () {
     var _delete2 = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
         while (1) {
-          switch (_context5.prev = _context5.next) {
+          switch (_context6.prev = _context6.next) {
             case 0:
-              _context5.prev = 0;
-              _context5.next = 3;
+              _context6.prev = 0;
+              _context6.next = 3;
               return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].delete("/api/procurements/".concat(id));
 
             case 3:
-              _context5.next = 8;
+              _context6.next = 8;
               break;
 
             case 5:
-              _context5.prev = 5;
-              _context5.t0 = _context5["catch"](0);
+              _context6.prev = 5;
+              _context6.t0 = _context6["catch"](0);
               throw new Error('Gagal hapus data procurements');
 
             case 8:
             case "end":
-              return _context5.stop();
+              return _context6.stop();
           }
         }
-      }, _callee5, this, [[0, 5]]);
+      }, _callee6, this, [[0, 5]]);
     }));
 
-    function _delete(_x5) {
+    function _delete(_x6) {
       return _delete2.apply(this, arguments);
     }
 
@@ -92680,44 +92799,79 @@ var actions = {
 
     return edit;
   }(),
-  update: function () {
-    var _update = _asyncToGenerator(
+  print: function () {
+    var _print = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, payload) {
-      var data;
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, id) {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
             case 0:
               _context5.prev = 0;
+              _context5.next = 3;
+              return _service_Procurement__WEBPACK_IMPORTED_MODULE_1__["default"].print(id);
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, this, [[0, 5]]);
+    }));
+
+    function print(_x8, _x9) {
+      return _print.apply(this, arguments);
+    }
+
+    return print;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.prev = 0;
               data = {
                 procurement_status: payload.procurement_status,
                 id_sales: payload.id_sales,
                 date: payload.date,
                 detail: payload.detail
               };
-              _context5.next = 4;
+              _context6.next = 4;
               return _service_Procurement__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_procurement, data);
 
             case 4:
               state.loading = false;
-              _context5.next = 10;
+              _context6.next = 10;
               break;
 
             case 7:
-              _context5.prev = 7;
-              _context5.t0 = _context5["catch"](0);
-              context.commit('setFailedAction', _context5.t0);
+              _context6.prev = 7;
+              _context6.t0 = _context6["catch"](0);
+              context.commit('setFailedAction', _context6.t0);
 
             case 10:
             case "end":
-              return _context5.stop();
+              return _context6.stop();
           }
         }
-      }, _callee5, this, [[0, 7]]);
+      }, _callee6, this, [[0, 7]]);
     }));
 
-    function update(_x8, _x9) {
+    function update(_x10, _x11) {
       return _update.apply(this, arguments);
     }
 
@@ -92726,33 +92880,33 @@ var actions = {
   delete: function () {
     var _delete2 = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(context, id) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
         while (1) {
-          switch (_context6.prev = _context6.next) {
+          switch (_context7.prev = _context7.next) {
             case 0:
-              _context6.prev = 0;
-              _context6.next = 3;
+              _context7.prev = 0;
+              _context7.next = 3;
               return _service_Procurement__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
 
             case 3:
-              _context6.next = 8;
+              _context7.next = 8;
               break;
 
             case 5:
-              _context6.prev = 5;
-              _context6.t0 = _context6["catch"](0);
-              context.commit('setFailedAction', _context6.t0);
+              _context7.prev = 5;
+              _context7.t0 = _context7["catch"](0);
+              context.commit('setFailedAction', _context7.t0);
 
             case 8:
             case "end":
-              return _context6.stop();
+              return _context7.stop();
           }
         }
-      }, _callee6, this, [[0, 5]]);
+      }, _callee7, this, [[0, 5]]);
     }));
 
-    function _delete(_x10, _x11) {
+    function _delete(_x12, _x13) {
       return _delete2.apply(this, arguments);
     }
 

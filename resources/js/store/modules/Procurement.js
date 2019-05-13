@@ -87,6 +87,14 @@ const actions = {
     }
   },
 
+  async print(context, id) {
+    try {
+      await procurementService.print(id)
+    } catch (err) {
+      context.commit('setFailedAction', err)
+    }
+  },
+
   async update(context, payload) {
     try {
       const data = {

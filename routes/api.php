@@ -66,3 +66,11 @@ Route::post('detailSparepart','TransactionController@storeDetailSparepart');
 Route::get('detailSparepart/{id}','TransactionController@showDetailSparepart');
 Route::put('payment/{id}','TransactionController@payment');
 Route::post('searchDetail','TransactionController@searchDetailService');
+
+Route::get('/generate-procurement-docs/{id}', 'FileController@generateProcurementDocs');
+Route::get('/generate-work-order-docs/{id}', 'FileController@generateWorkOrderDocs');
+
+Route::get('/transaction-per-year/{year}','ReportController@TransactionperYear');
+Route::get('/expense-per-year/{year}','ReportController@ExpenseperYear');
+Route::get('/transaction-by-branch','ReportController@TransactionbyBranch');
+Route::get('/best-seller-sparepart','ReportController@BestSellerSparepart');
