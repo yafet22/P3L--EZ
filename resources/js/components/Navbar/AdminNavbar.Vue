@@ -225,6 +225,8 @@
           case 'Administrator': 
             return [
               { id: 'p1', icon: 'filter_1', to: 'transactionperYear', text: 'Transaksi per Bulan', name: 'transactionperYear'},
+              { id: 'p2', icon: 'filter_2', to: 'sparepartBestSeller', text: 'Sparepart Terlaris', name: 'sparepartBestSeller'},
+              { id: 'p3', icon: 'filter_3', to: 'serviceSelling', text: 'Penjualan Service', name: 'serviceSelling'},
             ]
             break
         }

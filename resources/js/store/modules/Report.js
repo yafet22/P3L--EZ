@@ -40,9 +40,43 @@ const actions = {
     }
   },
 
+  async bestSellerSparepart(context) {
+    try {
+      const res = await reportService.bestSellerSparepart()
+      context.commit('setReportForm', res)
+    } catch (err) {
+      context.commit('setFailedAction', err)
+    }
+  },
+
+  async serviceSelling(context, payload) {
+    try {
+      const res = await reportService.serviceSelling(payload.year,payload.month)
+      context.commit('setReportForm', res)
+    } catch (err) {
+      context.commit('setFailedAction', err)
+    }
+  },
+
   async printTransactionperMonth(context, id) {
     try {
       await reportService.printTransactionperMonth(id)
+    } catch (err) {
+      context.commit('setFailedAction', err)
+    }
+  },
+
+  async printServiceSelling(context, payload) {
+    try {
+      await reportService.printserviceSelling(payload.year,payload.month)
+    } catch (err) {
+      context.commit('setFailedAction', err)
+    }
+  },
+
+  async printBestSellerSparepart(context) {
+    try {
+      await reportService.printbestSellerSparepart()
     } catch (err) {
       context.commit('setFailedAction', err)
     }

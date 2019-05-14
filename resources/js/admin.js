@@ -6,6 +6,7 @@ import { routes } from './routes/admin'
 import auth from './service/Auth'
 import Vuetify from 'vuetify'
 import store from './store'
+import VueApexCharts from 'vue-apexcharts'
 
 import ErrorAlert from './components/Alert/ErrorAlert'
 import SuccessAlert from './components/Alert/SuccessAlert'
@@ -17,6 +18,9 @@ import CardSearchBar from './components/Card/CardSearchBar'
 Vue.use(VueRouter);
 Vue.use(Vuelidate);
 Vue.use(Vuetify);
+Vue.use(VueApexCharts)
+
+Vue.component('apexchart', VueApexCharts)
 Vue.component('ErrorAlert',ErrorAlert)
 Vue.component('SuccessAlert',SuccessAlert)
 Vue.component('PageWrapper',PageWrapper)

@@ -1610,7 +1610,7 @@ export default {
         await this.findEmployee(this.service.id_employee)
         object.mechanic_name=this.employee.first_name + ' ' + this.employee.last_name
         object.detail_service_amount=1
-        object.detail_service_subtotal=object.detail_service_amount=1*object.detail_service_price
+        object.detail_service_subtotal=1*object.detail_service_price
 
         if(!this.err)
         {
