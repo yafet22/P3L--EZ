@@ -58,6 +58,16 @@ const actions = {
     }
   },
 
+  async remainingStock(context, payload) {
+    try {
+      console.log(payload.sparepart)
+      const res = await reportService.remainingStock(payload.year,payload.sparepart)
+      context.commit('setReportForm', res)
+    } catch (err) {
+      context.commit('setFailedAction', err)
+    }
+  },
+
   async printTransactionperMonth(context, id) {
     try {
       await reportService.printTransactionperMonth(id)

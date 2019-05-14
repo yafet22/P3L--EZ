@@ -72,9 +72,11 @@ Route::get('/generate-work-order-docs/{id}', 'FileController@generateWorkOrderDo
 Route::get('/generate-transaction-per-month/{year}', 'FileController@generateTransactionPerMonth');
 Route::get('/generate-sparepart-best-seller', 'FileController@generateSparepartBestSeller');
 Route::get('/generate-service-selling/{year}/{month}', 'FileController@generateServiceSelling');
+Route::get('/generate-remaining-stock/{year}/{sparepart}', 'FileController@generateRemainingStock');
 
 Route::get('/transaction-per-year/{year}','ReportController@TransactionperYear');
 Route::get('/expense-per-year/{year}','ReportController@ExpenseperYear');
 Route::get('/transaction-by-branch','ReportController@TransactionbyBranch');
 Route::get('/best-seller-sparepart','ReportController@BestSellerSparepart');
 Route::get('/service-selling/{year}/{month}','ReportController@ServiceSelling');
+Route::get('/remaining-stock/{year}/{sparepart}','ReportController@RemainingStock');

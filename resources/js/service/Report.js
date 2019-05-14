@@ -22,6 +22,16 @@ export default {
     }
   },
 
+  async remainingStock(year,sparepart) {
+    try {
+      const res = await http.get(`/api/remaining-stock/${year}/${sparepart}`)
+      
+      return res.data
+    } catch (err) {
+      throw new Error('Gagal mendapatkan data reports!')
+    }
+  },
+
   async bestSellerSparepart() {
     try {
       const res = await http.get(`/api/best-seller-sparepart`)

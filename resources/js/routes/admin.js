@@ -34,6 +34,7 @@ import TransactionEdit from '../views/Transaction/EditTransaction'
 import TransactionperYear from '../views/Report/TransactionperYear'
 import BestSellerSparepart from '../views/Report/BestSellerSparepart'
 import ServiceSelling from '../views/Report/ServiceSelling'
+import RemainingStock from '../views/Report/RemainingStock'
 
 export const routes = [
     {
@@ -220,6 +221,15 @@ export const routes = [
       path: '/admin/service-selling',
       name: 'serviceSelling',
       component: ServiceSelling,
+      meta: { role: ['Administrator'] },
+      beforeEnter: middleware([
+        auth
+      ])
+    },
+    {
+      path: '/admin/remaining-stock',
+      name: 'remainingStock',
+      component: RemainingStock,
       meta: { role: ['Administrator'] },
       beforeEnter: middleware([
         auth

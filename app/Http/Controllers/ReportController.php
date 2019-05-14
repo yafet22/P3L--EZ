@@ -136,4 +136,42 @@ class ReportController extends Controller
         ORDER BY motorcycles.id_motorcycle");
         return response()->json($report, 200, [], JSON_NUMERIC_CHECK);
     }
+
+    public function RemainingStock($year,$sparepart)
+    {
+        $report = DB::select("SELECT MONTHNAME(STR_TO_DATE((m.bulan), '%m')) as 'Bulan', COALESCE((select (
+            (select stock + (select sum(detail_sparepart_amount) from detail_spareparts join spareparts on detail_spareparts.id_sparepart=spareparts.id_sparepart
+            where spareparts.id_sparepart_type = '$sparepart' and EXTRACT(YEAR FROM detail_spareparts.created_at) = $year)
+             - (select sum(amount) from procurement_details join spareparts on procurement_details.id_sparepart=spareparts.id_sparepart where spareparts.id_sparepart_type = '$sparepart' and EXTRACT(YEAR FROM procurement_details.created_at) = $year) from spareparts where id_sparepart_type = '$sparepart')
+             - (select sum(detail_sparepart_amount) from detail_spareparts join spareparts on detail_spareparts.id_sparepart=spareparts.id_sparepart where spareparts.id_sparepart_type = '$sparepart' and EXTRACT(Month FROM detail_spareparts.created_at) = bulan) 
+            + (select sum(amount) from procurement_details join spareparts on procurement_details.id_sparepart=spareparts.id_sparepart where spareparts.id_sparepart_type = '$sparepart' and EXTRACT(Month FROM procurement_details.created_at) = bulan))  AS 'Jumlah Sparepart Sisa' 
+            from spareparts where id_sparepart_type = '$sparepart'),'0') AS 'JumlahStokSisa'
+             FROM(
+                    SELECT '01' AS
+                            bulan
+                            UNION SELECT '02' AS
+                            bulan
+                            UNION SELECT '03' AS
+                            bulan
+                            UNION SELECT '04' AS
+                            bulan
+                            UNION SELECT '05' AS
+                            bulan
+                            UNION SELECT '06' AS
+                            bulan
+                            UNION SELECT '07'AS
+                            bulan
+                            UNION SELECT '08'AS
+                            bulan
+                            UNION SELECT '09' AS
+                            bulan
+                            UNION SELECT '10' AS
+                            bulan
+                            UNION SELECT '11' AS
+                            bulan
+                            UNION SELECT '12' AS
+                            bulan
+                        ) AS m");
+        return response()->json($report, 200, [], JSON_NUMERIC_CHECK);
+    }
 }
