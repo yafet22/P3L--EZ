@@ -40,6 +40,24 @@ const actions = {
     }
   },
 
+  async expenseperYear(context, id) {
+    try {
+      const res = await reportService.expenseperYear(id)
+      context.commit('setReportForm', res)
+    } catch (err) {
+      context.commit('setFailedAction', err)
+    }
+  },
+
+  async transactionByBranch(context) {
+    try {
+      const res = await reportService.transactionbyBranch()
+      context.commit('setReportForm', res)
+    } catch (err) {
+      context.commit('setFailedAction', err)
+    }
+  },
+
   async bestSellerSparepart(context) {
     try {
       const res = await reportService.bestSellerSparepart()
@@ -71,6 +89,30 @@ const actions = {
   async printTransactionperMonth(context, id) {
     try {
       await reportService.printTransactionperMonth(id)
+    } catch (err) {
+      context.commit('setFailedAction', err)
+    }
+  },
+
+  async printExpenseperYear(context, id) {
+    try {
+      await reportService.printExpenseperYear(id)
+    } catch (err) {
+      context.commit('setFailedAction', err)
+    }
+  },
+
+  async printTransactionbyBranch(context) {
+    try {
+      await reportService.printTransactionperYear2()
+    } catch (err) {
+      context.commit('setFailedAction', err)
+    }
+  },
+
+  async printRemainingStock(context, payload) {
+    try {
+      await reportService.printRemainingStock(payload.year,payload.sparepart)
     } catch (err) {
       context.commit('setFailedAction', err)
     }

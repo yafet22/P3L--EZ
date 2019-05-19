@@ -73,6 +73,10 @@ Route::get('/generate-transaction-per-month/{year}', 'FileController@generateTra
 Route::get('/generate-sparepart-best-seller', 'FileController@generateSparepartBestSeller');
 Route::get('/generate-service-selling/{year}/{month}', 'FileController@generateServiceSelling');
 Route::get('/generate-remaining-stock/{year}/{sparepart}', 'FileController@generateRemainingStock');
+Route::get('/chart-remaining-stock', 'FileController@chartRemainingStock');
+Route::get('/generate-transaction-per-year', 'FileController@generateTransactionPerYear');
+Route::get('/generate-expense/{year}','FileController@generateExpenseReport');
+Route::get('/generate-receipt/{id}','FileController@generateReceipt');
 
 Route::get('/transaction-per-year/{year}','ReportController@TransactionperYear');
 Route::get('/expense-per-year/{year}','ReportController@ExpenseperYear');
@@ -80,3 +84,12 @@ Route::get('/transaction-by-branch','ReportController@TransactionbyBranch');
 Route::get('/best-seller-sparepart','ReportController@BestSellerSparepart');
 Route::get('/service-selling/{year}/{month}','ReportController@ServiceSelling');
 Route::get('/remaining-stock/{year}/{sparepart}','ReportController@RemainingStock');
+
+Route::get('/detail-sparepart/{id}','ReportController@DetailSparepart');
+Route::get('/detail-service/{id}','ReportController@DetailService');
+Route::get('/work-order/{id}','ReportController@WorkOrder');
+Route::get('/customer-service/{id}','ReportController@DataCS');
+Route::get('/mechanic-detail-sparepart/{id}','ReportController@MechanicSP');
+Route::get('/mechanic-detail-service/{id}','ReportController@MechanicSV');
+Route::get('/motor-sparepart/{id}','ReportController@MotorSparepart');
+Route::get('/motor-service/{id}','ReportController@MotorService');

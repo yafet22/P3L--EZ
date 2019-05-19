@@ -11,6 +11,26 @@ export default {
       throw new Error('Gagal mendapatkan data reports!')
     }
   },
+
+  async expenseperYear(year) {
+    try {
+      const res = await http.get(`/api/expense-per-year/${year}`)
+      
+      return res.data
+    } catch (err) {
+      throw new Error('Gagal mendapatkan data reports!')
+    }
+  },
+
+  async transactionbyBranch() {
+    try {
+      const res = await http.get(`/api/transaction-by-branch`)
+      
+      return res.data
+    } catch (err) {
+      throw new Error('Gagal mendapatkan data reports!')
+    }
+  },
   
   async serviceSelling(year,month) {
     try {
@@ -50,6 +70,14 @@ export default {
     }
   },
 
+  async printExpenseperYear (year) {
+    try {
+        await http.download(`/api/generate-expense/${year}`)
+    } catch (err) {
+      throw new Error('Gagal mendapatkan data reports!')
+    }
+  },
+
   async printserviceSelling (year,month) {
     try {
         await http.download(`/api/generate-service-selling/${year}/${month}`)
@@ -58,9 +86,25 @@ export default {
     }
   },
 
+  async printRemainingStock (year,sparepart) {
+    try {
+        await http.download(`/api/generate-remaining-stock/${year}/${sparepart}`)
+    } catch (err) {
+      throw new Error('Gagal mendapatkan data reports!')
+    }
+  },
+
   async printbestSellerSparepart() {
     try {
         await http.download(`/api/generate-sparepart-best-seller`)
+    } catch (err) {
+      throw new Error('Gagal mendapatkan data reports!')
+    }
+  },
+
+  async printTransactionperYear2() {
+    try {
+        await http.download(`/api/generate-transaction-per-year`)
     } catch (err) {
       throw new Error('Gagal mendapatkan data reports!')
     }

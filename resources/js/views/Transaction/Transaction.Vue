@@ -72,6 +72,7 @@
                 <VBtn 
                   flat
                   color="warning"
+                  @click="printSPK(props.item.id_transaction)"
                 >
                 Cetak
                 </VBtn>
@@ -154,8 +155,19 @@
               </td>
               <td class="text-xs-center">
                 <VBtn 
+                  v-if="props.item.transaction_paid=='paid'"
                   flat
                   color="warning"
+                  @click="printNota(props.item.id_transaction)"
+                >
+                Cetak
+                </VBtn>
+                <VBtn 
+                  v-else
+                  disabled
+                  flat
+                  color="warning"
+                  @click="printNota(props.item.id_transaction)"
                 >
                 Cetak
                 </VBtn>
@@ -553,6 +565,7 @@ export default {
     }),
     ...mapGetters({
         role: 'LoggedUser/role',
+        id_employee: 'LoggedUser/id',
     }),
     payamountErrors () {
       const errors = []
@@ -659,6 +672,14 @@ export default {
     //   this.dialog2=true
     // },
 
+    printSPK(id){
+      window.open(`/api/generate-work-order-docs/${id}`, '_blank')
+    },
+
+    printNota(id){
+      window.open(`/api/generate-receipt/${id}`, '_blank')
+    },
+
     deleteWarning(id){
         this.id_transaction=id
         this.warning=true
@@ -696,7 +717,15 @@ export default {
     },
 
     async paymentProcess(){
-      await this.paymentTransaction(this.payment)
+      const payload = {
+        id_transaction: this.payment.id_transaction,
+        total: this.payment.total,
+        change: this.payment.change,
+        discount: this.payment.discount,
+        payamount: this.payment.payamount,
+        employee: this.id_employee
+      }
+      await this.paymentTransaction(payload)
 
       if (!this.transactionError) {
         this.dialog=false

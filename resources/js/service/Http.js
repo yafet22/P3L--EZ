@@ -35,6 +35,7 @@ export default {
         const link = document.createElement('a');
         link.href = url;
         link.setAttribute('download', 'file.pdf'); //or any other extension
+        console.log(link)
         document.body.appendChild(link);
         link.click();
 

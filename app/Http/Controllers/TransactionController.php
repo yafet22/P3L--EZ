@@ -519,6 +519,10 @@ class TransactionController extends RestController
     {
         try {
 
+            if($request->has('employee'))
+            {
+                $employee = $request->get('employee');
+            }
 
             $transaction = Transaction::find($id);
 
@@ -526,6 +530,15 @@ class TransactionController extends RestController
             $transaction->transaction_discount=$request->get('transaction_discount');;
             $transaction->transaction_total=$request->get('transaction_total');
             $transaction->save();
+
+            if($request->has('employee'))
+            {
+                $transaction = DB::transaction(function () use ($transaction,$employee) {
+                    $transaction->employees()->attach($employee);
+                    return $transaction;
+                });
+            }
+            
 
             $response = $this->generateItem($transaction);
 

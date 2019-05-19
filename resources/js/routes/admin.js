@@ -35,6 +35,8 @@ import TransactionperYear from '../views/Report/TransactionperYear'
 import BestSellerSparepart from '../views/Report/BestSellerSparepart'
 import ServiceSelling from '../views/Report/ServiceSelling'
 import RemainingStock from '../views/Report/RemainingStock'
+import TransactionbyBranch from '../views/Report/TransactionbyBranch'
+import ExpenseperYear from '../views/Report/ExpenseperYear'
 
 export const routes = [
     {
@@ -230,6 +232,24 @@ export const routes = [
       path: '/admin/remaining-stock',
       name: 'remainingStock',
       component: RemainingStock,
+      meta: { role: ['Administrator'] },
+      beforeEnter: middleware([
+        auth
+      ])
+    },
+    {
+      path: '/admin/transaction-by-branch',
+      name: 'transactionByBranch',
+      component: TransactionbyBranch,
+      meta: { role: ['Administrator'] },
+      beforeEnter: middleware([
+        auth
+      ])
+    },
+    {
+      path: '/admin/expense-per-year',
+      name: 'expenseperYear',
+      component: ExpenseperYear,
       meta: { role: ['Administrator'] },
       beforeEnter: middleware([
         auth

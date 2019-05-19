@@ -72,7 +72,7 @@
 	<div class="container">
 		<div class="header-section">
 			<div class="image">
-				<img src="https://s3.us-east-2.amazonaws.com/pilatix-api-clubs/AtmaAutoLogo.png" alt="">
+				<img src="http://localhost:8000/api/chart-remaining-stock" alt="http://localhost:8000/api/chart-remaining-stock">
 			</div>
 			<div class="title">
 				<div><h1>ATMA AUTO</h1></div>

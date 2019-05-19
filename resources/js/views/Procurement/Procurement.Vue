@@ -78,6 +78,16 @@
               </td>
               <td class="text-xs-center">
                 <VBtn 
+                  v-if="props.item.procurement_status=='Finish'"
+                  disabled
+                  flat
+                  color="warning"
+                   @click="printHandler(props.item,props.item.id_procurement)"
+                >
+                Cetak
+                </VBtn>
+                <VBtn 
+                  v-else
                   flat
                   color="warning"
                    @click="printHandler(props.item,props.item.id_procurement)"
@@ -397,7 +407,8 @@ export default {
           procurement_status: 'On Progress',
           id_sales: value.id_sales,
         }
-       await this.print(id)
+      await this.print(id)
+      //  window.open(`/api/generate-procurement-docs/${id}`, '_blank')
 
        await this.updateProcurement(payload)
 

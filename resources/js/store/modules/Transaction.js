@@ -136,8 +136,11 @@ const actions = {
     try {
       const data = {
         transaction_total: payload.total,
-        transaction_discount: payload.discount
+        transaction_discount: payload.discount,
+        employee: payload.employee
       }
+
+      console.log(data)
 
       await transactionService.payment(payload.id_transaction, data)
       state.loading = false

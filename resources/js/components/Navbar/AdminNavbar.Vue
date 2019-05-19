@@ -203,7 +203,7 @@
         switch (this.role) {
           case 'Administrator': 
             return [
-              { id: 'd1', icon: 'motorcycle',text: 'Report', name: 'Report'},
+              { id: 'd1', icon: 'show_chart',text: 'Report', name: 'Report'},
             ]
             break
         }
@@ -228,6 +228,8 @@
               { id: 'p2', icon: 'filter_2', to: 'sparepartBestSeller', text: 'Sparepart Terlaris', name: 'sparepartBestSeller'},
               { id: 'p3', icon: 'filter_3', to: 'serviceSelling', text: 'Penjualan Service', name: 'serviceSelling'},
               { id: 'p4', icon: 'filter_4', to: 'remainingStock', text: 'Sisa Stock', name: 'remainingStock'},
+              { id: 'p5', icon: 'filter_5', to: 'transactionByBranch', text: 'Transaksi per Tahun', name: 'transactionByBranch'},
+              { id: 'p6', icon: 'filter_6', to: 'expenseperYear', text: 'Pengeluaran per Bulan', name: 'expenseperYear'},
             ]
             break
         }

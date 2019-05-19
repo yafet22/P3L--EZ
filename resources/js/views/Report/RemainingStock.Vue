@@ -80,16 +80,7 @@
             <h1 class="text-md-center">CHART SISA STOCK</h1>
           </v-container> 
           <v-layout row wrap>
-              <v-flex xs4 class="text-xs-right">
-
-              </v-flex>
-              <v-flex xs4 class="text-xs-center">
-                  <apexchart type=pie width=100% :options="chartOptions" :series="series" />
-              </v-flex>
-              <v-flex xs4 class="text-xs-right">
-
-              </v-flex>
-                
+                <apexchart type=line height=350 :options="chartOptions" :series="series" />
           </v-layout>
     </card>
   </PageWrapper>
@@ -133,21 +124,37 @@ export default {
           disabled: true,
         },
       ],
-      series: [],
+      series: [{
+            name: "Sisa Stock",
+            data: []
+        }],
         chartOptions: {
-            labels: ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
-            responsive: [{
-            breakpoint: 480,
-            options: {
-                chart: {
-                width: 200
-                },
-                legend: {
-                position: 'bottom'
+          chart: {
+                height: 350,
+                zoom: {
+                    enabled: false
                 }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'straight'
+            },
+            title: {
+                text: 'Sisa stock',
+                align: 'left'
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
+                },
+            },
+            xaxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep','Oct','Nov','Dec'],
             }
-        }]
-    }
+        }
     }
   },
 
@@ -171,11 +178,15 @@ export default {
     ...mapActions({
       fetchType: 'SparepartType/get',
       fetchReport: 'Report/remainingStock',
-      printReport: 'Report/printTransactionperMonth'
+      printReport: 'Report/printRemainingStock'
     }),
 
     async print(){
-        await this.printReport(this.year);
+        const payload = {
+            year: this.year,
+            sparepart: this.sparepart_type,
+      }
+        await this.printReport(payload);
     },
 
     async fetch () {
@@ -186,10 +197,10 @@ export default {
       }
   
       await this.fetchReport(payload);
-      this.series=[]
+      this.series[0].data=[]
     
       this.reports.forEach(report => {
-          this.series.push(report.JumlahStokSisa)
+          this.series[0].data.push(report.JumlahStokSisa)
       });
     },
     async save (date) {

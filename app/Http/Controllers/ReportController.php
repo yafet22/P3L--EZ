@@ -174,4 +174,87 @@ class ReportController extends Controller
                         ) AS m");
         return response()->json($report, 200, [], JSON_NUMERIC_CHECK);
     }
+
+    public function DetailSparepart($id)
+    {
+        $report = DB::select("SELECT t.id_transaction as id_transaction, t.transaction_discount as Diskon, s.id_sparepart as Kode, s.sparepart_name as Nama, s.merk as Merk, s.placement as Rak, d.detail_sparepart_amount as Jumlah, d.detail_sparepart_price as Harga_Satuan, d.detail_sparepart_subtotal as Harga_Total
+        FROM transactions t 
+        INNER JOIN detail_spareparts d ON d.id_transaction =  t.id_transaction
+        INNER JOIN spareparts s ON s.id_sparepart = d.id_sparepart
+        WHERE t.id_transaction = '$id'");
+        return response()->json($report, 200, [], JSON_NUMERIC_CHECK);
+    }
+
+    public function DetailService($id)
+    {
+        $report = DB::select("SELECT t.id_transaction as id_transaction, t.transaction_discount as Diskon_Service, j2.id_service as KodeJasa, j2.service_name as NamaJasa, j.detail_service_amount as Jumlah, j.detail_service_price as Harga_Satuan_Service, j.detail_service_subtotal as Harga_Total_Service
+        FROM transactions t 
+        INNER JOIN detail_services j ON j.id_transaction = t.id_transaction
+        INNER JOIN services j2 ON j2.id_service = j2.id_service
+        WHERE t.id_transaction = '$id'");
+        return response()->json($report, 200, [], JSON_NUMERIC_CHECK);
+    }
+
+    public function MotorSparepart($id)
+    {
+        $report = DB::select("SELECT t.id_transaction, m.motorcycle_brand_name as Merk, n.motorcycle_type_name as Tipe, p.license_number as Plat 
+        FROM transactions t 
+        INNER JOIN detail_spareparts d ON d.id_transaction =  t.id_transaction
+        INNER JOIN motorcycles p ON p.id_motorcycle =  d.id_motorcycle
+        INNER JOIN motorcycle_types n ON n.id_motorcycle_type = p.id_motorcycle_type
+        INNER JOIN motorcycle_brands m ON m.id_motorcycle_brand = n.id_motorcycle_brand
+        WHERE t.id_transaction = '$id'");
+        return response()->json($report, 200, [], JSON_NUMERIC_CHECK);
+    }
+
+    public function MotorService($id)
+    {
+        $report = DB::select("SELECT t.id_transaction, m.motorcycle_brand_name as Merk, n.motorcycle_type_name as Tipe, p.license_number as Plat 
+        FROM transactions t 
+        INNER JOIN detail_services d ON d.id_transaction =  t.id_transaction
+        INNER JOIN motorcycles p ON p.id_motorcycle =  d.id_motorcycle
+        INNER JOIN motorcycle_types n ON n.id_motorcycle_type = p.id_motorcycle_type
+        INNER JOIN motorcycle_brands m ON m.id_motorcycle_brand = n.id_motorcycle_brand
+        WHERE t.id_transaction = '$id'");
+        return response()->json($report, 200, [], JSON_NUMERIC_CHECK);
+    }
+
+    public function WorkOrder($id)
+    {
+        $report = DB::select("SELECT t.created_at as created_at, t.id_transaction as id_transaction, k.customer_name as Cust, k.customer_phone_number as Telepon
+        FROM transactions t 
+        INNER JOIN customers k ON k.id_customer = t.id_customer
+        WHERE t.id_transaction = '$id'");
+        return response()->json($report);
+    }
+
+    public function DataCS($id)
+    {
+        $report = DB::select("SELECT t.id_transaction, p.`name` as CS
+        FROM transactions t 
+        INNER JOIN employee_onduties m ON m.id_transaction =  t.id_transaction
+        INNER JOIN employees p ON p.id_employee = m.id_employee
+        WHERE p.id_role=2 && t.id_transaction = '$id'");
+        return response()->json($report, 200, [], JSON_NUMERIC_CHECK);
+    }
+
+    public function MechanicSP($id)
+    {
+        $report = DB::select("SELECT t.id_transaction, p.name as Montir
+        FROM transactions t 
+        INNER JOIN detail_spareparts d ON d.id_transaction =  t.id_transaction
+        INNER JOIN employees p ON p.id_employee = d.id_employee
+        WHERE t.id_transaction = '$id'");
+        return response()->json($report, 200, [], JSON_NUMERIC_CHECK);
+    }
+
+    public function MechanicSV($id)
+    {
+        $report = DB::select("SELECT t.id_transaction, p.`name` as Montir
+        FROM transactions t 
+        INNER JOIN detail_services d ON d.id_transaction =  t.id_transaction
+        INNER JOIN employees p ON p.id_employee = d.id_employee
+        WHERE t.id_transaction = '$id'");
+        return response()->json($report, 200, [], JSON_NUMERIC_CHECK);
+    }
 }
