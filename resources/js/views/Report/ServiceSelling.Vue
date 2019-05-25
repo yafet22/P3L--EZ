@@ -158,7 +158,8 @@ export default {
                 year: word[0],
                 month: word[1],
         }
-        await this.printReport(payload);
+        // await this.printReport(payload);
+        window.open(`/api/generate-service-selling/${word[0]}/${word[1]}`, '_blank')
     },
 
     async fetch () {

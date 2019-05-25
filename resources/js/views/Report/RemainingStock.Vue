@@ -80,7 +80,9 @@
             <h1 class="text-md-center">CHART SISA STOCK</h1>
           </v-container> 
           <v-layout row wrap>
+              <v-flex sm12 xs12>
                 <apexchart type=line height=350 :options="chartOptions" :series="series" />
+              </v-flex>
           </v-layout>
     </card>
   </PageWrapper>
@@ -186,7 +188,8 @@ export default {
             year: this.year,
             sparepart: this.sparepart_type,
       }
-        await this.printReport(payload);
+        // await this.printReport(payload);
+        window.open(`/api/generate-remaining-stock/${this.year}/${this.sparepart_type}`, '_blank')
     },
 
     async fetch () {

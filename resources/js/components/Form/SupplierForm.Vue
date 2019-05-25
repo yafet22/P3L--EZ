@@ -28,6 +28,7 @@
             v-model="form.supplier_name"
             :error-messages="nameErrors"
             @input="$v.form.supplier_name.$touch()"
+            @blur="$v.form.supplier_name.$touch()"
             required
           />
         </VFlex>
@@ -40,6 +41,7 @@
             v-model="form.supplier_address"
             :error-messages="addressErrors"
             @input="$v.form.supplier_address.$touch()"
+            @blur="$v.form.supplier_address.$touch()"
             required
           />
         </VFlex>
@@ -52,6 +54,7 @@
             v-model="form.supplier_phone_number"
             :error-messages="phoneNumberErrors"
             @input="$v.form.supplier_phone_number.$touch()"
+            @blur="$v.form.supplier_phone_number.$touch()"
             required
           />
         </VFlex>
@@ -102,7 +105,7 @@ export default {
 
       if (!this.$v.form.supplier_name.$invalid) return errors
       
-      if (!this.$v.form.supplier_name.required && this.$v.form.supplier_phone_number.$dirty) {
+      if (!this.$v.form.supplier_name.required && this.$v.form.supplier_name.$dirty) {
         errors.push('Inputan nama tidak valid')
       }
 
@@ -114,7 +117,7 @@ export default {
 
       if (!this.$v.form.supplier_address.$invalid) return errors 
       
-      if (!this.$v.form.supplier_address.required && this.$v.form.supplier_phone_number.$dirty) {
+      if (!this.$v.form.supplier_address.required && this.$v.form.supplier_address.$dirty) {
         errors.push('Inputan alamat tidak valid')
       }
 

@@ -58173,10 +58173,10 @@ var state = {
     id_sparepart: '',
     sparepart_name: '',
     merk: '',
-    stock: '',
-    min_stock: '',
-    purchase_price: '',
-    sell_price: '',
+    stock: 0,
+    min_stock: 0,
+    purchase_price: 0,
+    sell_price: 0,
     placement: '',
     position: '',
     place: '',
@@ -58204,9 +58204,10 @@ var mutations = {
   resetSparepartForm: function resetSparepartForm(state) {
     state.sparepart.id_sparepart = "";
     state.sparepart.sparepart_name = "";
-    state.sparepart.merk = state.sparepart.stock = "";
-    state.sparepart.purchase_price = "";
-    state.sparepart.sell_price = "";
+    state.sparepart.merk = "";
+    state.sparepart.stock = 0;
+    state.sparepart.purchase_price = 0;
+    state.sparepart.sell_price = 0;
     state.sparepart.placement = "";
     state.sparepart.position = "";
     state.sparepart.place = "";

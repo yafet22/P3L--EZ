@@ -113,7 +113,8 @@ export default {
     }),
 
     async print(){
-        await this.printReport();
+        // await this.printReport();
+        window.open(`/api/generate-sparepart-best-seller`, '_blank')
     },
 
     async fetch () {

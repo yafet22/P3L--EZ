@@ -43,7 +43,9 @@
             <h1 class="text-md-center">CHART PENJUALAN TAHUNAN</h1>
           </v-container> 
           <v-layout row wrap>
-                <apexchart width="100%" type="bar" :options="chartOptions" :series="series"></apexchart>
+              <v-flex sm12 xs12>
+                <apexchart height="500" type="bar" :options="chartOptions" :series="series"></apexchart>
+              </v-flex>
           </v-layout>
     </card>
   </PageWrapper>
@@ -169,7 +171,8 @@ export default {
     }),
 
     async print(){
-        await this.printReport();
+        // await this.printReport();
+        window.open(`/api/generate-transaction-per-year`, '_blank')
     },
 
     async fetch () {

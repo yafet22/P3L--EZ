@@ -93,3 +93,5 @@ Route::get('/mechanic-detail-sparepart/{id}','ReportController@MechanicSP');
 Route::get('/mechanic-detail-service/{id}','ReportController@MechanicSV');
 Route::get('/motor-sparepart/{id}','ReportController@MotorSparepart');
 Route::get('/motor-service/{id}','ReportController@MotorService');
+Route::get('/generate-spk/{id}','ReportController@cetaksuratperintahkerja');
+Route::get('/generate-sp/{id}','ReportController@CetakPemesanan');

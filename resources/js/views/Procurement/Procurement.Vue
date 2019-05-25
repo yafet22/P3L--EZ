@@ -78,7 +78,7 @@
               </td>
               <td class="text-xs-center">
                 <VBtn 
-                  v-if="props.item.procurement_status=='Finish'"
+                  v-if="props.item.procurement_status=='Finish' || props.item.procurement_status=='On Progress'"
                   disabled
                   flat
                   color="warning"
@@ -407,8 +407,8 @@ export default {
           procurement_status: 'On Progress',
           id_sales: value.id_sales,
         }
-      await this.print(id)
-      //  window.open(`/api/generate-procurement-docs/${id}`, '_blank')
+      // await this.print(id)
+      window.open(`/api/generate-procurement-docs/${id}`, '_blank')
 
        await this.updateProcurement(payload)
 

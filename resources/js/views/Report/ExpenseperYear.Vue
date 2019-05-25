@@ -68,16 +68,9 @@
             <h1 class="text-md-center">CHART PENJUALAN BULANAN</h1>
           </v-container> 
            <v-layout row wrap>
-              <v-flex xs4 class="text-xs-right">
-
+              <v-flex xs12 sm12 class="text-xs-center">
+                  <apexchart type=pie height="300" :options="chartOptions" :series="series" />
               </v-flex>
-              <v-flex xs4 class="text-xs-center">
-                  <apexchart type=pie width=100% :options="chartOptions" :series="series" />
-              </v-flex>
-              <v-flex xs4 class="text-xs-right">
-
-              </v-flex>
-                
           </v-layout>
     </card>
   </PageWrapper>
@@ -160,8 +153,8 @@ export default {
     }),
 
     async print(){
-        await this.printReport(this.year);
-        // window.open(`/api/generate-expense/${this.year}`, '_blank')
+        // await this.printReport(this.year);
+        window.open(`/api/generate-expense/${this.year}`, '_blank')
     },
 
     async fetch () {
